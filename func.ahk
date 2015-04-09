@@ -498,7 +498,7 @@ cxProduct(format, type)
 	; Mobil ---------------------------------------
 	if (format = "MOB" && type = "Run On Site")	
 	{
-		cxName := "Mobil"
+		cxName := "- ROS - Mobil"
 		cost := "cpm"
 	}
 
@@ -625,20 +625,20 @@ cxProduct(format, type)
 
 	StringReplace, splitXml, xml, cx:,, All ; Tar bort CX: namespace
 	prod := "<" product ">" ; ex. "cpmProduct"
-	StringReplace, splitXml, splitXml, `<cpmProduct`>, ¤, A
-	StringReplace, splitXml, splitXml, `</cpmProduct`>, ¤, A
-	StringReplace, splitXml, splitXml, `<cpcProduct`>, ¤, A
-	StringReplace, splitXml, splitXml, `</cpcProduct`>, ¤, A
-	site = false
-	keyword = false
+	StringReplace, splitXml, splitXml, `<cpmProduct`>, ~, A
+	StringReplace, splitXml, splitXml, `</cpmProduct`>, ~, A
+	StringReplace, splitXml, splitXml, `<cpcProduct`>, ~, A
+	StringReplace, splitXml, splitXml, `</cpcProduct`>, ~, A
 
-	Loop, parse, splitXml, ¤ ; loopar genom alla produkter
+	Loop, parse, splitXml, ~ ; loopar genom alla produkter
 	{	
 		IfInString, A_LoopField, %productId%
 		{
 			StringReplace, step1, A_LoopField, `<template`>, §, A
 			Loop, parse, step1, §
 			{
+				site = false
+				keyword = false
 				IfInString, A_LoopField, Site Targeting
 				{
 					regex := "<templateId>(.{16})</templateId>"
