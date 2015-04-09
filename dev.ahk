@@ -1,0 +1,70 @@
+whatsthis:
+	format := getFormat(mlEnhet)
+	text = 
+(
+Ordernummer: %mlOrdernummer%
+Startdatum: %mlStartdatum%
+Stoppdatum: %mlStoppdatum%
+Exponeringar: %mlExponeringar%
+Kundnr: %mlKundnr%
+Kundnamn: %mlKundnamn%
+Säljare: %mlSaljare%
+Produkt: %mlProdukt%
+Site: %mlSite%
+Kortnamn produkt: %format%
+Status: %mlStatus%
+Tilldelad: %mlTilldelad%
+)
+	msgbox % text
+return
+
+cxprod_cpc:
+	format := getFormat(mlEnhet)
+	prod := cxProduct(format, "cpc")
+	prodID := prod.prodID
+	cost := prod.cost
+	siteTargetingID := prod.siteTargetingID
+	keywordsID := prod.keywordsID
+	text = 
+(
+ProduktID: %prodID%
+Annonstyp: %cost%
+SiteTargetingID: %siteTargetingID%
+KeywordID: %keywordsID%
+)
+	msgbox % text
+return
+
+cxprod_ros:
+	format := getFormat(mlEnhet)
+	prod := cxProduct(format, "Run On Site")
+	prodID := prod.prodID
+	cost := prod.cost
+	siteTargetingID := prod.siteTargetingID
+	keywordsID := prod.keywordsID
+	text = 
+(
+ProduktID: %prodID%
+Annonstyp: %cost%
+SiteTargetingID: %siteTargetingID%
+KeywordID: %keywordsID%
+)
+	msgbox % text
+return
+
+cxprod_riktad:
+	format := getFormat(mlEnhet)
+	prod := cxProduct(format, "Riktad")
+	prodID := prod.prodID
+	cost := prod.cost
+	siteTargetingID := prod.siteTargetingID
+	keywordsID := prod.keywordsID
+	text = 
+(
+ProduktID: %prodID%
+Annonstyp: %cost%
+SiteTargetingID: %siteTargetingID%
+KeywordID: %keywordsID%
+)
+	msgbox % text
+return
