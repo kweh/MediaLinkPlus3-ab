@@ -48,6 +48,8 @@ IniRead, zenNote, %mlpDir%\settings.ini, ZenNotes, aktiv
 		menu, mlp, add, Öppna kund i rapportverktyget, openCustomerRapportMulti
 		menu, mlp, add, Inställningar, mlpSettings
 		menu, mlp, add, Boka kampanj, cxPostCampaign
+		menu, mlp, add, Maila säljare, mailGeneral
+		menu, mlp, add, Skicka korrektur, mailKorr
 
 		; Felsökning
 		menu, dev, add, Vad är detta?, whatsthis
@@ -126,7 +128,34 @@ zen_close:
 	Gui, 55:Destroy
 return
 
-material_test:
+mailGeneral:
+	mail := mlSaljare
+	subject := "Ang. " mlKundnamn " (" mlOrdernummer ")"
+	body := ""
+	mail(mail, subject, body)
+return
+
+mailKorr:
+	mail := mlSaljare
+	subject := "Korrektur:  " mlKundnamn " (" mlOrdernummer ")"
+	gosub, getKorr
+	body =
+(
+
+
+----
+
+{CTRL down}f{CTRL up}Länk för rapport:{CTRL down}f{CTRL up}
+%rapportUrl%
+
+Spara denna länk{Shift down}1{Shift up}
+På denna länk finns information om hur ordern är inbokad. Kontrollera så att start/stoppdatum stämmer och att antal exponeringar är korrekt. Om vi inte får något svar startar kampanjen på startdatumet. Denna länk fungerar även som statusrapport för denna kampanj. Här kan du se exakt hur många exponeringar/klick som levererats hittills i kampanjen. Om du någon gång under kampanjens gång upplever att något inte står rätt till, kontakta digital.support@ntm.eu.
+
+----
+
+{CTRL down}{Home}{CTRL up}
+)
+	mail(mail, subject, body)
 return
 
 ^#r::

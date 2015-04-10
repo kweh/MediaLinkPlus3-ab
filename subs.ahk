@@ -291,6 +291,61 @@ openCustomerRapport:
 	run,  http://rapport.ntm-digital.se/advertiser/%folderId%/campaigns
 Return
 
+getKorr:
+	if (listCount > 1)
+	{
+		goto, getMultiKorr
+	}
+	xml := get_url("cxad.cxense.com/api/secure/folder/advertising")
+	kund = - %mlKundnr% -
+	folderId := cx_xml_read(xml, "childFolder", kund, "folderId")
+	xml := get_url("cxad.cxense.com/api/secure/campaigns/" folderId)
+	campaignId := cx_xml_read(xml, "campaign", mlOrdernummer, "campaignId")
+	rapportUrl = http://rapport.ntm-digital.se/advertiser/%folderId%/campaign/%campaignId%/
+Return
+
+getMultiKorr:
+	Progress, R0-%listCount% FM8 FS7 CBGray, Hämtar länk (), Hämtar korrekturlänkar:, Korrmail
+	subject := "Korrektur:  " mlKundnamn " ("
+	rapportUrl := ""
+	i = 1
+	while i <= listCount
+		{
+			progress % i-1
+			progress, ,Hämtar länk (%i% av %listCount%), Hämtar korrekturlänkar:, Korrmail
+			listRow := getListRow%i%
+			Stringsplit, kolumn, listRow, `t
+
+			mlStartdatum := kolumn%iniStart%
+			mlStoppdatum := kolumn%iniStopp%
+			mlExponeringar := kolumn%iniExponeringar%
+			mlKundnr := kolumn%iniKundnr%
+			mlKundnamn := kolumn%iniKundnamn%
+			mlSaljare := kolumn%iniSaljare%
+			mlProdukt := kolumn%iniProdukt%
+			mlOrdernummer = %kolumn1%
+
+			xml := get_url("cxad.cxense.com/api/secure/folder/advertising")
+			kund = - %mlKundnr% -
+			folderId := cx_xml_read(xml, "childFolder", kund, "folderId")
+			xml := get_url("cxad.cxense.com/api/secure/campaigns/" folderId)
+			campaignId := cx_xml_read(xml, "campaign", mlOrdernummer, "campaignId")
+		
+			rapportUrl = %rapportUrl%%mlOrdernummer%: http://rapport.ntm-digital.se/advertiser/%folderId%/campaign/%campaignId%/`n
+			if (i < listCount)
+			{
+				subject := subject "" mlOrdernummer ","
+			}
+			if (i = listCount)
+			{
+				subject := subject "" mlOrdernummer ")"
+			}
+			i++
+			progress % i-1
+			sleep, 500
+		}
+		Progress, Off
+return
 
 listaKundmapp:
 	getFormat(mlEnhet) ; Hämtar formatet utifrån internetenhet

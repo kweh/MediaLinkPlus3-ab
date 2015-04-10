@@ -665,3 +665,30 @@ cxProduct(format, type)
 	}
 	return output
 }
+
+; Maila säljare
+mail(mail, subject, body)
+{
+	SetKeyDelay, 1
+	Run, C:\Program Files (x86)\Microsoft Office\Office14\OUTLOOK.EXE /c IPM.Note
+	WinWaitActive, Namnlös - Meddelande
+	clipTemp := Clipboard
+	
+	Clipboard := mail
+	ControlFocus, RichEdit20WPT1, Namnlös - Meddelande
+	sleep, 100
+	Send, ^v
+
+	Clipboard := subject
+	ControlFocus, RichEdit20WPT4, Namnlös - Meddelande
+	sleep, 100
+	Send, ^v {Tab}
+
+	Clipboard := body
+	ControlFocus, _WwG1, Namnlös - Meddelande
+	sleep, 100
+	Send, %body%
+
+	Sleep, 100
+	Clipboard := clipTemp
+}

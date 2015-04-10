@@ -1,4 +1,5 @@
 ﻿cx_start:
+  Progress, R0-3 FM8 FS7 CBGray P1, Kontrollerar om kund finns..., Kundsök:, Annonsbokning
   xml := get_url("cxad.cxense.com/api/secure/folder/advertising")
   kund = - %mlKundnr% -
   folderId := cx_xml_read(xml, "childFolder", kund, "folderId")
@@ -9,8 +10,16 @@
 
   if (folderID = "") ; Om kund saknas
   {
+    Progress, 2, Kund saknas!, Kundsök:, Annonsbokning
+    sleep, 300
+    Progress, Off
     goto, kundSaknas
   }
+  Progress, 2, Kund fanns, fortsätter., Kundsök:, Annonsbokning
+  sleep, 300
+  Progress, 3, Öppnar bokningsfönster, Kundsök:, Annonsbokning
+  sleep, 200
+  Progress, Off
   Gui, 77:Destroy
   goto, cx_ui
 return
