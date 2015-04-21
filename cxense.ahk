@@ -103,9 +103,8 @@ Boka:
   keywordsID := prod.keywordsID
   cost := prod.cost
 
-  campaign := cx_post_campaign(campaignName, mlKundnr, mlEnhet, format, Type, productID, prog_on)
+  campaign := cx_post_campaign(campaignName, mlKundnr, mlEnhet, format, Type, productId, prog_on)
   campaignID := campaign.Id
-  ; msgbox % campaign.DATA
   sleep, 100
 
   prog := 40
@@ -114,7 +113,7 @@ Boka:
 
   prog := 50
   Progress, %prog%, Sätter site targeting..., Bokningsförlopp:, Annonsbokning
-  
+
 
   if (sitetargetingID != "")
   {
@@ -156,18 +155,14 @@ return
 
 
 
-; Hämtar 
+; Hämtar
 get_url(path)
 {
-  global dir
-  global filename
-
-  file = %dir%%filename%.xml
-  url = https://API.User`:pass123@%path%
-  FileEncoding, UTF-8
-  UrlDownloadToFile, %url%, %file%
-  FileRead, data, %file%
-  FileDelete, %dir%%filename%.xml
+  URL = https://%cxUser%@%path%
+  DATA := ""
+  HEAD = Content-Type: text/xml`nAuthorization: Basic QVBJLlVzZXI6cGFzczEyMw==
+  OPTS = 
+  HTTPRequest( URL, DATA, HEAD, OPTS )
   return data
 }
 
@@ -227,7 +222,7 @@ cx_xml_read_template(xml, folder, sub, key, value)
 
 
 cx_post_campaign(campaignName, kundnr, mlEnhet, format, type, prodId, prog = false)
-{ 
+{
   campaign := {}
   prog := 20
   Progress, %prog%, Kontrollerar kund..., Bokningsförlopp:, Annonsbokning
@@ -242,7 +237,7 @@ cx_post_campaign(campaignName, kundnr, mlEnhet, format, type, prodId, prog = fal
   URL = https://cxad.cxense.com/api/secure/campaign/%folderId%
   DATA := ""
   HEAD = Content-Type: text/xml`nAuthorization: Basic QVBJLlVzZXI6cGFzczEyMw==
-  XML = 
+  XML =
   (
   <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
   <cx:campaign xmlns:cx="http://cxense.com/cxad/api/cxad" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -254,12 +249,14 @@ cx_post_campaign(campaignName, kundnr, mlEnhet, format, type, prodId, prog = fal
     </cx:perUserCap>
   </cx:campaign>
   )
-  FILE = %cxDir%\campaign.xml
+  global dir_cxense
+  FILE = %dir_cxense%\campaign.xml
   refreshFile(XML, FILE)
   OPTS = Upload: %FILE%
   prog := 30
   Progress, %prog%, Bokar kampanj..., Bokningsförlopp:, Annonsbokning
   HTTPRequest( URL, DATA, HEAD, OPTS )
+
   if (prog_on = true)
   {
     prog := prog+5
@@ -308,7 +305,8 @@ cx_post_contract(campaignID, cost, startDate, stopDate, exp)
     </cx:cpcContract>
     )
   }
-  FILE = %cxDir%\contract.xml
+  global dir_cxense
+  FILE = %dir_cxense%\contract.xml
   refreshFile(XML, FILE)
   OPTS = Upload: %FILE%
   HTTPRequest( URL, DATA, HEAD, OPTS )
@@ -329,7 +327,8 @@ cx_post_advertisement(campaignID, kundnamn, start)
   <cx:name>%kundnamn% - %start%</cx:name>
   </cx:ad>
   )
-  FILE = %cxDir%\advertisement.xml
+  global dir_cxense
+  FILE = %dir_cxense%\advertisement.xml
   refreshFile(XML, FILE)
   HEAD = Content-Type: text/xml`nAuthorization: Basic QVBJLlVzZXI6cGFzczEyMw==
   OPTS = Upload: %FILE%
@@ -357,7 +356,8 @@ cx_post_keywords(campaignID, keyword, template)
       URL = https://cxad.cxense.com/api/secure/keyword/%campaignID%
       DATA := ""
       XML = %keywordTargeting%
-      FILE = %cxDir%\keywordtargeting.xml
+      global dir_cxense
+      FILE = %dir_cxense%\keywordtargeting.xml
       refreshFile(XML, FILE)
       HEAD = Content-Type: text/xml`nAuthorization: Basic QVBJLlVzZXI6cGFzczEyMw==
       OPTS = Upload: %FILE%
@@ -371,7 +371,7 @@ cx_post_sitetargeting(campaignID, mlSite, template)
 {
 StringReplace, mlKundnamn, mlKundnamn,&,,A
   StringReplace, mlKundnamn, mlKundnamn,ä,a,A
-  targeting = 
+  targeting =
   (
     <cx:publisherTarget>
         <cx:url>http://%mlSite%</cx:url>
@@ -381,7 +381,7 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
   ; AFFÄRSLIV
   if (mlSite = "affärsliv.com")
   {
-    targeting = 
+    targeting =
     (
     <cx:publisherTarget>
         <cx:url>http://www.affarsliv.se</cx:url>
@@ -393,7 +393,7 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
   ; NT FOLKBLADET
   if (mlSite = "nt.se")
   {
-    targeting = 
+    targeting =
     (
     <cx:publisherTarget>
         <cx:url>http://nt.se</cx:url>
@@ -409,7 +409,7 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
   ; NT FOLKBLADET MOBIL
   if (mlSite = "mobil.nt.se")
   {
-    targeting = 
+    targeting =
     (
     <cx:publisherTarget>
         <cx:url>http://m.nt.se</cx:url>
@@ -433,7 +433,7 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
   ; NSD KURIREN
   if (mlSite = "nsd.se" ||mlSite = "kuriren.nu")
   {
-    targeting = 
+    targeting =
     (
     <cx:publisherTarget>
         <cx:url>http://nsd.se</cx:url>
@@ -449,7 +449,7 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
   ; PT
   if (mlSite = "pt.se")
   {
-    targeting = 
+    targeting =
     (
     <cx:publisherTarget>
         <cx:url>http://pitea-tidningen.se</cx:url>
@@ -465,7 +465,7 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
   ; PT MOBIL
   if (mlSite = "m.pitea-tidn.se")
   {
-    targeting = 
+    targeting =
     (
     <cx:publisherTarget>
         <cx:url>http://m.pitea-tidningen.se</cx:url>
@@ -489,7 +489,7 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
   ; NSD KURIREN MOBIL
   if (mlSite = "mobil.nsd.se" ||mlSite = "mobil.kuriren.nu")
   {
-    targeting = 
+    targeting =
     (
     <cx:publisherTarget>
         <cx:url>http://m.nsd.se</cx:url>
@@ -513,7 +513,7 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
   ; CORREN MOBIL
   if (mlSite = "mobil.corren.se")
   {
-    targeting = 
+    targeting =
     (
     <cx:publisherTarget>
         <cx:url>http://m.corren.se</cx:url>
@@ -529,7 +529,7 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
   ; MVT MOBIL
   if (mlSite = "mobil.mvt.se")
   {
-    targeting = 
+    targeting =
     (
     <cx:publisherTarget>
         <cx:url>http://m.mvt.se</cx:url>
@@ -545,7 +545,7 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
   ; VT MOBIL
   if (mlSite = "mobil.vt.se")
   {
-    targeting = 
+    targeting =
     (
     <cx:publisherTarget>
         <cx:url>http://m.vt.se</cx:url>
@@ -561,7 +561,7 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
   ; UNT MOBIL
   if (mlSite = "mobil.unt.se")
   {
-    targeting = 
+    targeting =
     (
     <cx:publisherTarget>
         <cx:url>http://m.unt.se</cx:url>
@@ -576,7 +576,7 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
 
   if (mlSite = "unt.mobil.se")
   {
-    targeting = 
+    targeting =
     (
     <cx:publisherTarget>
         <cx:url>http://m.unt.se</cx:url>
@@ -592,7 +592,7 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
   ; UNT Sigtunabygden
   if (mlSite = "sigtunabygden.se")
   {
-    targeting = 
+    targeting =
     (
     <cx:publisherTarget>
         <cx:url>http://unt.se</cx:url>
@@ -605,7 +605,7 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
   ; HELAGOTLAND MOBIL
   if (mlSite = "m.helagotland.se")
   {
-    targeting = 
+    targeting =
     (
     <cx:publisherTarget>
         <cx:url>http://m.helagotland.se</cx:url>
@@ -629,7 +629,8 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
   %targeting%
 </cx:publisherTargeting>
   )
-  FILE = %cxDir%\targeting.xml
+  global dir_cxense
+  FILE = %dir_cxense%\targeting.xml
   refreshFile(XML, FILE)
   HEAD = Content-Type: text/xml`nAuthorization: Basic QVBJLlVzZXI6cGFzczEyMw==
   OPTS = Upload: %FILE%
@@ -639,7 +640,7 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
 
 kundSaknas:
   MsgBox, 4, Kund saknas, Kund fanns inte. Skapa kund "%mlTidning% - %mlKundnr% - %mlKundnamn%"?
-  IfMsgBox, Yes 
+  IfMsgBox, Yes
   {
     StringReplace, mlKundnamn, mlKundnamn,&,,A
     ; --------------------------- HTTP-Request ---------------------------
@@ -672,4 +673,3 @@ kundSaknas:
   IfMsgBox, No
     return
 return
-

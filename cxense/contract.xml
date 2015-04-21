@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <cx:cpmContract xmlns:cx="http://cxense.com/cxad/api/cxad">
+    <cx:startDate>2015-04-23T00:00:00.000+01:00</cx:startDate>
+    <cx:endDate>2015-04-24T23:59:00.000+02:00</cx:endDate>
+    <cx:priority>0.50</cx:priority>
+    <cx:requiredImpressions>100000</cx:requiredImpressions>
+    <cx:costPerThousand class="currency" currencyCode="SEK" value="100.00"/>
+    </cx:cpmContract>

@@ -4,14 +4,15 @@ DetectHiddenText, On
 #SingleInstance force
 #include paths.ahk
 
-count := zen_get_ticket_count()
+; count := zen_get_ticket_count()
+;
+; IniRead, zenNote, %mlpDir%\settings.ini, ZenNotes, aktiv
+; 	if (zenNote = 1)
+; 	{
+; 		SetTimer, zen_notify, 60000
+; 	}
 
-IniRead, zenNote, %mlpDir%\settings.ini, ZenNotes, aktiv
-	if (zenNote = 1)
-	{
-		SetTimer, zen_notify, 60000
-	}
-
+menu, tray, add, Starta om Medialink Plus, reload
 
 ~RButton::
 	if (mlActive())
@@ -30,43 +31,65 @@ IniRead, zenNote, %mlpDir%\settings.ini, ZenNotes, aktiv
 
 		;Hitta print-knappen
 		menu, mlp, add, &Hitta Print-PDF, pdf-preview
-		menu, mlp, Icon, &Hitta Print-PDF, %iconDir%\inteprint.ico
+		menu, mlp, Icon, &Hitta Print-PDF, %dir_icons%\inteprint.ico
 		menu, mlp, disable, &Hitta Print-PDF
 		print := printCheck(mlOrdernummer, "-01")
 		if (print = "print" || print = "bild") ; Kollar om det finns en print
 		{
-			menu, mlp, Icon, &Hitta Print-PDF, %iconDir%\mlp3\print.ico
+			menu, mlp, Icon, &Hitta Print-PDF, %dir_icons%\print.ico
 			menu, mlp, enable, &Hitta Print-PDF
-		} 
+		}
 
-		; Menyval
-		menu, mlp, add, Kopiera kundnamn och ordernummer, kundOrder
-		menu, mlp, add, Sök på ordernummer, sokOrder
-		menu, mlp, add, Öppna kampanj i cxense, openCampaignCx
-		menu, mlp, add, Öppna kund i cxense, openCustomerCx
-		menu, mlp, add, Öppna kampanj i rapportverktyget, openCampaignRapportMulti
-		menu, mlp, add, Öppna kund i rapportverktyget, openCustomerRapportMulti
-		menu, mlp, add, Inställningar, mlpSettings
-		menu, mlp, add, Boka kampanj, cxPostCampaign
+		menu, mlp, add, Kopiera orderinfo, kundOrder
+		menu, mlp, Icon, Kopiera orderinfo, %dir_icons%\kopiera.ico
+		menu, mlp, add
+
+		; Cxense
+		menu, cx, add, Boka kampanj, multiCxStart
+		menu, cx, Icon, Boka kampanj, %dir_icons%\bokacxense.ico
+		menu, cx, add, Öppna kampanj i cxense, openCampaignCx
+		menu, cx, Icon, Öppna kampanj i cxense, %dir_icons%\oppnakampanjcxense.ico
+		menu, cx, add, Öppna kund i cxense, openCustomerCx
+		menu, cx, Icon, Öppna kund i cxense, %dir_icons%\oppnakundcxense.ico
+		menu, mlp, add, Cxense, :cx
+		menu, mlp, Icon, Cxense, %dir_icons%\cxense.ico
+
+		; rapportverktyget
+		menu, rapport, add, Öppna kampanj i rapportverktyget, openCampaignRapportMulti
+		menu, rapport, Icon, Öppna kampanj i rapportverktyget, %dir_icons%\oppnakampanjcxense.ico
+		menu, rapport, add, Öppna kund i rapportverktyget, openCustomerRapportMulti
+		menu, rapport, Icon, Öppna kund i rapportverktyget, %dir_icons%\oppnakundcxense.ico
+		menu, mlp, add, Rapport, :rapport
+		menu, mlp, Icon, Rapport, %dir_icons%\rapport.ico
+		menu, mlp, add
+
+		; Mail
 		menu, mlp, add, Maila säljare, mailGeneral
+		menu, mlp, Icon, Maila säljare, %dir_icons%\fraga.ico
 		menu, mlp, add, Skicka korrektur, mailKorr
+		menu, mlp, Icon, Skicka korrektur, %dir_icons%\mailakorr.ico
+		menu, mlp, add
+
+
+		menu, mlp, add, Sök på ordernummer, sokOrder
+		menu, mlp, Icon, Sök på ordernummer, %dir_icons%\sok.ico
+		menu, mlp, add, Inställningar, mlpSettings
+
 
 		; Felsökning
 		menu, dev, add, Vad är detta?, whatsthis
 		menu, dev, add, Produktinfo CX (cpc), cxprod_cpc
 		menu, dev, add, Produktinfo CX (ros), cxprod_ros
 		menu, dev, add, Produktinfo CX (riktad), cxprod_riktad
+		menu, dev, add, Skriv fil till \cxense\, testWrite
 		menu, mlp, add, Felsökning, :dev
-
-		; Ikoner för Menyval
-		menu, mlp, Icon, Kopiera kundnamn och ordernummer, %iconDir%\mlp3\kopiera.ico
-		menu, mlp, Icon, Sök på ordernummer, %iconDir%\mlp3\sok.ico
-
+		
+		
 		menu, mlp, Color, FFFFFF
 
 		menu = true
 		menu, mlp, show
- 
+
 	}
 
 ~LButton::
@@ -88,45 +111,10 @@ fleraPrint:
 	data := checkPrints(mlOrdernummer)
 return
 
-cxPostCampaign:
-	gosub, cx_start
-	; format := getFormat(mlEnhet)
-	; campaignName := mlTidning " - " format " - " mlOrdernummer
-	; campaign := cx_post_campaign(campaignName, mlKundnr, mlEnhet, format)
-	; cx_post_contract(campaign.id, campaign.cost, "2015-05-05", "2015-05-06", "10:10", "10:30", "40000")
-	; res := cx_post_advertisement(campaign.id, mlKundnamn, mlStartdatum)
-	; msgbox % res
-
+testWrite:
+	FileAppend, test, %dir_cxense%\test.txt
 return
 
-zen_post:
-title := "Test-titel 2"
-comment := "Här skriver vi lite text till"
-req_name := "Dennis Strömberg"
-req_mail := "dennis.stromberg@ntm.eu"
-col_name := "Max Bergström"
-col_mail := "max.bergstrom@ntm.eu"
-
-zen_post_ticket(title, comment, req_name, req_mail, col_name, col_mail)
-return
-
-zen_notify:
-newcount := zen_get_ticket_count()
-win_y := A_ScreenHeight - 100
-if (newcount > count)
-{
-	count := newcount
-	Gui, 55:add, picture, x0 y0 w300 h100 gzen_close, G:\NTM\NTM Digital Produktion\MedialinkPlus\dev\zendesk.jpg
-	Gui, 55:show, w300 h100 x0 y%win_y%
-	Gui, 55:-Caption +alwaysontop
-	Sleep, 15000
-	Gui, 55:Destroy
-}
-return
-
-zen_close:
-	Gui, 55:Destroy
-return
 
 mailGeneral:
 	mail := mlSaljare
@@ -173,6 +161,6 @@ return
 #include settings.ahk
 #include httpreq.ahk
 #include json.ahk
-#include zendesk.ahk
+; #include zendesk.ahk
 #include note.ahk
 #include dev.ahk

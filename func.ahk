@@ -94,6 +94,10 @@ refreshFile(content, file)
 	FileDelete, %file%
 	FileEncoding, UTF-8-RAW
 	FileAppend, %content%, %file%
+	if (ErrorLevel = 1)
+	{
+		msgbox, Kunda inte skriva fil till %file%
+	}
 	FileEncoding
 }
 
@@ -669,20 +673,23 @@ cxProduct(format, type)
 ; Maila säljare
 mail(mail, subject, body)
 {
-	SetKeyDelay, 1
+	SetKeyDelay, 0
 	Run, C:\Program Files (x86)\Microsoft Office\Office14\OUTLOOK.EXE /c IPM.Note
 	WinWaitActive, Namnlös - Meddelande
+	Sleep, 200
 	clipTemp := Clipboard
 	
 	Clipboard := mail
 	ControlFocus, RichEdit20WPT1, Namnlös - Meddelande
 	sleep, 100
 	Send, ^v
+	sleep, 300
 
 	Clipboard := subject
 	ControlFocus, RichEdit20WPT4, Namnlös - Meddelande
 	sleep, 100
 	Send, ^v {Tab}
+	sleep, 300
 
 	Clipboard := body
 	ControlFocus, _WwG1, Namnlös - Meddelande

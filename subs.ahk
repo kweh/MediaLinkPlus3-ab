@@ -9,16 +9,16 @@
 	Stringsplit, kolumn, listRow, `t
 
 	;Läs kolumn-info från användarens kolumner.ini
-	IniRead, iniStart, %mlpDir%\kolumner.ini, kolumner, Start
-	IniRead, iniStopp, %mlpDir%\kolumner.ini, kolumner, Stopp
-	IniRead, iniExponeringar, %mlpDir%\kolumner.ini, kolumner, Exponeringar
-	IniRead, iniKundnr, %mlpDir%\kolumner.ini, kolumner, Kundnr
-	IniRead, iniKundnamn, %mlpDir%\kolumner.ini, kolumner, Kundnamn
-	IniRead, iniSaljare, %mlpDir%\kolumner.ini, kolumner, Saljare
-	IniRead, iniProdukt, %mlpDir%\kolumner.ini, kolumner, Produkt
-	IniRead, iniEnhet, %mlpDir%\kolumner.ini, kolumner, Internetenhet
-	IniRead, iniStatus, %mlpDir%\kolumner.ini, kolumner, Status
-	IniRead, iniTilldelad, %mlpDir%\kolumner.ini, kolumner, Tilldelad
+	IniRead, iniStart, %mlpKolumner%, kolumner, Start
+	IniRead, iniStopp, %mlpKolumner%, kolumner, Stopp
+	IniRead, iniExponeringar, %mlpKolumner%, kolumner, Exponeringar
+	IniRead, iniKundnr, %mlpKolumner%, kolumner, Kundnr
+	IniRead, iniKundnamn, %mlpKolumner%, kolumner, Kundnamn
+	IniRead, iniSaljare, %mlpKolumner%, kolumner, Saljare
+	IniRead, iniProdukt, %mlpKolumner%, kolumner, Produkt
+	IniRead, iniEnhet, %mlpKolumner%, kolumner, Internetenhet
+	IniRead, iniStatus, %mlpKolumner%, kolumner, Status
+	IniRead, iniTilldelad, %mlpKolumner%, kolumner, Tilldelad
 
 
 	mlStartdatum := kolumn%iniStart%
@@ -30,7 +30,7 @@
 	mlProdukt := kolumn%iniProdukt%
 	mlStatus := kolumn%iniStatus%
 	mlTilldelad := kolumn%iniTilldelad%
-	
+
 	StringSplit, prodArray, mlProdukt , %A_Space%
 	mlTidning = %prodArray1%
 	mlSite = %prodArray2%
@@ -330,7 +330,7 @@ getMultiKorr:
 			folderId := cx_xml_read(xml, "childFolder", kund, "folderId")
 			xml := get_url("cxad.cxense.com/api/secure/campaigns/" folderId)
 			campaignId := cx_xml_read(xml, "campaign", mlOrdernummer, "campaignId")
-		
+
 			rapportUrl = %rapportUrl%%mlOrdernummer%: http://rapport.ntm-digital.se/advertiser/%folderId%/campaign/%campaignId%/`n
 			if (i < listCount)
 			{
@@ -347,10 +347,49 @@ getMultiKorr:
 		Progress, Off
 return
 
+multiCxStart:
+	if (listCount > 1)
+	{
+		Msgbox, 4, Boka flera kunder, Boka %listCount% kunder i Cxense?
+		IFmsgbox, yes
+		{
+			proceed = true
+			i = 1
+			while (i <= listCount)
+				{
+					if (proceed = "true")
+					{
+						msgbox % proceed
+						listRow := getListRow%i%
+						Stringsplit, kolumn, listRow, `t
+
+						mlStartdatum := kolumn%iniStart%
+						mlStoppdatum := kolumn%iniStopp%
+						mlExponeringar := kolumn%iniExponeringar%
+						mlKundnr := kolumn%iniKundnr%
+						mlKundnamn := kolumn%iniKundnamn%
+						mlSaljare := kolumn%iniSaljare%
+						mlProdukt := kolumn%iniProdukt%
+						mlOrdernummer = %kolumn1%
+						msgbox, next
+						proceed = false
+						gosub, cx_start
+						i++
+					}
+				}
+		}
+	}
+	if (listCount = 1)
+	{
+		goto, cx_start
+	}
+
+Return
+
 listaKundmapp:
 	getFormat(mlEnhet) ; Hämtar formatet utifrån internetenhet
 	stripDash(mlStartdatum) ; Tar bort - ur startdatum
-	rensaTecken(mlKundnamn) 
+	rensaTecken(mlKundnamn)
 	StringTrimLeft, mlStartdatum, mlStartdatum, 2 ; tar bort första två tecknen ur datumet
 	forstaBokstav := forstaBokstav(mlKundnamn)
 	adDir = G:\NTM\NTM Digital Produktion\Webbannonser\0-Arkiv\%A_YYYY%\%forstaBokstav%\%mlKundnamn%\%mlStartdatum%
@@ -361,4 +400,8 @@ listaKundmapp:
 	} else {
 		msgbox, Ingen mapp hittades på denna sökväg:`r`n%adDir%
 	}
+return
+
+reload:
+	Reload
 return
