@@ -402,6 +402,65 @@ listaKundmapp:
 	}
 return
 
+photoshop:
+	getFormat(mlEnhet) ; Hämtar formatet utifrån internetenhet
+	stripDash(mlStartdatum) ; Tar bort - ur startdatum
+	rensaTecken(mlKundnamn) 
+	StringTrimLeft, mlStartdatum, mlStartdatum, 2 ; tar bort första två tecknen ur datumet
+	forstaBokstav := forstaBokstav(mlKundnamn)
+
+	adDir = %dir_webbannons%\%forstaBokstav%\%mlKundnamn%\%mlStartdatum%
+	if FileExist(adDir)
+	{
+		FileCopy, %dir_templates%\%file%.psd, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+		run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+	} else {
+		FileCreateDir, %adDir%
+		FileCopy, %dir_templates%\%file%.psd, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+		run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+	}
+Return
+
+flash:
+	getFormat(mlEnhet) ; Hämtar formatet utifrån internetenhet
+	stripDash(mlStartdatum) ; Tar bort - ur startdatum
+	rensaTecken(mlKundnamn) 
+	StringTrimLeft, mlStartdatum, mlStartdatum, 2 ; tar bort första två tecknen ur datumet
+	forstaBokstav := forstaBokstav(mlKundnamn)
+
+	adDir = %dir_webbannons%\%forstaBokstav%\%mlKundnamn%\%mlStartdatum%
+	if FileExist(adDir)
+	{
+		FileCopy, %dir_templates%\%file%.fla, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.fla
+		run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.fla
+	} else {
+		FileCreateDir, %adDir%
+		FileCopy, %dir_templates%\%file%.fla, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.fla
+		run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.fla
+	}
+
+oppna:
+	getFormat(mlEnhet) ; Hämtar formatet utifrån internetenhet
+	stripDash(mlStartdatum) ; Tar bort - ur startdatum
+	rensaTecken(mlKundnamn) 
+	StringTrimLeft, mlStartdatum, mlStartdatum, 2 ; tar bort första två tecknen ur datumet
+	forstaBokstav := forstaBokstav(mlKundnamn)
+
+	adDir = %dir_webbannons%\%forstaBokstav%\%mlKundnamn%\
+	ifExist, %adDir%
+	{
+		run, G:\NTM\NTM Digital Produktion\Webbannonser\0-Arkiv\%A_YYYY%\%forstaBokstav%\%mlKundnamn%\
+	} else {
+		msgbox,4,, Ingen mapp hittades på denna sökväg:`r`n%adDir%`r`n`r`nVill du skapa den?
+		IfMsgBox, Yes
+		{
+			FileCreateDir, G:\NTM\NTM Digital Produktion\Webbannonser\0-Arkiv\%A_YYYY%\%forstaBokstav%\%mlKundnamn%\
+			run, G:\NTM\NTM Digital Produktion\Webbannonser\0-Arkiv\%A_YYYY%\%forstaBokstav%\%mlKundnamn%\
+		}
+		IfMsgBox, No
+			return
+	}
+return
 reload:
 	Reload
 return

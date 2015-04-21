@@ -3,7 +3,7 @@
 dir_cxense = %A_WorkingDir%\cxense
 dir_skins = %A_WorkingDir%\skins
 dir_icons = %A_WorkingDir%\ico 
-dir_templates = templates ; Sätter mapp för psd- pch fla-mallar
+dir_templates = %A_WorkingDir%\templates ; Sätter mapp för psd- pch fla-mallar
 dir_webbannons = G:\NTM\NTM Digital Produktion\Webbannonser\0-Arkiv\%A_YYYY%
 dir_img = %A_WorkingDir%\img
 lagerDir = X:\digital.ntm.eu\lager

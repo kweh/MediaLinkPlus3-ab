@@ -44,6 +44,15 @@ menu, tray, add, Starta om Medialink Plus, reload
 		menu, mlp, Icon, Kopiera orderinfo, %dir_icons%\kopiera.ico
 		menu, mlp, add
 
+		; Skapa annons
+		menu, mlp, add, Skapa annons (Photoshop), photoshop
+		menu, mlp, Icon, Skapa annons (Photoshop), %dir_icons%\photoshop.ico
+		menu, mlp, add, Skapa annons (Flash), flash
+		menu, mlp, Icon, Skapa annons (Flash), %dir_icons%\flash.ico
+		menu, mlp, add, Öppna/skapa kundmapp, oppna
+		menu, mlp, Icon, Öppna/skapa kundmapp, %dir_icons%\oppnacxense.ico
+		menu, mlp, add
+
 		; Cxense
 		menu, cx, add, Boka kampanj, multiCxStart
 		menu, cx, Icon, Boka kampanj, %dir_icons%\bokacxense.ico
