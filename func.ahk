@@ -15,6 +15,11 @@ mlActive(x=0)
 			{
 				x := true
 			}
+
+			IfWinActive, NewsCycle MediaLink
+			{
+				x := true
+			}
 		}
 	return x
 }
@@ -25,6 +30,10 @@ noteActive(x=0)
 	IfInString, control, Static29
 		{
 			IfWinActive, Atex MediaLink
+			{
+				x := true
+			}
+			IfWinActive, NewsCycle MediaLink
 			{
 				x := true
 			}

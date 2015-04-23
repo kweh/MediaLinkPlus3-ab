@@ -3,6 +3,13 @@ SetTitleMatchMode, 2
 DetectHiddenText, On
 #SingleInstance force
 #include paths.ahk
+#include secure.ahk
+
+IniRead, RMenuColor, %mlpSettings%, Theme, RMenuColor
+	if (RMenuColor = "ERROR")
+	{
+		RMenuColor = FFFFFF
+	}
 
 ; count := zen_get_ticket_count()
 ;
@@ -84,6 +91,9 @@ menu, tray, add, Starta om Medialink Plus, reload
 		menu, mlp, Icon, Sök på ordernummer, %dir_icons%\sok.ico
 		menu, mlp, add, Inställningar, mlpSettings
 
+		; Traffic
+		menu, traffic, add, Uppdatera lagerverktyget, lager
+		menu, mlp, add, Traffic, :traffic
 
 		; Felsökning
 		menu, dev, add, Vad är detta?, whatsthis
@@ -94,7 +104,7 @@ menu, tray, add, Starta om Medialink Plus, reload
 		menu, mlp, add, Felsökning, :dev
 		
 		
-		menu, mlp, Color, FFFFFF
+		menu, mlp, Color, %RMenuColor%
 
 		menu = true
 		menu, mlp, show
@@ -157,6 +167,13 @@ return
 
 ^#r::
 reload
+return
+
+~+<:: ; Låter Shift+< agera som Shift+F5
+	if (mlActive())
+	{
+		Send, {Shift Down}{F5}{Shift Up}
+	}
 return
 
 ;

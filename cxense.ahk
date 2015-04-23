@@ -1,5 +1,5 @@
 ﻿cx_start:
-  Progress, R0-3 FM8 FS7 CBGray P1, Kontrollerar om kund finns..., Kundsök:, Annonsbokning
+  Progress, R0-4 FM8 FS7 CBGray P1, Kontrollerar om kund finns..., Kundsök:, Annonsbokning
   xml := get_url("cxad.cxense.com/api/secure/folder/advertising")
   kund = - %mlKundnr% -
   folderId := cx_xml_read(xml, "childFolder", kund, "folderId")
@@ -17,11 +17,50 @@
   }
   Progress, 2, Kund fanns, fortsätter., Kundsök:, Annonsbokning
   sleep, 300
-  Progress, 3, Öppnar bokningsfönster, Kundsök:, Annonsbokning
+
+  Progress, 3, Kontrollerar om kampanj finns., Kundsök:, Annonsbokning
+
+  xml := get_url("cxad.cxense.com/api/secure/campaigns/" folderId)
+  campaignId := cx_xml_read(xml, "campaign", mlOrdernummer, "campaignId")
+  if (campaignId != "")
+  {
+    SetTimer, knappnamn, 10 
+    msgbox, 4403, Kampanj finns redan ,Kampanjen du försöker boka finns redan i Cxense. ; 3 + 4096 + 256 + 48
+    IfMsgBox, Yes
+    {
+      Progress, 4, Öppnar bokningsfönster, Kundsök:, Annonsbokning
+      sleep, 200
+      Progress, Off
+
+      Gui, 77:Destroy
+      goto, cx_ui
+    }
+
+    IfMsgBox, No
+      Run, https://cxad.cxense.com/adv/campaign/%campaignId%
+      Progress, Off
+      return
+    IfMsgBox, Cancel
+      Progress, Off
+      return
+  }
+
+  Progress, 4, Öppnar bokningsfönster, Kundsök:, Annonsbokning
   sleep, 200
   Progress, Off
+
   Gui, 77:Destroy
   goto, cx_ui
+return
+
+knappnamn: 
+IfWinNotExist, Kampanj finns redan
+    return  ; Keep waiting.
+SetTimer, knappnamn, off 
+WinActivate 
+ControlSetText, Button1, &Fortsätt boka
+ControlSetText, Button2, &Öppna i CX 
+ControlSetText, Button3, &Avbryt
 return
 
 cx_ui:
@@ -62,6 +101,8 @@ Gui, 77:Add, Button, x202 y320 w100 h30 Default gBoka vBoka, Boka
 Gui, 77:Add, Button, x312 y320 w100 h30 g77GuiClose, Avbryt
 GuiControl, 77:Focus, boka
 Gui, 77:Show, xCenter yCenter h364 w424, Bokningsöversikt
+; Winset, Transparent, 200, Bokningsöversikt
+
 Return
 
 77GuiClose:
@@ -92,7 +133,7 @@ Boka:
   FormatTime, Startdatum, %Startdatum%, yyyy-MM-dd
   FormatTime, Stoppdatum, %Stoppdatum%, yyyy-MM-dd
 
-  Progress, R0-100 FM8 FS7 P5 CBGray, Kontrollerar produkt..., Bokningsförlopp:, Annonsbokning
+  Progress, R0-100 FM8 FS7 P5 CBGray M, Kontrollerar produkt..., Bokningsförlopp:, Annonsbokning
   Progress, Show
   Progress, %prog%
   sleep, 200
@@ -132,7 +173,7 @@ Boka:
     keyword := cx_post_keywords(campaign.Id, Keyword, keywordsID)
     ; msgbox % keyword
   }
-  if (keywordsID = "")
+  if (keywordsID = "" && Keyword != "")
   {
     msgbox, Kunde inte sätta keyword, gör detta manuellt.
   }
@@ -335,6 +376,7 @@ cx_post_advertisement(campaignID, kundnamn, start)
   HTTPRequest( URL, DATA, HEAD, OPTS )
   return DATA
 }
+
 cx_post_keywords(campaignID, keyword, template)
 {
   keywordTargeting =

@@ -461,6 +461,90 @@ oppna:
 			return
 	}
 return
+
 reload:
 	Reload
+return
+
+lager:
+	timestamp = %A_Now%
+	XML = 
+	Loop, Parse, getList, `n
+	{
+		StringSplit, kolumn, A_LoopField, %A_Tab%
+		produkt := kolumn%iniProdukt%
+		StringSplit, prodArray, produkt , %A_Space%
+		Tidning = %prodArray1%
+		getFormat(kolumn%iniEnhet%) ; sätter format
+		Ordernr = %kolumn1%
+		Start := kolumn%iniStart%
+		Stopp := kolumn%iniStopp%
+
+		;~ StringTrimRight, startYear, Start, 6 ; startYear
+		;~ StringTrimRight, startMonth, Start, 3 ; startMonth
+		;~ StringTrimLeft, startMonth, startMonth, 5 ; startMonth
+		;~ StringTrimLeft, startDay, Start, 8 ; startDay
+		;~ startMonth := startMonth-1
+		;~ Start = %startYear%-%startMonth%-%startDay%
+		
+		;~ StringTrimRight, stoppYear, Stopp, 6 ; stoppYear
+		;~ StringTrimRight, stoppMonth, Stopp, 3 ; stoppMonth
+		;~ StringTrimLeft, stoppMonth, stoppMonth, 5 ; stoppMonth
+		;~ StringTrimLeft, stoppDay, Stopp, 8 ; stoppDay
+		;~ stoppMonth := stoppMonth-1
+		;~ Stopp = %stoppYear%-%stoppMonth%-%stoppDay%
+
+		Kundnamn := kolumn%iniKundnamn%
+		StringReplace, Kundnamn, Kundnamn, & , &amp;, All
+		Exponeringar := kolumn%iniExponeringar%
+		
+		if (Tidning = "NT")
+		{
+			Tidning = NTFB
+		}
+		
+		addToXML =
+		(
+		<kampanj>
+			<tidning>%Tidning%</tidning>
+			<format>%format%</format>
+			<ordernr>%Ordernr%</ordernr>
+			<kund>%Kundnamn%</kund>
+			<start>%Start%</start>
+			<stopp>%Stopp%</stopp>
+			<exponeringar>%Exponeringar%</exponeringar>
+		</kampanj>
+		)
+		
+		XML = %XML%%addToXML%
+	}
+	fullXML =
+	(
+	<lager>
+	<timestamp>%timestamp%</timestamp>
+	%XML%
+	</lager>		
+	)
+	
+	;ftp-script
+	FileDelete, %dir_ftp%\lager.xml
+	FileEncoding, UTF-8-RAW
+	FileAppend, %fullXML%, %dir_ftp%\lager.xml
+	FileEncoding
+	sleep, 500
+	upload = %dir_ftp%\lager.xml
+	ftpSettings := ftp_init(timestamp, upload)
+	FTPCommandFile = %dir_ftp%\FTPCommands.txt
+	FTPLogFile = %dir_ftp%\FTPLog.txt
+	FileDelete %FTPCommandFile%  ; In case previous run was terminated prematurely.
+	msgbox % ftpsettings
+	FileAppend, %ftpSettings%, %FTPCommandFile%
+
+	RunWait %comspec% /c ftp.exe -s:"%FTPCommandFile%" >"%FTPLogFile%"
+	FileDelete %FTPCommandFile%  ; Delete for security reasons.
+	Msgbox,4,, Färdig! Visa logg?
+		IfMsgBox, Yes
+			Run %FTPLogFile%  ; Display the log for review.
+		IfMsgBox, No
+			return
 return

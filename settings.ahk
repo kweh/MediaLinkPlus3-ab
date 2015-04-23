@@ -24,16 +24,23 @@ kolumnLista =
 20: %kolumn20%
 	)
 checked := ""
+
 IniRead, zenNote, %mlpDir%\settings.ini, ZenNotes, aktiv
 	if (zenNote = 1)
 	{
 		checked := "Checked"
 	}
-Gui, 20:Add, Tab, x2 y0 w580 h430 , Allmänt|Kolumner
+IniRead, RMenuColor, %mlpSettings%, Theme, RMenuColor
+	if (RMenuColor = "ERROR")
+	{
+		RMenuColor = FFFFFF
+	}
+
+Gui, 20:Add, Tab, x2 y0 w580 h430 , Allmänt|Kolumner|Utseende
 Gui, 20:Tab, Allmänt ; -------------------------------------------------
 Gui, 20:Add, Picture, x132 y120 w300 h190 , %dir_img%\mplus_settings.jpg
-Gui, 20:Add, Checkbox, x20 y400 vZenUpdates gZenUpdates %checked%, Notifiering av nya ärenden i zendesk
-Gui, 20:Add, Text, x472 y400 w100 h20 , Version %version%
+; Gui, 20:Add, Checkbox, x20 y400 vZenUpdates gZenUpdates %checked%, Notifiering av nya ärenden i zendesk
+; Gui, 20:Add, Text, x472 y400 w100 h20 , Version %version%
 Gui, 20:Tab, Kolumner ; ------------------------------------------------
 Gui, 20:Add, Text, x42 y50 w80 h20 , Startdatum
 Gui, 20:Add, Text, x42 y80 w80 h20 , Stoppdatum
@@ -57,6 +64,10 @@ Gui, 20:Add, DropDownList, x142 y290 w90 h20 Choose%iniStatus% vddStatus r20, 1|
 Gui, 20:Add, DropDownList, x142 y320 w90 h20 Choose%iniTilldelad% vddTilldelad r20, 1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20
 Gui, 20:Add, Text, x292 y50 w260 h290 , %kolumnlista%
 Gui, 20:add, button, x500 y380 w70 h40 gsaveCols, Spara
+Gui, 20:Tab, Utseende ; ------------------------------------------------
+Gui, 20:Add, Text, x42 y50 w150 h20 , Färg på högerklicksmeny
+Gui, 20:Add, Edit, x42 y70 w80 h20 vRMenuColor, %RMenuColor%
+Gui, 20:add, button, x500 y380 w70 h40 gsaveTheme, Spara
 
 Gui, 20:Show, xCenter yCenter h434 w585, Inställningar - MediaLink Plus
 Return
@@ -82,7 +93,16 @@ saveCols:
 	IniWrite, %ddTilldelad%, %mlpKolumner%, Kolumner, Tilldelad
 Return
 
+saveTheme:
+	Gui, 20:Submit, NoHide
+	msgbox % "Inställningar sparade!"
+	IniDelete, %mlpSettings%, %Theme%
+	IniWrite, %RMenuColor%, %mlpSettings%, Theme, RMenuColor
+	reload
+return
+
+
 ZenUpdates:
 	Gui, 20:Submit, NoHide
-	IniWrite, %ZenUpdates%, %mlpDir%\settings.ini, ZenNotes, aktiv
+	IniWrite, %ZenUpdates%, %mlpSettings%, Theme, RMenuColor
 return

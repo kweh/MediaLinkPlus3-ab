@@ -6,6 +6,7 @@ dir_icons = %A_WorkingDir%\ico
 dir_templates = %A_WorkingDir%\templates ; Sätter mapp för psd- pch fla-mallar
 dir_webbannons = G:\NTM\NTM Digital Produktion\Webbannonser\0-Arkiv\%A_YYYY%
 dir_img = %A_WorkingDir%\img
+dir_ftp = %A_WorkingDir%\ftp
 lagerDir = X:\digital.ntm.eu\lager
 weblinkDir = X:\digital.ntm.eu\weblink
 notesDir = G:\NTM\NTM Digital Produktion\MedialinkPlus\mlNotes
