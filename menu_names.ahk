@@ -1,0 +1,16 @@
+﻿m_findprint = &Hitta Print-PDF
+m_copy = Kopiera orderinfo
+m_createPS = Skapa annons (Photoshop)
+m_createFL = Skapa annons (Flash)
+m_dir = Öppna kundmapp
+m_cx = Cxense
+m_report = Rapport
+m_status = Status
+m_assign = Tilldela...
+m_mail = Maila säljare
+m_korr = Skicka korrektur
+m_comment = Lägg till kommentar
+m_search = Sök på ordernummer
+m_settings = Inställningar
+m_traffic = Traffic
+m_dev = Felsökning

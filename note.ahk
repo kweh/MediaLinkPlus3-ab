@@ -33,15 +33,13 @@
 			ControlSetText, Static29, Ingen info, Atex MediaLink
 			ControlSetText, Static61, Interna noteringar, Atex MediaLink
 		}
-		
 	}
-		
-	if (noteActive())
-	{
-		Gui, 3:Add, Edit, x5 y3 w300 h230 vegeninfo, %info%
-		Gui, 3:Add, Button, x105 y243 w100 h30 gsparainfo, Spara
-		Gui, 3:Show, xCenter yCenter h280 w313, Info
-	}
+return
+
+comment:
+	Gui, 3:Add, Edit, x5 y3 w300 h230 vegeninfo, %info%
+	Gui, 3:Add, Button, x105 y243 w100 h30 gsparainfo, Spara
+	Gui, 3:Show, xCenter yCenter h280 w313, Info
 return
 
 3GuiClose:

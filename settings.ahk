@@ -25,18 +25,23 @@ kolumnLista =
 	)
 checked := ""
 
-IniRead, zenNote, %mlpDir%\settings.ini, ZenNotes, aktiv
-	if (zenNote = 1)
+IniRead, dev, %mlpSettings%, Misc, Dev
+	if (dev = 1)
 	{
-		checked := "Checked"
+		dev_checked := "Checked"
 	}
 IniRead, RMenuColor, %mlpSettings%, Theme, RMenuColor
 	if (RMenuColor = "ERROR")
 	{
 		RMenuColor = FFFFFF
 	}
+; IniRead, menunames, %mlpSettings%, Misc, Menunames
+; 	if (menunames = 1)
+; 	{
+; 		menu_checked := "Checked"
+; 	}
 
-Gui, 20:Add, Tab, x2 y0 w580 h430 , Allmänt|Kolumner|Utseende
+Gui, 20:Add, Tab, x2 y0 w580 h430 , Allmänt|Kolumner|Utseende|Övrigt
 Gui, 20:Tab, Allmänt ; -------------------------------------------------
 Gui, 20:Add, Picture, x132 y120 w300 h190 , %dir_img%\mplus_settings.jpg
 ; Gui, 20:Add, Checkbox, x20 y400 vZenUpdates gZenUpdates %checked%, Notifiering av nya ärenden i zendesk
@@ -68,6 +73,10 @@ Gui, 20:Tab, Utseende ; ------------------------------------------------
 Gui, 20:Add, Text, x42 y50 w150 h20 , Färg på högerklicksmeny
 Gui, 20:Add, Edit, x42 y70 w80 h20 vRMenuColor, %RMenuColor%
 Gui, 20:add, button, x500 y380 w70 h40 gsaveTheme, Spara
+Gui, 20:Tab, Övrigt ; ------------------------------------------------
+Gui, 20:Add, Checkbox, x42 y50 vdevbutton %dev_checked%, Visa felsökningsalternativ i högerklicksmeny
+; Gui, 20:Add, Checkbox, x42 y65 vmenunames %menu_checked%,Dölj namn i huvudmeny (på egen risk!)
+Gui, 20:add, button, x500 y380 w70 h40 gsaveMisc, Spara
 
 Gui, 20:Show, xCenter yCenter h434 w585, Inställningar - MediaLink Plus
 Return
@@ -102,7 +111,8 @@ saveTheme:
 return
 
 
-ZenUpdates:
+saveMisc:
 	Gui, 20:Submit, NoHide
-	IniWrite, %ZenUpdates%, %mlpSettings%, Theme, RMenuColor
+	IniWrite, %devbutton%, %mlpSettings%, Misc, Dev
+	; IniWrite, %menunames%, %mlpSettings%, Misc, Menunames
 return

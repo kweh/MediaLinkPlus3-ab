@@ -1,8 +1,12 @@
 <?xml version="1.0"?>
 <cx:publisherTargeting xmlns:cx="http://cxense.com/cxad/api/cxad">
-  <cx:templateId>00000001609ea38e</cx:templateId>
+  <cx:templateId>0000000160fb5086</cx:templateId>
   <cx:publisherTarget>
-        <cx:url>http://unt.se</cx:url>
+        <cx:url>http://m.corren.se</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
+      <cx:publisherTarget>
+        <cx:url>http://mobil.corren.se</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
 </cx:publisherTargeting>

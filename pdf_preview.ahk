@@ -1,8 +1,12 @@
 ﻿pdf-preview:
-
 gosub, manageimg
 Gui, 39:add, picture, x0 y0 w%mypicW% h%mypicH% vprintimg, %img%
 data := checkPrints(mlOrdernummer)
+if (from_fc = true)
+{
+    data := checkPrints(line2)
+    from_fc := false
+}
     if (data != "")
     {
         Gui, 39:add, dropdownlist, vselectedPrint gupdatePrint w100 x%dx% y%dy% Choose1, %data%
@@ -30,7 +34,7 @@ checkPrints(x)
     mnr := y2
     onr := x
     i := 1
-    while i < y2
+    while i <= y2
     {
         mnrLit := "-0" i
         result := printCheck(onr, mnrLit)
@@ -57,7 +61,7 @@ updatePrint:
 return
 
 manageimg:
-    img = %devdir%\nopreview.jpg
+    img = %dir_img%\nopreview.jpg
     ifExist, %imgdir%
         {
         img := imgdir
@@ -67,9 +71,19 @@ manageimg:
     GuiControlGet, mypic, 40:Pos
     gui, 40:destroy
 
+    if (mypicW < 100)
+    {
+        mypicW = 100
+    }
+    if (mypicH < 100)
+    {
+        mypicH = 100
+    }
+
     bx := mypicW - 85
     by := mypicH - 50
 
     dx := bx - 110
     dy := by +20
+
 return

@@ -77,11 +77,19 @@ cx_ui:
   }
 FileRead, Target, G:\NTM\NTM Digital Produktion\MedialinkPlus\dev\target.txt
 
+defaultType := 1 ; Run On Site
+expView = 
+if (mlSite = "affarsliv.com" || mlSite = "gotland.net" || mlSite = "norrbottensaffarer.com" || mlSite = "uppsala.com" || mlSite = "uppsalavimmel.se" || mlSite = "duonoje.se" || mlSite = "almedalen.net")
+  { 
+    defaultType := 5 ; CPC
+    expView = Disabled
+  }
+
 Gui, 77:Font, S15 CDefault, Arial
 Gui, 77:Add, Edit, x12 y10 w400 h30 vcampaignName , %campaignName%
 Gui, 77:Font, S11 CDefault, Arial
 Gui, 77:Add, Edit, x12 y47 w262 h25 , %folderName%
-Gui, 77:Add, DropDownList, x282 y47 w130 h25 r7 gType vType, Run On Site||Riktad|Plugg|Retarget|CPC
+Gui, 77:Add, DropDownList, x282 y47 w130 h25 r7 gType vType choose%defaultType%, Run On Site||Riktad|Plugg|Retarget|CPC
 Gui, 77:Font, S8 CDefault, Arial
 Gui, 77:Add, GroupBox, x12 y80 w400 h230 , Kontrakt
 Gui, 77:Font, S11 CDefault, Arial
@@ -90,9 +98,9 @@ Gui, 77:Add, DateTime, x232 y130 w160 h30 vStoppdatum Choose%mlStoppdatumStrip%,
 Gui, 77:Font, S9 CDefault, Arial
 Gui, 77:Add, Text, x32 y110 w90 h20 , Startdatum
 Gui, 77:Add, Text, x232 y110 w100 h20 , Stoppdatum
-Gui, 77:Add, Text, x32 y170 w100 h20 , Exponeringar
+Gui, 77:Add, Text, x32 y170 w100 h20, Exponeringar
 Gui, 77:Font, S11 CDefault, Arial
-Gui, 77:Add, Edit, x32 y190 w360 h30 vExponeringar, %mlExponeringar%
+Gui, 77:Add, Edit, x32 y190 w360 h30 vExponeringar %expView%, %mlExponeringar%
 Gui, 77:Add, ComboBox, x32 y260 w360 h20 vKeyword R10, %target%
 Gui, 77:Font, S10 CDefault, Arial
 Gui, 77:Font, S9 CDefault, Arial
@@ -101,8 +109,8 @@ Gui, 77:Add, Button, x202 y320 w100 h30 Default gBoka vBoka, Boka
 Gui, 77:Add, Button, x312 y320 w100 h30 g77GuiClose, Avbryt
 GuiControl, 77:Focus, boka
 Gui, 77:Show, xCenter yCenter h364 w424, Bokningsöversikt
+stop := true
 ; Winset, Transparent, 200, Bokningsöversikt
-
 Return
 
 77GuiClose:
@@ -190,7 +198,9 @@ Boka:
   MsgBox,4, Bokning klar, Inbokning klar, öppna i webbläsaren?
   IfMsgBox, Yes
     run, https://cxad.cxense.com/adv/campaign/%campaignID%/overview
+    stop = false
   IfMsgBox, No
+    stop = false
     return
 return
 

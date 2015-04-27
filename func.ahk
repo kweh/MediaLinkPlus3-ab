@@ -84,18 +84,16 @@ status(x) ; Sätter status enligt x
 {
 	Send, !s
 	WinWaitActive, Change Status
-	Send, {Tab}
 	Control, ChooseString, %x%, ComboBox1
-	Send, {Tab}{Enter}
+	Send, !o
 }
 
 assign(x) ; tilldelar till x 
 {
 	Send, !a
 	WinWaitActive, Ändra tilldelad
-	Send, {Tab}
 	Control, ChooseString, %x%, ComboBox1
-	Send, {Tab}{Enter}
+	Send, !o
 }
 
 refreshFile(content, file)

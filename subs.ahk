@@ -59,8 +59,8 @@ getAnvnamn:
 	WinGetTitle, Windowtext, Atex MediaLink
 	StringSplit, WindowSplit, Windowtext, =
 	StringSplit, WindowSplit, WindowSplit2, %A_Space%
-	Anvandare =  %WindowSplit1%
-	StringTrimRight, AnvKort, Anvandare, 2 ; Sätter AnvKort till användarens förnamn
+	anvNamn =  %WindowSplit1%
+	StringTrimRight, me, anvNamn, 2 ; Sätter me till användarens förnamn
 return
 
 ; Kopierar kundnamn och ordernummer i formatet "Kundnamn (xxxxxxxxxx-xx)"
@@ -353,29 +353,28 @@ multiCxStart:
 		Msgbox, 4, Boka flera kunder, Boka %listCount% kunder i Cxense?
 		IFmsgbox, yes
 		{
-			proceed = true
 			i = 1
+			stop = false
 			while (i <= listCount)
 				{
-					if (proceed = "true")
+					while (stop = true)
 					{
-						msgbox % proceed
-						listRow := getListRow%i%
-						Stringsplit, kolumn, listRow, `t
 
-						mlStartdatum := kolumn%iniStart%
-						mlStoppdatum := kolumn%iniStopp%
-						mlExponeringar := kolumn%iniExponeringar%
-						mlKundnr := kolumn%iniKundnr%
-						mlKundnamn := kolumn%iniKundnamn%
-						mlSaljare := kolumn%iniSaljare%
-						mlProdukt := kolumn%iniProdukt%
-						mlOrdernummer = %kolumn1%
-						msgbox, next
-						proceed = false
-						gosub, cx_start
-						i++
 					}
+
+					listRow := getListRow%i%
+					Stringsplit, kolumn, listRow, `t
+
+					mlStartdatum := kolumn%iniStart%
+					mlStoppdatum := kolumn%iniStopp%
+					mlExponeringar := kolumn%iniExponeringar%
+					mlKundnr := kolumn%iniKundnr%
+					mlKundnamn := kolumn%iniKundnamn%
+					mlSaljare := kolumn%iniSaljare%
+					mlProdukt := kolumn%iniProdukt%
+					mlOrdernummer = %kolumn1%
+					gosub, cx_start
+					i++
 				}
 		}
 	}
@@ -383,8 +382,8 @@ multiCxStart:
 	{
 		goto, cx_start
 	}
-
 Return
+
 
 listaKundmapp:
 	getFormat(mlEnhet) ; Hämtar formatet utifrån internetenhet
@@ -403,21 +402,68 @@ listaKundmapp:
 return
 
 photoshop:
-	getFormat(mlEnhet) ; Hämtar formatet utifrån internetenhet
-	stripDash(mlStartdatum) ; Tar bort - ur startdatum
-	rensaTecken(mlKundnamn) 
-	StringTrimLeft, mlStartdatum, mlStartdatum, 2 ; tar bort första två tecknen ur datumet
-	forstaBokstav := forstaBokstav(mlKundnamn)
+	if (listcount = 1)
+		{
+		getFormat(mlEnhet) ; Hämtar formatet utifrån internetenhet
+		stripDash(mlStartdatum) ; Tar bort - ur startdatum
+		rensaTecken(mlKundnamn) 
+		StringTrimLeft, mlStartdatum, mlStartdatum, 2 ; tar bort första två tecknen ur datumet
+		forstaBokstav := forstaBokstav(mlKundnamn)
 
-	adDir = %dir_webbannons%\%forstaBokstav%\%mlKundnamn%\%mlStartdatum%
-	if FileExist(adDir)
+		adDir = %dir_webbannons%\%forstaBokstav%\%mlKundnamn%\%mlStartdatum%
+		if FileExist(adDir)
+		{
+			FileCopy, %dir_templates%\%file%.psd, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+			run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+		} else {
+			FileCreateDir, %adDir%
+			FileCopy, %dir_templates%\%file%.psd, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+			run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+		}
+	}
+	if (listcount > 1) ; Producera flera
 	{
-		FileCopy, %dir_templates%\%file%.psd, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
-		run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
-	} else {
-		FileCreateDir, %adDir%
-		FileCopy, %dir_templates%\%file%.psd, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
-		run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+		antalKunder := listCount
+		aktuellKund = 1
+		Msgbox, 4, Starta flera produktioner, Producera %listCount% annonser i Photoshop?
+		IFmsgbox, yes
+			{
+			while aktuellKund <= antalKunder
+			{
+				msgbox % aktuellKund
+				listRow := getListRow%aktuellKund%
+				Stringsplit, kolumn, listRow, `t
+
+				mlStartdatum := kolumn%iniStart%
+				mlStoppdatum := kolumn%iniStopp%
+				mlExponeringar := kolumn%iniExponeringar%
+				mlKundnr := kolumn%iniKundnr%
+				mlKundnamn := kolumn%iniKundnamn%
+				mlSaljare := kolumn%iniSaljare%
+				mlProdukt := kolumn%iniProdukt%
+				mlOrdernummer = %kolumn1%
+
+				getFormat(mlEnhet) ; Hämtar formatet utifrån internetenhet
+				stripDash(mlStartdatum) ; Tar bort - ur startdatum
+				rensaTecken(mlKundnamn) 
+				StringTrimLeft, mlStartdatum, mlStartdatum, 2 ; tar bort första två tecknen ur datumet
+				forstaBokstav := forstaBokstav(mlKundnamn)
+
+				adDir = %dir_webbannons%\%forstaBokstav%\%mlKundnamn%\%mlStartdatum%
+				if FileExist(adDir)
+				{
+					FileCopy, %dir_templates%\%file%.psd, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+					run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+				} else {
+					FileCreateDir, %adDir%
+					FileCopy, %dir_templates%\%file%.psd, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+					run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+				}
+
+				aktuellKund++
+				sleep, 500
+			}
+		}
 	}
 Return
 
@@ -467,6 +513,12 @@ reload:
 return
 
 lager:
+	Send, {Shift Down}
+	Sleep, 100
+	Send, {End}
+	sleep, 100
+	Send, {Shift Up}
+	gosub, getList
 	timestamp = %A_Now%
 	XML = 
 	Loop, Parse, getList, `n
@@ -548,3 +600,89 @@ lager:
 		IfMsgBox, No
 			return
 return
+
+rakna:
+	msgbox % listCount " annonser markerade"
+return
+
+raknaExp:
+	totExp = 0
+	count = 0
+	Loop, Parse, getList, `n 
+	{
+		StringSplit, kolumn, A_LoopField, `t
+		totExp := totExp + kolumn%iniExponeringar%
+		count++
+		if(count = listCount)
+		{
+			break
+		}
+	}
+	msgbox % totExp " exponeringar begärda av " listCount " annonser."
+return
+
+
+; STATUSAR
+status_ny:
+	status("ny")
+Return
+
+status_vilande:
+	status("vilande")
+Return
+
+status_bearbetas:
+	status("bearbetas")
+Return
+
+status_repetition:
+	status("repetition")
+Return
+
+status_korrekturskickat:
+	status("korrektur skickat")
+Return
+
+status_korrekturklart:
+	status("korrektur klart")
+Return
+
+status_undersoks:
+	status("undersöks")
+Return
+
+status_sentbokad:
+	status("sent bokad")
+Return
+
+status_klar:
+	status("klar")
+Return
+
+status_levfardig:
+	status("Lev. Färdig")
+Return
+
+status_manusmail:
+	status("Vilande")
+	assign("Manus på mail")
+Return
+
+status_bokad:
+	status("bokad")
+return
+
+
+; TILLDELA
+assign_me:
+	assign(me)
+Return
+
+assign_other:
+	Send, !a
+Return
+
+assign_none:
+	assign(" ")
+Return
+
