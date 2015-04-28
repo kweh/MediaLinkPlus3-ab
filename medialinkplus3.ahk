@@ -6,6 +6,9 @@ DetectHiddenText, On
 #include secure.ahk
 #include menu_names.ahk
 
+; SplashImage = %dir_img%\splash.png
+; SplashImageGUI(SplashImage, "Center", "Center", 3000, true)
+
 ;Timer för filecheck
 from_fc := false
 SetTimer, fc_go, 60000
@@ -60,7 +63,8 @@ menu, tray, add, Starta om Medialink Plus, reload
 		
 
 		menu, mlp, add
-
+		menu, mlp, add, Tilldela och Bearbeta, status_tilldela
+		menu, mlp, Icon, Tilldela och Bearbeta, %dir_icons%\tilldelabearbeta.ico
 		; Skapa annons
 		menu, mlp, add, %m_createPS%, photoshop
 		menu, mlp, Icon, %m_createPS%, %dir_icons%\photoshop.ico
@@ -73,7 +77,7 @@ menu, tray, add, Starta om Medialink Plus, reload
 		; Cxense
 		menu, cx, add, Boka kampanj, multiCxStart
 		menu, cx, Icon, Boka kampanj, %dir_icons%\bokacxense.ico
-		menu, cx, add, Öppna kampanj i cxense, openCampaignCx
+		menu, cx, add, Öppna kampanj i cxense, multiCxOpen
 		menu, cx, Icon, Öppna kampanj i cxense, %dir_icons%\oppnakampanjcxense.ico
 		menu, cx, add, Öppna kund i cxense, openCustomerCx
 		menu, cx, Icon, Öppna kund i cxense, %dir_icons%\oppnakundcxense.ico
@@ -123,11 +127,17 @@ menu, tray, add, Starta om Medialink Plus, reload
 		menu, status, add, Sent bokad, status_sentbokad
 		menu, status, icon, Sent bokad, %dir_icons%\status\sentbokad.ico
 
+		menu, status, add, Obekräftad, status_obekraftad
+		menu, status, icon, Obekräftad, %dir_icons%\status\Klar.ico
+
 		menu, status, add, Klar, status_Klar
 		menu, status, icon, Klar, %dir_icons%\status\Klar.ico
 
 		menu, mlp, add, %m_status%, :status
 		menu, mlp, Icon, %m_status%, %dir_icons%\status.ico
+
+		menu, mlp, add, Annan..., status_annan
+
 
 		; Tilldela
 		menu, assign, add, ...mig, assign_me
@@ -173,15 +183,15 @@ menu, tray, add, Starta om Medialink Plus, reload
 		menu, mlp, add, Filövervakning, :filecheck
 		menu, mlp, Icon, Filövervakning, %dir_icons%\filecheck.ico
 
-		menu, mlp, add, %m_settings%, mlpSettings
-		menu, mlp, Icon, %m_settings%, %dir_icons%\settings.ico
-
 		; Traffic
 		menu, traffic, add, Uppdatera lagerverktyget, lager
 		menu, traffic, add, Räkna markerade annonser, rakna
 		menu, traffic, add, Räkna exponeringar, raknaExp
 		menu, mlp, add, %m_traffic%, :traffic
 		menu, mlp, Icon, %m_traffic%, %dir_icons%\traffic.ico
+
+		menu, mlp, add, %m_settings%, mlpSettings
+		menu, mlp, Icon, %m_settings%, %dir_icons%\settings.ico
 
 		; Felsökning
 		IniRead, dev, %mlpSettings%, Misc, Dev
@@ -245,7 +255,7 @@ return
 
 mailKorr:
 	mail := mlSaljare
-	subject := "Korrektur:  " mlKundnamn " (" mlOrdernummer ")"
+	subject := "Korrektur: " mlKundnamn " (" mlOrdernummer ")"
 	gosub, getKorr
 	body =
 (
@@ -264,6 +274,7 @@ På denna länk finns information om hur ordern är inbokad. Kontrollera så att
 {CTRL down}{Home}{CTRL up}
 )
 	mail(mail, subject, body)
+	status("korrektur skickat")
 return
 
 ^#r::

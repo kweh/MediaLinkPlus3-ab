@@ -265,7 +265,13 @@ openCampaignCx:
 	folderId := cx_xml_read(xml, "childFolder", kund, "folderId")
 	xml := get_url("cxad.cxense.com/api/secure/campaigns/" folderId)
 	campaignId := cx_xml_read(xml, "campaign", mlOrdernummer, "campaignId")
-	run,  https://cxad.cxense.com/adv/campaign/%campaignId%
+	if (campaignID = "")
+	{
+		Msgbox, Ingen kampanj hittad på detta ordernummer. Avbryter.
+	}
+	else {
+		run,  https://cxad.cxense.com/adv/campaign/%campaignId%
+	}
 Return
 
 openCustomerCx:
@@ -350,7 +356,7 @@ return
 multiCxStart:
 	if (listCount > 1)
 	{
-		Msgbox, 4, Boka flera kunder, Boka %listCount% kunder i Cxense?
+		Msgbox, 4, Boka flera kampanjer, Boka %listCount% kampanjer i Cxense?
 		IFmsgbox, yes
 		{
 			i = 1
@@ -383,6 +389,53 @@ multiCxStart:
 		goto, cx_start
 	}
 Return
+
+multiCxOpen:
+if (listCount > 1)
+	{
+		Msgbox, 4, Öppna flera kampanjer, Öppna %listCount% kampanjer i Cxense?
+		IFmsgbox, yes
+		{
+			i = 1
+			Progress, R0-%listCount% FM8 FS7 CBGray, Hämtar länk (%i%/%listCount%), Hämtar kampanjlänkar:, Korrmail
+			while (i <= listCount)
+				{
+					progress % i-1
+					listRow := getListRow%i%
+					Stringsplit, kolumn, listRow, `t
+
+					mlStartdatum := kolumn%iniStart%
+					mlStoppdatum := kolumn%iniStopp%
+					mlExponeringar := kolumn%iniExponeringar%
+					mlKundnr := kolumn%iniKundnr%
+					mlKundnamn := kolumn%iniKundnamn%
+					mlSaljare := kolumn%iniSaljare%
+					mlProdukt := kolumn%iniProdukt%
+					mlOrdernummer = %kolumn1%
+					
+					xml := get_url("cxad.cxense.com/api/secure/folder/advertising")
+					kund = - %mlKundnr% -
+					folderId := cx_xml_read(xml, "childFolder", kund, "folderId")
+					xml := get_url("cxad.cxense.com/api/secure/campaigns/" folderId)
+					campaignId := cx_xml_read(xml, "campaign", mlOrdernummer, "campaignId")
+					if (campaignID = "")
+						{
+							Msgbox, 4096, Kampanj saknas, Ingen kampanj hittad på ordernummer "%mlOrdernummer%". Avbryter.
+						}
+						else {
+							run,  https://cxad.cxense.com/adv/campaign/%campaignId%
+						}
+
+					i++
+				}
+			sleep, 500
+			Progress, Off
+		}
+	}
+	else {
+		goto, openCampaignCx
+	}
+return
 
 
 listaKundmapp:
@@ -589,7 +642,6 @@ lager:
 	FTPCommandFile = %dir_ftp%\FTPCommands.txt
 	FTPLogFile = %dir_ftp%\FTPLog.txt
 	FileDelete %FTPCommandFile%  ; In case previous run was terminated prematurely.
-	msgbox % ftpsettings
 	FileAppend, %ftpSettings%, %FTPCommandFile%
 
 	RunWait %comspec% /c ftp.exe -s:"%FTPCommandFile%" >"%FTPLogFile%"
@@ -670,6 +722,19 @@ Return
 
 status_bokad:
 	status("bokad")
+return
+
+status_tilldela:
+	status("bearbetas")
+	assign(me)
+return
+
+status_obekraftad:
+	status("Obekräftad")
+return
+
+status_annan:
+	Send, !a
 return
 
 

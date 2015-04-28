@@ -706,3 +706,22 @@ mail(mail, subject, body)
 	Sleep, 100
 	Clipboard := clipTemp
 }
+
+SplashImageGUI(Picture, X, Y, Duration, Transparent = false)
+{
+Gui, XPT99:Margin , 0, 0
+Gui, XPT99:Add, Picture,, %Picture%
+Gui, XPT99:Color, ECE9D8
+Gui, XPT99:+LastFound -Caption +AlwaysOnTop +ToolWindow -Border
+If Transparent
+{
+Winset, TransColor, ECE9D8
+}
+Gui, XPT99:Show, x%X% y%Y% NoActivate
+SetTimer, DestroySplashGUI, -%Duration%
+return
+
+DestroySplashGUI:
+Gui, XPT99:Destroy
+return
+}

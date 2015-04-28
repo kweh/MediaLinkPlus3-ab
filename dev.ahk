@@ -1,4 +1,4 @@
-whatsthis:
+﻿whatsthis:
 	format := getFormat(mlEnhet)
 	text = 
 (
