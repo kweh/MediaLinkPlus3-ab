@@ -86,7 +86,7 @@ fc_select:
 	}
 	IfInString, A_ThisMenuItem, +
 	{
-		msgbox,4, Print finns, En printannons har hittat på detta ordernummer. Visa och ta bort bevakning?
+		msgbox,4, Print finns, En printannons har hittat på detta ordernummer. Spara och ta bort bevakning?
 		IfMsgBox, Yes
 		{
 			write = 
@@ -110,8 +110,17 @@ fc_select:
 			}
 			FileDelete, %mlp_filechecklist%
 			FileAppend, %write%, %mlp_filechecklist%
-			from_fc := true
-			gosub, pdf-preview
+			
+			Stringtrimleft, line2, line2, 3
+			IniRead, startfolder, %mlpSettings%, Folder, Standardfolder
+		    FileSelectFolder, userFolder, %startfolder%,,Välj mapp att spara PDF-filen i.
+		    IniDelete, %mlpSettings%, Folder
+		    IniWrite, *%userFolder%, %mlpSettings%, Folder, Standardfolder
+		    FileCopy, %printdir_short%%line2%.pdf, %userfolder%, 0
+		    msgbox,4, Visa fil?, Visa fil i utforskaren?
+		    IfMsgBox, yes
+		        Run %COMSPEC% /c explorer.exe /select`, "%userfolder%\10%line2%.pdf",, Hide 
+		    return
 		}
 	}
 return

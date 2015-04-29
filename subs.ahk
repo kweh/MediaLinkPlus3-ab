@@ -379,6 +379,10 @@ multiCxStart:
 					mlSaljare := kolumn%iniSaljare%
 					mlProdukt := kolumn%iniProdukt%
 					mlOrdernummer = %kolumn1%
+					mlEnhet := kolumn%iniEnhet%
+					StringSplit, prodArray, mlProdukt , %A_Space%
+					mlTidning = %prodArray1%
+					mlSite = %prodArray2%
 					gosub, cx_start
 					i++
 				}
@@ -412,6 +416,10 @@ if (listCount > 1)
 					mlSaljare := kolumn%iniSaljare%
 					mlProdukt := kolumn%iniProdukt%
 					mlOrdernummer = %kolumn1%
+					mlEnhet := kolumn%iniEnhet%
+					StringSplit, prodArray, mlProdukt , %A_Space%
+					mlTidning = %prodArray1%
+					mlSite = %prodArray2%
 					
 					xml := get_url("cxad.cxense.com/api/secure/folder/advertising")
 					kund = - %mlKundnr% -
@@ -734,7 +742,7 @@ status_obekraftad:
 return
 
 status_annan:
-	Send, !a
+	Send, !s
 return
 
 

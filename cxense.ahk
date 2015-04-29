@@ -129,6 +129,7 @@ return
 ,
 Boka:
   Gui, 77:Submit
+  Gui, 77:Destroy
   prog := 5
   prog_on := true
 
@@ -350,8 +351,8 @@ cx_post_contract(campaignID, cost, startDate, stopDate, exp)
     (
     <?xml version="1.0"?>
     <cx:cpcContract xmlns:cx="http://cxense.com/cxad/api/cxad">
-    <cx:startDate>%startDate%T00:00:00.000+01:00</cx:startDate>
-    <cx:endDate>%stopDate%T23:59:00.000+00:02</cx:endDate>
+    <cx:startDate>%startDate%T00:00:00.000+02:00</cx:startDate>
+    <cx:endDate>%stopDate%T23:59:00.000+02:00</cx:endDate>
     <cx:priority>0.50</cx:priority>
     </cx:cpcContract>
     )
@@ -670,6 +671,18 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
     )
   }
 
+  ; UPPGÅNG
+  if (mlSite = "uppgång.se")
+  {
+    targeting =
+    (
+    <cx:publisherTarget>
+        <cx:url>http://www.uppgang.com</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
+    )
+  }
+
   ; --------------------------- HTTP-Request ---------------------------
   URL = https://cxad.cxense.com/api/secure/publisherTargeting/%campaignID%
   DATA := ""
@@ -718,6 +731,7 @@ kundSaknas:
       StringSplit, xmlSplit, DATA, >
       StringSplit, xmlSplit, xmlSplit6, <
       kundID = %xmlSplit1% ; kundID innehåller kundens ID
+
       goto, cx_ui
     }
     return

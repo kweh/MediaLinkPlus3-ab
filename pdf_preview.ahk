@@ -20,12 +20,17 @@ return
 return
 
 download:
+    Gui, 39:submit
     Gui, 39:Destroy
+    Stringtrimleft, selectedprint, selectedprint, 3
     IniRead, startfolder, %mlpSettings%, Folder, Standardfolder
     FileSelectFolder, userFolder, %startfolder%,,Välj mapp att spara PDF-filen i.
     IniDelete, %mlpSettings%, Folder
     IniWrite, *%userFolder%, %mlpSettings%, Folder, Standardfolder
-    FileCopy, %printdir%, %userfolder%\
+    FileCopy, %printdir_short%%selectedPrint%.pdf, %userfolder%, 0
+    msgbox,4, Visa fil?, Visa fil i utforskaren?
+    IfMsgBox, yes
+        Run %COMSPEC% /c explorer.exe /select`, "%userfolder%\10%selectedPrint%.pdf",, Hide 
 return
 
 checkPrints(x)

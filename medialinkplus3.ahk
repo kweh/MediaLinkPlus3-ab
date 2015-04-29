@@ -6,8 +6,13 @@ DetectHiddenText, On
 #include secure.ahk
 #include menu_names.ahk
 
-; SplashImage = %dir_img%\splash.png
-; SplashImageGUI(SplashImage, "Center", "Center", 3000, true)
+version = 304
+
+SplashImage = %dir_img%\splash.png
+SplashImageGUI(SplashImage, "Center", "Center", 3000, true)
+sleep, 3000
+#include update.ahk
+gosub, updateStart
 
 ;Timer för filecheck
 from_fc := false
@@ -45,6 +50,7 @@ menu, tray, add, Starta om Medialink Plus, reload
 		Send, {Esc}
 		MouseGetPos, , , id, control
 		gosub, getList
+		gosub, note
 
 
 		;Hitta print-knappen
@@ -133,10 +139,11 @@ menu, tray, add, Starta om Medialink Plus, reload
 		menu, status, add, Klar, status_Klar
 		menu, status, icon, Klar, %dir_icons%\status\Klar.ico
 
+		menu, status, add, Annan..., status_annan
+
 		menu, mlp, add, %m_status%, :status
 		menu, mlp, Icon, %m_status%, %dir_icons%\status.ico
 
-		menu, mlp, add, Annan..., status_annan
 
 
 		; Tilldela
@@ -214,7 +221,8 @@ menu, tray, add, Starta om Medialink Plus, reload
 	}
 
 ~LButton::
-	MouseGetPos, , , id, control
+	CoordMode, Mouse, Screen
+	MouseGetPos,mX ,mY , id, control
 	ifWinActive, Atex MediaLink
 	{
 		gosub, getList
@@ -225,6 +233,15 @@ menu, tray, add, Starta om Medialink Plus, reload
 	{
 		gosub, getList
 		gosub, note
+	}
+return
+
+~Delete::
+if (mlActive())
+	{
+	status("Klar")
+	sleep, 100
+	Send, {Shift down}{F5}{Shift up}
 	}
 return
 
@@ -273,8 +290,12 @@ På denna länk finns information om hur ordern är inbokad. Kontrollera så att
 
 {CTRL down}{Home}{CTRL up}
 )
-	mail(mail, subject, body)
+	if (campaignID = "")
+	{
+		body = 
+	}
 	status("korrektur skickat")
+	mail(mail, subject, body)
 return
 
 ^#r::
@@ -300,32 +321,32 @@ return
 	}
 return
 
-~LButton UP::
-	MouseGetPos, , , id, control
-	IfInString, control, Edit3
-		{
-			IfWinActive, Atex MediaLink
-			{
-				temp_clip := Clipboard
-				Send, ^c
-				regex := "0{0,3}(\d{7}-\d{2})"
-				RegExMatch(Clipboard, regex, match)
-				if (match1 = "")
-				{
-					Clipboard := temp_clip
-				} 
-				else {
-					line2 := Clipboard
-					Clipboard := temp_clip
-					from_fc := true
-					menu, context_ordernr, add, Kontrollera print, context_print
-					menu, context_ordernr, add, Sök på ordernummer, sokOrder
-					menu, context_ordernr, show
-				}
-				Clipboard := temp_clip
-			}
-		}
-return
+; ~LButton UP::
+; 	MouseGetPos, , , id, control
+; 	IfInString, control, Edit3
+; 		{
+; 			IfWinActive, Atex MediaLink
+; 			{
+; 				temp_clip := Clipboard
+; 				Send, ^c
+; 				regex := "0{0,3}(\d{7}-\d{2})"
+; 				RegExMatch(Clipboard, regex, match)
+; 				if (match1 = "")
+; 				{
+; 					Clipboard := temp_clip
+; 				} 
+; 				else {
+; 					line2 := Clipboard
+; 					Clipboard := temp_clip
+; 					from_fc := true
+; 					menu, context_ordernr, add, Kontrollera print, context_print
+; 					menu, context_ordernr, add, Sök på ordernummer, sokOrder
+; 					menu, context_ordernr, show
+; 				}
+; 				Clipboard := temp_clip
+; 			}
+; 		}
+; return
 
 context_print:
 	StringSplit, nummer, line2, -

@@ -60,6 +60,7 @@ printCheck(x, mnr)
 	StringTrimLeft, SistaTvaSiffrorna, OrderNummerUtanMnr, 8 ; Plockar ut sista två siffrorna ur ordernumret
 	StringTrimLeft, OrderNummerUtanNollor, OrderNummerUtanMnr, 3 ; Tar bort inledande nollor i ordernumret
 	printdir = \\nt.se\Adbase\Annonser\Ad\%SistaTvaSiffrorna%\10%OrderNummerUtanNollor%%mnr%.pdf
+	printdir_short = \\nt.se\Adbase\Annonser\Ad\%SistaTvaSiffrorna%\10
 	imgdir = \\nt.se\Adbase\Annonser\eProof\%OrderNummerUtanMnr%%mnr%.jpg
 	ifExist, %printdir%
 		{
@@ -184,6 +185,11 @@ getFormat(x)
 	{
 		format = MOD
 		file = 468 x 120
+	}
+	if (x = "Artikel 60")
+	{
+		format = MOD
+		file = 468 x 60
 	}
 	if (x = "Mittbanner 1")
 	{
@@ -412,6 +418,20 @@ cxProduct(format, type)
 {
 	;global ; Alla variabler är globala
 	output := {}
+
+	; Reach ---------------------------------------
+	if (format = "REACH250" && type = "Run On Site")	
+	{
+		cxName := "Reach"
+		cost := "cpm"
+	}
+	if (format = "REACH468" && type = "Run On Site")	
+	{
+		cxName := "Reach"
+		cost := "cpm"
+	}
+	
+
 	; Widescreen ----------------------------------
 	if (format = "WID" && type = "Run On Site")	
 	{

@@ -46,9 +46,10 @@ IniRead, RMenuColor, %mlpSettings%, Theme, RMenuColor
 
 Gui, 20:Add, Tab, x2 y0 w580 h430 , Allmänt|Kolumner|Utseende|Övrigt
 Gui, 20:Tab, Allmänt ; -------------------------------------------------
-Gui, 20:Add, Picture, x132 y120 w300 h190 , %dir_img%\mplus_settings.jpg
+Gui, 20:Add, Picture, x132 y120 w300 h190 , %dir_img%\mlp_settings.jpg
 ; Gui, 20:Add, Checkbox, x20 y400 vZenUpdates gZenUpdates %checked%, Notifiering av nya ärenden i zendesk
-; Gui, 20:Add, Text, x472 y400 w100 h20 , Version %version%
+Gui, 20:Add, Text, x472 y400 w100 h20 , Version %version%
+Gui, 20:add, Button, x20 y370 w110 h40 gupdate, Sök uppdatering
 Gui, 20:Tab, Kolumner ; ------------------------------------------------
 Gui, 20:Add, Text, x42 y53 w80 h20 , Startdatum
 Gui, 20:Add, Text, x42 y83 w80 h20 , Stoppdatum

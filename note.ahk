@@ -22,11 +22,15 @@
 		FileRead, info,	%notesdir%\%mlOrdernummer%.txt
 		if (info != "")
 		{
+			popX := mX-150
+			SplashImage = %dir_img%\varning_small.png
+			SplashImageGUI(SplashImage, popX, mY, 2000, true)
+
 			ControlSetText, Static29, %info%, Atex MediaLink
 			ControlSetText, Static61, Interna noteringar (OBS - Egna noteringar finns!), Atex MediaLink
 			ControlMove, Static61, , , 500, , Atex MediaLink
-			ToolTip, Observera: Denna kampanj har ytterligare information tillagd.
-			SetTimer, RemoveToolTip, 1500
+			; ToolTip, Observera: Denna kampanj har ytterligare information tillagd.
+			; SetTimer, RemoveToolTip, 1500
 		}
 		if (info = "")
 		{
