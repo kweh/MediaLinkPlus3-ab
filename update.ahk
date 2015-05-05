@@ -1,11 +1,16 @@
 ﻿updateStart:
 	FileDelete, %dir_update%\MedialinkPlus.msi
 	UrlDownloadToFile, http://kweh.github.io/MediaLinkPlus/mlp/version.txt, %dir_update%\version.txt
+	UrlDownloadToFile, http://kweh.github.io/MediaLinkPlus/mlp/nyheter.txt, %dir_update%\nyheter.txt
+
 	FileRead, newversion, %dir_update%\version.txt
+	FileRead, nyheter, %dir_update%\nyheter.txt
+
 	FileDelete, %dir_update%\version.txt
+	FileDelete, %dir_update%\nyheter.txt
 	if (newversion > version)
 	{
-		msgbox,4,Ny version tillgänglig, Det finns en ny version av Medialink Plus. Vill du ladda ned och installera den? Medialink Plus kommer att stängas ned när uppdateringen startar.
+		msgbox,4,Ny version tillgänglig, Det finns en ny version av Medialink Plus.`n`n%nyheter%`n`n Vill du ladda ned och installera? Medialink Plus kommer att stängas ned när uppdateringen startar.
 		IfMsgBox, yes
 		{
 			Splashimage,,,Laddar ned uppdatering, Laddar ned..., Uppdatering
@@ -20,11 +25,16 @@ return
 update:
 	FileDelete, %dir_update%\MedialinkPlus.msi
 	UrlDownloadToFile, http://kweh.github.io/MediaLinkPlus/mlp/version.txt, %dir_update%\version.txt
+	UrlDownloadToFile, http://kweh.github.io/MediaLinkPlus/mlp/nyheter.txt, %dir_update%\nyheter.txt
+
 	FileRead, newversion, %dir_update%\version.txt
+	FileRead, nyheter, %dir_update%\nyheter.txt
+
 	FileDelete, %dir_update%\version.txt
+	FileDelete, %dir_update%\nyheter.txt
 	if (newversion > version)
 	{
-		msgbox,4,Ny version tillgänglig, Det finns en ny version av Medialink Plus. Vill du ladda ned och installera den? Medialink Plus kommer att stängas ned när uppdateringen startar.
+		msgbox,4,Ny version tillgänglig, Det finns en ny version av Medialink Plus.`n`n%nyheter%`n`n Vill du ladda ned och installera? Medialink Plus kommer att stängas ned när uppdateringen startar.
 		IfMsgBox, yes
 		{
 			Splashimage,,,Laddar ned uppdatering, Laddar ned..., Uppdatering

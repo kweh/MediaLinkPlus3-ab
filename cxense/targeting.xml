@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <cx:publisherTargeting xmlns:cx="http://cxense.com/cxad/api/cxad">
-  <cx:templateId>000000016020bf37</cx:templateId>
+  <cx:templateId>0000000161079935</cx:templateId>
   <cx:publisherTarget>
-        <cx:url>http://uppgång.se</cx:url>
+        <cx:url>http://gotland.net</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
 </cx:publisherTargeting>

@@ -1,9 +1,9 @@
 ﻿getList: ; Hämtar information från valt objekt i listvyn
 	gosub, getAnvnamn
-	ControlGet, listCount, List, Count Selected, %control%, Atex MediaLink
-	ControlGet, getList, List, Selected, %control%, Atex MediaLink
+	ControlGet, listCount, List, Count Selected, %control%, NewsCycle MediaLink
+	ControlGet, getList, List, Selected, %control%, NewsCycle MediaLink
 	if (weblinkget = 1)
-		ControlGet, getList, List, , %control%, Atex MediaLink
+		ControlGet, getList, List, , %control%, NewsCycle MediaLink
 	StringSplit, getListRow, getList, `n
 	listRow = %getListRow1%
 	Stringsplit, kolumn, listRow, `t
@@ -43,6 +43,11 @@
 	{
 		mlTidning = NTFB
 	}
+
+	if (mlSite = "mobil.nt.se")
+	{
+		mlTidning = NTFB
+	}
 	if (mlSite = "Affärsliv.com")
 	{
 		mlSite = affarsliv.com
@@ -56,7 +61,7 @@ return
 
 ; Hämtar användarnamn från Medialink-fönstrets titelrad
 getAnvnamn:
-	WinGetTitle, Windowtext, Atex MediaLink
+	WinGetTitle, Windowtext, NewsCycle MediaLink
 	StringSplit, WindowSplit, Windowtext, =
 	StringSplit, WindowSplit, WindowSplit2, %A_Space%
 	anvNamn =  %WindowSplit1%
@@ -71,9 +76,9 @@ return
 ; Söker i Medialink på ordernumret
 sokOrder:
 	StringTrimRight, OrderNummerUtanMnr, mlOrdernummer, 3 ; Tar bort tre sista tecken i ordernumret, dvs materialnummer inkl bindestreck
-	ControlSetText, Edit1, %OrderNummerUtanMnr%, Atex MediaLink ; Sätt ovanstående i sökfältet
+	ControlSetText, Edit1, %OrderNummerUtanMnr%, NewsCycle MediaLink ; Sätt ovanstående i sökfältet
 	Control, ChooseString, "Alla annonser", ComboBox1 ; Väljer "Alla annonser" i sökalternativsrutan
-	ControlFocus, Edit1, Atex MediaLink	; Sätter fokus på sökfältet
+	ControlFocus, Edit1, NewsCycle MediaLink	; Sätter fokus på sökfältet
 	Send, {Enter} ; Trycker enter för att starta sök.
 return
 
@@ -91,7 +96,7 @@ return
 	 	MouseGetPos, mx, my
 	 	wx := mx-150
 	 	wy := my+5
-	 	ControlGetText, getInterna, Edit3, Atex MediaLink
+	 	ControlGetText, getInterna, Edit3, NewsCycle MediaLink
 	 	Gui, 30:Add, Edit, r15 w300 x0 y0 vinternaNoteringar, %getInterna%
 	 	Gui, 30:+AlwaysOnTop +ToolWindow
 	 	Gui, 30:Show, w300 h200 x%wx% y%wy%, Interna Noteringar
@@ -383,6 +388,25 @@ multiCxStart:
 					StringSplit, prodArray, mlProdukt , %A_Space%
 					mlTidning = %prodArray1%
 					mlSite = %prodArray2%
+
+					if (mlSite = "gotland.net")
+					{
+						mlTidning = GN
+					}
+					if (mlSite = "nt.se")
+					{
+						mlTidning = NTFB
+					}
+
+					if (mlSite = "mobil.nt.se")
+					{
+						mlTidning = NTFB
+					}
+					if (mlSite = "Affärsliv.com")
+					{
+						mlSite = affarsliv.com
+					}	
+
 					gosub, cx_start
 					i++
 				}
@@ -700,11 +724,11 @@ status_repetition:
 Return
 
 status_korrekturskickat:
-	status("korrektur skickat")
+	status("korrektur  skickat")
 Return
 
 status_korrekturklart:
-	status("korrektur klart")
+	status("korrektur  klart")
 Return
 
 status_undersoks:
@@ -712,7 +736,7 @@ status_undersoks:
 Return
 
 status_sentbokad:
-	status("sent bokad")
+	status("sent  bokad")
 Return
 
 status_klar:
@@ -720,12 +744,12 @@ status_klar:
 Return
 
 status_levfardig:
-	status("Lev. Färdig")
+	status("Lev.  Färdig")
 Return
 
 status_manusmail:
 	status("Vilande")
-	assign("Manus på mail")
+	assign("Manus  på mail")
 Return
 
 status_bokad:

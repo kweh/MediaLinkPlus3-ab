@@ -728,9 +728,12 @@ kundSaknas:
     }
     ifMsgBox, OK
     {
-      StringSplit, xmlSplit, DATA, >
-      StringSplit, xmlSplit, xmlSplit6, <
-      kundID = %xmlSplit1% ; kundID innehåller kundens ID
+      ; StringSplit, xmlSplit, DATA, >
+      ; StringSplit, xmlSplit, xmlSplit6, <
+      ; kundID = %xmlSplit1% ; kundID innehåller kundens ID
+       regex := "<folderId>(.{16})</folderId>"
+      RegExMatch(A_LoopField, regex,test)
+      kundID = test1
 
       goto, cx_ui
     }

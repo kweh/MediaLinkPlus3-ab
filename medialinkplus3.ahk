@@ -2,15 +2,17 @@
 SetTitleMatchMode, 2
 DetectHiddenText, On
 #SingleInstance force
+
 #include paths.ahk
 #include secure.ahk
 #include menu_names.ahk
 
-version = 304
+version = 308
 
 SplashImage = %dir_img%\splash.png
 SplashImageGUI(SplashImage, "Center", "Center", 3000, true)
 sleep, 3000
+
 #include update.ahk
 gosub, updateStart
 
@@ -223,11 +225,11 @@ menu, tray, add, Starta om Medialink Plus, reload
 ~LButton::
 	CoordMode, Mouse, Screen
 	MouseGetPos,mX ,mY , id, control
-	ifWinActive, Atex MediaLink
-	{
-		gosub, getList
-		gosub, note
-	}
+	; ifWinActive, Atex MediaLink
+	; {
+	; 	gosub, getList
+	; 	gosub, note
+	; }
 
 	IfWinActive, NewsCycle MediaLink
 	{

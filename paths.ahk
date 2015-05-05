@@ -1,6 +1,4 @@
-﻿version = 3.00
-
-dir_cxense = %A_WorkingDir%\cxense
+﻿dir_cxense = %A_WorkingDir%\cxense
 dir_skins = %A_WorkingDir%\skins
 dir_icons = %A_WorkingDir%\ico 
 dir_templates = %A_WorkingDir%\templates ; Sätter mapp för psd- pch fla-mallar
@@ -21,3 +19,7 @@ mlp_filechecklist = %A_WorkingDir%\filecheck\list.txt
 ; 	IniWrite, 1, %mlpDir%\settings.ini, Settings, NoteWin
 ; 	}
 mlpKolumner = %A_WorkingDir%\settings\kolumner.ini
+
+
+
+

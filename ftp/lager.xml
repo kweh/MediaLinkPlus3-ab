@@ -1,854 +1,6 @@
 <lager>
-	<timestamp>20150427124541</timestamp>
+	<timestamp>20150430105831</timestamp>
 	<kampanj>
-			<tidning>UNT</tidning>
-			<format>PAN</format>
-			<ordernr>0001694759-03</ordernr>
-			<kund>Uppsala Basket</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-03</stopp>
-			<exponeringar>50000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>WID</format>
-			<ordernr>0001745399-04</ordernr>
-			<kund>Luleå Hockey Restaurang</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-05</stopp>
-			<exponeringar>90000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>UNT</tidning>
-			<format>WID</format>
-			<ordernr>0001746214-04</ordernr>
-			<kund>Supermarket i Uppsala</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-02</stopp>
-			<exponeringar>200000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>UNT</tidning>
-			<format>PAN</format>
-			<ordernr>0001748168-01</ordernr>
-			<kund>Kungsängen Produktion</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>200000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>CO</tidning>
-			<format>WID</format>
-			<ordernr>0001749740-02</ordernr>
-			<kund>Wimab Utbildning o Konsulting AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>50000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>CO</tidning>
-			<format>MOB</format>
-			<ordernr>0001749740-03</ordernr>
-			<kund>Wimab Utbildning o Konsulting AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>30000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>CO</tidning>
-			<format>WID</format>
-			<ordernr>0001753518-03</ordernr>
-			<kund>COOP BUTIK &amp; STORMARKNAD AB/ FORUM</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-05</stopp>
-			<exponeringar>300000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>CO</tidning>
-			<format>WID</format>
-			<ordernr>0001753518-04</ordernr>
-			<kund>COOP BUTIK &amp; STORMARKNAD AB/ FORUM</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-05</stopp>
-			<exponeringar>300000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>CO</tidning>
-			<format>MOB</format>
-			<ordernr>0001753518-05</ordernr>
-			<kund>COOP BUTIK &amp; STORMARKNAD AB/ FORUM</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-05</stopp>
-			<exponeringar>100000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NTFB</tidning>
-			<format>WID</format>
-			<ordernr>0001754046-05</ordernr>
-			<kund>COOP BUTIK &amp; STORMARKNAD AB/ FORUM</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-05</stopp>
-			<exponeringar>300000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NTFB</tidning>
-			<format>WID</format>
-			<ordernr>0001754046-06</ordernr>
-			<kund>COOP BUTIK &amp; STORMARKNAD AB/ FORUM</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-05</stopp>
-			<exponeringar>300000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NTFB</tidning>
-			<format>MOB</format>
-			<ordernr>0001754046-07</ordernr>
-			<kund>COOP BUTIK &amp; STORMARKNAD AB/ FORUM</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-05</stopp>
-			<exponeringar>100000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>ÖM</tidning>
-			<format>1024x384</format>
-			<ordernr>0001756600-04</ordernr>
-			<kund>Länsförsäkringar Fastighetsförmedli</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-06</stopp>
-			<exponeringar>10</exponeringar>
-		</kampanj><kampanj>
-			<tidning>ÖM</tidning>
-			<format>1024x384</format>
-			<ordernr>0001756600-04</ordernr>
-			<kund>Länsförsäkringar Fastighetsförmedli</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-06</stopp>
-			<exponeringar>10</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>WID</format>
-			<ordernr>0001759552-02</ordernr>
-			<kund>KVANTUM LULEÅ STORMARKNAD</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-15</stopp>
-			<exponeringar>600000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>MOB</format>
-			<ordernr>0001759552-03</ordernr>
-			<kund>KVANTUM LULEÅ STORMARKNAD</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-15</stopp>
-			<exponeringar>200000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>1920x1080</format>
-			<ordernr>0001759552-04</ordernr>
-			<kund>KVANTUM LULEÅ STORMARKNAD</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-15</stopp>
-			<exponeringar>0</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>WID</format>
-			<ordernr>0001761259-02</ordernr>
-			<kund>Djurmagazinet Luleå Storheden</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>200000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>MOB</format>
-			<ordernr>0001761259-03</ordernr>
-			<kund>Djurmagazinet Luleå Storheden</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>100000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>CO</tidning>
-			<format>MOB</format>
-			<ordernr>0001761467-02</ordernr>
-			<kund>Tornby Stormarknad AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-22</stopp>
-			<exponeringar>150000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>UNT</tidning>
-			<format>MOB</format>
-			<ordernr>0001754728-04</ordernr>
-			<kund>Stekar´n Lunch &amp; Catering</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>40000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>MOB</format>
-			<ordernr>0001763952-03</ordernr>
-			<kund>Larssons Glas/Luleå-Övertorneå</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-07</stopp>
-			<exponeringar>100000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>CO</tidning>
-			<format>WID</format>
-			<ordernr>0001764233-01</ordernr>
-			<kund>Corren Försäljning</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-29</stopp>
-			<exponeringar>150000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>ÖM</tidning>
-			<format>380</format>
-			<ordernr>0001764233-02</ordernr>
-			<kund>Corren Försäljning</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-29</stopp>
-			<exponeringar>150000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>CO</tidning>
-			<format>PAN</format>
-			<ordernr>0001764891-02</ordernr>
-			<kund>City Gross Sverige AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>246000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>CO</tidning>
-			<format>MOB</format>
-			<ordernr>0001764891-03</ordernr>
-			<kund>City Gross Sverige AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>75000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NTFB</tidning>
-			<format>MOB</format>
-			<ordernr>0001765217-03</ordernr>
-			<kund>Norrköping Symfoniorkester AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-03</stopp>
-			<exponeringar>25000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>GM</tidning>
-			<format>OUT</format>
-			<ordernr>0001765564-01</ordernr>
-			<kund>Maxi Ica Stormarknad Visby</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>120000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>PAN</format>
-			<ordernr>0001765578-01</ordernr>
-			<kund>HUSMAN &amp; HAGBERG</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>200000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>MOB</format>
-			<ordernr>0001765578-02</ordernr>
-			<kund>HUSMAN &amp; HAGBERG</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>100000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>GM</tidning>
-			<format>WID</format>
-			<ordernr>0001765688-01</ordernr>
-			<kund>Coop Gotland 02-2500</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>60000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>MOB</format>
-			<ordernr>0001765761-03</ordernr>
-			<kund>Carglass Sweden AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-07</stopp>
-			<exponeringar>100000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>WID</format>
-			<ordernr>0001765921-02</ordernr>
-			<kund>'XXL Sport &amp; vildmark</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>300000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>MOB</format>
-			<ordernr>0001766043-02</ordernr>
-			<kund>Burlin Motor AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-09</stopp>
-			<exponeringar>100000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>CO</tidning>
-			<format>WID</format>
-			<ordernr>0001766063-02</ordernr>
-			<kund>Hudateljén i Motala</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>70000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>MVT</tidning>
-			<format>WID</format>
-			<ordernr>0001766288-02</ordernr>
-			<kund>Leif Fribergs färg AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>20000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>MVT</tidning>
-			<format>MOB</format>
-			<ordernr>0001766288-03</ordernr>
-			<kund>Leif Fribergs färg AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>9000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>ÖM</tidning>
-			<format>1080x1920</format>
-			<ordernr>0001766288-04</ordernr>
-			<kund>Leif Fribergs färg AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>1</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NTFB</tidning>
-			<format>WID</format>
-			<ordernr>0001767006-02</ordernr>
-			<kund>Bielkhammar AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-02</stopp>
-			<exponeringar>40000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>MVT</tidning>
-			<format>WID</format>
-			<ordernr>0001767171-02</ordernr>
-			<kund>MVT Försäljning</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-09</stopp>
-			<exponeringar>30000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>UNT</tidning>
-			<format>OUT</format>
-			<ordernr>0001767543-01</ordernr>
-			<kund>UNT reklamskatt</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-05-05</stopp>
-			<exponeringar>1000000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>UNT</tidning>
-			<format>WID</format>
-			<ordernr>0001767585-01</ordernr>
-			<kund>City Gross Sverige AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>1120000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>UNT</tidning>
-			<format>MOD</format>
-			<ordernr>0001767715-01</ordernr>
-			<kund>Gränby Storbutik Gunnar Carlson AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>500000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>WID</format>
-			<ordernr>0001767559-03</ordernr>
-			<kund>Storbutiken i Luleå</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>230000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>WID</format>
-			<ordernr>0001764589-02</ordernr>
-			<kund>SkiCamp i Boden AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>200000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>WID</format>
-			<ordernr>0001768150-01</ordernr>
-			<kund>Burlin Motor AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-02</stopp>
-			<exponeringar>10000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>PT</tidning>
-			<format>WID</format>
-			<ordernr>0001768204-02</ordernr>
-			<kund>Mathandel Vicek AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-02</stopp>
-			<exponeringar>100000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>PT</tidning>
-			<format>MOB</format>
-			<ordernr>0001768204-03</ordernr>
-			<kund>Mathandel Vicek AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-02</stopp>
-			<exponeringar>35000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>UNT</tidning>
-			<format>WID</format>
-			<ordernr>0001768334-01</ordernr>
-			<kund>Saluhallsrestaurangerna i Uppsala A</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-12</stopp>
-			<exponeringar>44000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NTFB</tidning>
-			<format>WID</format>
-			<ordernr>0001768728-03</ordernr>
-			<kund>Hyresbostäder i Norrköping AB</kund>
-			<start>2015-03-02</start>
-			<stopp>2015-03-07</stopp>
-			<exponeringar>100000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>GM</tidning>
-			<format>WID</format>
-			<ordernr>0001740550-02</ordernr>
-			<kund>Gotlands Media GA</kund>
-			<start>2015-03-03</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>100000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>VT</tidning>
-			<format>PAN</format>
-			<ordernr>0001745535-01</ordernr>
-			<kund>FASTIGHETSBYRÅN</kund>
-			<start>2015-03-03</start>
-			<stopp>2015-03-31</stopp>
-			<exponeringar>135000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>PT</tidning>
-			<format>PAN</format>
-			<ordernr>0001750353-02</ordernr>
-			<kund>Müllers Bil AB</kund>
-			<start>2015-03-03</start>
-			<stopp>2015-03-09</stopp>
-			<exponeringar>45000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>PT</tidning>
-			<format>MOB</format>
-			<ordernr>0001750353-03</ordernr>
-			<kund>Müllers Bil AB</kund>
-			<start>2015-03-03</start>
-			<stopp>2015-03-09</stopp>
-			<exponeringar>40000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>GM</tidning>
-			<format>WID</format>
-			<ordernr>0001750482-02</ordernr>
-			<kund>Gotlands Media GT</kund>
-			<start>2015-03-03</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>100000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>MOB</format>
-			<ordernr>0001765617-02</ordernr>
-			<kund>Bil AB A Müller/ePP</kund>
-			<start>2015-03-03</start>
-			<stopp>2015-03-09</stopp>
-			<exponeringar>75000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>PAN</format>
-			<ordernr>0001765617-03</ordernr>
-			<kund>Bil AB A Müller/ePP</kund>
-			<start>2015-03-03</start>
-			<stopp>2015-03-09</stopp>
-			<exponeringar>400000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>MVT</tidning>
-			<format>MOB</format>
-			<ordernr>0001767171-03</ordernr>
-			<kund>MVT Försäljning</kund>
-			<start>2015-03-03</start>
-			<stopp>2015-03-09</stopp>
-			<exponeringar>15000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NTFB</tidning>
-			<format>PAN</format>
-			<ordernr>0001767906-02</ordernr>
-			<kund>Sparbankernas Fastighetsbyrå I Norr</kund>
-			<start>2015-03-03</start>
-			<stopp>2015-03-31</stopp>
-			<exponeringar>250000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NTFB</tidning>
-			<format>MOB</format>
-			<ordernr>0001767906-03</ordernr>
-			<kund>Sparbankernas Fastighetsbyrå I Norr</kund>
-			<start>2015-03-03</start>
-			<stopp>2015-03-31</stopp>
-			<exponeringar>175000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>ÖM</tidning>
-			<format>1024x384</format>
-			<ordernr>0001767906-04</ordernr>
-			<kund>Sparbankernas Fastighetsbyrå I Norr</kund>
-			<start>2015-03-03</start>
-			<stopp>2015-03-31</stopp>
-			<exponeringar>29</exponeringar>
-		</kampanj><kampanj>
-			<tidning>ÖM</tidning>
-			<format>1024x384</format>
-			<ordernr>0001767906-05</ordernr>
-			<kund>Sparbankernas Fastighetsbyrå I Norr</kund>
-			<start>2015-03-03</start>
-			<stopp>2015-03-31</stopp>
-			<exponeringar>29</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>WID</format>
-			<ordernr>0001769150-01</ordernr>
-			<kund>LF Basket Norrbotten</kund>
-			<start>2015-03-03</start>
-			<stopp>2015-03-03</stopp>
-			<exponeringar>50000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>WID</format>
-			<ordernr>0001724489-02</ordernr>
-			<kund>Laitis Bil &amp; Industri</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-10</stopp>
-			<exponeringar>300000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>MOB</format>
-			<ordernr>0001724489-03</ordernr>
-			<kund>Laitis Bil &amp; Industri</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-10</stopp>
-			<exponeringar>20000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>GM</tidning>
-			<format>WID</format>
-			<ordernr>0001738604-06</ordernr>
-			<kund>Gotlands media Marknad</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-06</stopp>
-			<exponeringar>50000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>GM</tidning>
-			<format>380</format>
-			<ordernr>0001741566-04</ordernr>
-			<kund>Gotlands Media Gotlandnet</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-17</stopp>
-			<exponeringar>1</exponeringar>
-		</kampanj><kampanj>
-			<tidning>UNT</tidning>
-			<format>WID</format>
-			<ordernr>0001746214-05</ordernr>
-			<kund>Supermarket i Uppsala</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>200000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>UNT</tidning>
-			<format>WID</format>
-			<ordernr>0001750963-09</ordernr>
-			<kund>Traktor Nord i Uppsala AB</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>50000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>UNT</tidning>
-			<format>PAN</format>
-			<ordernr>0001756608-04</ordernr>
-			<kund>Ekebybruk Bad Kakel &amp; Inredning Ab</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-07</stopp>
-			<exponeringar>80000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>UNT</tidning>
-			<format>MOB</format>
-			<ordernr>0001756608-05</ordernr>
-			<kund>Ekebybruk Bad Kakel &amp; Inredning Ab</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-07</stopp>
-			<exponeringar>80000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NTFB</tidning>
-			<format>MOB</format>
-			<ordernr>0001759258-02</ordernr>
-			<kund>FESTNINGEN AB</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-06</stopp>
-			<exponeringar>25000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>ÖM</tidning>
-			<format>1024x384</format>
-			<ordernr>0001759258-03</ordernr>
-			<kund>FESTNINGEN AB</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-06</stopp>
-			<exponeringar>3</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>WID</format>
-			<ordernr>0001763952-02</ordernr>
-			<kund>Larssons Glas/Luleå-Övertorneå</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-07</stopp>
-			<exponeringar>160000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>VT</tidning>
-			<format>WID</format>
-			<ordernr>0001763962-01</ordernr>
-			<kund>VT Annonsavdelning</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-10</stopp>
-			<exponeringar>1</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>WID</format>
-			<ordernr>0001765761-02</ordernr>
-			<kund>Carglass Sweden AB</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-07</stopp>
-			<exponeringar>160000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>1920x1080</format>
-			<ordernr>0001766240-01</ordernr>
-			<kund>Däckproffset i Luleå AB</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-06-30</stopp>
-			<exponeringar>0</exponeringar>
-		</kampanj><kampanj>
-			<tidning>UNT</tidning>
-			<format>WID</format>
-			<ordernr>0001762631-05</ordernr>
-			<kund>Företagslotsen Uppsala</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-04-06</stopp>
-			<exponeringar>150000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>UNT</tidning>
-			<format>WID</format>
-			<ordernr>0001767221-04</ordernr>
-			<kund>Storbutiken i Örebro AB</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-05</stopp>
-			<exponeringar>150000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>PAN</format>
-			<ordernr>0001742798-05</ordernr>
-			<kund>Ica Supermarket Boden</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>50000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>GM</tidning>
-			<format>WID</format>
-			<ordernr>0001767870-02</ordernr>
-			<kund>Ung Företagsamhet</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>20000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>PAN</format>
-			<ordernr>0001767555-02</ordernr>
-			<kund>Bilkompaniet</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-06</stopp>
-			<exponeringar>150000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>ÖM</tidning>
-			<format>1024x384</format>
-			<ordernr>0001768275-01</ordernr>
-			<kund>ZETTERBLOM BIL AB</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-31</stopp>
-			<exponeringar>27</exponeringar>
-		</kampanj><kampanj>
-			<tidning>ÖM</tidning>
-			<format>1024x384</format>
-			<ordernr>0001768387-01</ordernr>
-			<kund>Zetterblom bil AB/Mitsubishi</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-31</stopp>
-			<exponeringar>27</exponeringar>
-		</kampanj><kampanj>
-			<tidning>ÖM</tidning>
-			<format>1024x384</format>
-			<ordernr>0001768397-01</ordernr>
-			<kund>Zetterblom Bil AB/Mazda</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>27</exponeringar>
-		</kampanj><kampanj>
-			<tidning>GM</tidning>
-			<format>WID</format>
-			<ordernr>0001768499-02</ordernr>
-			<kund>Visby Innebandyklubb</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-07</stopp>
-			<exponeringar>100000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>GM</tidning>
-			<format>WID</format>
-			<ordernr>0001768516-02</ordernr>
-			<kund>Visby Innebandyklubb</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-07</stopp>
-			<exponeringar>100000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>1920x1080</format>
-			<ordernr>0001768663-03</ordernr>
-			<kund>Aurorum Business Incubator</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-12</stopp>
-			<exponeringar>0</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>WID</format>
-			<ordernr>0001769442-03</ordernr>
-			<kund>Öhrling Price Watherhouse Coopers R</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>50000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>1920x1080</format>
-			<ordernr>0001769464-03</ordernr>
-			<kund>Älvsbyn kommun</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>0</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>WID</format>
-			<ordernr>0001769464-04</ordernr>
-			<kund>Älvsbyn kommun</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>50000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>PAN</format>
-			<ordernr>0001769507-02</ordernr>
-			<kund>Favör Reklambyrå AB</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>50000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>1920x1080</format>
-			<ordernr>0001769507-03</ordernr>
-			<kund>Favör Reklambyrå AB</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>0</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>380</format>
-			<ordernr>0001769507-04</ordernr>
-			<kund>Favör Reklambyrå AB</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>25000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>380</format>
-			<ordernr>0001769542-01</ordernr>
-			<kund>Piteå Kommun</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>50000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>380</format>
-			<ordernr>0001769546-01</ordernr>
-			<kund>Arvidsjaurs kommun</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>50000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>380</format>
-			<ordernr>0001769551-01</ordernr>
-			<kund>Arjeplogs Kommun</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>50000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>380</format>
-			<ordernr>0001769555-01</ordernr>
-			<kund>Bodens Kommun</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>50000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>380</format>
-			<ordernr>0001769559-01</ordernr>
-			<kund>Jokkmokks kommun</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>20000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>380</format>
-			<ordernr>0001769564-01</ordernr>
-			<kund>Överkalix Kommun</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>50000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>380</format>
-			<ordernr>0001769565-01</ordernr>
-			<kund>Övertorneå Kommun</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>50000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>380</format>
-			<ordernr>0001769583-01</ordernr>
-			<kund>Kiruna kommun</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>50000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>380</format>
-			<ordernr>0001769464-05</ordernr>
-			<kund>Älvsbyn kommun</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-04</stopp>
-			<exponeringar>60000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>ÖM</tidning>
-			<format>1024x384</format>
-			<ordernr>0001754297-02</ordernr>
-			<kund>MEMA MARKISER</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-22</stopp>
-			<exponeringar>7</exponeringar>
-		</kampanj><kampanj>
-			<tidning>NM</tidning>
-			<format>1920x1080</format>
-			<ordernr>0001770286-01</ordernr>
-			<kund>Brck Dgtl Outdoor Media AB</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-05</stopp>
-			<exponeringar>0</exponeringar>
-		</kampanj><kampanj>
-			<tidning>CO</tidning>
-			<format>MOB</format>
-			<ordernr>0001770275-03</ordernr>
-			<kund>Ica Supermarket</kund>
-			<start>2015-03-04</start>
-			<stopp>2015-03-08</stopp>
-			<exponeringar>70000</exponeringar>
-		</kampanj><kampanj>
 			<tidning>GM</tidning>
 			<format>WID</format>
 			<ordernr>0001728969-01</ordernr>
@@ -6649,6 +5801,14 @@
 			<stopp>2015-08-31</stopp>
 			<exponeringar>500000</exponeringar>
 		</kampanj><kampanj>
+			<tidning>GM</tidning>
+			<format>380</format>
+			<ordernr>0001797050-05</ordernr>
+			<kund>Pensionat Lövängen</kund>
+			<start>2015-03-25</start>
+			<stopp>2016-03-23</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
 			<tidning>NTFB</tidning>
 			<format>MOB</format>
 			<ordernr>0001797085-03</ordernr>
@@ -7324,7 +6484,7 @@
 			<tidning>NM</tidning>
 			<format>WID</format>
 			<ordernr>0001779135-02</ordernr>
-			<kund>Fritz Olsson</kund>
+			<kund></kund>
 			<start>2015-03-26</start>
 			<stopp>2015-03-26</stopp>
 			<exponeringar>50000</exponeringar>
@@ -11796,7 +10956,7 @@
 			<tidning>NM</tidning>
 			<format>MOB</format>
 			<ordernr>0001785486-02</ordernr>
-			<kund>Huvudorder NM</kund>
+			<kund>Skomästarinvest AB</kund>
 			<start>2015-04-09</start>
 			<stopp>2015-04-16</stopp>
 			<exponeringar>150000</exponeringar>
@@ -14214,7 +13374,7 @@
 			<ordernr>0001780301-01</ordernr>
 			<kund>Yrkesplugget Uppsala</kund>
 			<start>2015-04-20</start>
-			<stopp>2015-04-30</stopp>
+			<stopp>2015-05-05</stopp>
 			<exponeringar>250000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>GM</tidning>
@@ -14526,7 +13686,7 @@
 			<ordernr>0001790780-07</ordernr>
 			<kund>Noyess AB</kund>
 			<start>2015-04-20</start>
-			<stopp>2015-04-26</stopp>
+			<stopp>2015-04-30</stopp>
 			<exponeringar>12000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>ÖM</tidning>
@@ -14534,7 +13694,7 @@
 			<ordernr>0001790780-08</ordernr>
 			<kund>Noyess AB</kund>
 			<start>2015-04-20</start>
-			<stopp>2015-04-26</stopp>
+			<stopp>2015-04-30</stopp>
 			<exponeringar>1</exponeringar>
 		</kampanj><kampanj>
 			<tidning>MVT</tidning>
@@ -14542,7 +13702,7 @@
 			<ordernr>0001790780-09</ordernr>
 			<kund>Noyess AB</kund>
 			<start>2015-04-20</start>
-			<stopp>2015-04-26</stopp>
+			<stopp>2015-04-30</stopp>
 			<exponeringar>30000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>NM</tidning>
@@ -14590,7 +13750,7 @@
 			<ordernr>0001793860-04</ordernr>
 			<kund>KOLMÅRDENS DJURPARK AB</kund>
 			<start>2015-04-20</start>
-			<stopp>2015-04-30</stopp>
+			<stopp>2015-05-01</stopp>
 			<exponeringar>300000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>CO</tidning>
@@ -14598,7 +13758,7 @@
 			<ordernr>0001793860-05</ordernr>
 			<kund>KOLMÅRDENS DJURPARK AB</kund>
 			<start>2015-04-20</start>
-			<stopp>2015-04-30</stopp>
+			<stopp>2015-05-01</stopp>
 			<exponeringar>300000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>NTFB</tidning>
@@ -14606,7 +13766,7 @@
 			<ordernr>0001793860-06</ordernr>
 			<kund>KOLMÅRDENS DJURPARK AB</kund>
 			<start>2015-04-20</start>
-			<stopp>2015-04-30</stopp>
+			<stopp>2015-05-01</stopp>
 			<exponeringar>100000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>CO</tidning>
@@ -14614,7 +13774,7 @@
 			<ordernr>0001793860-07</ordernr>
 			<kund>KOLMÅRDENS DJURPARK AB</kund>
 			<start>2015-04-20</start>
-			<stopp>2015-04-30</stopp>
+			<stopp>2015-05-01</stopp>
 			<exponeringar>100000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>ÖM</tidning>
@@ -14622,7 +13782,7 @@
 			<ordernr>0001793860-08</ordernr>
 			<kund>KOLMÅRDENS DJURPARK AB</kund>
 			<start>2015-04-20</start>
-			<stopp>2015-04-30</stopp>
+			<stopp>2015-05-01</stopp>
 			<exponeringar>7</exponeringar>
 		</kampanj><kampanj>
 			<tidning>ÖM</tidning>
@@ -14630,7 +13790,7 @@
 			<ordernr>0001793860-09</ordernr>
 			<kund>KOLMÅRDENS DJURPARK AB</kund>
 			<start>2015-04-20</start>
-			<stopp>2015-04-30</stopp>
+			<stopp>2015-05-01</stopp>
 			<exponeringar>7</exponeringar>
 		</kampanj><kampanj>
 			<tidning>CO</tidning>
@@ -15033,14 +14193,6 @@
 			<stopp>2015-04-21</stopp>
 			<exponeringar>1</exponeringar>
 		</kampanj><kampanj>
-			<tidning>GM</tidning>
-			<format>380</format>
-			<ordernr>0001797050-05</ordernr>
-			<kund>Pensionat Lövängen</kund>
-			<start>2015-04-21</start>
-			<stopp>2016-04-21</stopp>
-			<exponeringar>1</exponeringar>
-		</kampanj><kampanj>
 			<tidning>PT</tidning>
 			<format>MOB</format>
 			<ordernr>0001797409-03</ordernr>
@@ -15207,7 +14359,7 @@
 			<kund>DJURBERGS JÄRNHANDEL AB</kund>
 			<start>2015-04-22</start>
 			<stopp>2015-04-23</stopp>
-			<exponeringar>100000</exponeringar>
+			<exponeringar>120000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>CO</tidning>
 			<format>PAN</format>
@@ -16007,7 +15159,7 @@
 			<kund>DJURBERGS JÄRNHANDEL AB</kund>
 			<start>2015-04-24</start>
 			<stopp>2015-04-24</stopp>
-			<exponeringar>100000</exponeringar>
+			<exponeringar>120000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>NTFB</tidning>
 			<format>WID</format>
@@ -16799,7 +15951,7 @@
 			<kund>Rederi AB Kind</kund>
 			<start>2015-04-27</start>
 			<stopp>2015-05-24</stopp>
-			<exponeringar>0</exponeringar>
+			<exponeringar>100000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>CO</tidning>
 			<format>MOB</format>
@@ -17065,13 +16217,29 @@
 			<stopp>2015-04-28</stopp>
 			<exponeringar>40000</exponeringar>
 		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>MOB</format>
+			<ordernr>0001796225-04</ordernr>
+			<kund>Sbe i Uppsala AB</kund>
+			<start>2015-04-27</start>
+			<stopp>2015-05-01</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001801029-03</ordernr>
+			<kund>Norén &amp; Englund AB</kund>
+			<start>2015-04-27</start>
+			<stopp>2015-04-27</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
 			<tidning>GM</tidning>
 			<format>OUT</format>
 			<ordernr>0001770404-02</ordernr>
 			<kund>Fole Kvarn AB</kund>
 			<start>2015-04-28</start>
-			<stopp>2015-04-28</stopp>
-			<exponeringar>15000</exponeringar>
+			<stopp>2015-04-29</stopp>
+			<exponeringar>30000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>CO</tidning>
 			<format>WID</format>
@@ -17289,6 +16457,550 @@
 			<stopp>2015-05-08</stopp>
 			<exponeringar>50000</exponeringar>
 		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800466-02</ordernr>
+			<kund>BJ:s Mode</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800466-03</ordernr>
+			<kund>BJ:s Mode</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800472-03</ordernr>
+			<kund>Haircrew AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800472-04</ordernr>
+			<kund>Haircrew AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800476-03</ordernr>
+			<kund>Bröllopshuset</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800476-04</ordernr>
+			<kund>Bröllopshuset</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800509-03</ordernr>
+			<kund>Floridus AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800509-04</ordernr>
+			<kund>Floridus AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800514-03</ordernr>
+			<kund>Café Gyllen AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800514-04</ordernr>
+			<kund>Café Gyllen AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800521-03</ordernr>
+			<kund>Direkt Optik AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800521-04</ordernr>
+			<kund>Direkt Optik AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800528-03</ordernr>
+			<kund>Eva Corsetten AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800528-04</ordernr>
+			<kund>Eva Corsetten AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800543-03</ordernr>
+			<kund>Filbytergallerian</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800543-04</ordernr>
+			<kund>Filbytergallerian</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800547-03</ordernr>
+			<kund>Foten i Tranås AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800547-04</ordernr>
+			<kund>Foten i Tranås AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800553-03</ordernr>
+			<kund>Fastighets AB L.E Lundberg</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800553-04</ordernr>
+			<kund>Fastighets AB L.E Lundberg</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800758-02</ordernr>
+			<kund>Guldklippet AB/Guldmagasinet</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800758-03</ordernr>
+			<kund>Guldklippet AB/Guldmagasinet</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800763-02</ordernr>
+			<kund>Johansson &amp; Schöttle Guldsmedsatelj</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800763-03</ordernr>
+			<kund>Johansson &amp; Schöttle Guldsmedsatelj</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800774-03</ordernr>
+			<kund>Linköping City Samverkan AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800774-04</ordernr>
+			<kund>Linköping City Samverkan AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800829-02</ordernr>
+			<kund>Lättsam i Linköping</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800829-03</ordernr>
+			<kund>Lättsam i Linköping</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800831-02</ordernr>
+			<kund>Hemliv AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800831-03</ordernr>
+			<kund>Hemliv AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800838-03</ordernr>
+			<kund>Malmbergs Ur-Optik-Linser AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800838-04</ordernr>
+			<kund>Malmbergs Ur-Optik-Linser AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>WID</format>
+			<ordernr>0001785871-05</ordernr>
+			<kund>Restaurang Skaris i Uppsala AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-05-05</stopp>
+			<exponeringar>400000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800916-03</ordernr>
+			<kund>Optiker Almå AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800916-04</ordernr>
+			<kund>Optiker Almå AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800924-03</ordernr>
+			<kund>Peab Drift och underhåll mellansver</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800924-04</ordernr>
+			<kund>Peab Drift och underhåll mellansver</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800933-03</ordernr>
+			<kund>Rapid Mode</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800933-04</ordernr>
+			<kund>Rapid Mode</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800942-02</ordernr>
+			<kund>Nemalg AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800942-03</ordernr>
+			<kund>Nemalg AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800948-03</ordernr>
+			<kund>Studio 22</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800948-04</ordernr>
+			<kund>Studio 22</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800956-03</ordernr>
+			<kund>Town &amp; Country</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800956-04</ordernr>
+			<kund>Town &amp; Country</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800974-03</ordernr>
+			<kund>Wahlbecks Mattor Eftr AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800974-04</ordernr>
+			<kund>Wahlbecks Mattor Eftr AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800983-03</ordernr>
+			<kund>Wiqvist Skinn O Mode</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800983-04</ordernr>
+			<kund>Wiqvist Skinn O Mode</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800992-03</ordernr>
+			<kund>Önska Linköping AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800992-04</ordernr>
+			<kund>Önska Linköping AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001801011-02</ordernr>
+			<kund>Berlins Urmakeri AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001801011-03</ordernr>
+			<kund>Berlins Urmakeri AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001801019-03</ordernr>
+			<kund>Porth John AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001801019-04</ordernr>
+			<kund>Porth John AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001801024-02</ordernr>
+			<kund>Ming Express</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001801024-03</ordernr>
+			<kund>Ming Express</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001801029-04</ordernr>
+			<kund>Norén &amp; Englund AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>WID</format>
+			<ordernr>0001801224-01</ordernr>
+			<kund>NORRKÖPINGS DOLPHINS</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-05-03</stopp>
+			<exponeringar>150000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001801427-02</ordernr>
+			<kund>May's Shop i Linköping AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001801427-03</ordernr>
+			<kund>May's Shop i Linköping AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>PAN</format>
+			<ordernr>0001801428-01</ordernr>
+			<kund>Testbolaget A</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-05-01</stopp>
+			<exponeringar>600</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001801431-02</ordernr>
+			<kund>Pagelle AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001801431-03</ordernr>
+			<kund>Pagelle AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001801439-03</ordernr>
+			<kund>Harryskompaniet i Linköping AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001801439-04</ordernr>
+			<kund>Harryskompaniet i Linköping AB</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001801455-03</ordernr>
+			<kund>Duxe Agentur AB (Duxe Mfg Co - Arti</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001801455-04</ordernr>
+			<kund>Duxe Agentur AB (Duxe Mfg Co - Arti</kund>
+			<start>2015-04-28</start>
+			<stopp>2015-04-28</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
 			<tidning>NM</tidning>
 			<format>WID</format>
 			<ordernr>0001724493-02</ordernr>
@@ -17481,6 +17193,182 @@
 			<stopp>2015-04-29</stopp>
 			<exponeringar>1</exponeringar>
 		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>768x384</format>
+			<ordernr>0001796018-04</ordernr>
+			<kund>NT Marknadsavdelning</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>1024x384</format>
+			<ordernr>0001796018-05</ordernr>
+			<kund>NT Marknadsavdelning</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>PAN</format>
+			<ordernr>0001801386-02</ordernr>
+			<kund>Carlqvist Bil AB</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-05-03</stopp>
+			<exponeringar>200000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>OUT</format>
+			<ordernr>0001801765-02</ordernr>
+			<kund>Uppsala Stadsteater</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-04-30</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>1024x384</format>
+			<ordernr>0001802145-01</ordernr>
+			<kund>Länsförsäkringar Fastighetsförmedli</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-05-03</stopp>
+			<exponeringar>5</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001802208-04</ordernr>
+			<kund>Rejmes Bil AB, Tage</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-04-29</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001802217-04</ordernr>
+			<kund>Rejmes Tornby</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-04-29</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001802219-04</ordernr>
+			<kund>Appelskogs Bil AB</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-04-29</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001802203-03</ordernr>
+			<kund>Träffpunkten Björsäter</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-04-30</stopp>
+			<exponeringar>20000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001802222-04</ordernr>
+			<kund>Kjell Askling Bil AB</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-04-29</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001802224-04</ordernr>
+			<kund>BilByter AB</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-04-29</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001802228-04</ordernr>
+			<kund>Bilbörsen i Linköping AB</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-04-29</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001802229-04</ordernr>
+			<kund>Biva AB</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-04-29</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001802234-04</ordernr>
+			<kund>Björkmans Bil/Bmw</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-04-29</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001802239-04</ordernr>
+			<kund>Engströms Bil AB</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-04-29</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001802242-04</ordernr>
+			<kund>Almeviks Motor AB</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-04-29</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001802254-04</ordernr>
+			<kund>Bossings Fritidscenter AB</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-04-29</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001802258-03</ordernr>
+			<kund>Grahns Bilar AB</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-04-29</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001802260-03</ordernr>
+			<kund>Skobes Bil Mitt AB</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-04-29</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001802262-03</ordernr>
+			<kund>Lönestams Bilar AB</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-04-29</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>PAN</format>
+			<ordernr>0001802310-01</ordernr>
+			<kund>TESTHUSET AB</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-05-01</stopp>
+			<exponeringar>600</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>PAN</format>
+			<ordernr>0001802333-01</ordernr>
+			<kund>Testbolaget A</kund>
+			<start>2015-04-29</start>
+			<stopp>2015-05-01</stopp>
+			<exponeringar>600</exponeringar>
+		</kampanj><kampanj>
 			<tidning>CO</tidning>
 			<format>PAN</format>
 			<ordernr>0001726645-04</ordernr>
@@ -17630,15 +17518,15 @@
 			<ordernr>0001775901-06</ordernr>
 			<kund>XXL Sport &amp; Vildmark AB</kund>
 			<start>2015-04-30</start>
-			<stopp>2015-04-30</stopp>
-			<exponeringar>31250</exponeringar>
+			<stopp>2015-05-02</stopp>
+			<exponeringar>125000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>NTFB</tidning>
 			<format>OUT</format>
 			<ordernr>0001775902-06</ordernr>
 			<kund>XXL Sport &amp; Vildmark AB</kund>
 			<start>2015-04-30</start>
-			<stopp>2015-04-30</stopp>
+			<stopp>2015-05-02</stopp>
 			<exponeringar>31250</exponeringar>
 		</kampanj><kampanj>
 			<tidning>CO</tidning>
@@ -17646,15 +17534,15 @@
 			<ordernr>0001775901-11</ordernr>
 			<kund>XXL Sport &amp; Vildmark AB</kund>
 			<start>2015-04-30</start>
-			<stopp>2015-04-30</stopp>
-			<exponeringar>56250</exponeringar>
+			<stopp>2015-05-03</stopp>
+			<exponeringar>225000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>NTFB</tidning>
 			<format>WID</format>
 			<ordernr>0001775902-11</ordernr>
 			<kund>XXL Sport &amp; Vildmark AB</kund>
 			<start>2015-04-30</start>
-			<stopp>2015-04-30</stopp>
+			<stopp>2015-05-03</stopp>
 			<exponeringar>56250</exponeringar>
 		</kampanj><kampanj>
 			<tidning>GM</tidning>
@@ -17945,6 +17833,126 @@
 			<stopp>2015-05-06</stopp>
 			<exponeringar>40000</exponeringar>
 		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>WID</format>
+			<ordernr>0001788195-04</ordernr>
+			<kund>NTM AB</kund>
+			<start>2015-04-30</start>
+			<stopp>2015-04-30</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>MVT</tidning>
+			<format>MOB</format>
+			<ordernr>0001801240-02</ordernr>
+			<kund>Viva Vision Vadstena ekonomisk före</kund>
+			<start>2015-04-30</start>
+			<stopp>2015-05-02</stopp>
+			<exponeringar>10000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>OUT</format>
+			<ordernr>0001784903-05</ordernr>
+			<kund>NT Marknadsavdelning</kund>
+			<start>2015-04-30</start>
+			<stopp>2015-07-10</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>PAN</format>
+			<ordernr>0001784903-06</ordernr>
+			<kund>NT Marknadsavdelning</kund>
+			<start>2015-04-30</start>
+			<stopp>2015-07-10</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>MOB</format>
+			<ordernr>0001784903-07</ordernr>
+			<kund>NT Marknadsavdelning</kund>
+			<start>2015-04-30</start>
+			<stopp>2015-07-10</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>1024x384</format>
+			<ordernr>0001784903-08</ordernr>
+			<kund>NT Marknadsavdelning</kund>
+			<start>2015-04-30</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>1024x384</format>
+			<ordernr>0001784903-09</ordernr>
+			<kund>NT Marknadsavdelning</kund>
+			<start>2015-04-30</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>VT</tidning>
+			<format>PAN</format>
+			<ordernr>0001800257-04</ordernr>
+			<kund>VT Marknadsavd</kund>
+			<start>2015-04-30</start>
+			<stopp>2015-05-08</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>VT</tidning>
+			<format>WID</format>
+			<ordernr>0001800257-05</ordernr>
+			<kund>VT Marknadsavd</kund>
+			<start>2015-04-30</start>
+			<stopp>2015-05-08</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>VT</tidning>
+			<format>MOB</format>
+			<ordernr>0001800257-06</ordernr>
+			<kund>VT Marknadsavd</kund>
+			<start>2015-04-30</start>
+			<stopp>2015-05-08</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>MOB</format>
+			<ordernr>0001802667-03</ordernr>
+			<kund>Kontigo Care AB</kund>
+			<start>2015-04-30</start>
+			<stopp>2015-05-17</stopp>
+			<exponeringar>150000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>PAN</format>
+			<ordernr>0001802728-01</ordernr>
+			<kund>Hedin Uppsala Bil AB</kund>
+			<start>2015-04-30</start>
+			<stopp>2015-05-03</stopp>
+			<exponeringar>100000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>HEL</format>
+			<ordernr>0001802901-01</ordernr>
+			<kund>Hedin Bil AB</kund>
+			<start>2015-04-30</start>
+			<stopp>2015-05-03</stopp>
+			<exponeringar>90000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>OUT</format>
+			<ordernr>0001802901-02</ordernr>
+			<kund>Hedin Bil AB</kund>
+			<start>2015-04-30</start>
+			<stopp>2015-05-03</stopp>
+			<exponeringar>200000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001802901-03</ordernr>
+			<kund>Hedin Bil AB</kund>
+			<start>2015-04-30</start>
+			<stopp>2015-05-03</stopp>
+			<exponeringar>225000</exponeringar>
+		</kampanj><kampanj>
 			<tidning>ÖM</tidning>
 			<format>768x384</format>
 			<ordernr>0001732733-08</ordernr>
@@ -18023,7 +18031,7 @@
 			<kund>Klädhuset AB</kund>
 			<start>2015-05-01</start>
 			<stopp>2015-05-31</stopp>
-			<exponeringar>1</exponeringar>
+			<exponeringar>600000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>GM</tidning>
 			<format>380</format>
@@ -18080,14 +18088,6 @@
 			<start>2015-05-01</start>
 			<stopp>2015-05-31</stopp>
 			<exponeringar>100000</exponeringar>
-		</kampanj><kampanj>
-			<tidning>CO</tidning>
-			<format>OUT</format>
-			<ordernr>0001775903-02</ordernr>
-			<kund>XXL Sport &amp; Vildmark AB</kund>
-			<start>2015-05-01</start>
-			<stopp>2015-05-02</stopp>
-			<exponeringar>125000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>NTFB</tidning>
 			<format>OUT</format>
@@ -18207,7 +18207,7 @@
 			<kund>Acctive Living AB</kund>
 			<start>2015-05-01</start>
 			<stopp>2015-05-01</stopp>
-			<exponeringar>0</exponeringar>
+			<exponeringar>50000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>NM</tidning>
 			<format>PAN</format>
@@ -18223,7 +18223,7 @@
 			<kund>Mäklarhuset Gotland</kund>
 			<start>2015-05-01</start>
 			<stopp>2015-07-31</stopp>
-			<exponeringar>1</exponeringar>
+			<exponeringar>100000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>GM</tidning>
 			<format>380</format>
@@ -18385,6 +18385,118 @@
 			<stopp>2015-05-31</stopp>
 			<exponeringar>30</exponeringar>
 		</kampanj><kampanj>
+			<tidning>GM</tidning>
+			<format>380</format>
+			<ordernr>0001801049-01</ordernr>
+			<kund>Pensionat Lövängen</kund>
+			<start>2015-05-01</start>
+			<stopp>2015-05-23</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>GM</tidning>
+			<format>380</format>
+			<ordernr>0001801049-02</ordernr>
+			<kund>Pensionat Lövängen</kund>
+			<start>2015-05-01</start>
+			<stopp>2015-05-23</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>PAN</format>
+			<ordernr>0001801370-01</ordernr>
+			<kund>MIO, OLS MÖBLER</kund>
+			<start>2015-05-01</start>
+			<stopp>2015-05-01</stopp>
+			<exponeringar>100000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>PAN</format>
+			<ordernr>0001801370-02</ordernr>
+			<kund>MIO, OLS MÖBLER</kund>
+			<start>2015-05-01</start>
+			<stopp>2015-05-30</stopp>
+			<exponeringar>100000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>PAN</format>
+			<ordernr>0001801370-03</ordernr>
+			<kund>MIO, OLS MÖBLER</kund>
+			<start>2015-05-01</start>
+			<stopp>2015-05-30</stopp>
+			<exponeringar>100000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>MOB</format>
+			<ordernr>0001801370-04</ordernr>
+			<kund>MIO, OLS MÖBLER</kund>
+			<start>2015-05-01</start>
+			<stopp>2015-05-30</stopp>
+			<exponeringar>100000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>MOB</format>
+			<ordernr>0001801370-05</ordernr>
+			<kund>MIO, OLS MÖBLER</kund>
+			<start>2015-05-01</start>
+			<stopp>2015-05-30</stopp>
+			<exponeringar>100000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>MOB</format>
+			<ordernr>0001801370-06</ordernr>
+			<kund>MIO, OLS MÖBLER</kund>
+			<start>2015-05-01</start>
+			<stopp>2015-05-30</stopp>
+			<exponeringar>100000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>PAN</format>
+			<ordernr>0001801637-03</ordernr>
+			<kund>EM Luleå AB</kund>
+			<start>2015-05-01</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>300000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>MOB</format>
+			<ordernr>0001801637-04</ordernr>
+			<kund>EM Luleå AB</kund>
+			<start>2015-05-01</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>100000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>1920x1080</format>
+			<ordernr>0001801637-05</ordernr>
+			<kund>EM Luleå AB</kund>
+			<start>2015-05-01</start>
+			<stopp>2015-05-08</stopp>
+			<exponeringar>0</exponeringar>
+		</kampanj><kampanj>
+			<tidning>GM</tidning>
+			<format>WID</format>
+			<ordernr>0001801842-01</ordernr>
+			<kund>Gunnel Lindby AB</kund>
+			<start>2015-05-01</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>GM</tidning>
+			<format>MOD</format>
+			<ordernr>0001801842-02</ordernr>
+			<kund>Gunnel Lindby AB</kund>
+			<start>2015-05-01</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>GM</tidning>
+			<format>OUT</format>
+			<ordernr>0001801852-01</ordernr>
+			<kund>Gunnel Lindby AB</kund>
+			<start>2015-05-01</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>200000</exponeringar>
+		</kampanj><kampanj>
 			<tidning>VT</tidning>
 			<format>WID</format>
 			<ordernr>0001769050-01</ordernr>
@@ -18457,13 +18569,29 @@
 			<stopp>2015-05-09</stopp>
 			<exponeringar>1</exponeringar>
 		</kampanj><kampanj>
-			<tidning>CO</tidning>
+			<tidning>NTFB</tidning>
+			<format>MOB</format>
+			<ordernr>0001800809-02</ordernr>
+			<kund>Norrköping Symfoniorkester AB</kund>
+			<start>2015-05-02</start>
+			<stopp>2015-05-03</stopp>
+			<exponeringar>25000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>GM</tidning>
+			<format>MOB</format>
+			<ordernr>0001801552-02</ordernr>
+			<kund>Gotlands Friidrottsförbund</kund>
+			<start>2015-05-02</start>
+			<stopp>2015-05-02</stopp>
+			<exponeringar>10000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
 			<format>WID</format>
-			<ordernr>0001775903-07</ordernr>
-			<kund>XXL Sport &amp; Vildmark AB</kund>
-			<start>2015-05-03</start>
-			<stopp>2015-05-06</stopp>
-			<exponeringar>225000</exponeringar>
+			<ordernr>0001802168-02</ordernr>
+			<kund>ERA BRÅVIKEN</kund>
+			<start>2015-05-02</start>
+			<stopp>2015-05-16</stopp>
+			<exponeringar>50000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>NTFB</tidning>
 			<format>WID</format>
@@ -18496,6 +18624,22 @@
 			<start>2015-05-03</start>
 			<stopp>2015-05-03</stopp>
 			<exponeringar>0</exponeringar>
+		</kampanj><kampanj>
+			<tidning>VT</tidning>
+			<format>PAN</format>
+			<ordernr>0001801479-01</ordernr>
+			<kund>Nya Hem i Västervik AB</kund>
+			<start>2015-05-03</start>
+			<stopp>2015-05-06</stopp>
+			<exponeringar>30000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>VT</tidning>
+			<format>MOB</format>
+			<ordernr>0001801479-02</ordernr>
+			<kund>Nya Hem i Västervik AB</kund>
+			<start>2015-05-03</start>
+			<stopp>2015-05-06</stopp>
+			<exponeringar>5000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>NM</tidning>
 			<format>WID</format>
@@ -18624,38 +18768,6 @@
 			<start>2015-05-04</start>
 			<stopp>2015-05-04</stopp>
 			<exponeringar>1</exponeringar>
-		</kampanj><kampanj>
-			<tidning>ÖM</tidning>
-			<format>1024x384</format>
-			<ordernr>0001791357-05</ordernr>
-			<kund>Tage Rejmes i Norrköping AB</kund>
-			<start>2015-05-04</start>
-			<stopp>2015-05-10</stopp>
-			<exponeringar>14</exponeringar>
-		</kampanj><kampanj>
-			<tidning>ÖM</tidning>
-			<format>1024x384</format>
-			<ordernr>0001791357-05</ordernr>
-			<kund>Tage Rejmes i Norrköping AB</kund>
-			<start>2015-05-04</start>
-			<stopp>2015-05-10</stopp>
-			<exponeringar>14</exponeringar>
-		</kampanj><kampanj>
-			<tidning>ÖM</tidning>
-			<format>512x128</format>
-			<ordernr>0001791357-06</ordernr>
-			<kund>Tage Rejmes i Norrköping AB</kund>
-			<start>2015-05-04</start>
-			<stopp>2015-05-10</stopp>
-			<exponeringar>7</exponeringar>
-		</kampanj><kampanj>
-			<tidning>ÖM</tidning>
-			<format>768x384</format>
-			<ordernr>0001791357-07</ordernr>
-			<kund>Tage Rejmes i Norrköping AB</kund>
-			<start>2015-05-04</start>
-			<stopp>2015-05-10</stopp>
-			<exponeringar>7</exponeringar>
 		</kampanj><kampanj>
 			<tidning>PT</tidning>
 			<format>MOB</format>
@@ -18857,6 +18969,14 @@
 			<stopp>2015-05-05</stopp>
 			<exponeringar>60000</exponeringar>
 		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>WID</format>
+			<ordernr>0001800195-02</ordernr>
+			<kund>Bielkhammar AB</kund>
+			<start>2015-05-04</start>
+			<stopp>2015-05-04</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
 			<tidning>CO</tidning>
 			<format>WID</format>
 			<ordernr>0001800458-03</ordernr>
@@ -18872,6 +18992,134 @@
 			<start>2015-05-04</start>
 			<stopp>2015-05-10</stopp>
 			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>PAN</format>
+			<ordernr>0001800582-02</ordernr>
+			<kund>Elon i Luleå AB</kund>
+			<start>2015-05-04</start>
+			<stopp>2015-05-09</stopp>
+			<exponeringar>150000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>PT</tidning>
+			<format>PAN</format>
+			<ordernr>0001800616-02</ordernr>
+			<kund>Nelab</kund>
+			<start>2015-05-04</start>
+			<stopp>2015-05-09</stopp>
+			<exponeringar>100000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>WID</format>
+			<ordernr>0001800877-01</ordernr>
+			<kund>City Gross Sverige AB</kund>
+			<start>2015-05-04</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>1120000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001799664-02</ordernr>
+			<kund></kund>
+			<start>2015-05-04</start>
+			<stopp>2015-05-08</stopp>
+			<exponeringar>300000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001800967-02</ordernr>
+			<kund></kund>
+			<start>2015-05-04</start>
+			<stopp>2015-05-08</stopp>
+			<exponeringar>300000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001801002-02</ordernr>
+			<kund></kund>
+			<start>2015-05-04</start>
+			<stopp>2015-05-07</stopp>
+			<exponeringar>250000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>MOB</format>
+			<ordernr>0001801034-01</ordernr>
+			<kund>Forslunds glas &amp; porslin/Cervera Lu</kund>
+			<start>2015-05-04</start>
+			<stopp>2015-05-08</stopp>
+			<exponeringar>70000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>MOB</format>
+			<ordernr>0001801420-02</ordernr>
+			<kund>Burlin Motor AB</kund>
+			<start>2015-05-04</start>
+			<stopp>2015-05-11</stopp>
+			<exponeringar>100000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001801583-02</ordernr>
+			<kund>Motala Båtvarv AB</kund>
+			<start>2015-05-04</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>100000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>WID</format>
+			<ordernr>0001801628-02</ordernr>
+			<kund>Uppsala Kommun</kund>
+			<start>2015-05-04</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>MOB</format>
+			<ordernr>0001802120-04</ordernr>
+			<kund>Sunderby Folkhögskola</kund>
+			<start>2015-05-04</start>
+			<stopp>2015-05-11</stopp>
+			<exponeringar>75000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>1024x384</format>
+			<ordernr>0001745807-05</ordernr>
+			<kund>Coldman i Norrköping AB</kund>
+			<start>2015-05-04</start>
+			<stopp>2015-05-04</stopp>
+			<exponeringar>4</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>1024x384</format>
+			<ordernr>0001802145-02</ordernr>
+			<kund>Länsförsäkringar Fastighetsförmedli</kund>
+			<start>2015-05-04</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>7</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>PAN</format>
+			<ordernr>0001802369-03</ordernr>
+			<kund>Grahns Bilar AB</kund>
+			<start>2015-05-04</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>150000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001802369-04</ordernr>
+			<kund>Grahns Bilar AB</kund>
+			<start>2015-05-04</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>MOD</format>
+			<ordernr>0001802587-01</ordernr>
+			<kund>Gränby Storbutik Gunnar Carlson AB</kund>
+			<start>2015-05-04</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>500000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>VT</tidning>
 			<format>PAN</format>
@@ -19033,6 +19281,46 @@
 			<stopp>2015-05-17</stopp>
 			<exponeringar>100000</exponeringar>
 		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>PAN</format>
+			<ordernr>0001801035-03</ordernr>
+			<kund>Bil AB A Müller/ePP</kund>
+			<start>2015-05-05</start>
+			<stopp>2015-05-11</stopp>
+			<exponeringar>400000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>MOB</format>
+			<ordernr>0001801035-04</ordernr>
+			<kund>Bil AB A Müller/ePP</kund>
+			<start>2015-05-05</start>
+			<stopp>2015-05-11</stopp>
+			<exponeringar>75000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>MOD</format>
+			<ordernr>0001801460-01</ordernr>
+			<kund>Rousseau &amp; Co AB</kund>
+			<start>2015-05-05</start>
+			<stopp>2015-08-05</stopp>
+			<exponeringar>240000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001800917-03</ordernr>
+			<kund>Bilbörsen i Linköping AB</kund>
+			<start>2015-05-05</start>
+			<stopp>2015-05-20</stopp>
+			<exponeringar>150000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001800917-04</ordernr>
+			<kund>Bilbörsen i Linköping AB</kund>
+			<start>2015-05-05</start>
+			<stopp>2015-05-20</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
 			<tidning>UNT</tidning>
 			<format>WID</format>
 			<ordernr>0001753113-05</ordernr>
@@ -19161,6 +19449,38 @@
 			<stopp>2015-05-13</stopp>
 			<exponeringar>100000</exponeringar>
 		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>1024x384</format>
+			<ordernr>0001791357-05</ordernr>
+			<kund>Tage Rejmes i Norrköping AB</kund>
+			<start>2015-05-06</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>14</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>1024x384</format>
+			<ordernr>0001791357-05</ordernr>
+			<kund>Tage Rejmes i Norrköping AB</kund>
+			<start>2015-05-06</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>14</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>512x128</format>
+			<ordernr>0001791357-06</ordernr>
+			<kund>Tage Rejmes i Norrköping AB</kund>
+			<start>2015-05-06</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>7</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>768x384</format>
+			<ordernr>0001791357-07</ordernr>
+			<kund>Tage Rejmes i Norrköping AB</kund>
+			<start>2015-05-06</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>7</exponeringar>
+		</kampanj><kampanj>
 			<tidning>CO</tidning>
 			<format>PAN</format>
 			<ordernr>0001792555-03</ordernr>
@@ -19267,6 +19587,86 @@
 		</kampanj><kampanj>
 			<tidning>CO</tidning>
 			<format>WID</format>
+			<ordernr>0001801105-03</ordernr>
+			<kund>BilByter AB</kund>
+			<start>2015-05-06</start>
+			<stopp>2015-05-20</stopp>
+			<exponeringar>300000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001801105-04</ordernr>
+			<kund>BilByter AB</kund>
+			<start>2015-05-06</start>
+			<stopp>2015-05-20</stopp>
+			<exponeringar>100000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>WID</format>
+			<ordernr>0001801134-04</ordernr>
+			<kund>BilByter AB</kund>
+			<start>2015-05-06</start>
+			<stopp>2015-05-20</stopp>
+			<exponeringar>300000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>MOB</format>
+			<ordernr>0001801134-05</ordernr>
+			<kund>BilByter AB</kund>
+			<start>2015-05-06</start>
+			<stopp>2015-05-20</stopp>
+			<exponeringar>100000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>WID</format>
+			<ordernr>0001801422-02</ordernr>
+			<kund>Björks Bygg i Hällestad AB</kund>
+			<start>2015-05-06</start>
+			<stopp>2015-05-13</stopp>
+			<exponeringar>60000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>PAN</format>
+			<ordernr>0001802279-01</ordernr>
+			<kund>Uppsala Konsert &amp; Kongress AB</kund>
+			<start>2015-05-06</start>
+			<stopp>2015-05-06</stopp>
+			<exponeringar>160000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>WID</format>
+			<ordernr>0001802419-04</ordernr>
+			<kund>Storbutiken i Örebro AB</kund>
+			<start>2015-05-06</start>
+			<stopp>2015-05-07</stopp>
+			<exponeringar>150000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>WID</format>
+			<ordernr>0001802479-04</ordernr>
+			<kund>Pocketbokhandeln i Finspång KB</kund>
+			<start>2015-05-06</start>
+			<stopp>2015-05-13</stopp>
+			<exponeringar>60000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>MOB</format>
+			<ordernr>0001802585-01</ordernr>
+			<kund>Uppsala Stadsteater</kund>
+			<start>2015-05-06</start>
+			<stopp>2015-05-08</stopp>
+			<exponeringar>60000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>WID</format>
+			<ordernr>0001802664-02</ordernr>
+			<kund>G-SONS GUMMI AB</kund>
+			<start>2015-05-06</start>
+			<stopp>2015-05-13</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
 			<ordernr>0001743614-01</ordernr>
 			<kund>Signalens Livs i Ekholmen AB</kund>
 			<start>2015-05-07</start>
@@ -19320,6 +19720,14 @@
 			<start>2015-05-07</start>
 			<stopp>2015-05-09</stopp>
 			<exponeringar>125000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001775903-07</ordernr>
+			<kund>XXL Sport &amp; Vildmark AB</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>225000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>NTFB</tidning>
 			<format>OUT</format>
@@ -19559,7 +19967,7 @@
 			<kund>Laitis Bil &amp; Industri</kund>
 			<start>2015-05-07</start>
 			<stopp>2015-05-20</stopp>
-			<exponeringar>400000</exponeringar>
+			<exponeringar>300000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>NM</tidning>
 			<format>MOB</format>
@@ -19567,7 +19975,7 @@
 			<kund>Laitis Bil &amp; Industri</kund>
 			<start>2015-05-07</start>
 			<stopp>2015-05-20</stopp>
-			<exponeringar>100000</exponeringar>
+			<exponeringar>70000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>NM</tidning>
 			<format>WID</format>
@@ -19681,6 +20089,206 @@
 			<stopp>2015-05-08</stopp>
 			<exponeringar>16000</exponeringar>
 		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001800551-03</ordernr>
+			<kund>Jordproffset</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-21</stopp>
+			<exponeringar>200000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>MOB</format>
+			<ordernr>0001800551-04</ordernr>
+			<kund>Jordproffset</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-21</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001800703-03</ordernr>
+			<kund>Maskinuthyrning Norr</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-20</stopp>
+			<exponeringar>200000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>MOB</format>
+			<ordernr>0001800703-04</ordernr>
+			<kund>Maskinuthyrning Norr</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-20</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>MOB</format>
+			<ordernr>0001800792-01</ordernr>
+			<kund>Uppsala universitet</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-15</stopp>
+			<exponeringar>350000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001800812-02</ordernr>
+			<kund>Nordsjö Butiker AB</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-20</stopp>
+			<exponeringar>300000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>MOB</format>
+			<ordernr>0001800812-03</ordernr>
+			<kund>Nordsjö Butiker AB</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-20</stopp>
+			<exponeringar>70000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>PAN</format>
+			<ordernr>0001801038-03</ordernr>
+			<kund>TB BIL I NORRKÖPING AB</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>150000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>MOB</format>
+			<ordernr>0001801038-04</ordernr>
+			<kund>TB BIL I NORRKÖPING AB</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>PAN</format>
+			<ordernr>0001801245-02</ordernr>
+			<kund>Läkarhuset Hermelinen AB</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-13</stopp>
+			<exponeringar>400000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001801267-03</ordernr>
+			<kund>Tekniska tak</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-21</stopp>
+			<exponeringar>200000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>MOB</format>
+			<ordernr>0001801267-04</ordernr>
+			<kund>Tekniska tak</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-21</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001801845-03</ordernr>
+			<kund>Wika Möbler AB</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-20</stopp>
+			<exponeringar>250000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>MOB</format>
+			<ordernr>0001801845-04</ordernr>
+			<kund>Wika Möbler AB</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-20</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001802103-03</ordernr>
+			<kund>Cliffton Luleå/Boden</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-21</stopp>
+			<exponeringar>250000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>MOB</format>
+			<ordernr>0001802103-04</ordernr>
+			<kund>Cliffton Luleå/Boden</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-21</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001802379-03</ordernr>
+			<kund>Växtriket</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-21</stopp>
+			<exponeringar>400000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>MOB</format>
+			<ordernr>0001802379-04</ordernr>
+			<kund>Växtriket</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-21</stopp>
+			<exponeringar>100000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001802564-02</ordernr>
+			<kund>Bilbörsen i Linköping AB</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-20</stopp>
+			<exponeringar>150000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001802564-03</ordernr>
+			<kund>Bilbörsen i Linköping AB</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-20</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001802553-03</ordernr>
+			<kund>Rutviks Handelsträdgård</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-21</stopp>
+			<exponeringar>250000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>MOB</format>
+			<ordernr>0001802553-04</ordernr>
+			<kund>Rutviks Handelsträdgård</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-21</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>MVT</tidning>
+			<format>MOB</format>
+			<ordernr>0001802874-01</ordernr>
+			<kund>Noyess AB</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-13</stopp>
+			<exponeringar>12000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>1080x1920</format>
+			<ordernr>0001802874-02</ordernr>
+			<kund>Noyess AB</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-13</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>MVT</tidning>
+			<format>WID</format>
+			<ordernr>0001802874-03</ordernr>
+			<kund>Noyess AB</kund>
+			<start>2015-05-07</start>
+			<stopp>2015-05-13</stopp>
+			<exponeringar>30000</exponeringar>
+		</kampanj><kampanj>
 			<tidning>VT</tidning>
 			<format>PAN</format>
 			<ordernr>0001716198-02</ordernr>
@@ -19769,6 +20377,94 @@
 			<stopp>2015-05-10</stopp>
 			<exponeringar>70000</exponeringar>
 		</kampanj><kampanj>
+			<tidning>MVT</tidning>
+			<format>WID</format>
+			<ordernr>0001800624-07</ordernr>
+			<kund>Fashion &amp; Marketing i Motala AB</kund>
+			<start>2015-05-08</start>
+			<stopp>2015-05-14</stopp>
+			<exponeringar>20000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>MVT</tidning>
+			<format>MOB</format>
+			<ordernr>0001800624-08</ordernr>
+			<kund>Fashion &amp; Marketing i Motala AB</kund>
+			<start>2015-05-08</start>
+			<stopp>2015-05-14</stopp>
+			<exponeringar>9000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>1080x1920</format>
+			<ordernr>0001800624-09</ordernr>
+			<kund>Fashion &amp; Marketing i Motala AB</kund>
+			<start>2015-05-08</start>
+			<stopp>2015-05-14</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>GM</tidning>
+			<format>380</format>
+			<ordernr>0001800797-03</ordernr>
+			<kund>Gotlands Media Egen</kund>
+			<start>2015-05-08</start>
+			<stopp>2015-06-21</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>GM</tidning>
+			<format>PAN</format>
+			<ordernr>0001800797-05</ordernr>
+			<kund>Gotlands Media Egen</kund>
+			<start>2015-05-08</start>
+			<stopp>2015-06-21</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>MOB</format>
+			<ordernr>0001801355-02</ordernr>
+			<kund>Norrköping Symfoniorkester AB</kund>
+			<start>2015-05-08</start>
+			<stopp>2015-05-09</stopp>
+			<exponeringar>25000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>WID</format>
+			<ordernr>0001802173-02</ordernr>
+			<kund>Uppsala Kommun</kund>
+			<start>2015-05-08</start>
+			<stopp>2015-05-09</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>WID</format>
+			<ordernr>0001802337-05</ordernr>
+			<kund>FINSPÅNGS BILMARKNAD</kund>
+			<start>2015-05-08</start>
+			<stopp>2015-05-30</stopp>
+			<exponeringar>200000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>WID</format>
+			<ordernr>0001802419-05</ordernr>
+			<kund>Storbutiken i Örebro AB</kund>
+			<start>2015-05-08</start>
+			<stopp>2015-05-09</stopp>
+			<exponeringar>150000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>MOB</format>
+			<ordernr>0001802448-03</ordernr>
+			<kund>Uppsala Stadsteater</kund>
+			<start>2015-05-08</start>
+			<stopp>2015-05-10</stopp>
+			<exponeringar>60000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001802312-03</ordernr>
+			<kund>Malmbergs Ur-Optik-Linser AB</kund>
+			<start>2015-05-08</start>
+			<stopp>2015-05-09</stopp>
+			<exponeringar>20000</exponeringar>
+		</kampanj><kampanj>
 			<tidning>VT</tidning>
 			<format>PAN</format>
 			<ordernr>0001748320-01</ordernr>
@@ -19801,6 +20497,22 @@
 			<stopp>2015-05-24</stopp>
 			<exponeringar>16</exponeringar>
 		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>WID</format>
+			<ordernr>0001801815-02</ordernr>
+			<kund>SKOGS- O LANTBRUKSMUSEET I</kund>
+			<start>2015-05-09</start>
+			<stopp>2015-05-16</stopp>
+			<exponeringar>70000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>PAN</format>
+			<ordernr>0001802833-03</ordernr>
+			<kund>NT-ANNONS</kund>
+			<start>2015-05-09</start>
+			<stopp>2015-05-16</stopp>
+			<exponeringar>150000</exponeringar>
+		</kampanj><kampanj>
 			<tidning>CO</tidning>
 			<format>PAN</format>
 			<ordernr>0001773469-02</ordernr>
@@ -19808,14 +20520,6 @@
 			<start>2015-05-10</start>
 			<stopp>2015-05-10</stopp>
 			<exponeringar>0</exponeringar>
-		</kampanj><kampanj>
-			<tidning>CO</tidning>
-			<format>WID</format>
-			<ordernr>0001775903-08</ordernr>
-			<kund>XXL Sport &amp; Vildmark AB</kund>
-			<start>2015-05-10</start>
-			<stopp>2015-05-13</stopp>
-			<exponeringar>225000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>NTFB</tidning>
 			<format>WID</format>
@@ -20169,6 +20873,86 @@
 			<stopp>2015-05-11</stopp>
 			<exponeringar>1</exponeringar>
 		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>WID</format>
+			<ordernr>0001800879-01</ordernr>
+			<kund>City Gross Sverige AB</kund>
+			<start>2015-05-11</start>
+			<stopp>2015-05-17</stopp>
+			<exponeringar>1120000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>MVT</tidning>
+			<format>OUT</format>
+			<ordernr>0001801862-02</ordernr>
+			<kund>Skobes Bil Mitt AB</kund>
+			<start>2015-05-11</start>
+			<stopp>2015-05-24</stopp>
+			<exponeringar>20000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>1024x384</format>
+			<ordernr>0001802145-03</ordernr>
+			<kund>Länsförsäkringar Fastighetsförmedli</kund>
+			<start>2015-05-11</start>
+			<stopp>2015-05-17</stopp>
+			<exponeringar>7</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>PAN</format>
+			<ordernr>0001802376-02</ordernr>
+			<kund>Grahns Bilar AB</kund>
+			<start>2015-05-11</start>
+			<stopp>2015-05-18</stopp>
+			<exponeringar>150000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001802376-03</ordernr>
+			<kund>Grahns Bilar AB</kund>
+			<start>2015-05-11</start>
+			<stopp>2015-05-18</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001797902-05</ordernr>
+			<kund>Wahlstedts Bil AB</kund>
+			<start>2015-05-11</start>
+			<stopp>2015-05-17</stopp>
+			<exponeringar>150000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001797902-06</ordernr>
+			<kund>Wahlstedts Bil AB</kund>
+			<start>2015-05-11</start>
+			<stopp>2015-05-17</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>MOD</format>
+			<ordernr>0001802587-02</ordernr>
+			<kund>Gränby Storbutik Gunnar Carlson AB</kund>
+			<start>2015-05-11</start>
+			<stopp>2015-05-17</stopp>
+			<exponeringar>500000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>1920x1080</format>
+			<ordernr>0001802639-02</ordernr>
+			<kund>Persöfrakt AB</kund>
+			<start>2015-05-11</start>
+			<stopp>2015-07-26</stopp>
+			<exponeringar>0</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>WID</format>
+			<ordernr>0001788195-06</ordernr>
+			<kund>NTM AB</kund>
+			<start>2015-05-11</start>
+			<stopp>2015-05-11</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
 			<tidning>GM</tidning>
 			<format>380</format>
 			<ordernr>0001741566-09</ordernr>
@@ -20248,6 +21032,14 @@
 			<start>2015-05-12</start>
 			<stopp>2015-05-12</stopp>
 			<exponeringar>0</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>MOB</format>
+			<ordernr>0001802047-02</ordernr>
+			<kund>Norrköping Symfoniorkester AB</kund>
+			<start>2015-05-12</start>
+			<stopp>2015-05-13</stopp>
+			<exponeringar>25000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>UNT</tidning>
 			<format>PAN</format>
@@ -20433,6 +21225,14 @@
 			<stopp>2015-05-16</stopp>
 			<exponeringar>125000</exponeringar>
 		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001775903-08</ordernr>
+			<kund>XXL Sport &amp; Vildmark AB</kund>
+			<start>2015-05-14</start>
+			<stopp>2015-05-17</stopp>
+			<exponeringar>225000</exponeringar>
+		</kampanj><kampanj>
 			<tidning>NTFB</tidning>
 			<format>OUT</format>
 			<ordernr>0001775904-04</ordernr>
@@ -20584,14 +21384,6 @@
 			<start>2015-05-16</start>
 			<stopp>2015-06-15</stopp>
 			<exponeringar>0</exponeringar>
-		</kampanj><kampanj>
-			<tidning>CO</tidning>
-			<format>WID</format>
-			<ordernr>0001775903-09</ordernr>
-			<kund>XXL Sport &amp; Vildmark AB</kund>
-			<start>2015-05-17</start>
-			<stopp>2015-05-20</stopp>
-			<exponeringar>225000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>NTFB</tidning>
 			<format>WID</format>
@@ -20881,6 +21673,70 @@
 			<stopp>2015-06-05</stopp>
 			<exponeringar>100000</exponeringar>
 		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>WID</format>
+			<ordernr>0001800882-01</ordernr>
+			<kund>City Gross Sverige AB</kund>
+			<start>2015-05-18</start>
+			<stopp>2015-05-24</stopp>
+			<exponeringar>1120000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001799760-02</ordernr>
+			<kund>KIN-Konstrnärer i Norrbotten</kund>
+			<start>2015-05-18</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>300000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>PT</tidning>
+			<format>WID</format>
+			<ordernr>0001802036-03</ordernr>
+			<kund>Wallstens i Piteå Gallerian</kund>
+			<start>2015-05-18</start>
+			<stopp>2015-05-23</stopp>
+			<exponeringar>140000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>PT</tidning>
+			<format>MOB</format>
+			<ordernr>0001802036-04</ordernr>
+			<kund>Wallstens i Piteå Gallerian</kund>
+			<start>2015-05-18</start>
+			<stopp>2015-05-23</stopp>
+			<exponeringar>40000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>1024x384</format>
+			<ordernr>0001802145-04</ordernr>
+			<kund>Länsförsäkringar Fastighetsförmedli</kund>
+			<start>2015-05-18</start>
+			<stopp>2015-05-24</stopp>
+			<exponeringar>7</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001797902-07</ordernr>
+			<kund>Wahlstedts Bil AB</kund>
+			<start>2015-05-18</start>
+			<stopp>2015-05-24</stopp>
+			<exponeringar>150000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001797902-08</ordernr>
+			<kund>Wahlstedts Bil AB</kund>
+			<start>2015-05-18</start>
+			<stopp>2015-05-24</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>MOD</format>
+			<ordernr>0001802587-03</ordernr>
+			<kund>Gränby Storbutik Gunnar Carlson AB</kund>
+			<start>2015-05-18</start>
+			<stopp>2015-05-24</stopp>
+			<exponeringar>500000</exponeringar>
+		</kampanj><kampanj>
 			<tidning>ÖM</tidning>
 			<format>512x128</format>
 			<ordernr>0001745831-01</ordernr>
@@ -21089,6 +21945,22 @@
 			<stopp>2015-05-21</stopp>
 			<exponeringar>58000</exponeringar>
 		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>MOB</format>
+			<ordernr>0001802053-02</ordernr>
+			<kund>Norrköping Symfoniorkester AB</kund>
+			<start>2015-05-20</start>
+			<stopp>2015-05-21</stopp>
+			<exponeringar>25000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>WID</format>
+			<ordernr>0001802479-05</ordernr>
+			<kund>Pocketbokhandeln i Finspång KB</kund>
+			<start>2015-05-20</start>
+			<stopp>2015-05-27</stopp>
+			<exponeringar>60000</exponeringar>
+		</kampanj><kampanj>
 			<tidning>CO</tidning>
 			<format>WID</format>
 			<ordernr>0001743618-01</ordernr>
@@ -21160,6 +22032,14 @@
 			<start>2015-05-21</start>
 			<stopp>2015-05-23</stopp>
 			<exponeringar>125000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001775903-09</ordernr>
+			<kund>XXL Sport &amp; Vildmark AB</kund>
+			<start>2015-05-21</start>
+			<stopp>2015-05-24</stopp>
+			<exponeringar>225000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>NTFB</tidning>
 			<format>OUT</format>
@@ -21425,14 +22305,6 @@
 			<stopp>2015-05-24</stopp>
 			<exponeringar>0</exponeringar>
 		</kampanj><kampanj>
-			<tidning>CO</tidning>
-			<format>WID</format>
-			<ordernr>0001775903-10</ordernr>
-			<kund>XXL Sport &amp; Vildmark AB</kund>
-			<start>2015-05-24</start>
-			<stopp>2015-05-27</stopp>
-			<exponeringar>225000</exponeringar>
-		</kampanj><kampanj>
 			<tidning>NTFB</tidning>
 			<format>WID</format>
 			<ordernr>0001775904-10</ordernr>
@@ -21673,6 +22545,78 @@
 			<stopp>2015-05-31</stopp>
 			<exponeringar>200000</exponeringar>
 		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001800580-03</ordernr>
+			<kund></kund>
+			<start>2015-05-25</start>
+			<stopp>2015-06-01</stopp>
+			<exponeringar>300000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>WID</format>
+			<ordernr>0001800883-01</ordernr>
+			<kund>City Gross Sverige AB</kund>
+			<start>2015-05-25</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>1120000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001799097-02</ordernr>
+			<kund>Naturkompaniet</kund>
+			<start>2015-05-25</start>
+			<stopp>2015-06-08</stopp>
+			<exponeringar>400000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>1024x384</format>
+			<ordernr>0001802145-05</ordernr>
+			<kund>Länsförsäkringar Fastighetsförmedli</kund>
+			<start>2015-05-25</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>7</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>MOB</format>
+			<ordernr>0001802264-01</ordernr>
+			<kund>Uppsala Konsert &amp; Kongress AB</kund>
+			<start>2015-05-25</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>25000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>MOD</format>
+			<ordernr>0001802587-04</ordernr>
+			<kund>Gränby Storbutik Gunnar Carlson AB</kund>
+			<start>2015-05-25</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>500000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>1024x384</format>
+			<ordernr>0001776861-12</ordernr>
+			<kund>ERIKSHJÄLPEN</kund>
+			<start>2015-05-25</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>7</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>1024x384</format>
+			<ordernr>0001776861-13</ordernr>
+			<kund>ERIKSHJÄLPEN</kund>
+			<start>2015-05-25</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>7</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>512x128</format>
+			<ordernr>0001776861-14</ordernr>
+			<kund>ERIKSHJÄLPEN</kund>
+			<start>2015-05-25</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>7</exponeringar>
+		</kampanj><kampanj>
 			<tidning>NTFB</tidning>
 			<format>MOB</format>
 			<ordernr>0001754069-03</ordernr>
@@ -21760,6 +22704,14 @@
 			<start>2015-05-26</start>
 			<stopp>2015-05-31</stopp>
 			<exponeringar>21</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001800947-02</ordernr>
+			<kund>Äventyrsbutiken Hägglunds</kund>
+			<start>2015-05-26</start>
+			<stopp>2015-05-30</stopp>
+			<exponeringar>300000</exponeringar>
 		</kampanj><kampanj>
 			<tidning>GM</tidning>
 			<format>380</format>
@@ -21977,6 +22929,14 @@
 			<stopp>2015-05-30</stopp>
 			<exponeringar>125000</exponeringar>
 		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001775903-10</ordernr>
+			<kund>XXL Sport &amp; Vildmark AB</kund>
+			<start>2015-05-28</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>225000</exponeringar>
+		</kampanj><kampanj>
 			<tidning>NTFB</tidning>
 			<format>OUT</format>
 			<ordernr>0001775904-06</ordernr>
@@ -22096,5 +23056,269 @@
 			<start>2015-05-28</start>
 			<stopp>2015-05-31</stopp>
 			<exponeringar>32000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001802573-02</ordernr>
+			<kund>Kyrkoförvaltningen i Linköping</kund>
+			<start>2015-05-28</start>
+			<stopp>2015-06-03</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001739984-02</ordernr>
+			<kund>Corren Försäljning</kund>
+			<start>2015-05-29</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>15000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001739984-03</ordernr>
+			<kund>Corren Försäljning</kund>
+			<start>2015-05-29</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>2000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>WID</format>
+			<ordernr>0001751966-02</ordernr>
+			<kund>Uppsala Kommun Reginateatern</kund>
+			<start>2015-05-29</start>
+			<stopp>2015-06-04</stopp>
+			<exponeringar>35000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>WID</format>
+			<ordernr>0001753285-06</ordernr>
+			<kund>Supermarket i Uppsala</kund>
+			<start>2015-05-29</start>
+			<stopp>2015-05-29</stopp>
+			<exponeringar>300000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001755446-17</ordernr>
+			<kund>Intersport Sverige AB</kund>
+			<start>2015-05-29</start>
+			<stopp>2015-05-29</stopp>
+			<exponeringar>100000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>1920x1080</format>
+			<ordernr>0001777785-02</ordernr>
+			<kund>IFK Luleå</kund>
+			<start>2015-05-29</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>GM</tidning>
+			<format>MOB</format>
+			<ordernr>0001785352-01</ordernr>
+			<kund>Gotlands Travsällskap</kund>
+			<start>2015-05-29</start>
+			<stopp>2015-05-30</stopp>
+			<exponeringar>20000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>GM</tidning>
+			<format>MOB</format>
+			<ordernr>0001794083-02</ordernr>
+			<kund>Dalhem IF</kund>
+			<start>2015-05-29</start>
+			<stopp>2015-05-30</stopp>
+			<exponeringar>10000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001795030-02</ordernr>
+			<kund>Wika Möbler AB</kund>
+			<start>2015-05-29</start>
+			<stopp>2015-05-29</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001794554-02</ordernr>
+			<kund>KVANTUM LULEÅ STORMARKNAD</kund>
+			<start>2015-05-29</start>
+			<stopp>2015-05-29</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>VT</tidning>
+			<format>WID</format>
+			<ordernr>0001797060-01</ordernr>
+			<kund>VT Annonsavdelning</kund>
+			<start>2015-05-29</start>
+			<stopp>2015-06-04</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001799579-02</ordernr>
+			<kund>ia Damunderkläder</kund>
+			<start>2015-05-29</start>
+			<stopp>2015-05-29</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>WID</format>
+			<ordernr>0001799697-10</ordernr>
+			<kund>RESURSCENTER MO GÅRD AB</kund>
+			<start>2015-05-29</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>30000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NM</tidning>
+			<format>WID</format>
+			<ordernr>0001802477-02</ordernr>
+			<kund>Norrbottens Museum</kund>
+			<start>2015-05-29</start>
+			<stopp>2015-05-29</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>VT</tidning>
+			<format>WID</format>
+			<ordernr>0001784220-02</ordernr>
+			<kund>HYRBILAR I VÄSTERVIK AB</kund>
+			<start>2015-05-30</start>
+			<stopp>2015-05-30</stopp>
+			<exponeringar>8000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>VT</tidning>
+			<format>WID</format>
+			<ordernr>0001784231-02</ordernr>
+			<kund>HYRBILAR I VÄSTERVIK AB</kund>
+			<start>2015-05-30</start>
+			<stopp>2015-06-13</stopp>
+			<exponeringar>8000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>GM</tidning>
+			<format>PAN</format>
+			<ordernr>0001784997-01</ordernr>
+			<kund>Gotlands Travsällskap</kund>
+			<start>2015-05-30</start>
+			<stopp>2015-05-30</stopp>
+			<exponeringar>30000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>VT</tidning>
+			<format>WID</format>
+			<ordernr>0001745511-01</ordernr>
+			<kund>Bengt Holmström Bil AB Västervik</kund>
+			<start>2015-05-31</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>0</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001748572-05</ordernr>
+			<kund>Linköpings Villabyrå AB</kund>
+			<start>2015-05-31</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>REACH468</format>
+			<ordernr>0001750663-03</ordernr>
+			<kund>Engströms Bil AB Service / ePP</kund>
+			<start>2015-05-31</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>200000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001750663-04</ordernr>
+			<kund>Engströms Bil AB Service / ePP</kund>
+			<start>2015-05-31</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>50000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>ÖM</tidning>
+			<format>1920x1080</format>
+			<ordernr>0001750663-06</ordernr>
+			<kund>Engströms Bil AB Service / ePP</kund>
+			<start>2015-05-31</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>28</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>WID</format>
+			<ordernr>0001775904-11</ordernr>
+			<kund>XXL Sport &amp; Vildmark AB</kund>
+			<start>2015-05-31</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>225000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>VT</tidning>
+			<format>MOB</format>
+			<ordernr>0001784220-03</ordernr>
+			<kund>HYRBILAR I VÄSTERVIK AB</kund>
+			<start>2015-05-31</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>2000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>VT</tidning>
+			<format>MOB</format>
+			<ordernr>0001784231-03</ordernr>
+			<kund>HYRBILAR I VÄSTERVIK AB</kund>
+			<start>2015-05-31</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>2000</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>WID</format>
+			<ordernr>0001791299-04</ordernr>
+			<kund>Brunneby Musteri AB</kund>
+			<start>2015-05-31</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>CO</tidning>
+			<format>MOB</format>
+			<ordernr>0001791299-05</ordernr>
+			<kund>Brunneby Musteri AB</kund>
+			<start>2015-05-31</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>MVT</tidning>
+			<format>WID</format>
+			<ordernr>0001791299-06</ordernr>
+			<kund>Brunneby Musteri AB</kund>
+			<start>2015-05-31</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>MVT</tidning>
+			<format>MOB</format>
+			<ordernr>0001791299-07</ordernr>
+			<kund>Brunneby Musteri AB</kund>
+			<start>2015-05-31</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>1</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>PAN</format>
+			<ordernr>0001704733-02</ordernr>
+			<kund>NT-ANNONS</kund>
+			<start>2015-05-31</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>0</exponeringar>
+		</kampanj><kampanj>
+			<tidning>NTFB</tidning>
+			<format>PAN</format>
+			<ordernr>0001704797-02</ordernr>
+			<kund>FB-ANNONS</kund>
+			<start>2015-05-31</start>
+			<stopp>2015-05-31</stopp>
+			<exponeringar>0</exponeringar>
+		</kampanj><kampanj>
+			<tidning>UNT</tidning>
+			<format>PAN</format>
+			<ordernr>0001802291-01</ordernr>
+			<kund>Uppsala Konsert &amp; Kongress AB</kund>
+			<start>2015-05-31</start>
+			<stopp>2015-06-06</stopp>
+			<exponeringar>200000</exponeringar>
 		</kampanj>
 	</lager>

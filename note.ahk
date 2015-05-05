@@ -1,22 +1,22 @@
 ﻿note:
 	if (mlActive())
 	{
-		ControlMove, Static28, , , 50, , Atex MediaLink
-		ControlMove, Static29, , , , 100, Atex MediaLink
-		ControlSetText, Static28, Info: , Atex MediaLink
+		ControlMove, Static28, , , 50, , NewsCycle MediaLink
+		ControlMove, Static29, , , , 100, NewsCycle MediaLink
+		ControlSetText, Static28, Info: , NewsCycle MediaLink
 
-		ControlGetPos, cx, cy, , , Static60, Atex MediaLink
-		ControlMove, Static61, %cx%, %cy%, 500, , Atex MediaLink
+		ControlGetPos, cx, cy, , , Static60, NewsCycle MediaLink
+		ControlMove, Static61, %cx%, %cy%, 500, , NewsCycle MediaLink
 		cy2 := cy+16
-		ControlMove, Edit3, ,%cy2% , , 100, Atex MediaLink
-		ControlMove, Button10, ,%cy2% , , , Atex MediaLink
+		ControlMove, Edit3, ,%cy2% , , 100, NewsCycle MediaLink
+		ControlMove, Button10, ,%cy2% , , , NewsCycle MediaLink
 		
-		Control, Hide, , Static60, Atex MediaLink
-		Control, Hide, , Edit2, Atex MediaLink
-		Control, Hide, , Static62, Atex MediaLink
-		Control, Hide, , Edit4, Atex MediaLink
-		Control, Hide, , Button9, Atex MediaLink
-		Control, Hide, , Button11, Atex MediaLink
+		Control, Hide, , Static60, NewsCycle MediaLink
+		Control, Hide, , Edit2, NewsCycle MediaLink
+		Control, Hide, , Static62, NewsCycle MediaLink
+		Control, Hide, , Edit4, NewsCycle MediaLink
+		Control, Hide, , Button9, NewsCycle MediaLink
+		Control, Hide, , Button11, NewsCycle MediaLink
 		
 
 		FileRead, info,	%notesdir%\%mlOrdernummer%.txt
@@ -26,16 +26,16 @@
 			SplashImage = %dir_img%\varning_small.png
 			SplashImageGUI(SplashImage, popX, mY, 2000, true)
 
-			ControlSetText, Static29, %info%, Atex MediaLink
-			ControlSetText, Static61, Interna noteringar (OBS - Egna noteringar finns!), Atex MediaLink
-			ControlMove, Static61, , , 500, , Atex MediaLink
+			ControlSetText, Static29, %info%, NewsCycle MediaLink
+			ControlSetText, Static61, Interna noteringar (OBS - Egna noteringar finns!), NewsCycle MediaLink
+			ControlMove, Static61, , , 500, , NewsCycle MediaLink
 			; ToolTip, Observera: Denna kampanj har ytterligare information tillagd.
 			; SetTimer, RemoveToolTip, 1500
 		}
 		if (info = "")
 		{
-			ControlSetText, Static29, Ingen info, Atex MediaLink
-			ControlSetText, Static61, Interna noteringar, Atex MediaLink
+			ControlSetText, Static29, Ingen info, NewsCycle MediaLink
+			ControlSetText, Static61, Interna noteringar, NewsCycle MediaLink
 		}
 	}
 return
@@ -55,7 +55,7 @@ sparainfo:
 	Gui, 3:Destroy
 	FileDelete, %notesdir%\%mlOrdernummer%.txt
 	FileAppend, %egeninfo%, %notesdir%\%mlOrdernummer%.txt
-	ControlSetText, Static29, %egeninfo%, Atex MediaLink
+	ControlSetText, Static29, %egeninfo%, NewsCycle MediaLink
 return
 
 RemoveToolTip:

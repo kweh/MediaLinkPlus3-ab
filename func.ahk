@@ -11,10 +11,10 @@ mlActive(x=0)
 	MouseGetPos, , , id, control
 	IfInString, control, SysListView
 		{
-			IfWinActive, Atex MediaLink
-			{
-				x := true
-			}
+			; IfWinActive, Atex MediaLink
+			; {
+			; 	x := true
+			; }
 
 			IfWinActive, NewsCycle MediaLink
 			{
@@ -29,10 +29,10 @@ noteActive(x=0)
 	MouseGetPos, , , id, control
 	IfInString, control, Static29
 		{
-			IfWinActive, Atex MediaLink
-			{
-				x := true
-			}
+			; IfWinActive, Atex MediaLink
+			; {
+			; 	x := true
+			; }
 			IfWinActive, NewsCycle MediaLink
 			{
 				x := true
@@ -93,6 +93,7 @@ assign(x) ; tilldelar till x
 {
 	Send, !a
 	WinWaitActive, Ändra tilldelad
+	Sleep, 200
 	Control, ChooseString, %x%, ComboBox1
 	Send, !o
 }
@@ -126,6 +127,7 @@ stripDash(ByRef x)
 rensaTecken(ByRef x) ; Rensar ur valda tecken ur en variabel
 {
 		StringReplace, x, x, &&, &, All
+		StringReplace, x, x, &,%A_SPACE% , All
 		StringReplace, x, x, /,%A_SPACE%, All
 		StringReplace, x, x, \,%A_SPACE%, All
 		StringReplace, x, x, :,%A_SPACE%, All
@@ -552,15 +554,33 @@ cxProduct(format, type)
 		cost := "cpc"
 	}
 
+	if (format = "TXT" && type = "Run On Site")	
+	{
+		cxName := "- ROS - Textannons"
+		cost := "cpc"
+	}
+
 	if (format = "180" && type = "Plugg")	
 	{
 		cxName := ". PLUGG - 180 - CPC"
 		cost := "cpc"
 	}
 
+	if (format = "TXT" && type = "Plugg")	
+	{
+		cxName := "- ROS - Textannons"
+		cost := "cpc"
+	}
+
 	if (format = "180" && type = "CPC")	
 	{
 		cxName := "- ROS - 180"
+		cost := "cpc"
+	}
+
+	if (format = "TXT" && type = "CPC")	
+	{
+		cxName := "- ROS - Textannons"
 		cost := "cpc"
 	}
 
