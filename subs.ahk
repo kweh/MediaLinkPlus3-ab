@@ -2,13 +2,12 @@
 	gosub, getAnvnamn
 	ControlGet, listCount, List, Count Selected, %control%, NewsCycle MediaLink
 	ControlGet, getList, List, Selected, %control%, NewsCycle MediaLink
-	if (weblinkget = 1)
-		ControlGet, getList, List, , %control%, NewsCycle MediaLink
 	StringSplit, getListRow, getList, `n
 	listRow = %getListRow1%
 	Stringsplit, kolumn, listRow, `t
 
 	;Läs kolumn-info från användarens kolumner.ini
+	DllCall("QueryPerformanceCounter", "Int64 *", t_ini_start)
 	IniRead, iniStart, %mlpKolumner%, kolumner, Start
 	IniRead, iniStopp, %mlpKolumner%, kolumner, Stopp
 	IniRead, iniExponeringar, %mlpKolumner%, kolumner, Exponeringar
@@ -19,6 +18,8 @@
 	IniRead, iniEnhet, %mlpKolumner%, kolumner, Internetenhet
 	IniRead, iniStatus, %mlpKolumner%, kolumner, Status
 	IniRead, iniTilldelad, %mlpKolumner%, kolumner, Tilldelad
+	DllCall("QueryPerformanceCounter", "Int64 *", t_ini_stopp)
+	t_ini_done := t_ini_stopp - t_ini_start
 
 
 	mlStartdatum := kolumn%iniStart%
@@ -783,3 +784,24 @@ assign_none:
 	assign(" ")
 Return
 
+
+
+copyCampaigns:
+	i = 1
+	copyList =
+	;~ gosub, getList
+	loop, parse, getList
+	{
+		if (i > listCount)
+		{	
+			break
+		}
+		thisRow := getListRow%i%
+		if (thisRow != "")
+		{
+			copyList = %copyList%`n%thisRow%
+		}
+		i++
+	}
+	clipboard = %copyList%
+return

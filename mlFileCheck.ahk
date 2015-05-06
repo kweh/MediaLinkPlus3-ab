@@ -16,6 +16,7 @@ fc_save:
 	print_txt = %mlKundnamn% | %print%`n
 	FileAppend, %print_txt%, %mlp_filechecklist%
 	FileAppend, false, %dir_filecheck%\%print%.txt
+	SetTimer, fc_go, 60000
 return
 
 fc_clear:
@@ -29,6 +30,11 @@ fc_clear:
 		FileAppend, ,%mlp_filechecklist%
 		msgbox, Övervakningslistan rensad!
 	}
+return
+
+
+!+y::
+	gosub, fc_go
 return
 
 fc_go:

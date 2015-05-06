@@ -7,14 +7,13 @@ DetectHiddenText, On
 #include secure.ahk
 #include menu_names.ahk
 
-version = 308
+version = 309
 
 SplashImage = %dir_img%\splash.png
 SplashImageGUI(SplashImage, "Center", "Center", 3000, true)
-sleep, 3000
+sleep, 2000
 
 #include update.ahk
-gosub, updateStart
 
 ;Timer för filecheck
 from_fc := false
@@ -37,9 +36,14 @@ IniRead, RMenuColor, %mlpSettings%, Theme, RMenuColor
 
 menu, tray, add, Starta om Medialink Plus, reload
 
+
+gosub, updateStart
+
 ~RButton::
+	Start = %A_TickCount%
 	if (mlActive())
 	{
+		activeDone := A_TickCount - Start
 		if (menu)
 		{
 			menu, mlp, DeleteAll ; Initialisera
@@ -52,7 +56,9 @@ menu, tray, add, Starta om Medialink Plus, reload
 		Send, {Esc}
 		MouseGetPos, , , id, control
 		gosub, getList
+		listDone := A_TickCount - Start
 		gosub, note
+		noteDone := A_TickCount - Start
 
 
 		;Hitta print-knappen
@@ -60,6 +66,7 @@ menu, tray, add, Starta om Medialink Plus, reload
 		menu, mlp, Icon, %m_findprint%, %dir_icons%\inteprint.ico
 		menu, mlp, disable, %m_findprint%
 		print := printCheck(mlOrdernummer, "-01")
+		printDone := A_TickCount - Start
 		if (print = "print" || print = "bild") ; Kollar om det finns en print
 		{
 			menu, mlp, Icon, %m_findprint%, %dir_icons%\print.ico
@@ -168,6 +175,7 @@ menu, tray, add, Starta om Medialink Plus, reload
 
 		menu, mlp, add, %m_search%, sokOrder
 		menu, mlp, Icon, %m_search%, %dir_icons%\sok.ico
+
 		; Filövervakning
 		fc_antal := 0
 		Loop, read, %mlp_filechecklist% ; räknar antal övervakade filer
@@ -191,11 +199,13 @@ menu, tray, add, Starta om Medialink Plus, reload
 		}
 		menu, mlp, add, Filövervakning, :filecheck
 		menu, mlp, Icon, Filövervakning, %dir_icons%\filecheck.ico
+		fileDone := A_TickCount - Start
 
 		; Traffic
 		menu, traffic, add, Uppdatera lagerverktyget, lager
 		menu, traffic, add, Räkna markerade annonser, rakna
 		menu, traffic, add, Räkna exponeringar, raknaExp
+		menu, traffic, add, Kopiera rader, copyCampaigns
 		menu, mlp, add, %m_traffic%, :traffic
 		menu, mlp, Icon, %m_traffic%, %dir_icons%\traffic.ico
 
@@ -211,6 +221,8 @@ menu, tray, add, Starta om Medialink Plus, reload
 					menu, dev, add, Produktinfo CX (ros), cxprod_ros
 					menu, dev, add, Produktinfo CX (riktad), cxprod_riktad
 					menu, dev, add, Skriv fil till \cxense\, testWrite
+					menu, dev, add, Öppna \cxense\, opencxpath
+					menu, dev, add, Kolla tid för att ladda meny, menutime
 					menu, mlp, add, %m_dev%, :dev
 				}
 		

@@ -11,11 +11,6 @@ mlActive(x=0)
 	MouseGetPos, , , id, control
 	IfInString, control, SysListView
 		{
-			; IfWinActive, Atex MediaLink
-			; {
-			; 	x := true
-			; }
-
 			IfWinActive, NewsCycle MediaLink
 			{
 				x := true
@@ -73,6 +68,10 @@ printCheck(x, mnr)
 	return data
 
 }
+
+secondTimer:
+		i := i+100
+return
 
 replace_split(x, y)
 {

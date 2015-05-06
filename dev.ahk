@@ -68,3 +68,11 @@ KeywordID: %keywordsID%
 )
 	msgbox % text
 return
+
+menutime:
+	msgbox, Active: %activeDone% `n List: %listDone% `n Note: %noteDone% `n Print: %printDone% `n Check: %fileDone% `n ----------- `n Ini: %t_ini_done%
+return
+
+opencxpath:
+	run, %A_WorkingDir%\cxense
+Return

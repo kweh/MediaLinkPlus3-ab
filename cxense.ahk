@@ -367,7 +367,7 @@ cx_post_contract(campaignID, cost, startDate, stopDate, exp)
 
 cx_post_advertisement(campaignID, kundnamn, start)
 {
-  rensaTecken(kund)
+  rensaTecken(kundnamn)
   StringTrimLeft, start, start, 2
   ; --------------------------- HTTP-Request ---------------------------
   URL = https://cxad.cxense.com/api/secure/ad/%campaignID%
@@ -385,6 +385,7 @@ cx_post_advertisement(campaignID, kundnamn, start)
   HEAD = Content-Type: text/xml`nAuthorization: Basic QVBJLlVzZXI6cGFzczEyMw==
   OPTS = Upload: %FILE%
   HTTPRequest( URL, DATA, HEAD, OPTS )
+  msgbox % data
   return DATA
 }
 
