@@ -1,5 +1,6 @@
 ﻿getList: ; Hämtar information från valt objekt i listvyn
 	gosub, getAnvnamn
+
 	ControlGet, listCount, List, Count Selected, %control%, NewsCycle MediaLink
 	ControlGet, getList, List, Selected, %control%, NewsCycle MediaLink
 	StringSplit, getListRow, getList, `n
@@ -52,6 +53,17 @@
 	if (mlSite = "Affärsliv.com")
 	{
 		mlSite = affarsliv.com
+		mlTidning = AF
+	}
+	if (mlSite = "Uppsalavimmel.se")
+	{
+		mlSite = uppsalavimmel.se
+		mlTidning = UV
+	}
+	if (mlSite = "uppgång.se")
+	{
+		mlSite = uppgang.com
+		mlTidning = UG
 	}
 
 	mlEnhet := kolumn%iniEnhet%
@@ -424,12 +436,13 @@ if (listCount > 1)
 	{
 		Msgbox, 4, Öppna flera kampanjer, Öppna %listCount% kampanjer i Cxense?
 		IFmsgbox, yes
+		Progress, R0-%listCount% FM8 FS7 CBGray, Hämtar länk (%i%/%listCount%), Hämtar kampanjlänkar:, Öppnar kampanjer
 		{
 			i = 1
-			Progress, R0-%listCount% FM8 FS7 CBGray, Hämtar länk (%i%/%listCount%), Hämtar kampanjlänkar:, Korrmail
+			Progress, %i%, Hämtar länk (%i%/%listCount%), Hämtar kampanjlänkar:, Öppnar kampanjer
 			while (i <= listCount)
 				{
-					progress % i-1
+					progress % i-1, Hämtar länk (%i%/%listCount%), Hämtar kampanjlänkar:, Öppnar kampanjer
 					listRow := getListRow%i%
 					Stringsplit, kolumn, listRow, `t
 
@@ -606,6 +619,7 @@ lager:
 	Send, {Shift Up}
 	gosub, getList
 	timestamp = %A_Now%
+	FormatTime, timestamp, %timestamp%,yyyy-MM-dd HH:mm
 	XML = 
 	Loop, Parse, getList, `n
 	{
@@ -725,11 +739,11 @@ status_repetition:
 Return
 
 status_korrekturskickat:
-	status("korrektur  skickat")
+	status("korrektur skickat")
 Return
 
 status_korrekturklart:
-	status("korrektur  klart")
+	status("korrektur klart")
 Return
 
 status_undersoks:
@@ -745,12 +759,12 @@ status_klar:
 Return
 
 status_levfardig:
-	status("Lev.  Färdig")
+	status("Lev. färdig")
 Return
 
 status_manusmail:
 	status("Vilande")
-	assign("Manus  på mail")
+	assign("Manus på mail")
 Return
 
 status_bokad:
@@ -804,4 +818,25 @@ copyCampaigns:
 		i++
 	}
 	clipboard = %copyList%
+return
+
+raknaProd:
+	ads = 0
+	count = 0
+	Loop, Parse, getList, `n 
+	{
+		if(count = listCount)
+		{
+			break
+		}
+		if (InStr(A_Loopfield, "Lev. Färdig") || InStr(A_LoopField, "Repetition"))
+		{
+			ads := ads
+		} else 
+		{
+			ads++
+		}
+		count++
+	}
+	msgbox % ads " annonser att producera."
 return

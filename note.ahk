@@ -17,7 +17,8 @@
 		Control, Hide, , Edit4, NewsCycle MediaLink
 		Control, Hide, , Button9, NewsCycle MediaLink
 		Control, Hide, , Button11, NewsCycle MediaLink
-		
+
+
 
 		FileRead, info,	%notesdir%\%mlOrdernummer%.txt
 		if (info != "")

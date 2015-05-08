@@ -1,4 +1,5 @@
 ﻿pdf-preview:
+Gui, 39:Destroy
 gosub, manageimg
 Gui, 39:add, picture, x0 y0 w%mypicW% h%mypicH% vprintimg, %img%
 data := checkPrints(mlOrdernummer)

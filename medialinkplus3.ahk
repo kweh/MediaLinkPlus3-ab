@@ -7,7 +7,7 @@ DetectHiddenText, On
 #include secure.ahk
 #include menu_names.ahk
 
-version = 309
+version = 310
 
 SplashImage = %dir_img%\splash.png
 SplashImageGUI(SplashImage, "Center", "Center", 3000, true)
@@ -26,13 +26,6 @@ IniRead, RMenuColor, %mlpSettings%, Theme, RMenuColor
 		RMenuColor = FFFFFF
 	}
 
-; count := zen_get_ticket_count()
-;
-; IniRead, zenNote, %mlpDir%\settings.ini, ZenNotes, aktiv
-; 	if (zenNote = 1)
-; 	{
-; 		SetTimer, zen_notify, 60000
-; 	}
 
 menu, tray, add, Starta om Medialink Plus, reload
 
@@ -57,8 +50,7 @@ gosub, updateStart
 		MouseGetPos, , , id, control
 		gosub, getList
 		listDone := A_TickCount - Start
-		gosub, note
-		noteDone := A_TickCount - Start
+		noteDone := A_TickCount - (listDone + start)
 
 
 		;Hitta print-knappen
@@ -66,7 +58,7 @@ gosub, updateStart
 		menu, mlp, Icon, %m_findprint%, %dir_icons%\inteprint.ico
 		menu, mlp, disable, %m_findprint%
 		print := printCheck(mlOrdernummer, "-01")
-		printDone := A_TickCount - Start
+		printDone := A_TickCount - (noteDone + start)
 		if (print = "print" || print = "bild") ; Kollar om det finns en print
 		{
 			menu, mlp, Icon, %m_findprint%, %dir_icons%\print.ico
@@ -199,11 +191,12 @@ gosub, updateStart
 		}
 		menu, mlp, add, Filövervakning, :filecheck
 		menu, mlp, Icon, Filövervakning, %dir_icons%\filecheck.ico
-		fileDone := A_TickCount - Start
+		fileDone := A_TickCount - (printDone + start)
 
 		; Traffic
 		menu, traffic, add, Uppdatera lagerverktyget, lager
 		menu, traffic, add, Räkna markerade annonser, rakna
+		menu, traffic, add, Räkna annonser för produktion, raknaProd
 		menu, traffic, add, Räkna exponeringar, raknaExp
 		menu, traffic, add, Kopiera rader, copyCampaigns
 		menu, mlp, add, %m_traffic%, :traffic
@@ -231,6 +224,7 @@ gosub, updateStart
 
 		menu = true
 		menu, mlp, show
+		gosub, note
 
 	}
 

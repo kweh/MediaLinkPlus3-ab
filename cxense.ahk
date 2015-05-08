@@ -79,7 +79,7 @@ FileRead, Target, G:\NTM\NTM Digital Produktion\MedialinkPlus\dev\target.txt
 
 defaultType := 1 ; Run On Site
 expView = 
-if (mlSite = "affarsliv.com" || mlSite = "gotland.net" || mlSite = "norrbottensaffarer.com" || mlSite = "uppsala.com" || mlSite = "uppsalavimmel.se" || mlSite = "duonoje.se" || mlSite = "almedalen.net")
+if (mlSite = "affarsliv.com" || mlSite = "gotland.net" || mlSite = "norrbottensaffarer.com" || mlSite = "uppsala.com" || mlSite = "duonoje.se" || mlSite = "almedalen.net")
   { 
     defaultType := 5 ; CPC
     expView = Disabled
@@ -385,7 +385,6 @@ cx_post_advertisement(campaignID, kundnamn, start)
   HEAD = Content-Type: text/xml`nAuthorization: Basic QVBJLlVzZXI6cGFzczEyMw==
   OPTS = Upload: %FILE%
   HTTPRequest( URL, DATA, HEAD, OPTS )
-  msgbox % data
   return DATA
 }
 

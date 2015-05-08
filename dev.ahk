@@ -70,7 +70,7 @@ KeywordID: %keywordsID%
 return
 
 menutime:
-	msgbox, Active: %activeDone% `n List: %listDone% `n Note: %noteDone% `n Print: %printDone% `n Check: %fileDone% `n ----------- `n Ini: %t_ini_done%
+	msgbox, Active: %activeDone% `n List: %listDone% `n Note: %noteDone% `n Print: %printDone% `n Check: %fileDone% `n ----------- `n Användarnamn: %anv_done%
 return
 
 opencxpath:
