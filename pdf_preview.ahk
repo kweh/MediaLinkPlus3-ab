@@ -42,7 +42,11 @@ checkPrints(x)
     i := 1
     while i <= y2
     {
-        mnrLit := "-0" i
+        mnrLit := "-" i
+        if (i < 10)
+        {
+            mnrLit := "-0" i
+        }
         result := printCheck(onr, mnrLit)
         if (result = "print" || result = "bild")
         {

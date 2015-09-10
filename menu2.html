@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/5.1.2/css/jquery.mmenu.all.css" type="text/css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/5.1.2/css/extensions/jquery.mmenu.fullscreen.css" type="text/css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/5.1.2/css/extensions/jquery.mmenu.borderstyle.css" type="text/css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link href='https://raw.githubusercontent.com/jamesflorentino/nanoScrollerJS/master/bin/css/nanoscroller.css' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/5.1.2/js/jquery.mmenu.min.js"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/jamesflorentino/nanoScrollerJS/master/bin/javascripts/jquery.nanoscroller.min.js"></script>
+
+        <style>
+            html {      
+                height: 298px;
+            }
+
+            body {
+                padding: 0;
+                margin: 0;
+                font-family: Roboto;
+                background-color: #dde4ec;
+                overflow: hidden;
+                font-size: 10px;
+            }
+
+
+            li {
+                background: #f0f0f0 !important;
+                display: block;
+                color: #777;
+                text-decoration: none;
+                width: 100%;
+                padding: 0px 0 !important;
+            }
+
+            .fa {
+                padding-right: 5px;
+            }
+
+            .mm-menu {
+                background: #f0f0f0;
+                /*border: 1px solid #ddd;*/
+                width: 248px !important;
+                height: 298px !important;
+            }
+
+            .mm-next:hover {
+                background: #F0F0F0;
+            }
+            a:link, a:visited {
+                background: #f0f0f0;
+                border-bottom: 1px solid #f0f0f0;
+                border-top: 1px solid #f0f0f0;
+                border-left: 5px solid #f0f0f0;
+                padding-left: 10px !important;
+                cursor: default;
+            }
+
+
+            a:hover,  .mm-title:hover {
+                background: #FFF !important;
+                border-left: 5px solid #CCC;
+                border-bottom: 1px solid #eaeaea;
+                border-top: 1px solid #eaeaea;
+                cursor: default;
+
+
+            }
+
+            .green {
+                color: #0a0;
+            }
+
+            .nolink {
+                padding: 10px 0 10px 10px !important;
+                border-left: 5px solid #f0f0f0;
+                border-bottom: 1px solid #f0f0f0;
+                border-top: 1px solid #f0f0f0;
+                border-left: 5px solid #f0f0f0;
+                cursor: default;
+                color: #d0d0d0;
+            }
+
+            .nolink:hover {
+                background: #FFF !important;
+                border-left: 5px solid #CCC;
+                border-bottom: 1px solid #eaeaea;
+                border-top: 1px solid #eaeaea;
+            }
+
+            .small {
+                padding: 2px 5px !important;
+            }
+
+            .divider {
+                background: #CCC !important;
+                padding: 3px 0px 3px 15px !important;
+                text-transform: uppercase;
+                font-size: 9px;
+                border-bottom: 1px solid #c0c0c0;
+            }
+
+            .mm-prev:before, .mm-next:after, .mm-arrow:after {
+                width: 6px;
+                height: 6px;
+            }
+
+            .mm-prev {
+                padding: 15px !important;
+                background: #CCC !important;
+                margin-top: 0px !important;
+                border: 0px solid #000 !important;
+
+            }
+
+            .mm-btn, .mm-title {
+                height: 20px !important;
+             }
+             .mm-title {
+                padding: 5px !important;
+                color: #777 !important;
+             }
+             .mm-title:hover {
+                background: #CCC !important;
+                border: 0px solid #000 !important;
+             }
+
+             .mm-navbar {
+                height: 30px;
+                background: #CCC;
+                color: #FFF !important;
+                font-size: 11px !important;
+                text-transform: uppercase;
+             }
+
+             .mm-menu > .mm-panel.mm-hasnavbar {   
+                padding-top: 30px;
+             }
+
+
+            .red        { color: #ff0000; }
+            .orange     { color: #ff8000; }
+            .yellow     { color: #ffff00; }
+            .purple     { color: #8000ff; }
+            .blue       { color: #0000ff; }
+            .green      { color: #008000; }
+
+
+        </style>
+    </head>
+    <body>
+    <!-- KNAPPAR -->
+    <div style="height: 300px" class="nano"> 
+        <nav id="main" class="nano-content">
+            <ul>
+                $preprint<i class="fa fa-print fa-fw $print"></i>Visa printannons$postprint
+                <li><a href="myapp://sub-status-tilldela"><i class="fa fa-user fa-fw"></i>Tilldela och bearbeta</a>
+                    <ul>
+                        <li><a class="" href="myapp://sub-tilldela-annan"><i class="fa fa-users fa-fw"></i>Tilldela annan</a></li>
+                        <li class="divider"><i class="fa fa-angle-down"></i>Status</li>
+                        <li><a class="small" href="myapp://sub-status-ny"><i class="fa fa-square red"></i>Ny</a></li>
+                        <li><a class="small" href="myapp://sub-status-bokad"><i class="fa fa-square red"></i>Bokad</a></li>
+                        <li><a class="small" href="myapp://sub-status-vilande"><i class="fa fa-square orange"></i>Vilande</a></li>
+                        <li><a class="small" href="myapp://sub-status-bearbetas"><i class="fa fa-square yellow"></i>Bearbetas</a></li>
+                        <li><a class="small" href="myapp://sub-status-repetition"><i class="fa fa-square purple"></i>Repetition</a></li>
+                        <li><a class="small" href="myapp://sub-status-korrskickat"><i class="fa fa-square blue"></i>Korrektur skickat</a></li>
+                        <li><a class="small" href="myapp://sub-status-korrklart"><i class="fa fa-square blue"></i>Korrektur klart</a></li>
+                        <li><a class="small" href="myapp://sub-status-levfardig"><i class="fa fa-square green"></i>Lev. Färdig</a></li>
+                        <li><a class="small" href="#">Två Tre</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Tre</a></li>
+                <li><a href="#">Fyra</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+                 $("#main").mmenu({
+                 // Options
+                 extensions: ["border-none", "fullscreen"]
+            });
+            var API = $("#main").data( "mmenu" );
+            API.open();
+
+        });
+
+    </script>
+
+    </body>
+</html>

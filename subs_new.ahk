@@ -1,82 +1,74 @@
 ﻿getList: ; Hämtar information från valt objekt i listvyn
 	gosub, getAnvnamn
 
-	DllCall("QueryPerformanceCounter", "Int64 *", t_list_start)
-	ControlGet, listCount, List, Count Selected, %control%, NewsCycle MediaLink
-	ControlGet, getList, List, Selected, %control%, NewsCycle MediaLink
-	StringSplit, getListRow, getList, `n
-	listRow = %getListRow1%
-	Stringsplit, kolumn, listRow, `t
-	DllCall("QueryPerformanceCounter", "Int64 *", t_list_stopp)
-	t_list_done := t_list_stopp - t_list_start
+	; Räkna markerade annonser
+	i := 0
+	Loop, parse, mlOrdernummer, `n
+	{
+		i++
+	}
+	listCount := i
 
-	;Läs kolumn-info från användarens kolumner.ini
-	DllCall("QueryPerformanceCounter", "Int64 *", t_ini_start)
-	IniRead, iniStart, %mlpKolumner%, kolumner, Start
-	IniRead, iniStopp, %mlpKolumner%, kolumner, Stopp
-	IniRead, iniExponeringar, %mlpKolumner%, kolumner, Exponeringar
-	IniRead, iniKundnr, %mlpKolumner%, kolumner, Kundnr
-	IniRead, iniKundnamn, %mlpKolumner%, kolumner, Kundnamn
-	IniRead, iniSaljare, %mlpKolumner%, kolumner, Saljare
-	IniRead, iniProdukt, %mlpKolumner%, kolumner, Produkt
-	IniRead, iniEnhet, %mlpKolumner%, kolumner, Internetenhet
-	IniRead, iniStatus, %mlpKolumner%, kolumner, Status
-	IniRead, iniTilldelad, %mlpKolumner%, kolumner, Tilldelad
-	DllCall("QueryPerformanceCounter", "Int64 *", t_ini_stopp)
-	t_ini_done := t_ini_stopp - t_ini_start
+	AUTH := ab_auth() 															; Autentisera mot AdBase-API / return AUTH
+	ab_xml := ab_getOrderByNumber(mlOrdernummer) 								; Hämtar XML för ordernummer
+	ab_campaignXML := ab_campaignSplit(ab_xml, "campaign", mlOrdernummer) 		; Splittar på materialnummer
+	mlKundnamn := ab_find("Name1", ab_xml) 										; hämtar kundnamn från huvudxml
+	mlKundnr := ab_find("account-number", ab_xml) 								; hämtar kundnummer från huvudxml
+	mlSaljare := ab_findSub("AdBaseInfo", "ad-order-taker", ab_xml)				; hämtar säljare från huvudxml
+	; mlEnhet := ab_findSub("CampaignUnit", "Name", ab_campaignXML)				; Hämtar internetenhet från kampanjxml
+	; if (mlEnhet = "")
+	; {
+	; 	mlEnhet := ab_find("Type", ab_campaignXML) 	
+	; }
+	mlProdukt := ab_findSub("FlightGroup", "Site", ab_campaignXML) 				; Hämtar produkt/site från kampanjxml
+	mlPris := ab_findSub("FlightGroup", "Price", ab_campaignXML) 				; Hämtar produkt/site från kampanjxml
+	mlStartdatum := ab_findSub("FlightGroup", "StartDate", ab_campaignXML) 		; Hämtar StartDate från kampanjxml
+	mlStoppdatum := ab_findSub("FlightGroup", "EndDate", ab_campaignXML) 		; Hämtar EndDate från kampanjxml
+		ab_fixTime(mlStartdatum) 												; Fixar datumformat från AdBase
+		ab_fixTime(mlStoppdatum) 												; Fixar datumformat från AdBase
+	mlExponeringar := ab_findSub("FlightGroup", "Quantity", ab_campaignXML) 	; Hämtar exponeringar från kampanjxml
+	mlNoteringar := ab_find("InternalNotes", ab_campaignXML)   					; Hämtar interna noteringar
+	mlID := ab_findSub("FlightGroup", "CampaignUnit-id", ab_campaignXML) 		; Hämtar enhets-ID
 
+	mlW := ab_findSub("CampaignUnit", "Width", ab_campaignXML) 					; Hämtar bredd på annons
+	mlH := ab_findSub("CampaignUnit", "Height", ab_campaignXML) 				; Hämtar höjd på annons
+	file = %mlW% x %mlH%														; Sätter dimensioner för att hämta template-fil
 
-	mlStartdatum := kolumn%iniStart%
-	mlStoppdatum := kolumn%iniStopp%
-	mlExponeringar := kolumn%iniExponeringar%
-	mlKundnr := kolumn%iniKundnr%
-	mlKundnamn := kolumn%iniKundnamn%
-	mlSaljare := kolumn%iniSaljare%
-	mlProdukt := kolumn%iniProdukt%
-	mlStatus := kolumn%iniStatus%
-	mlTilldelad := kolumn%iniTilldelad%
+	mlEnhet := getFormat(mlID)
+
+	StringSplit, mlPris, mlPris , `,
+	cpm := mlPris1/(mlExponeringar / 1000)
+	cpm_rounded := Round(cpm)
 
 	StringSplit, prodArray, mlProdukt , %A_Space%
 	mlTidning = %prodArray1%
 	mlSite = %prodArray2%
 
-	if (mlSite = "gotland.net")
-	{
-		mlTidning = GN
-	}
-	if (mlSite = "nt.se")
-	{
-		mlTidning = NTFB
-	}
+	mlSite := mlSite = "uppgång.se" ? "uppgang.com" : mlSite
 
-	if (mlSite = "mobil.nt.se")
-	{
-		mlTidning = NTFB
-	}
-	if (mlSite = "Affärsliv.com")
-	{
-		mlSite = affarsliv.com
-		mlTidning = AF
-	}
-	if (mlSite = "Uppsalavimmel.se")
-	{
-		mlSite = uppsalavimmel.se
-		mlTidning = UV
-	}
-	if (mlSite = "uppgång.se")
-	{
-		mlSite = uppgang.com
-		mlTidning = UG
-	}
-	if (mlSite = "mobil.uppgång.se")
-	{
-		mlSite = mobil.uppgang.com
-		mlTidning = UG
-	}
+	mlTidning := mlSite = "nt.se" 				? "NTFB" 	: mlTidning
+	mlTidning := mlSite = "gotland.net" 		? "GN" 		: mlTidning
+	mlTidning := mlSite = "mobil.nt.se" 		? "NTFB" 	: mlTidning
+	mlTidning := mlSite = "Affärsliv.com" 		? "AF" 		: mlTidning
+	mlTidning := mlSite = "Uppsalavimmel.se" 	? "UV" 		: mlTidning
 
-	mlEnhet := kolumn%iniEnhet%
-	mlOrdernummer = %kolumn1%
-	weblinkget = 0
+	mlSaljare := find_user(mlSaljare)
+
+; msgbox,
+; (
+; Kundnamn:	%mlKundnamn%
+; Kundnr:		%mlKundnr%
+; Enhet:		%mlEnhet%
+; Startdatum:	%mlStartdatum%
+; Startdatum:	%mlStoppdatum%
+; Exponeringar:	%mlExponeringar%
+; Säljare:		%mlSaljare%
+; Produkt:		%mlProdukt%
+; Tidning:		%mlTidning%
+; Site:		%mlSite%
+; Pris:		%mlPris%
+; CPM:		%cpm_rounded%
+; )
 return
 
 
@@ -210,33 +202,21 @@ openCampaignRapportMulti:
 		IFmsgbox, yes
 			{
 			Progress, R0-%antalAnnonser% FM8 FS7 CBGray, Söker annonser..., Öppnar annonser i Rapportverktyget:, Annonsrapport
-			while aktuellAnnons <= antalAnnonser
-			{
-				progress % aktuellAnnons-1
-				listRow := getListRow%aktuellAnnons%
-				Stringsplit, kolumn, listRow, `t
-
-				mlStartdatum := kolumn%iniStart%
-				mlStoppdatum := kolumn%iniStopp%
-				mlExponeringar := kolumn%iniExponeringar%
-				mlKundnr := kolumn%iniKundnr%
-				mlKundnamn := kolumn%iniKundnamn%
-				mlSaljare := kolumn%iniSaljare%
-				mlProdukt := kolumn%iniProdukt%
-				mlOrdernummer = %kolumn1%
-
-				gosub, openCampaignRapport
-				aktuellAnnons++
-				progress % aktuellAnnons-1
-				sleep, 500
-			}
-			if (aktuellAnnons > antalAnnonser)
-			{
-				Progress, Off
-			}
+			orderlista := mlOrdernummer
+				Loop, parse, orderlista, `n
+				{
+					progress % aktuellAnnons-1
+					mlOrdernummer := A_LoopField
+					gosub, getList
+					gosub, openCampaignRapport
+					aktuellAnnons++
+					mlOrdernummer := A_LoopField
+					sleep, 500
+				}
+			Progress, Off
 		}
 	}
-	if (listCount = 1)
+	else
 	{
 		gosub, openCampaignRapport
 		return
@@ -252,33 +232,21 @@ openCustomerRapportMulti:
 		IFmsgbox, yes
 			{
 			Progress, R0-%antalKunder% FM8 FS7 CBGray, Söker kunder..., Öppnar kunder i Rapportverktyget:, Kundrapport
-			while aktuellKund <= antalKunder
-			{
-				progress % aktuellKund-1
-				listRow := getListRow%aktuellKund%
-				Stringsplit, kolumn, listRow, `t
-
-				mlStartdatum := kolumn%iniStart%
-				mlStoppdatum := kolumn%iniStopp%
-				mlExponeringar := kolumn%iniExponeringar%
-				mlKundnr := kolumn%iniKundnr%
-				mlKundnamn := kolumn%iniKundnamn%
-				mlSaljare := kolumn%iniSaljare%
-				mlProdukt := kolumn%iniProdukt%
-				mlOrdernummer = %kolumn1%
-
-				gosub, openCustomerRapport
-				aktuellKund++
-				progress % aktuellKund-1
-				sleep, 500
-			}
-			if (aktuellKund > antalKunder)
-			{
-				Progress, Off
-			}
+			orderlista := mlOrdernummer
+				Loop, parse, orderlista, `n
+				{
+					progress % aktuellKund-1
+					mlOrdernummer := A_LoopField
+					gosub, getList
+					gosub, openCustomerRapport
+					aktuellKund++
+					mlOrdernummer := A_LoopField
+					Sleep, 500
+				}
+			Progress, Off
 		}
 	}
-	if (listCount = 1)
+	else
 	{
 		gosub, openCustomerRapport
 		return
@@ -328,6 +296,7 @@ getKorr:
 	{
 		goto, getMultiKorr
 	}
+	gosub, getList
 	xml := get_url("cxad.cxense.com/api/secure/folder/advertising")
 	kund = - %mlKundnr% -
 	folderId := cx_xml_read(xml, "childFolder", kund, "folderId")
@@ -338,102 +307,65 @@ Return
 
 getMultiKorr:
 	Progress, R0-%listCount% FM8 FS7 CBGray, Hämtar länk (), Hämtar korrekturlänkar:, Korrmail
-	subject := "Korrektur:  " mlKundnamn " ("
+	subject := "Korrektur:  " mlKundnamn " "
 	rapportUrl := ""
-	i = 1
-	while i <= listCount
-		{
+
 			progress % i-1
 			progress, ,Hämtar länk (%i% av %listCount%), Hämtar korrekturlänkar:, Korrmail
 			listRow := getListRow%i%
 			Stringsplit, kolumn, listRow, `t
 
-			mlStartdatum := kolumn%iniStart%
-			mlStoppdatum := kolumn%iniStopp%
-			mlExponeringar := kolumn%iniExponeringar%
-			mlKundnr := kolumn%iniKundnr%
-			mlKundnamn := kolumn%iniKundnamn%
-			mlSaljare := kolumn%iniSaljare%
-			mlProdukt := kolumn%iniProdukt%
-			mlOrdernummer = %kolumn1%
-
-			xml := get_url("cxad.cxense.com/api/secure/folder/advertising")
-			kund = - %mlKundnr% -
-			folderId := cx_xml_read(xml, "childFolder", kund, "folderId")
-			xml := get_url("cxad.cxense.com/api/secure/campaigns/" folderId)
-			campaignId := cx_xml_read(xml, "campaign", mlOrdernummer, "campaignId")
-
-			rapportUrl = %rapportUrl%%mlOrdernummer%: http://rapport.ntm-digital.se/advertiser/%folderId%/campaign/%campaignId%/`n
-			if (i < listCount)
+			orderlista := mlOrdernummer
+			Loop, parse, orderlista,`n
 			{
+				mlOrdernummer := A_LoopField
+				gosub, getList
+				xml := get_url("cxad.cxense.com/api/secure/folder/advertising")
+				kund = - %mlKundnr% -
+				folderId := cx_xml_read(xml, "childFolder", kund, "folderId")
+				xml := get_url("cxad.cxense.com/api/secure/campaigns/" folderId)
+				campaignId := cx_xml_read(xml, "campaign", mlOrdernummer, "campaignId")
+				if (campaignID = "")
+				{
+					; msgbox, Hittade ingen kampanj!
+				}
+				rapportUrl = %rapportUrl%%mlOrdernummer%: http://rapport.ntm-digital.se/advertiser/%folderId%/campaign/%campaignId%/`n
 				subject := subject "" mlOrdernummer ","
+				i++
+				progress % i-1
+				sleep, 500
 			}
-			if (i = listCount)
-			{
-				subject := subject "" mlOrdernummer ")"
-			}
-			i++
-			progress % i-1
-			sleep, 500
-		}
 		Progress, Off
 return
 
 multiCxStart:
+
 	if (listCount > 1)
 	{
 		Msgbox, 4, Boka flera kampanjer, Boka %listCount% kampanjer i Cxense?
 		IFmsgbox, yes
 		{
-			i = 1
-			stop = false
-			while (i <= listCount)
+			orderlista := mlOrdernummer
+			Loop, parse, orderlista, `n
+			{
+				mlOrdernummer := A_LoopField
+				stop = false
+				gosub, cx_start
+				Loop
 				{
-					while (stop = true)
+					if(stop = "true")
 					{
-
+						sleep, 500
 					}
-
-					listRow := getListRow%i%
-					Stringsplit, kolumn, listRow, `t
-
-					mlStartdatum := kolumn%iniStart%
-					mlStoppdatum := kolumn%iniStopp%
-					mlExponeringar := kolumn%iniExponeringar%
-					mlKundnr := kolumn%iniKundnr%
-					mlKundnamn := kolumn%iniKundnamn%
-					mlSaljare := kolumn%iniSaljare%
-					mlProdukt := kolumn%iniProdukt%
-					mlOrdernummer = %kolumn1%
-					mlEnhet := kolumn%iniEnhet%
-					StringSplit, prodArray, mlProdukt , %A_Space%
-					mlTidning = %prodArray1%
-					mlSite = %prodArray2%
-
-					if (mlSite = "gotland.net")
+					if(stop = "false")
 					{
-						mlTidning = GN
+						break
 					}
-					if (mlSite = "nt.se")
-					{
-						mlTidning = NTFB
-					}
-
-					if (mlSite = "mobil.nt.se")
-					{
-						mlTidning = NTFB
-					}
-					if (mlSite = "Affärsliv.com")
-					{
-						mlSite = affarsliv.com
-					}	
-
-					gosub, cx_start
-					i++
 				}
+			}
 		}
 	}
-	if (listCount = 1)
+	else
 	{
 		goto, cx_start
 	}
@@ -448,70 +380,31 @@ if (listCount > 1)
 		{
 			i = 1
 			Progress, %i%, Hämtar länk (%i%/%listCount%), Hämtar kampanjlänkar:, Öppnar kampanjer
-			while (i <= listCount)
+			
+			orderlista := mlOrdernummer
+				Loop, parse, orderlista, `n
 				{
-					progress % i-1, Hämtar länk (%i%/%listCount%), Hämtar kampanjlänkar:, Öppnar kampanjer
-					listRow := getListRow%i%
-					Stringsplit, kolumn, listRow, `t
-
-					mlStartdatum := kolumn%iniStart%
-					mlStoppdatum := kolumn%iniStopp%
-					mlExponeringar := kolumn%iniExponeringar%
-					mlKundnr := kolumn%iniKundnr%
-					mlKundnamn := kolumn%iniKundnamn%
-					mlSaljare := kolumn%iniSaljare%
-					mlProdukt := kolumn%iniProdukt%
-					mlOrdernummer = %kolumn1%
-					mlEnhet := kolumn%iniEnhet%
-					StringSplit, prodArray, mlProdukt , %A_Space%
-					mlTidning = %prodArray1%
-					mlSite = %prodArray2%
-					
-					xml := get_url("cxad.cxense.com/api/secure/folder/advertising")
-					kund = - %mlKundnr% -
-					folderId := cx_xml_read(xml, "childFolder", kund, "folderId")
-					xml := get_url("cxad.cxense.com/api/secure/campaigns/" folderId)
-					campaignId := cx_xml_read(xml, "campaign", mlOrdernummer, "campaignId")
-					if (campaignID = "")
-						{
-							Msgbox, 4096, Kampanj saknas, Ingen kampanj hittad på ordernummer "%mlOrdernummer%". Avbryter.
-						}
-						else {
-							run,  https://cxad.cxense.com/adv/campaign/%campaignId%
-						}
-
+					progress % i-1
+					mlOrdernummer := A_LoopField
+					gosub, getList
+					gosub, openCampaignCx
 					i++
+					progress % i-1
+					sleep, 500		
 				}
-			sleep, 500
 			Progress, Off
 		}
 	}
-	else {
-		goto, openCampaignCx
-	}
-return
-
-
-listaKundmapp:
-	getFormat(mlEnhet) ; Hämtar formatet utifrån internetenhet
-	stripDash(mlStartdatum) ; Tar bort - ur startdatum
-	rensaTecken(mlKundnamn)
-	StringTrimLeft, mlStartdatum, mlStartdatum, 2 ; tar bort första två tecknen ur datumet
-	forstaBokstav := forstaBokstav(mlKundnamn)
-	adDir = G:\NTM\NTM Digital Produktion\Webbannonser\0-Arkiv\%A_YYYY%\%forstaBokstav%\%mlKundnamn%\%mlStartdatum%
-	ifExist, %adDir%
+	else 
 	{
-		fla := list_files(adDir, "fla")
-		psd := list_files(adDir, "psd")
-	} else {
-		msgbox, Ingen mapp hittades på denna sökväg:`r`n%adDir%
+		goto, openCampaignCx
 	}
 return
 
 photoshop:
 	if (listcount = 1)
 		{
-		getFormat(mlEnhet) ; Hämtar formatet utifrån internetenhet
+		format := getFormat(mlID) ; Hämtar formatet utifrån internetenhet
 		stripDash(mlStartdatum) ; Tar bort - ur startdatum
 		rensaTecken(mlKundnamn) 
 		StringTrimLeft, mlStartdatum, mlStartdatum, 2 ; tar bort första två tecknen ur datumet
@@ -575,7 +468,7 @@ photoshop:
 Return
 
 flash:
-	getFormat(mlEnhet) ; Hämtar formatet utifrån internetenhet
+	format := getFormat(mlID) ; Hämtar formatet utifrån internetenhet
 	stripDash(mlStartdatum) ; Tar bort - ur startdatum
 	rensaTecken(mlKundnamn) 
 	StringTrimLeft, mlStartdatum, mlStartdatum, 2 ; tar bort första två tecknen ur datumet
@@ -619,17 +512,87 @@ reload:
 	Reload
 return
 
+
 lager:
-	Send, {Shift Down}
-	Sleep, 100
-	Send, {End}
-	sleep, 100
-	Send, {Shift Up}
-	gosub, getList
+ControlGet, listCount, List, Count Selected, %control%, NewsCycle MediaLink
+	ControlGet, getList, List, Selected, %control%, NewsCycle MediaLink
+	msgbox % getlist
+	StringSplit, getListRow, getList, `n
+	listRow = %getListRow1%
+	Stringsplit, kolumn, listRow, `t
+	DllCall("QueryPerformanceCounter", "Int64 *", t_list_stopp)
+	t_list_done := t_list_stopp - t_list_start
+
+	;Läs kolumn-info från användarens kolumner.ini
+	DllCall("QueryPerformanceCounter", "Int64 *", t_ini_start)
+	IniRead, iniStart, %mlpKolumner%, kolumner, Start
+	IniRead, iniStopp, %mlpKolumner%, kolumner, Stopp
+	IniRead, iniExponeringar, %mlpKolumner%, kolumner, Exponeringar
+	IniRead, iniKundnr, %mlpKolumner%, kolumner, Kundnr
+	IniRead, iniKundnamn, %mlpKolumner%, kolumner, Kundnamn
+	IniRead, iniSaljare, %mlpKolumner%, kolumner, Saljare
+	IniRead, iniProdukt, %mlpKolumner%, kolumner, Produkt
+	IniRead, iniEnhet, %mlpKolumner%, kolumner, Internetenhet
+	IniRead, iniStatus, %mlpKolumner%, kolumner, Status
+	IniRead, iniTilldelad, %mlpKolumner%, kolumner, Tilldelad
+	DllCall("QueryPerformanceCounter", "Int64 *", t_ini_stopp)
+	t_ini_done := t_ini_stopp - t_ini_start
+
+
+	mlStartdatum := kolumn%iniStart%
+	mlStoppdatum := kolumn%iniStopp%
+	mlExponeringar := kolumn%iniExponeringar%
+	mlKundnr := kolumn%iniKundnr%
+	mlKundnamn := kolumn%iniKundnamn%
+	mlSaljare := kolumn%iniSaljare%
+	mlProdukt := kolumn%iniProdukt%
+	mlStatus := kolumn%iniStatus%
+	mlTilldelad := kolumn%iniTilldelad%
+
+	StringSplit, prodArray, mlProdukt , %A_Space%
+	mlTidning = %prodArray1%
+	mlSite = %prodArray2%
+
+	if (mlSite = "gotland.net")
+	{
+		mlTidning = GN
+	}
+	if (mlSite = "nt.se")
+	{
+		mlTidning = NTFB
+	}
+
+	if (mlSite = "mobil.nt.se")
+	{
+		mlTidning = NTFB
+	}
+	if (mlSite = "Affärsliv.com")
+	{
+		mlSite = affarsliv.com
+		mlTidning = AF
+	}
+	if (mlSite = "Uppsalavimmel.se")
+	{
+		mlSite = uppsalavimmel.se
+		mlTidning = UV
+	}
+	if (mlSite = "uppgång.se")
+	{
+		mlSite = uppgang.com
+		mlTidning = UG
+	}
+	if (mlSite = "mobil.uppgång.se")
+	{
+		mlSite = mobil.uppgang.com
+		mlTidning = UG
+	}
+
+	mlEnhet := kolumn%iniEnhet%
+	mlOrdernummer = %kolumn1%
 	timestamp = %A_Now%
 	FormatTime, timestamp, %timestamp%,yyyy-MM-dd HH:mm
 	XML = 
-	Loop, Parse, getList, `n
+	Loop, Parse, getList, `n, `r
 	{
 		StringSplit, kolumn, A_LoopField, %A_Tab%
 		produkt := kolumn%iniProdukt%
@@ -666,13 +629,13 @@ lager:
 		addToXML =
 		(
 		<kampanj>
-			<tidning>%Tidning%</tidning>
-			<format>%format%</format>
-			<ordernr>%Ordernr%</ordernr>
-			<kund>%Kundnamn%</kund>
-			<start>%Start%</start>
-			<stopp>%Stopp%</stopp>
-			<exponeringar>%Exponeringar%</exponeringar>
+			<tidning>%mlTidning%</tidning>
+			<format>%mlEnhet%</format>
+			<ordernr>%mlOrdernummer%</ordernr>
+			<kund>%mlKundnamn%</kund>
+			<start>%mlStartdatum%</start>
+			<stopp>%mlStoppdatum%</stopp>
+			<exponeringar>%mlExponeringar%</exponeringar>
 		</kampanj>
 		)
 		
@@ -690,23 +653,25 @@ lager:
 	FileDelete, %dir_ftp%\lager.xml
 	FileEncoding, UTF-8-RAW
 	FileAppend, %fullXML%, %dir_ftp%\lager.xml
-	FileEncoding
-	sleep, 500
-	upload = %dir_ftp%\lager.xml
-	ftpSettings := ftp_init(timestamp, upload)
-	FTPCommandFile = %dir_ftp%\FTPCommands.txt
-	FTPLogFile = %dir_ftp%\FTPLog.txt
-	FileDelete %FTPCommandFile%  ; In case previous run was terminated prematurely.
-	FileAppend, %ftpSettings%, %FTPCommandFile%
+	; FileEncoding
+	; sleep, 500
+	; upload = %dir_ftp%\lager.xml
+	; ftpSettings := ftp_init(timestamp, upload)
+	; FTPCommandFile = %dir_ftp%\FTPCommands.txt
+	; FTPLogFile = %dir_ftp%\FTPLog.txt
+	; FileDelete %FTPCommandFile%  ; In case previous run was terminated prematurely.
+	; FileAppend, %ftpSettings%, %FTPCommandFile%
 
-	RunWait %comspec% /c ftp.exe -s:"%FTPCommandFile%" >"%FTPLogFile%"
-	FileDelete %FTPCommandFile%  ; Delete for security reasons.
-	Msgbox,4,, Färdig! Visa logg?
-		IfMsgBox, Yes
-			Run %FTPLogFile%  ; Display the log for review.
-		IfMsgBox, No
-			return
+	; RunWait %comspec% /c ftp.exe -s:"%FTPCommandFile%" >"%FTPLogFile%"
+	; FileDelete %FTPCommandFile%  ; Delete for security reasons.
+	; Msgbox,4,, Färdig! Visa logg?
+	; 	IfMsgBox, Yes
+	; 		Run %FTPLogFile%  ; Display the log for review.
+	; 	IfMsgBox, No
+	; 		return
 return
+
+
 
 rakna:
 	msgbox % listCount " annonser markerade"
@@ -807,6 +772,10 @@ return
 
 status_annan:
 	Send, !s
+return
+
+status_Ejkomplett:
+	status("Ej komplett manus")
 return
 
 
@@ -999,18 +968,18 @@ fileInfo:
 	Send, ^c
 	ordernummer := Clipboard
 	Clipboard := clipTemp
-	IfWinExist, toolBox
+	IfWinExist, backBone
 	{
-		WinActivate, toolBox
+		WinActivate, backBone
 	}
 	else
 	{
-		Run, %A_WorkingDir%\toolBox.exe
+		Run, %A_WorkingDir%\backBone.exe
 		Sleep, 700
 	}
-	WinWaitActive, toolBox
-	ControlSetText, Edit2, %ordernummer%, toolBox
-	ControlClick, Button12, toolBox
+	WinWaitActive, backBone
+	ControlSetText, Edit2, %ordernummer%, backBone
+	ControlClick, Button12, backBone
 
 return
 
@@ -1019,16 +988,31 @@ fileCheck:
 	Send, ^c
 	ordernummer := Clipboard
 	Clipboard := clipTemp
-	IfWinExist, toolBox
+	IfWinExist, backBone
 	{
-		WinActivate, toolBox
+		WinActivate, backBone
 	}
 	else
 	{
-		Run, %A_WorkingDir%\toolBox.exe
+		Run, %A_WorkingDir%\backBone.exe
 		Sleep, 700
 	}
-	WinWaitActive, toolBox
-	ControlSetText, Edit1, %ordernummer%, toolBox
+	WinWaitActive, backBone
+	ControlSetText, Edit1, %ordernummer%, backBone
 return
 
+GoFile:
+	IfInString, A_ThisMenuItem, +%A_Space%
+	{
+		StringReplace, item, A_ThisMenuItem, +%A_Space%,, All
+		run, %folder%\%item%
+	}
+	else
+	{
+		run, %folder%\%A_ThisMenuItem%
+	}
+return
+
+die:
+;ded
+return

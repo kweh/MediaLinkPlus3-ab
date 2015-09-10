@@ -1,12 +1,23 @@
 ﻿cx_start:
+  gosub, getList
   Progress, R0-4 FM8 FS7 CBGray P1, Kontrollerar om kund finns..., Kundsök:, Annonsbokning
   xml := get_url("cxad.cxense.com/api/secure/folder/advertising")
   kund = - %mlKundnr% -
   folderId := cx_xml_read(xml, "childFolder", kund, "folderId")
 
-  format := getFormat(mlEnhet)
   campaignName := mlTidning " - " format " - " mlOrdernummer
+  format := getFormat(mlID)
+  if (format = "MOB" || format = "PAN")
+  {
+  campaignName := mlTidning " - " format "" mlH " - " mlOrdernummer    
+  }
   folderName := mlTidning " - " mlKundnr " - " mlKundnamn
+  if (mlEnhet = "")
+  {
+    Progress, Off
+    msgbox, Kunde inte läsa ut "internetenhet". Försök igen.
+    goto, die
+  }
 
   if (folderID = "") ; Om kund saknas
   {
@@ -64,6 +75,14 @@ ControlSetText, Button3, &Avbryt
 return
 
 cx_ui:
+
+; Kollar om copy-checken var satt senast
+IniRead, copyCheck, %mlpSettings%, copyCheck, checked
+if (copyCheck = "ERROR")
+  {
+    copyCheck = 0
+  }
+
 ; Sätter rätt format på start och stoppdatum samt varnar om startdatum passerat
   StringReplace, mlStartdatumStrip, mlStartdatum, - ,, All
   StringReplace, mlStoppdatumStrip, mlStoppdatum, - ,, All
@@ -85,30 +104,43 @@ if (mlSite = "affarsliv.com" || mlSite = "gotland.net" || mlSite = "norrbottensa
     expView = Disabled
   }
 
-Gui, 77:Font, S15 CDefault, Arial
-Gui, 77:Add, Edit, x12 y10 w400 h30 vcampaignName , %campaignName%
-Gui, 77:Font, S11 CDefault, Arial
-Gui, 77:Add, Edit, x12 y47 w262 h25 , %folderName%
+Gui, 77:Font, s15 cDefault, Arial
+Gui, 77:Add, Edit, x12 y10 w400 h30 vcampaignName, %campaignName%
+Gui, 77:Font
+Gui, 77:Font, s10 cDefault, Arial
+Gui, 77:Add, Edit, x12 y47 w262 h25, %folderName%
 Gui, 77:Add, DropDownList, x282 y47 w130 h25 r7 gType vType choose%defaultType%, Run On Site||Riktad|Plugg|Retarget|CPC
-Gui, 77:Font, S8 CDefault, Arial
-Gui, 77:Add, GroupBox, x12 y80 w400 h230 , Kontrakt
-Gui, 77:Font, S11 CDefault, Arial
-Gui, 77:Add, DateTime, x32 y130 w160 h30 vStartdatum Choose%mlStartdatumStrip%, yyyy-MM-dd
-Gui, 77:Add, DateTime, x232 y130 w160 h30 vStoppdatum Choose%mlStoppdatumStrip%, yyyy-MM-dd
-Gui, 77:Font, S9 CDefault, Arial
-Gui, 77:Add, Text, x32 y110 w90 h20 , Startdatum
-Gui, 77:Add, Text, x232 y110 w100 h20 , Stoppdatum
-Gui, 77:Add, Text, x32 y170 w100 h20, Exponeringar
-Gui, 77:Font, S11 CDefault, Arial
-Gui, 77:Add, Edit, x32 y190 w360 h30 vExponeringar %expView%, %mlExponeringar%
-Gui, 77:Add, ComboBox, x32 y260 w360 h20 vKeyword R10, %target%
-Gui, 77:Font, S10 CDefault, Arial
-Gui, 77:Font, S9 CDefault, Arial
-Gui, 77:Add, Text, x32 y240 w100 h20 , Styrning
-Gui, 77:Add, Button, x202 y320 w100 h30 Default gBoka vBoka, Boka
-Gui, 77:Add, Button, x312 y320 w100 h30 g77GuiClose, Avbryt
-GuiControl, 77:Focus, boka
-Gui, 77:Show, xCenter yCenter h364 w424, Bokningsöversikt
+Gui, 77:Font
+Gui, 77:Font, s8 cDefault, Arial
+Gui, 77:Add, GroupBox, x10 y80 w400 h250, Kontrakt
+Gui, 77:Font
+Gui, 77:Font, s8 w400, Tahoma
+Gui, 77:Add, DateTime, x30 y130 w160 h30 vStartdatum Choose%mlStartdatumStrip%0000, yyyy-MM-dd HH:mm
+Gui, 77:Add, DateTime, x232 y130 w160 h30 vStoppdatum Choose%mlStoppdatumStrip%2359, yyyy-MM-dd HH:mm
+Gui, 77:Font
+Gui, 77:Font, s11 cDefault, Arial
+Gui, 77:Font
+Gui, 77:Font, s9 cDefault, Arial
+Gui, 77:Add, Text, x30 y110 w90 h20, Startdatum
+Gui, 77:Add, Text, x232 y110 w100 h20, Stoppdatum
+Gui, 77:Add, Text, x30 y170 w100 h20, Exponeringar
+Gui, 77:Font
+Gui, 77:Font, s11 cDefault, Arial
+Gui, 77:Add, Edit, x30 y190 w360 h30 vExponeringar %expView%, %mlExponeringar%
+Gui, 77:Add, ComboBox, x30 y250 w360 h20 vKeyword R10, %target%
+Gui, 77:Font
+Gui, 77:Font, s10 cDefault, Arial
+Gui, 77:Font
+Gui, 77:Font, s9 cDefault, Arial
+Gui, 77:Add, CheckBox, x30 y293 vCopy gCopyCheck Checked%copyCheck%, Kopiera ordernummer
+Gui, 77:Add, Text, x30 y230 w90 h20, Styrning
+Gui, 77:Add, Button, x10 y340 w200 h40 Default gBoka vBoka, Boka
+Gui, 77:Add, Button, x300 y340 w110 h40 g77GuiClose, Avbryt
+Gui, 77:Add, Edit, x310 y290 w80 h20 -Multi, %cpm_rounded%
+Gui, 77:Add, Text, x280 y292 w30 h20, CPM
+; Generated using SmartGuiXP Creator mod 4.3.29.7
+Gui, 77:Show, Center w424 h386, Bokningsöversikt
+
 stop := true
 ; Winset, Transparent, 200, Bokningsöversikt
 Return
@@ -126,10 +158,29 @@ Type:
     GuiControl, Enable, Exponeringar
   }
 return
-,
+
+CopyCheck:
+  Gui, 77:Submit, NoHide
+    ; Sätter standardvärdet för copy-checkboxen
+  IniDelete, %mlpSettings%, copyCheck, checked
+  IniWrite, %Copy%, %mlpSettings%, copyCheck, checked
+Return
+
 Boka:
   Gui, 77:Submit
   Gui, 77:Destroy
+
+  FormatTime, Startdatum, %Startdatum%, yyyy-MM-dd HH:mm:ss
+  FormatTime, Stoppdatum, %Stoppdatum%, yyyy-MM-dd HH:mm:ss
+
+  StringSplit, Stopp, Stoppdatum , %A_Space%
+  Stoppdatum := Stopp1
+  Stopptid := Stopp2
+
+  StringSplit, Start, Startdatum , %A_Space%
+  Startdatum := Start1
+  Starttid := Start2
+
   prog := 5
   prog_on := true
 
@@ -139,8 +190,6 @@ Boka:
     FileAppend, %Keyword%|, G:\NTM\NTM Digital Produktion\MedialinkPlus\dev\target.txt
   }
 
-  FormatTime, Startdatum, %Startdatum%, yyyy-MM-dd
-  FormatTime, Stoppdatum, %Stoppdatum%, yyyy-MM-dd
 
   Progress, R0-100 FM8 FS7 P5 CBGray M, Kontrollerar produkt..., Bokningsförlopp:, Annonsbokning
   Progress, Show
@@ -153,13 +202,17 @@ Boka:
   keywordsID := prod.keywordsID
   cost := prod.cost
 
+  if (Type = "Plugg")
+  {
+    campaignName := mlTidning " - " format " - PLUGG - " mlOrdernummer
+  }
   campaign := cx_post_campaign(campaignName, mlKundnr, mlEnhet, format, Type, productId, prog_on)
   campaignID := campaign.Id
   sleep, 100
 
   prog := 40
   Progress, %prog%, Bokar kontrakt..., Bokningsförlopp:, Annonsbokning
-  contract := cx_post_contract(campaign.Id, cost, Startdatum, Stoppdatum, Exponeringar)
+  contract := cx_post_contract(campaign.Id, cost, Startdatum, Starttid, Stoppdatum, Stopptid, Exponeringar, cpm_rounded)
 
   prog := 50
   Progress, %prog%, Sätter site targeting..., Bokningsförlopp:, Annonsbokning
@@ -196,6 +249,39 @@ Boka:
   sleep, 800
   Progress, OFF
   prog_on := false
+  
+  if (copyCheck = 1)
+  {
+    Clipboard := mlOrdernummer
+  }
+
+log = 
+(
+-------------------------------------------------`n
+Bokning: %campaignName%`n
+-------------------------------------------------`n
+Bokad av:       %me%`n
+Datum:          %A_YYYY%-%A_MM%-%A_DD% %A_Hour%:%A_Min%:%A_Sec%`n
+Ordernummer:    %mlOrdernummer%`n
+Kundnamn:       %mlKundnamn%`n
+Kundnr:         %mlKundnr%`n
+Säljare:        %mlSaljare%`n
+Site:           %mlSite%`n
+Internetenhet:  %mlEnhet%`n
+Startdatum:     %mlStartdatum%`n
+Stoppdatum:     %mlStoppdatum%`n
+Exponeringar:   %mlExponeringar%`n
+`n
+Interna Noteringar:`n
+%mlNoteringar%`n
+`n
+Länk till kampanj:`n
+https://cxad.cxense.com/adv/campaign/%campaignID%/overview`n
+-------------------------------------------------`n
+`n
+)
+
+FileAppend, %log%, %dir_log%\%mlOrdernummer%.txt
   MsgBox,4, Bokning klar, Inbokning klar, öppna i webbläsaren?
   IfMsgBox, Yes
     run, https://cxad.cxense.com/adv/campaign/%campaignID%/overview
@@ -325,9 +411,10 @@ cx_post_campaign(campaignName, kundnr, mlEnhet, format, type, prodId, prog = fal
 }
 
 
-cx_post_contract(campaignID, cost, startDate, stopDate, exp)
+cx_post_contract(campaignID, cost, startDate, startTime, stopDate, stopTime, exp, cpm)
 {
   ; --------------------------- HTTP-Request ---------------------------
+  exp := exp+100
   URL = https://cxad.cxense.com/api/secure/contract/%campaignID%
   DATA := ""
   HEAD = Content-Type: text/xml`nAuthorization: Basic QVBJLlVzZXI6cGFzczEyMw==
@@ -337,11 +424,11 @@ cx_post_contract(campaignID, cost, startDate, stopDate, exp)
     (
     <?xml version="1.0" encoding="utf-8"?>
     <cx:cpmContract xmlns:cx="http://cxense.com/cxad/api/cxad">
-    <cx:startDate>%startDate%T00:00:00.000+01:00</cx:startDate>
-    <cx:endDate>%stopDate%T23:59:00.000+02:00</cx:endDate>
+    <cx:startDate>%startDate%T%startTime%.000+02:00</cx:startDate>
+    <cx:endDate>%stopDate%T%stopTime%.000+02:00</cx:endDate>
     <cx:priority>0.50</cx:priority>
     <cx:requiredImpressions>%exp%</cx:requiredImpressions>
-    <cx:costPerThousand class="currency" currencyCode="SEK" value="100.00"/>
+    <cx:costPerThousand class="currency" currencyCode="SEK" value="%cpm%.00"/>
     </cx:cpmContract>
     )
   }
@@ -351,8 +438,8 @@ cx_post_contract(campaignID, cost, startDate, stopDate, exp)
     (
     <?xml version="1.0"?>
     <cx:cpcContract xmlns:cx="http://cxense.com/cxad/api/cxad">
-    <cx:startDate>%startDate%T00:00:00.000+02:00</cx:startDate>
-    <cx:endDate>%stopDate%T23:59:00.000+02:00</cx:endDate>
+    <cx:startDate>%startDate%T%startTime%.000+02:00</cx:startDate>
+    <cx:endDate>%stopDate%T%stopTime%.000+02:00</cx:endDate>
     <cx:priority>0.50</cx:priority>
     </cx:cpcContract>
     )
@@ -678,6 +765,20 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
     (
     <cx:publisherTarget>
         <cx:url>http://www.uppgang.com</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
+    )
+  }
+  if (mlSite = "mobil.uppgang.com")
+  {
+    targeting =
+    (
+    <cx:publisherTarget>
+        <cx:url>http://mobil.uppgang.com</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
+      <cx:publisherTarget>
+        <cx:url>http://m.uppgang.com</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
     )

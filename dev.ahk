@@ -1,5 +1,5 @@
 ﻿whatsthis:
-	format := getFormat(mlEnhet)
+	format := getFormat(mlID)
 	text = 
 (
 Ordernummer: %mlOrdernummer%

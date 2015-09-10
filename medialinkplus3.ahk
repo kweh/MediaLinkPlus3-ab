@@ -7,11 +7,11 @@ DetectHiddenText, On
 #include secure.ahk
 #include menu_names.ahk
 
-version = 310
+version = 323
 
 SplashImage = %dir_img%\splash.png
-SplashImageGUI(SplashImage, "Center", "Center", 3000, true)
-sleep, 2000
+SplashImageGUI(SplashImage, "Center", "Center", 2000, true)
+sleep, 1000
 
 #include update.ahk
 
@@ -24,7 +24,7 @@ IniRead, RMenuColor, %mlpSettings%, Theme, RMenuColor
 	if (RMenuColor = "ERROR")
 	{
 		RMenuColor = FFFFFF
-	}
+	} 
 
 
 menu, tray, add, Starta om Medialink Plus, reload
@@ -33,25 +33,27 @@ menu, tray, add, Starta om Medialink Plus, reload
 gosub, updateStart
 
 ~RButton::
-	Start = %A_TickCount%
 	if (mlActive())
 	{
-		activeDone := A_TickCount - Start
 		if (menu)
 		{
 			menu, mlp, DeleteAll ; Initialisera
-			menu, filecheck, DeleteAll ; Initialisera
+			; menu, filecheck, DeleteAll ; Initialisera
 			menu = False
 		}
-
-
-		Click, right
-		Send, {Esc}
 		MouseGetPos, , , id, control
+			tempClip := Clipboard
+			Send, ^c
+			mlOrdernummer := Clipboard
+			if (mlOrdernummer = tempClip)
+			{
+				Send, ^c
+				mlOrdernummer := Clipboard
+			}
+			Clipboard := tempClip
+			; Click, left
+		gosub, note
 		gosub, getList
-		listDone := A_TickCount - Start
-		noteDone := A_TickCount - (listDone + start)
-
 
 		;Hitta print-knappen
 		menu, mlp, add, %m_findprint%, pdf-preview
@@ -79,8 +81,7 @@ gosub, updateStart
 		menu, mlp, Icon, %m_createFL%, %dir_icons%\flash.ico
 		menu, mlp, add, %m_dir%, oppna
 		menu, mlp, Icon, %m_dir%, %dir_icons%\oppnacxense.ico
-		menu, mlp, add
-
+		
 		; Cxense
 		menu, cx, add, Boka kampanj, multiCxStart
 		menu, cx, Icon, Boka kampanj, %dir_icons%\bokacxense.ico
@@ -110,6 +111,12 @@ gosub, updateStart
 		menu, status, add, Vilande, status_vilande
 		menu, status, icon, vilande, %dir_icons%\status\vilande.ico
 
+		menu, status, add, Zendesk, status_zendesk
+		menu, status, icon, Zendesk, %dir_icons%\status\vilande.ico
+
+		menu, status, add, Vilande färdigt, status_vilandefardigt
+		menu, status, icon, Vilande färdigt, %dir_icons%\status\vilande.ico
+
 		menu, status, add, Manus på mail, status_manusmail
 		menu, status, icon, Manus på mail, %dir_icons%\status\vilande.ico
 
@@ -118,6 +125,9 @@ gosub, updateStart
 
 		menu, status, add, Repetition, status_Repetition
 		menu, status, icon, Repetition, %dir_icons%\status\Repetition.ico
+
+		menu, status, add, Repetition m. förändring, status_repmfor
+		menu, status, icon, Repetition m. förändring, %dir_icons%\status\Repetition.ico
 
 		menu, status, add, Korrektur skickat, status_korrekturskickat
 		menu, status, icon, Korrektur skickat, %dir_icons%\status\korrektur.ico
@@ -128,11 +138,17 @@ gosub, updateStart
 		menu, status, add, Lev. Färdig, status_levfardig
 		menu, status, icon, Lev. Färdig, %dir_icons%\status\levfardig.ico
 
+		menu, status, add, Under 2d prod. tid, status_under2d
+		menu, status, icon, Under 2d prod. tid, %dir_icons%\status\undersoks.ico
+		
 		menu, status, add, Undersöks, status_undersoks
 		menu, status, icon, Undersöks, %dir_icons%\status\undersoks.ico
-	
+
 		menu, status, add, Sent bokad, status_sentbokad
 		menu, status, icon, Sent bokad, %dir_icons%\status\sentbokad.ico
+
+		menu, status, add, Ej komplett manus, status_EjKomplett
+		menu, status, icon, Ej komplett manus, %dir_icons%\status\ny.ico
 
 		menu, status, add, Obekräftad, status_obekraftad
 		menu, status, icon, Obekräftad, %dir_icons%\status\Klar.ico
@@ -169,29 +185,31 @@ gosub, updateStart
 		menu, mlp, Icon, %m_search%, %dir_icons%\sok.ico
 
 		; Filövervakning
-		fc_antal := 0
-		Loop, read, %mlp_filechecklist% ; räknar antal övervakade filer
-		{
-			fc_antal++
-		}
+		; fc_antal := 0
+		; Loop, read, %mlp_filechecklist% ; räknar antal övervakade filer
+		; {
+		; 	fc_antal++
+		; }
 
-		menu, filecheck, add, Lägg till i lista, fc_check
-		menu, filecheck, Icon, Lägg till i lista, %dir_icons%\plus.ico
-		FileRead, fc_list, %mlp_filechecklist%
-		if (fc_list != "")
-		{
-			menu, filecheck, add
-			Loop, read, %mlp_filechecklist%
-			{
-				menu, filecheck, add, %A_LoopReadLine%, fc_select
-			}
-			menu, filecheck, add
-			menu, filecheck, add, Rensa övervakningslista, fc_clear
-			menu, filecheck, Icon, Rensa övervakningslista, %dir_icons%\trash.ico
-		}
-		menu, mlp, add, Filövervakning, :filecheck
+		; menu, filecheck, add, Lägg till i lista, fc_check
+		; menu, filecheck, Icon, Lägg till i lista, %dir_icons%\plus.ico
+		; FileRead, fc_list, %mlp_filechecklist%
+		; if (fc_list != "")
+		; {
+		; 	menu, filecheck, add
+		; 	Loop, read, %mlp_filechecklist%
+		; 	{
+		; 		menu, filecheck, add, %A_LoopReadLine%, fc_select
+		; 	}
+		; 	menu, filecheck, add
+		; 	menu, filecheck, add, Rensa övervakningslista, fc_clear
+		; 	menu, filecheck, Icon, Rensa övervakningslista, %dir_icons%\trash.ico
+		; }
+		; menu, mlp, add, Filövervakning, :filecheck
+		; menu, mlp, Icon, Filövervakning, %dir_icons%\filecheck.ico
+		; fileDone := A_TickCount - (printDone + start)
+		menu, mlp, add, Filövervakning, fileCheck
 		menu, mlp, Icon, Filövervakning, %dir_icons%\filecheck.ico
-		fileDone := A_TickCount - (printDone + start)
 
 		; Traffic
 		menu, traffic, add, Uppdatera lagerverktyget, lager
@@ -199,6 +217,8 @@ gosub, updateStart
 		menu, traffic, add, Räkna annonser för produktion, raknaProd
 		menu, traffic, add, Räkna exponeringar, raknaExp
 		menu, traffic, add, Kopiera rader, copyCampaigns
+		menu, traffic, add, Hitta tidningssida, epaper
+		menu, traffic, add, Kontrollera bokning, fileInfo
 		menu, mlp, add, %m_traffic%, :traffic
 		menu, mlp, Icon, %m_traffic%, %dir_icons%\traffic.ico
 
@@ -229,19 +249,22 @@ gosub, updateStart
 	}
 
 ~LButton::
-	CoordMode, Mouse, Screen
-	MouseGetPos,mX ,mY , id, control
-	; ifWinActive, Atex MediaLink
-	; {
-	; 	gosub, getList
-	; 	gosub, note
-	; }
-
-	IfWinActive, NewsCycle MediaLink
-	{
-		gosub, getList
-		gosub, note
-	}
+		CoordMode, Mouse, Screen
+		MouseGetPos,mX ,mY , id, control
+		IfWinActive, NewsCycle MediaLink
+		{
+			tempClip := Clipboard
+			Send, ^c
+			mlOrdernummer := Clipboard
+			if (mlOrdernummer = tempClip)
+			{
+				Send, ^c
+				mlOrdernummer := Clipboard
+			}
+			Clipboard := tempClip
+			; gosub, getList
+			gosub, note
+		}
 return
 
 ~Delete::
@@ -329,32 +352,6 @@ return
 	}
 return
 
-; ~LButton UP::
-; 	MouseGetPos, , , id, control
-; 	IfInString, control, Edit3
-; 		{
-; 			IfWinActive, Atex MediaLink
-; 			{
-; 				temp_clip := Clipboard
-; 				Send, ^c
-; 				regex := "0{0,3}(\d{7}-\d{2})"
-; 				RegExMatch(Clipboard, regex, match)
-; 				if (match1 = "")
-; 				{
-; 					Clipboard := temp_clip
-; 				} 
-; 				else {
-; 					line2 := Clipboard
-; 					Clipboard := temp_clip
-; 					from_fc := true
-; 					menu, context_ordernr, add, Kontrollera print, context_print
-; 					menu, context_ordernr, add, Sök på ordernummer, sokOrder
-; 					menu, context_ordernr, show
-; 				}
-; 				Clipboard := temp_clip
-; 			}
-; 		}
-; return
 
 context_print:
 	StringSplit, nummer, line2, -
@@ -372,13 +369,80 @@ Return
 nothing:
 return
 
+^#A::  
+Winset, Alwaysontop, , A
+return
+
+
+^!#s::
+	WinGetTitle, NP, ahk_class SpotifyMainWindow,
+	msgbox % NP
+return
+
+pause::
+if (tog_spot = "false" || tog_spot = "")
+{
+	tip = 
+(
+
+-------------[ Spotify Toggles ON]-------------
+.
+)
+	ToolTip
+	tog_spot = true
+	ToolTip, %tip%
+	Sleep, 1000
+	ToolTip
+	return
+}
+
+if (tog_spot = "true")
+{
+	tip = 
+(
+
+-------------[ Spotify Toggles OFF]-------------
+. 
+)
+	ToolTip
+	tog_spot = false
+	ToolTip, %tip%
+	Sleep, 1000
+	ToolTip
+	return
+}
+
+Return
+
+~^Right::
+	if (tog_spot = "true")
+	{
+		Send, {Media_Next}
+	}
+return
+
+~^Left::
+	if (tog_spot = "true")
+	{
+		Send, {Media_Prev}
+	}
+return
+
+~^Up::
+	if (tog_spot = "true")
+	{
+		Send, {Media_Play_Pause}
+	}
+return
+
+
 ;
 ;	INCLUDES
 ;__________________________________________________________
 
-#include func.ahk
+#include new_funcs.ahk
 #include cxense.ahk
-#include subs.ahk
+#include subs_new.ahk
 #include pdf_preview.ahk
 #include settings.ahk
 #include httpreq.ahk
@@ -387,3 +451,4 @@ return
 #include note.ahk
 #include dev.ahk
 #include mlFileCheck.ahk
+#include xml.ahk

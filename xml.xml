@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <GetOrderByNumberResponse xmlns="http://www.atex.com/adbase/v3.3.1/export">
+      <AdBaseData xmlns="http://www.atex.com/adbase/v3.3.1">
+        <AdBaseResponse>
+          <Status>OK</Status>
+        </AdBaseResponse>
+        <AdBaseInfo>
+          <OrderCustomers>
+            <OrderCustomer>
+              <IsPrimaryOrderer>true</IsPrimaryOrderer>
+              <IsPrimaryPayor>true</IsPrimaryPayor>
+              <Customer>
+                <account-number>155566</account-number>
+                <accountid>145757</accountid>
+                <Name1>Svamptorget Livs AB</Name1>
+                <Phone>018309804</Phone>
+                <OrganizationId>5569286445</OrganizationId>
+                <Type-id>1</Type-id>
+                <Type>Företag</Type>
+                <Company-id>17</Company-id>
+                <Company>AB Upsala Nya Tidning</Company>
+                <Address>
+                  <Addr1>Svamptorget 1</Addr1>
+                  <City>UPPSALA</City>
+                  <Postal-Code>75645</Postal-Code>
+                  <Country-id>1</Country-id>
+                  <Country>Sverige</Country>
+                </Address>
+                <PrimarySalesRep>miali</PrimarySalesRep>
+                <PaymentMethod-id>3</PaymentMethod-id>
+                <PaymentMethod>Plusgiro</PaymentMethod>
+              </Customer>
+            </OrderCustomer>
+          </OrderCustomers>
+          <invoice-text>platsannons</invoice-text>
+          <publication-code>Y</publication-code>
+          <pagination-code>N</pagination-code>
+          <ad-sold-by-id>783</ad-sold-by-id>
+          <ad-sold-by>miali</ad-sold-by>
+          <ad-sold-by-name>Mia Lindh</ad-sold-by-name>
+          <ad-order-taker-id>783</ad-order-taker-id>
+          <ad-order-taker>miali</ad-order-taker>
+          <CreateDate>07012015 14:45:20</CreateDate>
+          <LastEditDate>08102015 15:41:29</LastEditDate>
+          <LastEditUser>charlottehö</LastEditUser>
+          <order-source-id>3</order-source-id>
+          <order-source>Telefon</order-source>
+          <ProductCategory-id>1</ProductCategory-id>
+          <ProductCategory>Classified</ProductCategory>
+          <AdOrderId>1824980</AdOrderId>
+          <adbase-order-number>0001835941</adbase-order-number>
+          <destination-queue-id>5</destination-queue-id>
+          <destination-queue>Klar</destination-queue>
+          <ad-status-id>7</ad-status-id>
+          <ad-status>Ej klar f produktion</ad-status>
+          <import-price>26057,50</import-price>
+          <Materials>
+            <Material>
+              <MaterialId>271</MaterialId>
+              <MaterialName>UNT Form/copy</MaterialName>
+              <Count>1</Count>
+              <PriceUnit>1350,00</PriceUnit>
+            </Material>
+            <Material>
+              <MaterialId>283</MaterialId>
+              <MaterialName>UNT Prod webb</MaterialName>
+              <Count>2</Count>
+              <PriceUnit>1100,00</PriceUnit>
+            </Material>
+          </Materials>
+          <Document>
+            <Document-Type>TearSheet</Document-Type>
+            <Count>1</Count>
+            <Delivery-Method>E-post</Delivery-Method>
+            <Delivery-Media>Elektroniskt</Delivery-Media>
+            <Delivery-Date>07012015</Delivery-Date>
+            <Address>
+              <Addr1>thomas.x.ottosson@supermarket.ica.se</Addr1>
+              <Country>Sverige</Country>
+              <Address-Type>E-postadress</Address-Type>
+              <EmailAddress>thomas.x.ottosson@supermarket.ica.se</EmailAddress>
+            </Address>
+            <Send-Option>Undefined Send Option</Send-Option>
+          </Document>
+          <company-id>17</company-id>
+          <company>AB Upsala Nya Tidning</company>
+          <extended-fields />
+          <PaymentMethod-id>3</PaymentMethod-id>
+          <PaymentMethod>Plusgiro</PaymentMethod>
+          <BillingFrequency-id>1</BillingFrequency-id>
+          <BillingFrequency>Daglig</BillingFrequency>
+          <CreationDate>070120151445</CreationDate>
+          <IsModifiable>false</IsModifiable>
+          <NoRerate>N</NoRerate>
+          <NoCopyOrder>N</NoCopyOrder>
+          <ReceiptRequested>N</ReceiptRequested>
+          <billing-flag>N</billing-flag>
+          <Ad>
+            <AdNumber>0001835941-01</AdNumber>
+            <AdNumberId>2066465</AdNumberId>
+            <ad-width>3,00</ad-width>
+            <AdWidthUnit>Columns</AdWidthUnit>
+            <ad-type-id>16</ad-type-id>
+            <ad-type>38 Display modul</ad-type>
+            <ad-user-unit-id>31</ad-user-unit-id>
+            <ad-user-unit>32   (3x88)</ad-user-unit>
+            <ad-height>2494,49</ad-height>
+            <ad-width-production>3458,27</ad-width-production>
+            <ad-height-production>2494,49</ad-height-production>
+            <color-id>1</color-id>
+            <color>CMYK</color>
+            <production-method-id>8</production-method-id>
+            <production-method>UNiT</production-method>
+            <Price>11445,00</Price>
+            <AdLocInfo>
+              <ExternalRunSchedNumber />
+              <RunSchedule-id>3017410</RunSchedule-id>
+              <publication-id>115</publication-id>
+              <publication>UNT</publication>
+              <zone-id>1</zone-id>
+              <zone>Grundedition</zone>
+              <publication-placement-id>25</publication-placement-id>
+              <publication-placement>E Lokus Jobb</publication-placement>
+              <import-price>11445,00</import-price>
+              <rundates>
+                <date Insertion-id="4746487" Deadline="07272015 16:00:00">07292015</date>
+                <date Insertion-id="4801447" Deadline="08062015 16:00:00">08092015</date>
+              </rundates>
+              <SpecialPrice>
+                <Id>7</Id>
+                <Type>Discount</Type>
+                <Name>Fast pris utan a.rab</Name>
+                <Value>9156,00</Value>
+                <InvoiceText>platsannons</InvoiceText>
+                <CostType>CostOverride</CostType>
+              </SpecialPrice>
+            </AdLocInfo>
+            <CreateDate>07012015 14:45:21</CreateDate>
+            <CreateUser>miali</CreateUser>
+            <LastEditDate>08102015 09:26:48</LastEditDate>
+            <LastEditUser>annast</LastEditUser>
+          </Ad>
+          <Ad>
+            <AdNumber>0001835941-02</AdNumber>
+            <AdNumberId>2066475</AdNumberId>
+            <ad-width>3,00</ad-width>
+            <AdWidthUnit>Columns</AdWidthUnit>
+            <ad-type-id>16</ad-type-id>
+            <ad-type>38 Display modul</ad-type>
+            <ad-user-unit-id>31</ad-user-unit-id>
+            <ad-user-unit>32   (3x88)</ad-user-unit>
+            <ad-height>2494,49</ad-height>
+            <ad-width-production>3458,27</ad-width-production>
+            <ad-height-production>2494,49</ad-height-production>
+            <color-id>1</color-id>
+            <color>CMYK</color>
+            <production-method-id>7</production-method-id>
+            <production-method>Rep. utan förändring</production-method>
+            <Price>4515,00</Price>
+            <AdLocInfo>
+              <ExternalRunSchedNumber />
+              <RunSchedule-id>3017422</RunSchedule-id>
+              <publication-id>121</publication-id>
+              <publication>UNT Sigtunabygden</publication>
+              <zone-id>1</zone-id>
+              <zone>Grundedition</zone>
+              <publication-placement-id>25</publication-placement-id>
+              <publication-placement>E Lokus Jobb</publication-placement>
+              <import-price>4515,00</import-price>
+              <rundates>
+                <date Insertion-id="4746505" Deadline="07302015 16:00:00">08052015</date>
+                <date Insertion-id="4746506" Deadline="08062015 16:00:00">08122015</date>
+              </rundates>
+              <SpecialPrice>
+                <Id>1</Id>
+                <Type>Discount</Type>
+                <Name>Rab i % utan a.rab.</Name>
+                <Value>50,00</Value>
+                <InvoiceText>platsannons sigtuna och knivsta bygden</InvoiceText>
+                <CostType>Percentage</CostType>
+              </SpecialPrice>
+            </AdLocInfo>
+            <CreateDate>07012015 14:52:25</CreateDate>
+            <CreateUser>miali</CreateUser>
+            <LastEditDate>08102015 09:26:48</LastEditDate>
+            <LastEditUser>annast</LastEditUser>
+          </Ad>
+          <Ad>
+            <AdNumber>0001835941-05</AdNumber>
+            <AdNumberId>2066483</AdNumberId>
+            <ad-width>1,00</ad-width>
+            <AdWidthUnit>Columns</AdWidthUnit>
+            <ad-type-id>33</ad-type-id>
+            <ad-type>TV</ad-type>
+            <ad-user-unit-id>79</ad-user-unit-id>
+            <ad-user-unit>TV 20 sek</ad-user-unit>
+            <ad-height>5669,29</ad-height>
+            <ad-width-production>1133,86</ad-width-production>
+            <ad-height-production>5669,29</ad-height-production>
+            <color-id>1</color-id>
+            <color>CMYK</color>
+            <production-method-id>9</production-method-id>
+            <production-method>Teknomedia TV</production-method>
+            <Price>3285,00</Price>
+            <AdLocInfo>
+              <ExternalRunSchedNumber />
+              <RunSchedule-id>3017430</RunSchedule-id>
+              <publication-id>140</publication-id>
+              <publication>UNT 24UNT</publication>
+              <publication-placement-id>440</publication-placement-id>
+              <publication-placement>TV 24UNT Reklam</publication-placement>
+              <publication-position-id>1071</publication-position-id>
+              <publication-position>24UNT 20 sek</publication-position>
+              <import-price>3285,00</import-price>
+              <rundates>
+                <date Insertion-id="4800412">08072015</date>
+                <date Insertion-id="4800413">08082015</date>
+                <date Insertion-id="4800414">08092015</date>
+                <date Insertion-id="4800415">08102015</date>
+                <date Insertion-id="4800416">08112015</date>
+                <date Insertion-id="4800417">08122015</date>
+                <date Insertion-id="4800418">08132015</date>
+                <date Insertion-id="4800403">08142015</date>
+                <date Insertion-id="4800404">08152015</date>
+                <date Insertion-id="4800405">08162015</date>
+                <date Insertion-id="4746529">08172015</date>
+                <date Insertion-id="4746530">08182015</date>
+                <date Insertion-id="4746531">08192015</date>
+                <date Insertion-id="4746532">08202015</date>
+                <date Insertion-id="4746533">08212015</date>
+              </rundates>
+              <SpecialPrice>
+                <Id>7</Id>
+                <Type>Discount</Type>
+                <Name>Fast pris utan a.rab</Name>
+                <Value>2628,00</Value>
+                <InvoiceText>rekryteringsfilm 24UNT</InvoiceText>
+                <CostType>CostOverride</CostType>
+              </SpecialPrice>
+            </AdLocInfo>
+            <CreateDate>07012015 15:03:16</CreateDate>
+            <CreateUser>miali</CreateUser>
+            <LastEditDate>08052015 14:29:36</LastEditDate>
+            <LastEditUser>charlottehö</LastEditUser>
+          </Ad>
+          <Campaign>
+            <CampaignId>99886</CampaignId>
+            <CampaignNumber>0001835941-03</CampaignNumber>
+            <Name>Svamptorget Livs AB03</Name>
+            <Type-id>2</Type-id>
+            <Type>Tjänster</Type>
+            <Category-id>5</Category-id>
+            <Category>Paket m. Print</Category>
+            <StartDate>07292015</StartDate>
+            <EndDate>07292015</EndDate>
+            <Quantity>1</Quantity>
+            <Price>2375,00</Price>
+            <CampaignUnit>
+              <Id>13</Id>
+              <Name>Toppjobb</Name>
+            </CampaignUnit>
+            <FlightGroup>
+              <Name>Group1</Name>
+              <FlightGroup-id>103939</FlightGroup-id>
+              <CampaignUnit-id>13</CampaignUnit-id>
+              <CampaignUnit>Toppjobb</CampaignUnit>
+              <Quantity>1</Quantity>
+              <StartDate>07292015</StartDate>
+              <EndDate>07292015</EndDate>
+              <Price>2375,00</Price>
+              <Flight>
+                <Flight-id>118897</Flight-id>
+                <Site-id>127</Site-id>
+                <Site>UNT unt.se</Site>
+                <SiteURL>www.unt.se</SiteURL>
+                <SpecialPrice>
+                  <Id>7</Id>
+                  <Type>Discount</Type>
+                  <Name>Fast pris utan a.rab</Name>
+                  <Value>1900,00</Value>
+                  <InvoiceText>lokus jobb</InvoiceText>
+                  <CostType>CostOverride</CostType>
+                </SpecialPrice>
+                <InvoicedAlreadyFlag>0</InvoicedAlreadyFlag>
+                <PublishedFlag>false</PublishedFlag>
+                <Price>2375,00</Price>
+                <Quantity>1</Quantity>
+                <flightdates>
+                  <date Insertion-id="4790136" ExternalNumber="">07292015</date>
+                </flightdates>
+              </Flight>
+              <GroupNum>1</GroupNum>
+            </FlightGroup>
+            <CampaignViewTypeId>2</CampaignViewTypeId>
+            <CampaignViewType>Impressions</CampaignViewType>
+            <CreateDate>07012015 14:45:20</CreateDate>
+            <CreateUser>miali</CreateUser>
+            <LastEditDate>08102015 15:41:29</LastEditDate>
+            <LastEditUser>charlottehö</LastEditUser>
+          </Campaign>
+          <Campaign>
+            <CampaignId>99887</CampaignId>
+            <CampaignNumber>0001835941-04</CampaignNumber>
+            <Name>Svamptorget Livs AB04</Name>
+            <Type-id>1</Type-id>
+            <Type>Banner</Type>
+            <Category-id>5</Category-id>
+            <Category>Paket m. Print</Category>
+            <StartDate>08102015</StartDate>
+            <EndDate>08212015</EndDate>
+            <Quantity>35000</Quantity>
+            <Price>0,00</Price>
+            <CampaignUnit>
+              <Id>138</Id>
+              <Name />
+              <Width>468</Width>
+              <Height>240</Height>
+            </CampaignUnit>
+            <FlightGroup>
+              <Name>Group1</Name>
+              <FlightGroup-id>103940</FlightGroup-id>
+              <CampaignUnit-id>138</CampaignUnit-id>
+              <CampaignUnit />
+              <Quantity>35000</Quantity>
+              <StartDate>08102015</StartDate>
+              <EndDate>08212015</EndDate>
+              <Price>0,00</Price>
+              <Flight>
+                <Flight-id>118898</Flight-id>
+                <Site-id>232</Site-id>
+                <Site>UNT uppgång.se</Site>
+                <SiteURL />
+                <SpecialPrice>
+                  <Id>7</Id>
+                  <Type>Discount</Type>
+                  <Name>Fast pris utan a.rab</Name>
+                  <Value>0,00</Value>
+                  <InvoiceText>rekryteringsfilm på uppgång.se</InvoiceText>
+                  <CostType>CostOverride</CostType>
+                </SpecialPrice>
+                <InvoicedAlreadyFlag>0</InvoicedAlreadyFlag>
+                <PublishedFlag>false</PublishedFlag>
+                <Price>0,00</Price>
+                <Quantity>35000</Quantity>
+                <flightdates>
+                  <date Insertion-id="4760109" ExternalNumber="">08102015</date>
+                  <date Insertion-id="4760110" ExternalNumber="">08112015</date>
+                  <date Insertion-id="4760111" ExternalNumber="">08122015</date>
+                  <date Insertion-id="4760112" ExternalNumber="">08132015</date>
+                  <date Insertion-id="4760113" ExternalNumber="">08142015</date>
+                  <date Insertion-id="4760114" ExternalNumber="">08152015</date>
+                  <date Insertion-id="4760115" ExternalNumber="">08162015</date>
+                  <date Insertion-id="4760116" ExternalNumber="">08172015</date>
+                  <date Insertion-id="4760117" ExternalNumber="">08182015</date>
+                  <date Insertion-id="4760118" ExternalNumber="">08192015</date>
+                  <date Insertion-id="4760119" ExternalNumber="">08202015</date>
+                  <date Insertion-id="4760120" ExternalNumber="">08212015</date>
+                </flightdates>
+              </Flight>
+              <GroupNum>1</GroupNum>
+            </FlightGroup>
+            <InternalNotes>Unit har färdigt material på film
+start 7/8 stopp 21/8</InternalNotes>
+            <ExternalNotes>Unit har färdigt material på film
+start 7/8 stopp 21/8</ExternalNotes>
+            <CampaignViewTypeId>2</CampaignViewTypeId>
+            <CampaignViewType>Impressions</CampaignViewType>
+            <CreateDate>07012015 14:45:20</CreateDate>
+            <CreateUser>miali</CreateUser>
+            <LastEditDate>08102015 15:41:29</LastEditDate>
+            <LastEditUser>charlottehö</LastEditUser>
+          </Campaign>
+          <Campaign>
+            <CampaignId>101369</CampaignId>
+            <CampaignNumber>0001835941-06</CampaignNumber>
+            <Name>Svamptorget Livs AB06</Name>
+            <Type-id>1</Type-id>
+            <Type>Banner</Type>
+            <Category-id>5</Category-id>
+            <Category>Paket m. Print</Category>
+            <StartDate>08072015</StartDate>
+            <EndDate>08142015</EndDate>
+            <Price>0,00</Price>
+            <CampaignUnit>
+              <Id>3</Id>
+              <Name>Guld</Name>
+              <Width>250</Width>
+              <Height>240</Height>
+            </CampaignUnit>
+            <FlightGroup>
+              <Name>Group1</Name>
+              <FlightGroup-id>105468</FlightGroup-id>
+              <CampaignUnit-id>3</CampaignUnit-id>
+              <CampaignUnit>Guld</CampaignUnit>
+              <StartDate>08072015</StartDate>
+              <EndDate>08142015</EndDate>
+              <Price>0,00</Price>
+              <Flight>
+                <Flight-id>120644</Flight-id>
+                <Site-id>127</Site-id>
+                <Site>UNT unt.se</Site>
+                <SiteURL>www.unt.se</SiteURL>
+                <SpecialPrice>
+                  <Id>1</Id>
+                  <Type>Discount</Type>
+                  <Name>Rab i % utan a.rab.</Name>
+                  <Value>100,00</Value>
+                  <CostType>Percentage</CostType>
+                </SpecialPrice>
+                <InvoicedAlreadyFlag>0</InvoicedAlreadyFlag>
+                <PublishedFlag>false</PublishedFlag>
+                <Price>0,00</Price>
+                <flightdates>
+                  <date Insertion-id="4802938" ExternalNumber="">08072015</date>
+                  <date Insertion-id="4802939" ExternalNumber="">08082015</date>
+                  <date Insertion-id="4802940" ExternalNumber="">08092015</date>
+                  <date Insertion-id="4802941" ExternalNumber="">08102015</date>
+                  <date Insertion-id="4802942" ExternalNumber="">08112015</date>
+                  <date Insertion-id="4802943" ExternalNumber="">08122015</date>
+                  <date Insertion-id="4802944" ExternalNumber="">08132015</date>
+                  <date Insertion-id="4802945" ExternalNumber="">08142015</date>
+                </flightdates>
+              </Flight>
+              <GroupNum>1</GroupNum>
+            </FlightGroup>
+            <InternalNotes>plugg
+start 7/8 om möjligt annars måndag.
+en vecka ROS</InternalNotes>
+            <ExternalNotes>plugg
+start 7/8 om möjligt annars måndag.
+en vecka ROS</ExternalNotes>
+            <CampaignViewTypeId>1</CampaignViewTypeId>
+            <CampaignViewType>Clicks</CampaignViewType>
+            <CreateDate>07012015 14:45:20</CreateDate>
+            <CreateUser>miali</CreateUser>
+            <LastEditDate>08102015 15:41:29</LastEditDate>
+            <LastEditUser>charlottehö</LastEditUser>
+          </Campaign>
+          <Campaign>
+            <CampaignId>101459</CampaignId>
+            <CampaignNumber>0001835941-07</CampaignNumber>
+            <Name>Svamptorget Livs AB07</Name>
+            <Type-id>4</Type-id>
+            <Type>Mobil</Type>
+            <Category-id>5</Category-id>
+            <Category>Paket m. Print</Category>
+            <StartDate>08102015</StartDate>
+            <EndDate>08142015</EndDate>
+            <Price>0,00</Price>
+            <CampaignUnit>
+              <Id>114</Id>
+              <Name />
+              <Width>320</Width>
+              <Height>320</Height>
+            </CampaignUnit>
+            <FlightGroup>
+              <Name>Group1</Name>
+              <FlightGroup-id>105559</FlightGroup-id>
+              <CampaignUnit-id>114</CampaignUnit-id>
+              <CampaignUnit />
+              <StartDate>08102015</StartDate>
+              <EndDate>08142015</EndDate>
+              <Price>0,00</Price>
+              <Flight>
+                <Flight-id>120748</Flight-id>
+                <Site-id>233</Site-id>
+                <Site>UNT mobil.uppgång.se</Site>
+                <SiteURL />
+                <InvoicedAlreadyFlag>0</InvoicedAlreadyFlag>
+                <PublishedFlag>false</PublishedFlag>
+                <Price>0,00</Price>
+                <flightdates>
+                  <date Insertion-id="4804993" ExternalNumber="">08102015</date>
+                  <date Insertion-id="4804994" ExternalNumber="">08112015</date>
+                  <date Insertion-id="4804995" ExternalNumber="">08122015</date>
+                  <date Insertion-id="4804996" ExternalNumber="">08132015</date>
+                  <date Insertion-id="4804997" ExternalNumber="">08142015</date>
+                </flightdates>
+              </Flight>
+              <GroupNum>1</GroupNum>
+            </FlightGroup>
+            <InternalNotes>Anna Stark
+plugg endast uppgång</InternalNotes>
+            <ExternalNotes>Anna Stark
+plugg endast uppgång
+</ExternalNotes>
+            <CampaignViewTypeId>1</CampaignViewTypeId>
+            <CampaignViewType>Clicks</CampaignViewType>
+            <CreateDate>07012015 14:45:20</CreateDate>
+            <CreateUser>miali</CreateUser>
+            <LastEditDate>08102015 15:41:29</LastEditDate>
+            <LastEditUser>charlottehö</LastEditUser>
+          </Campaign>
+        </AdBaseInfo>
+      </AdBaseData>
+    </GetOrderByNumberResponse>
+  </soap:Body>
+</soap:Envelope>

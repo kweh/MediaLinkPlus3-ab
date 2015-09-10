@@ -16,3 +16,20 @@ quit
 )
 return %ftpSettings%
 }
+
+
+ftp_init_weblink(timestamp, upload)
+{
+ftpSettings = 
+(
+open ftp.dnns.se
+dnns.se
+n173m4r3!
+binary
+rename xml.xml weblink%timestamp%.xml
+put "%upload%"
+ls -l
+quit
+)
+return %ftpSettings%
+}
