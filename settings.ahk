@@ -1,5 +1,18 @@
 ﻿mlpSettings:
 
+;Läs kolumn-info från användarens kolumner.ini
+	DllCall("QueryPerformanceCounter", "Int64 *", t_ini_start)
+	IniRead, iniStart, %mlpKolumner%, kolumner, Start
+	IniRead, iniStopp, %mlpKolumner%, kolumner, Stopp
+	IniRead, iniExponeringar, %mlpKolumner%, kolumner, Exponeringar
+	IniRead, iniKundnr, %mlpKolumner%, kolumner, Kundnr
+	IniRead, iniKundnamn, %mlpKolumner%, kolumner, Kundnamn
+	IniRead, iniSaljare, %mlpKolumner%, kolumner, Saljare
+	IniRead, iniProdukt, %mlpKolumner%, kolumner, Produkt
+	IniRead, iniEnhet, %mlpKolumner%, kolumner, Internetenhet
+	IniRead, iniStatus, %mlpKolumner%, kolumner, Status
+	IniRead, iniTilldelad, %mlpKolumner%, kolumner, Tilldelad
+
 kolumnLista =
 	(
 1: %kolumn1%

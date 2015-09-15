@@ -59,6 +59,7 @@ printCheck(x, mnr)
 	imgdir = \\nt.se\Adbase\Annonser\eProof\%OrderNummerUtanMnr%%mnr%.jpg
 	ifExist, %printdir%
 		{
+	msgbox % "print klart"
 			data := "print"
 			ifExist, %imgdir%
 					{

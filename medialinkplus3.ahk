@@ -7,7 +7,7 @@ DetectHiddenText, On
 #include secure.ahk
 #include menu_names.ahk
 
-version = 323
+version = 330
 
 SplashImage = %dir_img%\splash.png
 SplashImageGUI(SplashImage, "Center", "Center", 2000, true)
@@ -38,10 +38,9 @@ gosub, updateStart
 		if (menu)
 		{
 			menu, mlp, DeleteAll ; Initialisera
-			; menu, filecheck, DeleteAll ; Initialisera
 			menu = False
 		}
-		MouseGetPos, , , id, control
+		; MouseGetPos, , , id, control
 			tempClip := Clipboard
 			Send, ^c
 			mlOrdernummer := Clipboard
@@ -51,7 +50,7 @@ gosub, updateStart
 				mlOrdernummer := Clipboard
 			}
 			Clipboard := tempClip
-			; Click, left
+			Click, left
 		gosub, note
 		gosub, getList
 

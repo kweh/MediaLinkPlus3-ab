@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="12.4" version="12.4" Modules="simple" RootPath="." Language="en" Id="{59827FDB-8228-4211-BFD8-9266C857A30A}">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="Installlationsprogram för [|ProductName]." ValueLocId="*"/>
+    <ROW Property="ARPPRODUCTICON" Value="new323.exe" Type="8"/>
+    <ROW Property="Manufacturer" Value="dnns.se"/>
+    <ROW Property="ProductCode" Value="1033:{D492E0FF-8148-45E6-9C59-F3911E15DE39} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="MediaLinkPlus"/>
+    <ROW Property="ProductVersion" Value="3.3.0" Type="32"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{31ED57DC-E25E-4C63-AF6E-A8C04E730C51}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+    <ROW Directory="cxense_Dir" Directory_Parent="APPDIR" DefaultDir="cxense"/>
+    <ROW Directory="filecheck_Dir" Directory_Parent="APPDIR" DefaultDir="FILECH~1|filecheck"/>
+    <ROW Directory="ftp_Dir" Directory_Parent="APPDIR" DefaultDir="ftp"/>
+    <ROW Directory="ico_Dir" Directory_Parent="APPDIR" DefaultDir="ico"/>
+    <ROW Directory="img_Dir" Directory_Parent="APPDIR" DefaultDir="img"/>
+    <ROW Directory="settings_Dir" Directory_Parent="APPDIR" DefaultDir="settings"/>
+    <ROW Directory="skins_Dir" Directory_Parent="APPDIR" DefaultDir="skins"/>
+    <ROW Directory="status_Dir" Directory_Parent="ico_Dir" DefaultDir="status"/>
+    <ROW Directory="templates_Dir" Directory_Parent="APPDIR" DefaultDir="TEMPLA~1|templates"/>
+    <ROW Directory="update_Dir" Directory_Parent="APPDIR" DefaultDir="update"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="AcroRd32_2.ico" ComponentId="{9BFFFC16-3DFF-4359-9C5C-BC05482A3078}" Directory_="ico_Dir" Attributes="0" KeyPath="AcroRd32_2.ico" Type="0"/>
+    <ROW Component="Filecheck.exe" ComponentId="{C042C7E2-915B-4629-AAA1-E3D260F863F7}" Directory_="APPDIR" Attributes="256" KeyPath="Filecheck.exe"/>
+    <ROW Component="MedialinkPlus3.exe" ComponentId="{1D757400-AF4B-48B2-9FC9-E8E07A4BAA08}" Directory_="APPDIR" Attributes="256" KeyPath="MedialinkPlus3.exe"/>
+    <ROW Component="ProductInformation" ComponentId="{0D063E32-DDD4-452A-AE1F-0A6A431ACEB6}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="advertisement.xml" ComponentId="{F07BC472-F8BA-4258-97F4-6A2E0CFEE8E5}" Directory_="cxense_Dir" Attributes="0" KeyPath="advertisement.xml" Type="0"/>
+    <ROW Component="backBone.exe" ComponentId="{D55092DC-6A28-4CB2-BEEE-77A13D95E584}" Directory_="APPDIR" Attributes="256" KeyPath="backBone.exe"/>
+    <ROW Component="banner.psd" ComponentId="{ACB6BA1E-A284-4CF4-80DC-A431DDC5FB21}" Directory_="img_Dir" Attributes="0" KeyPath="banner.psd" Type="0"/>
+    <ROW Component="bearbetas.ico" ComponentId="{2F076238-0E90-495E-97DC-9C9C9F06EE6B}" Directory_="status_Dir" Attributes="0" KeyPath="bearbetas.ico_11" Type="0"/>
+    <ROW Component="epaper.htm" ComponentId="{EAE34A67-2578-46A3-8AC1-08A081969B97}" Directory_="ftp_Dir" Attributes="0" KeyPath="epaper.htm" Type="0"/>
+    <ROW Component="filecheck.txt" ComponentId="{4E1E4AD2-279F-4EA2-9654-D85F18FECA4D}" Directory_="settings_Dir" Attributes="0" KeyPath="filecheck.txt" Type="0"/>
+    <ROW Component="list.txt" ComponentId="{530AB287-3E10-4BA7-B31A-2EB7CF232AEE}" Directory_="filecheck_Dir" Attributes="0" KeyPath="list.txt" Type="0"/>
+    <ROW Component="skins" ComponentId="{8F108CF3-5743-45DC-9221-B268C618615C}" Directory_="skins_Dir" Attributes="0"/>
+    <ROW Component="update" ComponentId="{12946AAB-FCEF-41FD-9D3E-6BA8B62113D9}" Directory_="update_Dir" Attributes="0"/>
+    <ROW Component="users.txt" ComponentId="{8CBB173E-FDA2-421A-ABBF-1B49E2FDED13}" Directory_="APPDIR" Attributes="0" KeyPath="users.txt" Type="0"/>
+    <ROW Component="x384.fla" ComponentId="{A1E2CB74-3D5A-49CE-9000-4491FF7ECBBB}" Directory_="templates_Dir" Attributes="0" KeyPath="x384.fla" Type="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AcroRd32_2.ico Filecheck.exe MedialinkPlus3.exe ProductInformation advertisement.xml backBone.exe banner.psd bearbetas.ico epaper.htm filecheck.txt list.txt skins update users.txt x384.fla"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="AcroRd32_2.ico" Component_="AcroRd32_2.ico" FileName="ACRORD~1.ICO|AcroRd32_2.ico" Attributes="0" SourcePath="ico\AcroRd32_2.ico" SelfReg="false" NextFile="annan.ico"/>
+    <ROW File="ButtonCheck01.png" Component_="AcroRd32_2.ico" FileName="BUTTON~1.PNG|Button Check-01.png" Attributes="0" SourcePath="ico\Button Check-01.png" SelfReg="false" NextFile="columns.ico"/>
+    <ROW File="FTPLog.txt" Component_="epaper.htm" FileName="FTPLog.txt" Attributes="0" SourcePath="ftp\FTPLog.txt" SelfReg="false" NextFile="lager.xml"/>
+    <ROW File="Filecheck.exe" Component_="Filecheck.exe" FileName="FILECH~1.EXE|Filecheck.exe" Attributes="0" SourcePath="Filecheck.exe" SelfReg="false" NextFile="MedialinkPlus3.exe" DigSign="true"/>
+    <ROW File="Flash_2.ico" Component_="AcroRd32_2.ico" FileName="Flash_2.ico" Attributes="0" SourcePath="ico\Flash_2.ico" SelfReg="false" NextFile="Flash_3.ico"/>
+    <ROW File="Flash_3.ico" Component_="AcroRd32_2.ico" FileName="Flash_3.ico" Attributes="0" SourcePath="ico\Flash_3.ico" SelfReg="false" NextFile="fraga.ico"/>
+    <ROW File="MedialinkPlus3.exe" Component_="MedialinkPlus3.exe" FileName="MEDIAL~1.EXE|MedialinkPlus3.exe" Attributes="0" SourcePath="MedialinkPlus3.exe" SelfReg="false" NextFile="users.txt" DigSign="true"/>
+    <ROW File="Photoshop_1001.ico" Component_="AcroRd32_2.ico" FileName="PHOTOS~2.ICO|Photoshop_1001.ico" Attributes="0" SourcePath="ico\Photoshop_1001.ico" SelfReg="false" NextFile="plus.ico"/>
+    <ROW File="advertisement.xml" Component_="advertisement.xml" FileName="ADVERT~1.XML|advertisement.xml" Attributes="0" SourcePath="cxense\advertisement.xml" SelfReg="false" NextFile="campaign.xml"/>
+    <ROW File="annan.ico" Component_="AcroRd32_2.ico" FileName="annan.ico" Attributes="0" SourcePath="ico\annan.ico" SelfReg="false" NextFile="arkiverad.ico"/>
+    <ROW File="arkiverad.ico" Component_="AcroRd32_2.ico" FileName="ARKIVE~1.ICO|arkiverad.ico" Attributes="0" SourcePath="ico\arkiverad.ico" SelfReg="false" NextFile="bearbetas.ico"/>
+    <ROW File="backBone.exe" Component_="backBone.exe" FileName="backBone.exe" Attributes="0" SourcePath="backBone.exe" SelfReg="false" NextFile="Filecheck.exe" DigSign="true"/>
+    <ROW File="banner.psd" Component_="banner.psd" FileName="banner.psd" Attributes="0" SourcePath="img\banner.psd" SelfReg="false" NextFile="dialog.psd"/>
+    <ROW File="bearbetas.ico" Component_="AcroRd32_2.ico" FileName="BEARBE~1.ICO|bearbetas.ico" Attributes="0" SourcePath="ico\bearbetas.ico" SelfReg="false" NextFile="boka.ico"/>
+    <ROW File="bearbetas.ico_11" Component_="bearbetas.ico" FileName="BEARBE~1.ICO|bearbetas.ico" Attributes="0" SourcePath="ico\status\bearbetas.ico" SelfReg="false" NextFile="bearbetas.psd"/>
+    <ROW File="bearbetas.psd" Component_="bearbetas.ico" FileName="BEARBE~1.PSD|bearbetas.psd" Attributes="0" SourcePath="ico\status\bearbetas.psd" SelfReg="false" NextFile="klar.ico_11"/>
+    <ROW File="boka.ico" Component_="AcroRd32_2.ico" FileName="boka.ico" Attributes="0" SourcePath="ico\boka.ico" SelfReg="false" NextFile="bokacxense.ico"/>
+    <ROW File="bokacxense.ico" Component_="AcroRd32_2.ico" FileName="BOKACX~1.ICO|bokacxense.ico" Attributes="0" SourcePath="ico\bokacxense.ico" SelfReg="false" NextFile="bokacxense.psd"/>
+    <ROW File="bokacxense.psd" Component_="AcroRd32_2.ico" FileName="BOKACX~1.PSD|bokacxense.psd" Attributes="0" SourcePath="ico\bokacxense.psd" SelfReg="false" NextFile="btn_cxmini.jpg"/>
+    <ROW File="btn_cxmini.jpg" Component_="AcroRd32_2.ico" FileName="BTN_CX~1.JPG|btn_cxmini.jpg" Attributes="0" SourcePath="ico\btn_cxmini.jpg" SelfReg="false" NextFile="ButtonCheck01.png"/>
+    <ROW File="campaign.xml" Component_="advertisement.xml" FileName="campaign.xml" Attributes="0" SourcePath="cxense\campaign.xml" SelfReg="false" NextFile="contract.xml"/>
+    <ROW File="columns.ico" Component_="AcroRd32_2.ico" FileName="columns.ico" Attributes="0" SourcePath="ico\columns.ico" SelfReg="false" NextFile="cx.ico"/>
+    <ROW File="contract.xml" Component_="advertisement.xml" FileName="contract.xml" Attributes="0" SourcePath="cxense\contract.xml" SelfReg="false" NextFile="keywordtargeting.xml"/>
+    <ROW File="cx.ico" Component_="AcroRd32_2.ico" FileName="cx.ico" Attributes="0" SourcePath="ico\cx.ico" SelfReg="false" NextFile="cxense.ico"/>
+    <ROW File="cxense.ico" Component_="AcroRd32_2.ico" FileName="cxense.ico" Attributes="0" SourcePath="ico\cxense.ico" SelfReg="false" NextFile="cxense.psd"/>
+    <ROW File="cxense.psd" Component_="AcroRd32_2.ico" FileName="cxense.psd" Attributes="0" SourcePath="ico\cxense.psd" SelfReg="false" NextFile="cxrapport.ico"/>
+    <ROW File="cxrapport.ico" Component_="AcroRd32_2.ico" FileName="CXRAPP~1.ICO|cxrapport.ico" Attributes="0" SourcePath="ico\cxrapport.ico" SelfReg="false" NextFile="fardig.ico"/>
+    <ROW File="dialog.psd" Component_="banner.psd" FileName="dialog.psd" Attributes="0" SourcePath="img\dialog.psd" SelfReg="false" NextFile="mlp_settings.jpg"/>
+    <ROW File="epaper.htm" Component_="epaper.htm" FileName="epaper.htm" Attributes="0" SourcePath="ftp\epaper.htm" SelfReg="false" NextFile="FTPLog.txt"/>
+    <ROW File="fardig.ico" Component_="AcroRd32_2.ico" FileName="fardig.ico" Attributes="0" SourcePath="ico\fardig.ico" SelfReg="false" NextFile="filecheck.ico"/>
+    <ROW File="filecheck.ico" Component_="AcroRd32_2.ico" FileName="FILECH~1.ICO|filecheck.ico" Attributes="0" SourcePath="ico\filecheck.ico" SelfReg="false" NextFile="filecheck.psd"/>
+    <ROW File="filecheck.psd" Component_="AcroRd32_2.ico" FileName="FILECH~1.PSD|filecheck.psd" Attributes="0" SourcePath="ico\filecheck.psd" SelfReg="false" NextFile="flash.ico"/>
+    <ROW File="filecheck.txt" Component_="filecheck.txt" FileName="FILECH~1.TXT|filecheck.txt" Attributes="0" SourcePath="settings\filecheck.txt" SelfReg="false" NextFile="kolumner.ini"/>
+    <ROW File="flash.ico" Component_="AcroRd32_2.ico" FileName="flash.ico" Attributes="0" SourcePath="ico\flash.ico" SelfReg="false" NextFile="flash.psd"/>
+    <ROW File="flash.psd" Component_="AcroRd32_2.ico" FileName="flash.psd" Attributes="0" SourcePath="ico\flash.psd" SelfReg="false" NextFile="Flash_2.ico"/>
+    <ROW File="fraga.ico" Component_="AcroRd32_2.ico" FileName="fraga.ico" Attributes="0" SourcePath="ico\fraga.ico" SelfReg="false" NextFile="fraga.psd"/>
+    <ROW File="fraga.psd" Component_="AcroRd32_2.ico" FileName="fraga.psd" Attributes="0" SourcePath="ico\fraga.psd" SelfReg="false" NextFile="ico_mall.psd"/>
+    <ROW File="ico_mall.psd" Component_="AcroRd32_2.ico" FileName="ico_mall.psd" Attributes="0" SourcePath="ico\ico_mall.psd" SelfReg="false" NextFile="ikon.ico"/>
+    <ROW File="ikon.ico" Component_="AcroRd32_2.ico" FileName="ikon.ico" Attributes="0" SourcePath="ico\ikon.ico" SelfReg="false" NextFile="ikon.psd"/>
+    <ROW File="ikon.psd" Component_="AcroRd32_2.ico" FileName="ikon.psd" Attributes="0" SourcePath="ico\ikon.psd" SelfReg="false" NextFile="inteprint.ico"/>
+    <ROW File="inteprint.ico" Component_="AcroRd32_2.ico" FileName="INTEPR~1.ICO|inteprint.ico" Attributes="0" SourcePath="ico\inteprint.ico" SelfReg="false" NextFile="klar.ico"/>
+    <ROW File="keywordtargeting.xml" Component_="advertisement.xml" FileName="KEYWOR~1.XML|keywordtargeting.xml" Attributes="0" SourcePath="cxense\keywordtargeting.xml" SelfReg="false" NextFile="targeting.xml"/>
+    <ROW File="klar.ico" Component_="AcroRd32_2.ico" FileName="klar.ico" Attributes="0" SourcePath="ico\klar.ico" SelfReg="false" NextFile="kommentera.ico"/>
+    <ROW File="klar.ico_11" Component_="bearbetas.ico" FileName="klar.ico" Attributes="0" SourcePath="ico\status\klar.ico" SelfReg="false" NextFile="klar.psd"/>
+    <ROW File="klar.psd" Component_="bearbetas.ico" FileName="klar.psd" Attributes="0" SourcePath="ico\status\klar.psd" SelfReg="false" NextFile="korrektur.ico"/>
+    <ROW File="kolumner.ini" Component_="filecheck.txt" FileName="kolumner.ini" Attributes="0" SourcePath="settings\kolumner.ini" SelfReg="false" NextFile="settings.ini"/>
+    <ROW File="kommentera.ico" Component_="AcroRd32_2.ico" FileName="KOMMEN~1.ICO|kommentera.ico" Attributes="0" SourcePath="ico\kommentera.ico" SelfReg="false" NextFile="kommentera.psd"/>
+    <ROW File="kommentera.psd" Component_="AcroRd32_2.ico" FileName="KOMMEN~1.PSD|kommentera.psd" Attributes="0" SourcePath="ico\kommentera.psd" SelfReg="false" NextFile="kopiera.ico"/>
+    <ROW File="kopiera.ico" Component_="AcroRd32_2.ico" FileName="kopiera.ico" Attributes="0" SourcePath="ico\kopiera.ico" SelfReg="false" NextFile="kopiera.psd"/>
+    <ROW File="kopiera.psd" Component_="AcroRd32_2.ico" FileName="kopiera.psd" Attributes="0" SourcePath="ico\kopiera.psd" SelfReg="false" NextFile="korr.ico"/>
+    <ROW File="korr.ico" Component_="AcroRd32_2.ico" FileName="korr.ico" Attributes="0" SourcePath="ico\korr.ico" SelfReg="false" NextFile="kundmapp.ico"/>
+    <ROW File="korrektur.ico" Component_="bearbetas.ico" FileName="KORREK~1.ICO|korrektur.ico" Attributes="0" SourcePath="ico\status\korrektur.ico" SelfReg="false" NextFile="korrektur.psd"/>
+    <ROW File="korrektur.psd" Component_="bearbetas.ico" FileName="KORREK~1.PSD|korrektur.psd" Attributes="0" SourcePath="ico\status\korrektur.psd" SelfReg="false" NextFile="levfardig.ico"/>
+    <ROW File="kundmapp.ico" Component_="AcroRd32_2.ico" FileName="kundmapp.ico" Attributes="0" SourcePath="ico\kundmapp.ico" SelfReg="false" NextFile="mail.ico"/>
+    <ROW File="lager.xml" Component_="epaper.htm" FileName="lager.xml" Attributes="0" SourcePath="ftp\lager.xml" SelfReg="false" NextFile="AcroRd32_2.ico"/>
+    <ROW File="levfardig.ico" Component_="bearbetas.ico" FileName="LEVFAR~1.ICO|levfardig.ico" Attributes="0" SourcePath="ico\status\levfardig.ico" SelfReg="false" NextFile="levfardig.psd"/>
+    <ROW File="levfardig.psd" Component_="bearbetas.ico" FileName="LEVFAR~1.PSD|levfardig.psd" Attributes="0" SourcePath="ico\status\levfardig.psd" SelfReg="false" NextFile="ny.ico_11"/>
+    <ROW File="list.txt" Component_="list.txt" FileName="list.txt" Attributes="0" SourcePath="filecheck\list.txt" SelfReg="false" NextFile="epaper.htm"/>
+    <ROW File="mail.ico" Component_="AcroRd32_2.ico" FileName="mail.ico" Attributes="0" SourcePath="ico\mail.ico" SelfReg="false" NextFile="mailakorr.ico"/>
+    <ROW File="mailakorr.ico" Component_="AcroRd32_2.ico" FileName="MAILAK~1.ICO|mailakorr.ico" Attributes="0" SourcePath="ico\mailakorr.ico" SelfReg="false" NextFile="mailakorr.psd"/>
+    <ROW File="mailakorr.psd" Component_="AcroRd32_2.ico" FileName="MAILAK~1.PSD|mailakorr.psd" Attributes="0" SourcePath="ico\mailakorr.psd" SelfReg="false" NextFile="mig.ico"/>
+    <ROW File="mig.ico" Component_="AcroRd32_2.ico" FileName="mig.ico" Attributes="0" SourcePath="ico\mig.ico" SelfReg="false" NextFile="new323.ico"/>
+    <ROW File="mlp_settings.jpg" Component_="banner.psd" FileName="MLP_SE~1.JPG|mlp_settings.jpg" Attributes="0" SourcePath="img\mlp_settings.jpg" SelfReg="false" NextFile="mplus_settings.jpg"/>
+    <ROW File="mplus_settings.jpg" Component_="banner.psd" FileName="MPLUS_~1.JPG|mplus_settings.jpg" Attributes="0" SourcePath="img\mplus_settings.jpg" SelfReg="false" NextFile="nopreview.jpg"/>
+    <ROW File="new323.ico" Component_="AcroRd32_2.ico" FileName="new323.ico" Attributes="0" SourcePath="ico\new323.ico" SelfReg="false" NextFile="new323.psd"/>
+    <ROW File="new323.psd" Component_="AcroRd32_2.ico" FileName="new323.psd" Attributes="0" SourcePath="ico\new323.psd" SelfReg="false" NextFile="ny.ico"/>
+    <ROW File="nopreview.jpg" Component_="banner.psd" FileName="NOPREV~1.JPG|nopreview.jpg" Attributes="0" SourcePath="img\nopreview.jpg" SelfReg="false" NextFile="splash.png"/>
+    <ROW File="ny.ico" Component_="AcroRd32_2.ico" FileName="ny.ico" Attributes="0" SourcePath="ico\ny.ico" SelfReg="false" NextFile="oppna.ico"/>
+    <ROW File="ny.ico_11" Component_="bearbetas.ico" FileName="ny.ico" Attributes="0" SourcePath="ico\status\ny.ico" SelfReg="false" NextFile="ny.psd"/>
+    <ROW File="ny.psd" Component_="bearbetas.ico" FileName="ny.psd" Attributes="0" SourcePath="ico\status\ny.psd" SelfReg="false" NextFile="repetition.ico"/>
+    <ROW File="oppna.ico" Component_="AcroRd32_2.ico" FileName="oppna.ico" Attributes="0" SourcePath="ico\oppna.ico" SelfReg="false" NextFile="oppnacxense.ico"/>
+    <ROW File="oppnacxense.ico" Component_="AcroRd32_2.ico" FileName="OPPNAC~1.ICO|oppnacxense.ico" Attributes="0" SourcePath="ico\oppnacxense.ico" SelfReg="false" NextFile="oppnacxense.psd"/>
+    <ROW File="oppnacxense.psd" Component_="AcroRd32_2.ico" FileName="OPPNAC~1.PSD|oppnacxense.psd" Attributes="0" SourcePath="ico\oppnacxense.psd" SelfReg="false" NextFile="oppnakampanjcxense.ico"/>
+    <ROW File="oppnakampanjcxense.ico" Component_="AcroRd32_2.ico" FileName="OPPNAK~1.ICO|oppnakampanjcxense.ico" Attributes="0" SourcePath="ico\oppnakampanjcxense.ico" SelfReg="false" NextFile="oppnakampanjcxense.psd"/>
+    <ROW File="oppnakampanjcxense.psd" Component_="AcroRd32_2.ico" FileName="OPPNAK~1.PSD|oppnakampanjcxense.psd" Attributes="0" SourcePath="ico\oppnakampanjcxense.psd" SelfReg="false" NextFile="oppnakundcxense.ico"/>
+    <ROW File="oppnakundcxense.ico" Component_="AcroRd32_2.ico" FileName="OPPNAK~2.ICO|oppnakundcxense.ico" Attributes="0" SourcePath="ico\oppnakundcxense.ico" SelfReg="false" NextFile="oppnakundcxense.psd"/>
+    <ROW File="oppnakundcxense.psd" Component_="AcroRd32_2.ico" FileName="OPPNAK~2.PSD|oppnakundcxense.psd" Attributes="0" SourcePath="ico\oppnakundcxense.psd" SelfReg="false" NextFile="photoshop.ico"/>
+    <ROW File="photoshop.ico" Component_="AcroRd32_2.ico" FileName="PHOTOS~1.ICO|photoshop.ico" Attributes="0" SourcePath="ico\photoshop.ico" SelfReg="false" NextFile="photoshop.psd"/>
+    <ROW File="photoshop.psd" Component_="AcroRd32_2.ico" FileName="PHOTOS~1.PSD|photoshop.psd" Attributes="0" SourcePath="ico\photoshop.psd" SelfReg="false" NextFile="Photoshop_1001.ico"/>
+    <ROW File="plus.ico" Component_="AcroRd32_2.ico" FileName="plus.ico" Attributes="0" SourcePath="ico\plus.ico" SelfReg="false" NextFile="plus.psd"/>
+    <ROW File="plus.psd" Component_="AcroRd32_2.ico" FileName="plus.psd" Attributes="0" SourcePath="ico\plus.psd" SelfReg="false" NextFile="print.ico"/>
+    <ROW File="print.ico" Component_="AcroRd32_2.ico" FileName="print.ico" Attributes="0" SourcePath="ico\print.ico" SelfReg="false" NextFile="print.psd"/>
+    <ROW File="print.psd" Component_="AcroRd32_2.ico" FileName="print.psd" Attributes="0" SourcePath="ico\print.psd" SelfReg="false" NextFile="rapport.ico"/>
+    <ROW File="rapport.ico" Component_="AcroRd32_2.ico" FileName="rapport.ico" Attributes="0" SourcePath="ico\rapport.ico" SelfReg="false" NextFile="rapport.psd"/>
+    <ROW File="rapport.psd" Component_="AcroRd32_2.ico" FileName="rapport.psd" Attributes="0" SourcePath="ico\rapport.psd" SelfReg="false" NextFile="rapportera.ico"/>
+    <ROW File="rapportera.ico" Component_="AcroRd32_2.ico" FileName="RAPPOR~1.ICO|rapportera.ico" Attributes="0" SourcePath="ico\rapportera.ico" SelfReg="false" NextFile="rep.ico"/>
+    <ROW File="rep.ico" Component_="AcroRd32_2.ico" FileName="rep.ico" Attributes="0" SourcePath="ico\rep.ico" SelfReg="false" NextFile="settings.ico"/>
+    <ROW File="repetition.ico" Component_="bearbetas.ico" FileName="REPETI~1.ICO|repetition.ico" Attributes="0" SourcePath="ico\status\repetition.ico" SelfReg="false" NextFile="repetition.psd"/>
+    <ROW File="repetition.psd" Component_="bearbetas.ico" FileName="REPETI~1.PSD|repetition.psd" Attributes="0" SourcePath="ico\status\repetition.psd" SelfReg="false" NextFile="sentbokad.ico"/>
+    <ROW File="sentbokad.ico" Component_="bearbetas.ico" FileName="SENTBO~1.ICO|sentbokad.ico" Attributes="0" SourcePath="ico\status\sentbokad.ico" SelfReg="false" NextFile="sentbokad.psd"/>
+    <ROW File="sentbokad.psd" Component_="bearbetas.ico" FileName="SENTBO~1.PSD|sentbokad.psd" Attributes="0" SourcePath="ico\status\sentbokad.psd" SelfReg="false" NextFile="undersoks.ico"/>
+    <ROW File="settings.ico" Component_="AcroRd32_2.ico" FileName="settings.ico" Attributes="0" SourcePath="ico\settings.ico" SelfReg="false" NextFile="settings.psd"/>
+    <ROW File="settings.ini" Component_="filecheck.txt" FileName="settings.ini" Attributes="0" SourcePath="settings\settings.ini" SelfReg="false" NextFile="x384.fla"/>
+    <ROW File="settings.psd" Component_="AcroRd32_2.ico" FileName="settings.psd" Attributes="0" SourcePath="ico\settings.psd" SelfReg="false" NextFile="shell32_1.ico"/>
+    <ROW File="shell32_1.ico" Component_="AcroRd32_2.ico" FileName="SHELL3~1.ICO|shell32_1.ico" Attributes="0" SourcePath="ico\shell32_1.ico" SelfReg="false" NextFile="shell32_224.ico"/>
+    <ROW File="shell32_224.ico" Component_="AcroRd32_2.ico" FileName="SHELL3~2.ICO|shell32_224.ico" Attributes="0" SourcePath="ico\shell32_224.ico" SelfReg="false" NextFile="shell32_4.ico"/>
+    <ROW File="shell32_4.ico" Component_="AcroRd32_2.ico" FileName="SHELL3~3.ICO|shell32_4.ico" Attributes="0" SourcePath="ico\shell32_4.ico" SelfReg="false" NextFile="shell32_63001.ico"/>
+    <ROW File="shell32_63001.ico" Component_="AcroRd32_2.ico" FileName="SHELL3~4.ICO|shell32_63001.ico" Attributes="0" SourcePath="ico\shell32_63001.ico" SelfReg="false" NextFile="sok.ico"/>
+    <ROW File="sok.ico" Component_="AcroRd32_2.ico" FileName="sok.ico" Attributes="0" SourcePath="ico\sok.ico" SelfReg="false" NextFile="sok.psd"/>
+    <ROW File="sok.psd" Component_="AcroRd32_2.ico" FileName="sok.psd" Attributes="0" SourcePath="ico\sok.psd" SelfReg="false" NextFile="bearbetas.ico_11"/>
+    <ROW File="splash.png" Component_="banner.psd" FileName="splash.png" Attributes="0" SourcePath="img\splash.png" SelfReg="false" NextFile="splash.psd"/>
+    <ROW File="splash.psd" Component_="banner.psd" FileName="splash.psd" Attributes="0" SourcePath="img\splash.psd" SelfReg="false" NextFile="varning.jpg"/>
+    <ROW File="status.ico" Component_="AcroRd32_2.ico" FileName="status.ico" Attributes="0" SourcePath="ico\status.ico" SelfReg="false" NextFile="status.psd"/>
+    <ROW File="status.psd" Component_="AcroRd32_2.ico" FileName="status.psd" Attributes="0" SourcePath="ico\status.psd" SelfReg="false" NextFile="tilldela.ico"/>
+    <ROW File="targeting.xml" Component_="advertisement.xml" FileName="TARGET~1.XML|targeting.xml" Attributes="0" SourcePath="cxense\targeting.xml" SelfReg="false" NextFile="test.txt"/>
+    <ROW File="test.txt" Component_="advertisement.xml" FileName="test.txt" Attributes="0" SourcePath="cxense\test.txt" SelfReg="false" NextFile="list.txt"/>
+    <ROW File="tilldela.ico" Component_="AcroRd32_2.ico" FileName="tilldela.ico" Attributes="0" SourcePath="ico\tilldela.ico" SelfReg="false" NextFile="tilldela.psd"/>
+    <ROW File="tilldela.psd" Component_="AcroRd32_2.ico" FileName="tilldela.psd" Attributes="0" SourcePath="ico\tilldela.psd" SelfReg="false" NextFile="tilldelabearbeta.ico"/>
+    <ROW File="tilldelabearbeta.ico" Component_="AcroRd32_2.ico" FileName="TILLDE~1.ICO|tilldelabearbeta.ico" Attributes="0" SourcePath="ico\tilldelabearbeta.ico" SelfReg="false" NextFile="tilldelabearbeta.psd"/>
+    <ROW File="tilldelabearbeta.psd" Component_="AcroRd32_2.ico" FileName="TILLDE~1.PSD|tilldelabearbeta.psd" Attributes="0" SourcePath="ico\tilldelabearbeta.psd" SelfReg="false" NextFile="tilldelabearbeta_2.ico"/>
+    <ROW File="tilldelabearbeta_2.ico" Component_="AcroRd32_2.ico" FileName="TILLDE~2.ICO|tilldelabearbeta_2.ico" Attributes="0" SourcePath="ico\tilldelabearbeta_2.ico" SelfReg="false" NextFile="toolbox.ico"/>
+    <ROW File="toolbox.ico" Component_="AcroRd32_2.ico" FileName="toolbox.ico" Attributes="0" SourcePath="ico\toolbox.ico" SelfReg="false" NextFile="toolbox.psd"/>
+    <ROW File="toolbox.psd" Component_="AcroRd32_2.ico" FileName="toolbox.psd" Attributes="0" SourcePath="ico\toolbox.psd" SelfReg="false" NextFile="traffic.ico"/>
+    <ROW File="traffic.ico" Component_="AcroRd32_2.ico" FileName="traffic.ico" Attributes="0" SourcePath="ico\traffic.ico" SelfReg="false" NextFile="traffic.psd"/>
+    <ROW File="traffic.psd" Component_="AcroRd32_2.ico" FileName="traffic.psd" Attributes="0" SourcePath="ico\traffic.psd" SelfReg="false" NextFile="trash.ico"/>
+    <ROW File="trash.ico" Component_="AcroRd32_2.ico" FileName="trash.ico" Attributes="0" SourcePath="ico\trash.ico" SelfReg="false" NextFile="trash.psd"/>
+    <ROW File="trash.psd" Component_="AcroRd32_2.ico" FileName="trash.psd" Attributes="0" SourcePath="ico\trash.psd" SelfReg="false" NextFile="undersoks.ico_11"/>
+    <ROW File="undersoks.ico" Component_="bearbetas.ico" FileName="UNDERS~1.ICO|undersoks.ico" Attributes="0" SourcePath="ico\status\undersoks.ico" SelfReg="false" NextFile="undersoks.psd"/>
+    <ROW File="undersoks.ico_11" Component_="AcroRd32_2.ico" FileName="UNDERS~1.ICO|undersoks.ico" Attributes="0" SourcePath="ico\undersoks.ico" SelfReg="false" NextFile="uppdatera.ico"/>
+    <ROW File="undersoks.psd" Component_="bearbetas.ico" FileName="UNDERS~1.PSD|undersoks.psd" Attributes="0" SourcePath="ico\status\undersoks.psd" SelfReg="false" NextFile="vilande.ico"/>
+    <ROW File="uppdatera.ico" Component_="AcroRd32_2.ico" FileName="UPPDAT~1.ICO|uppdatera.ico" Attributes="0" SourcePath="ico\uppdatera.ico" SelfReg="false" NextFile="vilande.ico_11"/>
+    <ROW File="users.txt" Component_="users.txt" FileName="users.txt" Attributes="0" SourcePath="users.txt" SelfReg="false" NextFile="advertisement.xml"/>
+    <ROW File="varning.jpg" Component_="banner.psd" FileName="varning.jpg" Attributes="0" SourcePath="img\varning.jpg" SelfReg="false" NextFile="varning.png"/>
+    <ROW File="varning.png" Component_="banner.psd" FileName="varning.png" Attributes="0" SourcePath="img\varning.png" SelfReg="false" NextFile="varning.psd"/>
+    <ROW File="varning.psd" Component_="banner.psd" FileName="varning.psd" Attributes="0" SourcePath="img\varning.psd" SelfReg="false" NextFile="varning_small.png"/>
+    <ROW File="varning_small.png" Component_="banner.psd" FileName="VARNIN~1.PNG|varning_small.png" Attributes="0" SourcePath="img\varning_small.png" SelfReg="false" NextFile="varning_small.psd"/>
+    <ROW File="varning_small.psd" Component_="banner.psd" FileName="VARNIN~1.PSD|varning_small.psd" Attributes="0" SourcePath="img\varning_small.psd" SelfReg="false" NextFile="filecheck.txt"/>
+    <ROW File="vilande.ico" Component_="bearbetas.ico" FileName="vilande.ico" Attributes="0" SourcePath="ico\status\vilande.ico" SelfReg="false" NextFile="vilande.psd"/>
+    <ROW File="vilande.ico_11" Component_="AcroRd32_2.ico" FileName="vilande.ico" Attributes="0" SourcePath="ico\vilande.ico" SelfReg="false" NextFile="banner.psd"/>
+    <ROW File="vilande.psd" Component_="bearbetas.ico" FileName="vilande.psd" Attributes="0" SourcePath="ico\status\vilande.psd" SelfReg="false" NextFile="status.ico"/>
+    <ROW File="x1080.fla" Component_="x384.fla" FileName="1920X1~1.FLA|1920 x 1080.fla" Attributes="0" SourcePath="templates\1920 x 1080.fla" SelfReg="false" NextFile="x720.fla"/>
+    <ROW File="x120.fla" Component_="x384.fla" FileName="980X12~1.FLA|980 x 120.fla" Attributes="0" SourcePath="templates\980 x 120.fla" SelfReg="false" NextFile="x120.psd_11"/>
+    <ROW File="x120.psd" Component_="x384.fla" FileName="468X12~1.PSD|468 x 120.psd" Attributes="0" SourcePath="templates\468 x 120.psd" SelfReg="false" NextFile="x240.fla_24"/>
+    <ROW File="x120.psd_11" Component_="x384.fla" FileName="980X12~1.PSD|980 x 120.psd" Attributes="0" SourcePath="templates\980 x 120.psd" SelfReg="false" NextFile="x240.fla_25"/>
+    <ROW File="x128.fla" Component_="x384.fla" FileName="512X12~1.FLA|512 x 128.fla" Attributes="0" SourcePath="templates\512 x 128.fla" SelfReg="false" NextFile="x128.psd"/>
+    <ROW File="x128.psd" Component_="x384.fla" FileName="512X12~1.PSD|512 x 128.psd" Attributes="0" SourcePath="templates\512 x 128.psd" SelfReg="false" NextFile="x280.psd_11"/>
+    <ROW File="x160.psd" Component_="x384.fla" FileName="320X16~1.PSD|320 x 160.psd" Attributes="0" SourcePath="templates\320 x 160.psd" SelfReg="false" NextFile="x320.psd"/>
+    <ROW File="x180.psd" Component_="x384.fla" FileName="180X18~1.PSD|180 x 180.psd" Attributes="0" SourcePath="templates\180 x 180.psd" SelfReg="false" NextFile="x1080.fla"/>
+    <ROW File="x1920.fla" Component_="x384.fla" FileName="1080X1~1.FLA|1080 x 1920.fla" Attributes="0" SourcePath="templates\1080 x 1920.fla" SelfReg="false" NextFile="x1920.psd"/>
+    <ROW File="x1920.psd" Component_="x384.fla" FileName="1080X1~1.PSD|1080 x 1920.psd" Attributes="0" SourcePath="templates\1080 x 1920.psd" SelfReg="false" NextFile="x180.psd"/>
+    <ROW File="x240.fla" Component_="x384.fla" FileName="200X24~1.FLA|200 x 240.fla" Attributes="0" SourcePath="templates\200 x 240.fla" SelfReg="false" NextFile="x240.psd"/>
+    <ROW File="x240.fla_23" Component_="x384.fla" FileName="250X24~1.FLA|250 x 240.fla" Attributes="0" SourcePath="templates\250 x 240.fla" SelfReg="false" NextFile="x240.psd_23"/>
+    <ROW File="x240.fla_24" Component_="x384.fla" FileName="468X24~1.FLA|468 x 240.fla" Attributes="0" SourcePath="templates\468 x 240.fla" SelfReg="false" NextFile="x240.psd_24"/>
+    <ROW File="x240.fla_25" Component_="x384.fla" FileName="980X24~1.FLA|980 x 240.fla" Attributes="0" SourcePath="templates\980 x 240.fla" SelfReg="false" NextFile="x240.psd_25"/>
+    <ROW File="x240.psd" Component_="x384.fla" FileName="200X24~1.PSD|200 x 240.psd" Attributes="0" SourcePath="templates\200 x 240.psd" SelfReg="false" NextFile="x600.fla"/>
+    <ROW File="x240.psd_23" Component_="x384.fla" FileName="250X24~1.PSD|250 x 240.psd" Attributes="0" SourcePath="templates\250 x 240.psd" SelfReg="false" NextFile="x600.fla_11"/>
+    <ROW File="x240.psd_24" Component_="x384.fla" FileName="468X24~1.PSD|468 x 240.psd" Attributes="0" SourcePath="templates\468 x 240.psd" SelfReg="false" NextFile="x60.fla"/>
+    <ROW File="x240.psd_25" Component_="x384.fla" FileName="980X24~1.PSD|980 x 240.psd" Attributes="0" SourcePath="templates\980 x 240.psd" SelfReg="false" NextFile="x360.psd"/>
+    <ROW File="x280.fla" Component_="x384.fla" FileName="580X28~1.FLA|580 x 280.fla" Attributes="0" SourcePath="templates\580 x 280.fla" SelfReg="false" NextFile="x384.fla_11"/>
+    <ROW File="x280.psd" Component_="x384.fla" FileName="380X28~1.PSD|380 x 280.psd" Attributes="0" SourcePath="templates\380 x 280.psd" SelfReg="false" NextFile="x120.psd"/>
+    <ROW File="x280.psd_11" Component_="x384.fla" FileName="580X28~1.PSD|580  x 280.psd" Attributes="0" SourcePath="templates\580  x 280.psd" SelfReg="false" NextFile="x280.fla"/>
+    <ROW File="x320.psd" Component_="x384.fla" FileName="320X32~1.PSD|320 x 320.psd" Attributes="0" SourcePath="templates\320 x 320.psd" SelfReg="false" NextFile="x80.psd"/>
+    <ROW File="x360.psd" Component_="x384.fla" FileName="980X36~1.PSD|980 x 360.psd" Attributes="0" SourcePath="templates\980 x 360.psd" SelfReg="false" NextFile="x480.psd"/>
+    <ROW File="x384.fla" Component_="x384.fla" FileName="1024X3~1.FLA|1024 x 384.fla" Attributes="0" SourcePath="templates\1024 x 384.fla" SelfReg="false" NextFile="x384.psd"/>
+    <ROW File="x384.fla_11" Component_="x384.fla" FileName="768X38~1.FLA|768 x 384.fla" Attributes="0" SourcePath="templates\768 x 384.fla" SelfReg="false" NextFile="x384.psd_11"/>
+    <ROW File="x384.psd" Component_="x384.fla" FileName="1024X3~1.PSD|1024 x 384.psd" Attributes="0" SourcePath="templates\1024 x 384.psd" SelfReg="false" NextFile="x1920.fla"/>
+    <ROW File="x384.psd_11" Component_="x384.fla" FileName="768X38~1.PSD|768 x 384.psd" Attributes="0" SourcePath="templates\768 x 384.psd" SelfReg="false" NextFile="x500.fla"/>
+    <ROW File="x480.psd" Component_="x384.fla" FileName="980X48~1.PSD|980 x 480.psd" Attributes="0" SourcePath="templates\980 x 480.psd" SelfReg="false"/>
+    <ROW File="x500.fla" Component_="x384.fla" FileName="900X50~1.FLA|900 x 500.fla" Attributes="0" SourcePath="templates\900 x 500.fla" SelfReg="false" NextFile="x120.fla"/>
+    <ROW File="x60.fla" Component_="x384.fla" FileName="468X60~1.FLA|468 x 60.fla" Attributes="0" SourcePath="templates\468 x 60.fla" SelfReg="false" NextFile="x60.psd"/>
+    <ROW File="x60.psd" Component_="x384.fla" FileName="468X60~1.PSD|468 x 60.psd" Attributes="0" SourcePath="templates\468 x 60.psd" SelfReg="false" NextFile="x128.fla"/>
+    <ROW File="x600.fla" Component_="x384.fla" FileName="200X60~1.FLA|200 x 600.fla" Attributes="0" SourcePath="templates\200 x 600.fla" SelfReg="false" NextFile="x600.psd"/>
+    <ROW File="x600.fla_11" Component_="x384.fla" FileName="250X60~1.FLA|250 x 600.fla" Attributes="0" SourcePath="templates\250 x 600.fla" SelfReg="false" NextFile="x600.psd_11"/>
+    <ROW File="x600.psd" Component_="x384.fla" FileName="200X60~1.PSD|200 x 600.psd" Attributes="0" SourcePath="templates\200 x 600.psd" SelfReg="false" NextFile="x240.fla_23"/>
+    <ROW File="x600.psd_11" Component_="x384.fla" FileName="250X60~1.PSD|250 x 600.psd" Attributes="0" SourcePath="templates\250 x 600.psd" SelfReg="false" NextFile="x800.fla"/>
+    <ROW File="x720.fla" Component_="x384.fla" FileName="1920X7~1.FLA|1920 x 720.fla" Attributes="0" SourcePath="templates\1920 x 720.fla" SelfReg="false" NextFile="x720.psd"/>
+    <ROW File="x720.psd" Component_="x384.fla" FileName="1920X7~1.PSD|1920 x 720.psd" Attributes="0" SourcePath="templates\1920 x 720.psd" SelfReg="false" NextFile="x240.fla"/>
+    <ROW File="x80.psd" Component_="x384.fla" FileName="320X80~1.PSD|320 x 80.psd" Attributes="0" SourcePath="templates\320 x 80.psd" SelfReg="false" NextFile="x280.psd"/>
+    <ROW File="x800.fla" Component_="x384.fla" FileName="250X80~1.FLA|250 x 800.fla" Attributes="0" SourcePath="templates\250 x 800.fla" SelfReg="false" NextFile="x800.psd"/>
+    <ROW File="x800.psd" Component_="x384.fla" FileName="250X80~1.PSD|250 x 800.psd" Attributes="0" SourcePath="templates\250 x 800.psd" SelfReg="false" NextFile="x160.psd"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="." PackageFileName="MedialinkPlus" Languages="en" InstallationType="4" UseLargeSchema="true"/>
+    <ATTRIBUTE name="CurrentBuild" value="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\FolderDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;classic\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;classic\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="skins_Dir" Component_="skins" ManualDelete="false"/>
+    <ROW Directory_="update_Dir" Component_="update" ManualDelete="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[ProgramFilesFolder]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]" MultiBuildTarget="DefaultBuild:[ProgramMenuFolder]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="new323.exe" SourcePath="ico\new323.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_DpiContentScale" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="classic"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+</DOCUMENT>
