@@ -514,17 +514,14 @@ return
 
 
 lager:
-ControlGet, listCount, List, Count Selected, %control%, NewsCycle MediaLink
+	MouseGetPos, , , id, control
 	ControlGet, getList, List, Selected, %control%, NewsCycle MediaLink
-	msgbox % getlist
 	StringSplit, getListRow, getList, `n
 	listRow = %getListRow1%
 	Stringsplit, kolumn, listRow, `t
-	DllCall("QueryPerformanceCounter", "Int64 *", t_list_stopp)
-	t_list_done := t_list_stopp - t_list_start
+
 
 	;Läs kolumn-info från användarens kolumner.ini
-	DllCall("QueryPerformanceCounter", "Int64 *", t_ini_start)
 	IniRead, iniStart, %mlpKolumner%, kolumner, Start
 	IniRead, iniStopp, %mlpKolumner%, kolumner, Stopp
 	IniRead, iniExponeringar, %mlpKolumner%, kolumner, Exponeringar
@@ -535,10 +532,8 @@ ControlGet, listCount, List, Count Selected, %control%, NewsCycle MediaLink
 	IniRead, iniEnhet, %mlpKolumner%, kolumner, Internetenhet
 	IniRead, iniStatus, %mlpKolumner%, kolumner, Status
 	IniRead, iniTilldelad, %mlpKolumner%, kolumner, Tilldelad
-	DllCall("QueryPerformanceCounter", "Int64 *", t_ini_stopp)
-	t_ini_done := t_ini_stopp - t_ini_start
 
-
+	mlOrdernummer := kolumn1
 	mlStartdatum := kolumn%iniStart%
 	mlStoppdatum := kolumn%iniStopp%
 	mlExponeringar := kolumn%iniExponeringar%
@@ -592,17 +587,21 @@ ControlGet, listCount, List, Count Selected, %control%, NewsCycle MediaLink
 	timestamp = %A_Now%
 	FormatTime, timestamp, %timestamp%,yyyy-MM-dd HH:mm
 	XML = 
-	Loop, Parse, getList, `n, `r
+	Progress, R0-%listCount%
+	Loop, Parse, getList, `n
 	{
+		kolumn := ""
 		StringSplit, kolumn, A_LoopField, %A_Tab%
 		produkt := kolumn%iniProdukt%
 		StringSplit, prodArray, produkt , %A_Space%
 		Tidning = %prodArray1%
-		getFormat(kolumn%iniEnhet%) ; sätter format
+		getFormatTraffic(kolumn%iniEnhet%) ; sätter format
 		Ordernr = %kolumn1%
 		Start := kolumn%iniStart%
 		Stopp := kolumn%iniStopp%
-
+		Kundnamn := kolumn%iniKundnamn%
+		StringReplace, Kundnamn, Kundnamn, & , &amp;, All
+		Exponeringar := kolumn%iniExponeringar%
 		;~ StringTrimRight, startYear, Start, 6 ; startYear
 		;~ StringTrimRight, startMonth, Start, 3 ; startMonth
 		;~ StringTrimLeft, startMonth, startMonth, 5 ; startMonth
@@ -616,10 +615,6 @@ ControlGet, listCount, List, Count Selected, %control%, NewsCycle MediaLink
 		;~ StringTrimLeft, stoppDay, Stopp, 8 ; stoppDay
 		;~ stoppMonth := stoppMonth-1
 		;~ Stopp = %stoppYear%-%stoppMonth%-%stoppDay%
-
-		Kundnamn := kolumn%iniKundnamn%
-		StringReplace, Kundnamn, Kundnamn, & , &amp;, All
-		Exponeringar := kolumn%iniExponeringar%
 		
 		if (Tidning = "NT")
 		{
@@ -629,18 +624,21 @@ ControlGet, listCount, List, Count Selected, %control%, NewsCycle MediaLink
 		addToXML =
 		(
 		<kampanj>
-			<tidning>%mlTidning%</tidning>
-			<format>%mlEnhet%</format>
-			<ordernr>%mlOrdernummer%</ordernr>
-			<kund>%mlKundnamn%</kund>
-			<start>%mlStartdatum%</start>
-			<stopp>%mlStoppdatum%</stopp>
-			<exponeringar>%mlExponeringar%</exponeringar>
+			<tidning>%Tidning%</tidning>
+			<format>%format%</format>
+			<ordernr>%Ordernr%</ordernr>
+			<kund>%Kundnamn%</kund>
+			<start>%Start%</start>
+			<stopp>%Stopp%</stopp>
+			<exponeringar>%Exponeringar%</exponeringar>
 		</kampanj>
 		)
 		
 		XML = %XML%%addToXML%
+		progress % a_index
+		sleep, 0
 	}
+	progress, off
 	fullXML =
 	(
 	<lager>
@@ -653,22 +651,23 @@ ControlGet, listCount, List, Count Selected, %control%, NewsCycle MediaLink
 	FileDelete, %dir_ftp%\lager.xml
 	FileEncoding, UTF-8-RAW
 	FileAppend, %fullXML%, %dir_ftp%\lager.xml
-	; FileEncoding
-	; sleep, 500
-	; upload = %dir_ftp%\lager.xml
-	; ftpSettings := ftp_init(timestamp, upload)
-	; FTPCommandFile = %dir_ftp%\FTPCommands.txt
-	; FTPLogFile = %dir_ftp%\FTPLog.txt
-	; FileDelete %FTPCommandFile%  ; In case previous run was terminated prematurely.
-	; FileAppend, %ftpSettings%, %FTPCommandFile%
+	FileEncoding
+	sleep, 500
+	upload = %dir_ftp%\lager.xml
+	ftpSettings := ftp_init(timestamp, upload)
+	FTPCommandFile = %dir_ftp%\FTPCommands.txt
+	FTPLogFile = %dir_ftp%\FTPLog.txt
+	FileDelete %FTPCommandFile%  ; In case previous run was terminated prematurely.
+	FileAppend, %ftpSettings%, %FTPCommandFile%
 
-	; RunWait %comspec% /c ftp.exe -s:"%FTPCommandFile%" >"%FTPLogFile%"
-	; FileDelete %FTPCommandFile%  ; Delete for security reasons.
-	; Msgbox,4,, Färdig! Visa logg?
-	; 	IfMsgBox, Yes
-	; 		Run %FTPLogFile%  ; Display the log for review.
-	; 	IfMsgBox, No
-	; 		return
+	RunWait %comspec% /c ftp.exe -s:"%FTPCommandFile%" >"%FTPLogFile%"
+	FileDelete %FTPCommandFile%  ; Delete for security reasons.
+	Msgbox,4,, Färdig! Visa logg?
+		IfMsgBox, Yes
+			FileRead, ftplog, %FTPLogFile%
+			msgbox % ftplog
+		IfMsgBox, No
+			return
 return
 
 

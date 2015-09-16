@@ -203,6 +203,312 @@ getFormat(id)
 	return format
 }
 
+getFormatTraffic(x)
+{
+	global
+	;Skyltar
+	if (x = "Eurosize")
+		{
+		format = 1080x1920
+		file = 1080 x 1920
+		}
+	if (x = "Söderköpingsvägen")
+		{
+		format = 1024x384	
+		file = 1024 x 384
+		}
+	if (x = "Hamnbron")
+		{
+		format = 1024x384
+		file = 1024 x 384
+		}
+	if (x = "Sjötull")
+		{
+		format = 512x128
+		file = 512 x 128
+		}
+	if (x = "Skylt HD")
+		{
+		format = 1920x1080
+		file = 1920 x 1080
+		}
+	if (x = "Ståthögaleden")
+		{
+		format = 768x384
+		file = 768 x 384
+		}
+	if (x = "Östcentrum Visby")
+		{
+		format = 1920x720
+		file = 1920 x 720
+		}
+
+	; Moduler
+	if (x = "Artikel 120")
+	{
+		format = MOD
+		file = 468 x 120
+	}
+	if (x = "Artikel 60")
+	{
+		format = MOD
+		file = 468 x 60
+	}
+	if (x = "Mittbanner 1")
+	{
+		format = MOD
+		file = 468 x 240
+	}
+	if (x = "Modul 240")
+	{
+		format = MOD
+		file = 468 x 240
+	}
+	if (x = "Modul MK")
+	{
+		format = MKMOD
+	}
+	
+	; Mobiler
+	if (x = "Mobil Bottom Panorama")
+	{
+		format = MOB
+		file = 320 x 80
+	}
+	if (x = "Mobil Bottom Panorama XL")
+	{
+		format = MOB
+		file = 320 x 160
+	}
+	if (x = "Mobil Bottom Takeover")
+	{
+		format = MOB
+		file = 320 x 320
+	}
+	if (x = "Mobil Top Panorama")
+	{
+		format = MOB
+		file = 320 x 80
+	}
+	if (x = "Mobil Top Panorama XL")
+	{
+		format = MOB
+		file = 320 x 160
+	}
+	if (x = "Mobil Top Takeover")
+	{
+		format = MOB
+		file = 320 x 320
+	}
+	if (x = "Mobil Stor")
+	{
+		format = MOB
+		file = 320 x 320
+	}
+	if (x = "Mobil Mellan")
+	{
+		format = MOB
+		file = 320 x 160
+	}
+	if (x = "Mobil Liten")
+	{
+		format = MOB
+		file = 320 x 80
+	}
+	if (x = "Mobil Swipe")
+	{
+		format = MOB
+		file = 320 x 320
+	}
+	; -- Nya Mobiler
+	if (x = "Panorama")
+	{
+		format = MOB
+		file = 320 x 80
+	}
+	if (x = "Mobil Panorama Double")
+	{
+		format = MOB
+		file = 320 x 160
+	}
+	if (x = "Mobil Panorama Large")
+	{
+		format = MOB
+		file = 320 x 320
+	}
+	if (x = "Mobil Take Over")
+	{
+		format = MOB
+		file = 320 x 480
+	}
+
+	; Outsider
+	if (x = "Outsider 600")
+	{
+		format = OUT
+		file = 250 x 600
+	}
+	if (x = "Outsider 800")
+	{
+		format = OUT
+		file = 250 x 800
+	}
+	if (x = "Skyskrapa")
+	{
+		format = OUT
+		file = 250 x 600
+	}
+
+	; Panorama
+	if (x = "Panorama")
+	{
+		format = PAN
+		file = 980 x 240
+	}
+	if (x = "Panorama 1 120")
+	{
+		format = PAN
+		file = 980 x 120
+	}
+	if (x = "Panorama 1 240")
+	{
+		format = PAN	
+		file = 980 x 240
+	}
+	
+	if (x = "Panorama 480")
+	{
+		format = PAN	
+		file = 980 x 480
+	}
+	
+	if (x = "Panorama 120")
+	{
+		format = PAN
+		file = 980 x 120
+	}
+	if (x = "Panorama 2 120")
+	{
+		format = PAN
+		file = 980 x 120
+	}
+	if (x = "Panorama 2 240")
+	{
+		format = PAN
+		file = 980 x 240
+	}
+	if (x = "Panorama 2 480")
+	{
+		format = PAN
+		file = 980 x 480
+	}
+	if (x = "Panorama 240")
+	{
+		format = PAN
+		file = 980 x 240
+	}
+	if (x = "Panorama 360")
+	{
+		format = PAN
+		file = 980 x 360
+	}
+
+	if (x = "Portal 980")
+	{
+		format = PAN
+		file = 980 x 360
+	}
+
+	if (x = "Bigbanner XL")
+	{
+		format = PAN
+		file = 980 x 360
+	}
+
+
+
+	; Widescreen
+	if (x = "Widescreen 240")
+	{
+		format = WID
+		file = 250 x 240
+	}
+
+	if (x = "Guld")
+	{
+		format = WID
+		file = 250 x 240
+	}
+
+	if (x = "Annonstorget WS")
+	{
+		format = TORGET
+		file = 250 x 240
+	}
+
+	; Portaler
+	if (x = "Kvadrat")
+	{
+		format = 180
+		file = 180 x 180
+	}
+	if (x = "Portal 180")
+	{
+		format = 180
+		file = 180 x 180
+	}
+	if (x = "Stortavla")
+	{
+		format = 380
+		file = 380 x 280
+	}
+
+	if (x = "Portal 380")
+	{
+		format = 380
+		file = 380 x 280
+	}
+
+	if (x = "Portal 580")
+	{
+		format = 580
+		file = 580 x 280
+	}
+	if (x = "Textannons")
+	{
+		format = TXT
+	}
+
+	; Reach
+	if (x = "Reach 250")
+	{
+		format = REACH250
+		file = 250 x 360
+	}
+	if (x = "Reach 468")
+	{
+		format = REACH468
+		file = 468 x 240
+	}
+
+	; Väder
+	if (x = "Väderspons")
+	{
+		format = VADER
+	}
+	
+	if (x = "Julkalender")
+	{
+		format = MOB
+	}
+
+	if (x = "Helsida")
+	{
+		format = HEL
+	}
+	return format
+}
+
 ; hämtar productID, sitetargetingID och keywordID för aktuell bokning
 cxProduct(format, type)
 {
