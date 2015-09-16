@@ -186,6 +186,7 @@ getFormat(id)
 	format := id = "37"			? "180" : format
 	format := id = "196"		? "350" : format
 	format := id = "34"			? "380" : format
+	format := id = "106"		? "380" : format
 	format := id = "130"		? "380" : format
 	format := id = "38"			? "580" : format
 	format := id = "9"			? "HEL" : format
@@ -197,6 +198,7 @@ getFormat(id)
 	format := id = "62"			? "MOB" : format
 	format := id = "117"		? "MOB" : format
 	format := id = "214"		? "MOB" : format
+	format := id = "150"		? "TORGET" : format
 	format := id = "118"		? "REACH468" : format
 	format := id = "119"		? "REACH250" : format
 
