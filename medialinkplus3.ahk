@@ -7,7 +7,7 @@ DetectHiddenText, On
 #include secure.ahk
 #include menu_names.ahk
 
-version = 331
+version = 332
 
 SplashImage = %dir_img%\splash.png
 SplashImageGUI(SplashImage, "Center", "Center", 2000, true)
@@ -32,9 +32,10 @@ menu, tray, add, Starta om Medialink Plus, reload
 
 gosub, updateStart
 
-~RButton::
-	if (mlActive())
-	{
+
+
+#if (mlActive()) ;Triggar endast om MediaLink är aktivt
+RButton::
 		if (menu)
 		{
 			menu, mlp, DeleteAll ; Initialisera
@@ -244,8 +245,9 @@ gosub, updateStart
 		menu = true
 		menu, mlp, show
 		gosub, note
+return 
 
-	}
+#if
 
 ~LButton::
 		CoordMode, Mouse, Screen

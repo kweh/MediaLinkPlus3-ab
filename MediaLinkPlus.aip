@@ -5,11 +5,13 @@
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="Installlationsprogram för [|ProductName]." ValueLocId="*"/>
     <ROW Property="ARPPRODUCTICON" Value="new323.exe" Type="8"/>
+    <ROW Property="CTRLS" Value="2"/>
     <ROW Property="Manufacturer" Value="dnns.se"/>
-    <ROW Property="ProductCode" Value="1033:{D492E0FF-8148-45E6-9C59-F3911E15DE39} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{95C7BAB8-38D7-4F01-A86D-D0F338682D7D} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="MediaLinkPlus"/>
-    <ROW Property="ProductVersion" Value="3.3.0" Type="32"/>
+    <ROW Property="ProductVersion" Value="3.3.2" Type="32"/>
+    <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{31ED57DC-E25E-4C63-AF6E-A8C04E730C51}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -281,6 +283,7 @@
     <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
     <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
     <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_LaunchApp" Type="1" Source="aicustact.dll" Target="[#MedialinkPlus3.exe]"/>
     <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
     <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
     <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
