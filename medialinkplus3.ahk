@@ -35,7 +35,7 @@ gosub, updateStart
 
 
 #if (mlActive()) ;Triggar endast om MediaLink är aktivt
-RButton::
+~RButton::
 		if (menu)
 		{
 			menu, mlp, DeleteAll ; Initialisera

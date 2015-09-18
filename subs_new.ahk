@@ -413,11 +413,24 @@ photoshop:
 		adDir = %dir_webbannons%\%forstaBokstav%\%mlKundnamn%\%mlStartdatum%
 		if FileExist(adDir)
 		{
-			FileCopy, %dir_templates%\%file%.psd, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+			if (format = "SKYLT")
+			{
+				msgbox, %dir_templates%\%mlW% x %mlH%.psd
+				FileCopy, %dir_templates%\%mlW% x %mlH%.psd, %adDir%\%mlTidning%-%format%%mlW%x%mlH%-%mlKundnamn%-%mlStartdatum%.psd
+			} Else
+			{
+			FileCopy, %dir_templates%\%mlW% x %mlH%.psd, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+			}
 			run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
 		} else {
 			FileCreateDir, %adDir%
-			FileCopy, %dir_templates%\%file%.psd, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+			if (format = "SKYLT")
+			{
+				FileCopy, %dir_templates%\%mlW% x %mlH%.psd, %adDir%\%mlTidning%-%format%%mlW%x%mlH%-%mlKundnamn%-%mlStartdatum%.psd
+			} Else
+			{
+			FileCopy, %dir_templates%\%mlW% x %mlH%.psd, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+			}
 			run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
 		}
 	}
@@ -477,11 +490,23 @@ flash:
 	adDir = %dir_webbannons%\%forstaBokstav%\%mlKundnamn%\%mlStartdatum%
 	if FileExist(adDir)
 	{
-		FileCopy, %dir_templates%\%file%.fla, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.fla
+		if (mlEnhet = "SKYLT")
+			{
+			FileCopy, %dir_templates%\%mlW% x %mlH%.fla, %adDir%\%mlTidning%-%format%%mlW%x%mlH%-%mlKundnamn%-%mlStartdatum%.fla
+			} Else
+			{
+			FileCopy, %dir_templates%\%mlW% x %mlH%.fla, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.fla
+			}
 		run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.fla
 	} else {
 		FileCreateDir, %adDir%
-		FileCopy, %dir_templates%\%file%.fla, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.fla
+		if (mlEnhet = "SKYLT")
+			{
+			FileCopy, %dir_templates%\%mlW% x %mlH%.fla, %adDir%\%mlTidning%-%format%%mlW%x%mlH%-%mlKundnamn%-%mlStartdatum%.fla
+			} Else
+			{
+			FileCopy, %dir_templates%\%mlW% x %mlH%.fla, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.fla
+			}
 		run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.fla
 	}
 

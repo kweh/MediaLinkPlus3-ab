@@ -201,6 +201,21 @@ getFormat(id)
 	format := id = "150"		? "TORGET" : format
 	format := id = "118"		? "REACH468" : format
 	format := id = "119"		? "REACH250" : format
+	format := id = "174"		? "SNURRA" : format
+	format := id = "85"			? "SKYLT" : format
+	format := id = "98"			? "SKYLT" : format
+	format := id = "99"			? "SKYLT" : format
+	format := id = "100"		? "SKYLT" : format
+	format := id = "101"		? "SKYLT" : format
+	format := id = "126"		? "SKYLT" : format
+	format := id = "128"		? "SKYLT" : format
+	format := id = "128"		? "SKYLT" : format
+	format := id = "152"		? "SKYLT" : format
+	format := id = "142"		? "ARTIKEL" : format
+	format := id = "166"		? "ARTIKEL" : format
+	format := id = "200"		? "ARTIKEL" : format
+
+
 
 	return format
 }
@@ -773,6 +788,20 @@ cxProduct(format, type)
 	if (format = "MKMOD")	
 	{
 		cxName := "Mediekompaniet 468"
+		cost := "cpm"
+	}
+
+	; Snurra --------------------------------------
+	if (format = "SNURRA")	
+	{
+		cxName := "Snurran"
+		cost := "cpc"
+	}
+
+	; Artikel -------------------------------------
+	if (format = "ARTIKEL")
+	{
+		cxName := "- RIKTAD - Modul"
 		cost := "cpm"
 	}
 
