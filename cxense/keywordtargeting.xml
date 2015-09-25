@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
       <cx:keyword xmlns:cx="http://cxense.com/cxad/api/cxad">
-        <cx:templateId>0000000161bf8ec6</cx:templateId>
+        <cx:templateId>000000016020bf2c</cx:templateId>
         <cx:keywordData>
-          <cx:text></cx:text>
+          <cx:text>ntm-start</cx:text>
           <cx:keywordMatchType>EXACT</cx:keywordMatchType>
           <cx:language>SV</cx:language>
           <cx:bid currencyCode="SEK" value="0.10"/>

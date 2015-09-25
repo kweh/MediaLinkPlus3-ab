@@ -760,7 +760,7 @@ cxProduct(format, type)
 ; Maila säljare
 mail(mail, subject, body)
 {
-	SetKeyDelay, 0
+	SetKeyDelay, -1
 	Run, C:\Program Files (x86)\Microsoft Office\Office14\OUTLOOK.EXE /c IPM.Note
 	WinWaitActive, Namnlös - Meddelande
 	Sleep, 200
@@ -786,6 +786,37 @@ mail(mail, subject, body)
 	Sleep, 100
 	Clipboard := clipTemp
 }
+
+; Maila säljare (snabb)
+qmail(mail, subject, body)
+{
+	SetKeyDelay, -1
+	Run, C:\Program Files (x86)\Microsoft Office\Office14\OUTLOOK.EXE /c IPM.Note
+	WinWaitActive, Namnlös - Meddelande
+	Sleep, 200
+	clipTemp := Clipboard
+	
+	Clipboard := mail
+	ControlFocus, RichEdit20WPT1, Namnlös - Meddelande
+	sleep, 100
+	Send, ^v
+	sleep, 300
+
+	Clipboard := subject
+	ControlFocus, RichEdit20WPT4, Namnlös - Meddelande
+	sleep, 100
+	Send, ^v {Tab}
+	sleep, 300
+
+	Clipboard := body
+	ControlFocus, _WwG1, Namnlös - Meddelande
+	sleep, 100
+	Send, ^v
+
+	Sleep, 100
+	Clipboard := clipTemp
+}
+
 
 SplashImageGUI(Picture, X, Y, Duration, Transparent = false)
 {

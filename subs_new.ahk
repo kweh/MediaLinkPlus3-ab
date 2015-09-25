@@ -45,6 +45,7 @@
 	mlSite = %prodArray2%
 
 	mlSite := mlSite = "uppgång.se" ? "uppgang.com" : mlSite
+	mlSite := mlSite = "Affärsliv.se" ? "affarsliv.com" : mlSite
 
 	mlTidning := mlSite = "nt.se" 				? "NTFB" 	: mlTidning
 	mlTidning := mlSite = "gotland.net" 		? "GN" 		: mlTidning
@@ -364,6 +365,10 @@ multiCxStart:
 				}
 			}
 		}
+		IfMsgBox, No
+		{
+			goto, die
+		}
 	}
 	else
 	{
@@ -415,23 +420,26 @@ photoshop:
 		{
 			if (format = "SKYLT")
 			{
-				msgbox, %dir_templates%\%mlW% x %mlH%.psd
-				FileCopy, %dir_templates%\%mlW% x %mlH%.psd, %adDir%\%mlTidning%-%format%%mlW%x%mlH%-%mlKundnamn%-%mlStartdatum%.psd
+				psfile = %adDir%\%mlTidning%-%format%%mlW%x%mlH%-%mlKundnamn%-%mlStartdatum%.psd
+				FileCopy, %dir_templates%\%mlW% x %mlH%.psd, %psfile%
 			} Else
 			{
-			FileCopy, %dir_templates%\%mlW% x %mlH%.psd, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+				psfile = %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+				FileCopy, %dir_templates%\%mlW% x %mlH%.psd, %psfile%
 			}
 			run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
 		} else {
 			FileCreateDir, %adDir%
 			if (format = "SKYLT")
 			{
-				FileCopy, %dir_templates%\%mlW% x %mlH%.psd, %adDir%\%mlTidning%-%format%%mlW%x%mlH%-%mlKundnamn%-%mlStartdatum%.psd
+				psfile = %adDir%\%mlTidning%-%format%%mlW%x%mlH%-%mlKundnamn%-%mlStartdatum%.psd
+				FileCopy, %dir_templates%\%mlW% x %mlH%.psd, %psfile%
 			} Else
 			{
-			FileCopy, %dir_templates%\%mlW% x %mlH%.psd, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+				psfile = %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+				FileCopy, %dir_templates%\%mlW% x %mlH%.psd, %psfile%
 			}
-			run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.psd
+			run, %psfile%
 		}
 	}
 	if (listcount > 1) ; Producera flera
@@ -492,22 +500,26 @@ flash:
 	{
 		if (mlEnhet = "SKYLT")
 			{
-			FileCopy, %dir_templates%\%mlW% x %mlH%.fla, %adDir%\%mlTidning%-%format%%mlW%x%mlH%-%mlKundnamn%-%mlStartdatum%.fla
+			psfile = %adDir%\%mlTidning%-%format%%mlW%x%mlH%-%mlKundnamn%-%mlStartdatum%.fla
+			FileCopy, %dir_templates%\%mlW% x %mlH%.fla, %psfile%
 			} Else
 			{
-			FileCopy, %dir_templates%\%mlW% x %mlH%.fla, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.fla
+			psfile = %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.fla
+			FileCopy, %dir_templates%\%mlW% x %mlH%.fla, %psfile%
 			}
-		run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.fla
+		run, %psfile%
 	} else {
 		FileCreateDir, %adDir%
 		if (mlEnhet = "SKYLT")
 			{
-			FileCopy, %dir_templates%\%mlW% x %mlH%.fla, %adDir%\%mlTidning%-%format%%mlW%x%mlH%-%mlKundnamn%-%mlStartdatum%.fla
+			psfile = %adDir%\%mlTidning%-%format%%mlW%x%mlH%-%mlKundnamn%-%mlStartdatum%.fla
+			FileCopy, %dir_templates%\%mlW% x %mlH%.fla, %psfile%
 			} Else
 			{
-			FileCopy, %dir_templates%\%mlW% x %mlH%.fla, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.fla
+			psfile = %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.fla
+			FileCopy, %dir_templates%\%mlW% x %mlH%.fla, %psfile%
 			}
-		run, %adDir%\%mlTidning%%format%-%mlKundnamn%-%mlStartdatum%.fla
+		run, %psfile%
 	}
 
 oppna:
@@ -1035,6 +1047,28 @@ GoFile:
 	{
 		run, %folder%\%A_ThisMenuItem%
 	}
+return
+
+ej_komplett:
+	Loop, parse, mlOrdernummer, `n
+	{
+		mlOrdernummer = %A_LoopField%
+		gosub, getList
+		subject := "Kampanj " mlOrdernummer " (" mlKundnamn ") saknar interna noteringar/manus"
+		body = 
+(
+Din bokade kampanj (%mlOrdernummer%) saknar interna noteringar och kan därför inte produceras.
+Var vänlig korrigera detta och maila till digital.support@ntm.eu när det är gjort.
+
+För att säkerställa att kampanjen startar i tid rekommenderas du att flytta fram din order så att vi har minst 2 arbetsdagars produktionstid från det att manus och material inkommit till oss.
+Om detta inte är möjligt vill vi flagga för att vi kommer att prioritera de annonser som inkommit med manus/material i tid högst. Vid hög belastning kan det i värsta fall resultera i en försenad kampanjstart.
+)
+		qmail(mlSaljare, subject, body)
+		WinActivate, NewsCycle MediaLink
+		; msgbox % mlOrdernummer
+	}
+	assign(me)
+	status("Undersöks")
 return
 
 die:

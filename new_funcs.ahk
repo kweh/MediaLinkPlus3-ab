@@ -524,6 +524,21 @@ getFormatTraffic(x)
 		format = HEL
 	}
 	return format
+
+	; Artikel
+	if (x = "Artikel 60")
+	{
+		format = ARTIKEL
+	}
+	if (x = "Artikel 120")
+	{
+		format = ARTIKEL
+	}if (x = "Artikel 240")
+	{
+		format = ARTIKEL
+	}
+	return format
+
 }
 
 ; hämtar productID, sitetargetingID och keywordID för aktuell bokning
@@ -887,6 +902,40 @@ mail(mail, subject, body)
 	Sleep, 100
 	Clipboard := clipTemp
 }
+
+; Maila säljare (snabb)
+qmail(mail, subject, body)
+{
+	SetKeyDelay, -1, -1
+	IfExist, C:\Program Files (x86)\Microsoft Office\Office14\OUTLOOK.EXE
+		Run, C:\Program Files (x86)\Microsoft Office\Office14\OUTLOOK.EXE /c IPM.Note
+	IfExist, C:\Program Files\Microsoft Office\Office15\OUTLOOK.EXE
+		Run, C:\Program Files\Microsoft Office\Office15\OUTLOOK.EXE /c IPM.Note
+	WinWaitActive, Namnlös - Meddelande
+	Sleep, 200
+	clipTemp := Clipboard
+	
+	Clipboard := mail
+	ControlFocus, RichEdit20WPT1, Namnlös - Meddelande
+	sleep, 100
+	Send, ^v
+	sleep, 300
+
+	Clipboard := subject
+	ControlFocus, RichEdit20WPT4, Namnlös - Meddelande
+	sleep, 100
+	Send, ^v {Tab}
+	sleep, 300
+
+	Clipboard := body
+	ControlFocus, _WwG1, Namnlös - Meddelande
+	sleep, 100
+	Send, ^v
+
+	Sleep, 100
+	Clipboard := clipTemp
+}
+
 
 SplashImageGUI(Picture, X, Y, Duration, Transparent = false)
 {

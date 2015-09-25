@@ -420,6 +420,7 @@ cx_post_contract(campaignID, cost, startDate, startTime, stopDate, stopTime, exp
   HEAD = Content-Type: text/xml`nAuthorization: Basic QVBJLlVzZXI6cGFzczEyMw==
   if (cost = "cpm")
   {
+    cpm := cpm = "0"    ? "1" : cpm
     XML =
     (
     <?xml version="1.0" encoding="utf-8"?>
