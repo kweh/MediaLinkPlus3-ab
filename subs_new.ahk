@@ -1071,6 +1071,31 @@ Om detta inte är möjligt vill vi flagga för att vi kommer att prioritera de a
 	status("Undersöks")
 return
 
+ej_fardigt:
+	Loop, parse, mlOrdernummer, `n
+	{
+		mlOrdernummer = %A_LoopField%
+		gosub, getList
+		subject := "Kampanj " mlOrdernummer " (" mlKundnamn ") med start " mlStartdatum " saknar material"
+		body = 
+(
+Hej,
+Vi saknar fortfarande färdigt material för (%mlOrdernummer%).
+Vi skulle uppskatta om ni, så snart som möjligt, kunde maila in materialet till digital.material@ntm.eu och även ett mail till digital.support@ntm.eu med information om att material har lämnats.
+
+Deadline för inlämning av färdigt material är kl 12.00 en arbetsdag innan införande. Sen leverans ökar risken för att annonsen startar sent.
+
+Hälsningar,
+NTM Digital Produktion
+)
+		qmail(mlSaljare, subject, body)
+		WinActivate, NewsCycle MediaLink
+		; msgbox % mlOrdernummer
+	}
+	assign(me)
+	status("Undersöks")
+return
+
 die:
 ;ded
 return

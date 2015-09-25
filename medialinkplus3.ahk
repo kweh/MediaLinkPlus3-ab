@@ -7,17 +7,12 @@ DetectHiddenText, On
 #include secure.ahk
 #include menu_names.ahk
 
-version = 335
+version = 336
 
 SplashImage = %dir_img%\splash.png
 SplashImageGUI(SplashImage, "Center", "Center", 2000, true)
 sleep, 1000
 
-#include update.ahk
-
-;Timer för filecheck
-from_fc := false
-SetTimer, fc_go, 60000
 
 
 IniRead, RMenuColor, %mlpSettings%, Theme, RMenuColor
@@ -30,6 +25,7 @@ IniRead, RMenuColor, %mlpSettings%, Theme, RMenuColor
 menu, tray, add, Starta om Medialink Plus, reload
 
 
+#include update.ahk
 gosub, updateStart
 
 
@@ -53,7 +49,7 @@ gosub, updateStart
 			Clipboard := tempClip
 			Click, left
 		gosub, note
-		gosub, getList
+		; gosub, getList
 
 		;Hitta print-knappen
 		menu, mlp, add, %m_findprint%, pdf-preview
@@ -214,6 +210,7 @@ gosub, updateStart
 		; Traffic
 		menu, traffic, add, Uppdatera lagerverktyget, lager
 		menu, traffic, add, Meddela ej komplett manus, ej_komplett
+		menu, traffic, add, Meddela saknat material, ej_fardigt
 		menu, traffic, add, Räkna markerade annonser, rakna
 		menu, traffic, add, Räkna annonser för produktion, raknaProd
 		menu, traffic, add, Räkna exponeringar, raknaExp
