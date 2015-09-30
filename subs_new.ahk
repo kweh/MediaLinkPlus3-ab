@@ -1,4 +1,4 @@
-﻿getList: ; Hämtar information från valt objekt i listvyn
+getList: ; Hämtar information från valt objekt i listvyn
 	gosub, getAnvnamn
 
 	; Räkna markerade annonser
@@ -195,6 +195,7 @@ statusEjkomplett:
 return
 
 openCampaignRapportMulti:
+	gosub, getList
 	if (listCount > 1)
 	{
 		antalAnnonser := listCount
@@ -225,6 +226,7 @@ openCampaignRapportMulti:
 return
 
 openCustomerRapportMulti:
+	gosub, getList
 	if (listCount > 1)
 	{
 		antalKunder := listCount
@@ -255,6 +257,7 @@ openCustomerRapportMulti:
 return
 
 openCampaignCx:
+	gosub, getList
 	xml := get_url("cxad.cxense.com/api/secure/folder/advertising")
 	kund = - %mlKundnr% -
 	folderId := cx_xml_read(xml, "childFolder", kund, "folderId")
@@ -270,6 +273,7 @@ openCampaignCx:
 Return
 
 openCustomerCx:
+	gosub, getList
 	xml := get_url("cxad.cxense.com/api/secure/folder/advertising")
 	kund = - %mlKundnr% -
 	folderId := cx_xml_read(xml, "childFolder", kund, "folderId")
@@ -277,6 +281,7 @@ openCustomerCx:
 Return
 
 openCampaignRapport:
+	gosub, getList
 	xml := get_url("cxad.cxense.com/api/secure/folder/advertising")
 	kund = - %mlKundnr% -
 	folderId := cx_xml_read(xml, "childFolder", kund, "folderId")
@@ -286,6 +291,7 @@ openCampaignRapport:
 Return
 
 openCustomerRapport:
+	gosub, getList
 	xml := get_url("cxad.cxense.com/api/secure/folder/advertising")
 	kund = - %mlKundnr% -
 	folderId := cx_xml_read(xml, "childFolder", kund, "folderId")
@@ -293,6 +299,7 @@ openCustomerRapport:
 Return
 
 getKorr:
+	gosub, getList
 	if (listCount > 1)
 	{
 		goto, getMultiKorr
@@ -307,6 +314,7 @@ getKorr:
 Return
 
 getMultiKorr:
+	gosub, getList
 	Progress, R0-%listCount% FM8 FS7 CBGray, Hämtar länk (), Hämtar korrekturlänkar:, Korrmail
 	subject := "Korrektur:  " mlKundnamn " "
 	rapportUrl := ""
@@ -340,7 +348,7 @@ getMultiKorr:
 return
 
 multiCxStart:
-
+	gosub, getList
 	if (listCount > 1)
 	{
 		Msgbox, 4, Boka flera kampanjer, Boka %listCount% kampanjer i Cxense?
@@ -377,6 +385,7 @@ multiCxStart:
 Return
 
 multiCxOpen:
+gosub, getList
 if (listCount > 1)
 	{
 		Msgbox, 4, Öppna flera kampanjer, Öppna %listCount% kampanjer i Cxense?
@@ -407,6 +416,7 @@ if (listCount > 1)
 return
 
 photoshop:
+	gosub, getList
 	if (listcount = 1)
 		{
 		format := getFormat(mlID) ; Hämtar formatet utifrån internetenhet
@@ -489,6 +499,7 @@ photoshop:
 Return
 
 flash:
+	gosub, getList
 	format := getFormat(mlID) ; Hämtar formatet utifrån internetenhet
 	stripDash(mlStartdatum) ; Tar bort - ur startdatum
 	rensaTecken(mlKundnamn) 
@@ -522,7 +533,8 @@ flash:
 		run, %psfile%
 	}
 
-oppna:
+oppna:	
+	gosub, getList
 	getFormat(mlEnhet) ; Hämtar formatet utifrån internetenhet
 	stripDash(mlStartdatum) ; Tar bort - ur startdatum
 	rensaTecken(mlKundnamn) 
@@ -710,10 +722,12 @@ return
 
 
 rakna:
+gosub, getList
 	msgbox % listCount " annonser markerade"
 return
 
 raknaExp:
+	gosub, getList
 	totExp = 0
 	count = 0
 	Loop, Parse, getList, `n 
@@ -833,7 +847,7 @@ Return
 copyCampaigns:
 	i = 1
 	copyList =
-	;~ gosub, getList
+	gosub, getList
 	loop, parse, getList
 	{
 		if (i > listCount)
@@ -851,6 +865,7 @@ copyCampaigns:
 return
 
 raknaProd:
+	gosub, getList
 	ads = 0
 	count = 0
 	Loop, Parse, getList, `n 
@@ -872,6 +887,7 @@ raknaProd:
 return
 
 epaper:
+	gosub, getList
 	FileDelete, %dir_ftp%\epaper.htm
 	StringReplace, sDate, mlStartdatum, - ,, All ; sDate = startdatum utan bindestreck
 	i := 1
@@ -1094,6 +1110,10 @@ NTM Digital Produktion
 	}
 	assign(me)
 	status("Undersöks")
+return
+
+maila_saljare:
+	
 return
 
 die:

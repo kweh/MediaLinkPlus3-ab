@@ -1,4 +1,5 @@
 ﻿whatsthis:
+	gosub, getlist
 	format := getFormat(mlID)
 	text = 
 (

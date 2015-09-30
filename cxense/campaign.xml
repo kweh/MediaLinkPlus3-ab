@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
   <cx:campaign xmlns:cx="http://cxense.com/cxad/api/cxad" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <cx:name>UNT - WID - 0001871900-03</cx:name>
-    <cx:productId>0000000160209515</cx:productId>
+    <cx:name>CO - PAN260 - 0001830335-02</cx:name>
+    <cx:productId>00000001601d3817</cx:productId>
     <cx:perUserCap>
     <cx:max>0</cx:max>
     <cx:period>DAILY</cx:period>

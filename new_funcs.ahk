@@ -102,6 +102,7 @@ FileAppend, %log%, %dir_log%\%mlOrdernummer%.txt
 
 assign(x) ; tilldelar till x 
 {
+	gosub, getAnvnamn
 	Send, !a
 	WinWaitActive, Ändra tilldelad
 	Sleep, 200
