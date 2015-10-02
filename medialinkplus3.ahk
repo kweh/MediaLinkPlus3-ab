@@ -7,7 +7,7 @@ DetectHiddenText, On
 #include secure.ahk
 #include menu_names.ahk
 
-version = 338
+version = 339
 
 SplashImage = %dir_img%\splash.png
 SplashImageGUI(SplashImage, "Center", "Center", 2000, true)
@@ -210,7 +210,8 @@ gosub, updateStart
 		; Traffic
 		menu, traffic, add, Uppdatera lagerverktyget, lager
 		menu, traffic, add, Meddela ej komplett manus, ej_komplett
-		menu, traffic, add, Meddela saknat material, ej_fardigt
+		menu, traffic, add, Meddela saknat färdigt material, ej_fardigt
+		menu, traffic, add, Meddela saknat material/manus, ej_manus
 		menu, traffic, add, Räkna markerade annonser, rakna
 		menu, traffic, add, Räkna annonser för produktion, raknaProd
 		menu, traffic, add, Räkna exponeringar, raknaExp

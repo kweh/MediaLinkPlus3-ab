@@ -1100,9 +1100,28 @@ Vi saknar fortfarande färdigt material för (%mlOrdernummer%).
 Vi skulle uppskatta om ni, så snart som möjligt, kunde maila in materialet till digital.material@ntm.eu och även ett mail till digital.support@ntm.eu med information om att material har lämnats.
 
 Deadline för inlämning av färdigt material är kl 12.00 en arbetsdag innan införande. Sen leverans ökar risken för att annonsen startar sent.
+)
+		qmail(mlSaljare, subject, body)
+		WinActivate, NewsCycle MediaLink
+		; msgbox % mlOrdernummer
+	}
+	assign(me)
+	status("Undersöks")
+return
 
-Hälsningar,
-NTM Digital Produktion
+ej_manus:
+	Loop, parse, mlOrdernummer, `n
+	{
+		mlOrdernummer = %A_LoopField%
+		gosub, getList
+		subject := "Kampanj " mlOrdernummer " (" mlKundnamn ") med start " mlStartdatum " saknar material/manus"
+		body = 
+(
+Hej,
+Vi saknar fortfarande material/manus för (%mlOrdernummer%).
+Vi skulle uppskatta om ni, så snart som möjligt, kunde maila in detta till digital.material@ntm.eu och även ett mail till digital.support@ntm.eu med information om att material/manus har lämnats.
+
+Deadline för inlämning av material/manus är två arbetsdagar innan införande. Sen leverans ökar risken för att annonsen startar sent.
 )
 		qmail(mlSaljare, subject, body)
 		WinActivate, NewsCycle MediaLink
