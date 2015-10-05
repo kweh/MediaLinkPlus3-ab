@@ -1,4 +1,4 @@
-getList: ; Hämtar information från valt objekt i listvyn
+﻿getList: ; Hämtar information från valt objekt i listvyn
 	gosub, getAnvnamn
 
 	; Räkna markerade annonser
