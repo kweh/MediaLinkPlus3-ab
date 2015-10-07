@@ -874,6 +874,7 @@ cxProduct(format, type)
 ; Maila säljare
 mail(mail, subject, body)
 {
+	gosub, getList
 	SetKeyDelay, -1, -1
 	IfExist, C:\Program Files (x86)\Microsoft Office\Office14\OUTLOOK.EXE
 		Run, C:\Program Files (x86)\Microsoft Office\Office14\OUTLOOK.EXE /c IPM.Note

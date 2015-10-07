@@ -84,6 +84,7 @@ return
 
 ; Kopierar kundnamn och ordernummer i formatet "Kundnamn (xxxxxxxxxx-xx)"
 kundOrder:
+	gosub, getList
 	clipboard = %mlKundnamn% (%mlOrdernummer%)
 return
 
