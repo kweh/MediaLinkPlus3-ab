@@ -700,6 +700,12 @@ cxProduct(format, type)
 		cost := "cpc"
 	}
 
+	if (format = "TXT" && type = "Riktad")	
+	{
+		cxName := "- ROS - Textannons"
+		cost := "cpc"
+	}
+
 	if (format = "180" && type = "Plugg")	
 	{
 		cxName := ". PLUGG - 180 - CPC"

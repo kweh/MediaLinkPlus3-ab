@@ -21,7 +21,9 @@
 	; 	mlEnhet := ab_find("Type", ab_campaignXML) 	
 	; }
 	mlProdukt := ab_findSub("FlightGroup", "Site", ab_campaignXML) 				; Hämtar produkt/site från kampanjxml
-	mlPris := ab_findSub("FlightGroup", "Price", ab_campaignXML) 				; Hämtar produkt/site från kampanjxml
+
+	mlPris := ab_findSub("FlightGroup", "Value", ab_campaignXML) 				; Hämtar produkt/site från kampanjxml
+
 	mlStartdatum := ab_findSub("FlightGroup", "StartDate", ab_campaignXML) 		; Hämtar StartDate från kampanjxml
 	mlStoppdatum := ab_findSub("FlightGroup", "EndDate", ab_campaignXML) 		; Hämtar EndDate från kampanjxml
 		ab_fixTime(mlStartdatum) 												; Fixar datumformat från AdBase
@@ -35,7 +37,6 @@
 	file = %mlW% x %mlH%														; Sätter dimensioner för att hämta template-fil
 
 	mlEnhet := getFormat(mlID)
-
 	StringSplit, mlPris, mlPris , `,
 	cpm := mlPris1/(mlExponeringar / 1000)
 	cpm_rounded := Round(cpm)
@@ -47,11 +48,12 @@
 	mlSite := mlSite = "uppgång.se" ? "uppgang.com" : mlSite
 	mlSite := mlSite = "Affärsliv.se" ? "affarsliv.com" : mlSite
 
-	mlTidning := mlSite = "nt.se" 				? "NTFB" 	: mlTidning
-	mlTidning := mlSite = "gotland.net" 		? "GN" 		: mlTidning
-	mlTidning := mlSite = "mobil.nt.se" 		? "NTFB" 	: mlTidning
-	mlTidning := mlSite = "Affärsliv.com" 		? "AF" 		: mlTidning
-	mlTidning := mlSite = "Uppsalavimmel.se" 	? "UV" 		: mlTidning
+	mlTidning := mlSite = "nt.se" 					? "NTFB" 	: mlTidning
+	mlTidning := mlSite = "gotland.net" 			? "GN" 		: mlTidning
+	mlTidning := mlSite = "mobil.nt.se" 			? "NTFB" 	: mlTidning
+	mlTidning := mlSite = "Affärsliv.com" 			? "AF" 		: mlTidning
+	mlTidning := mlSite = "Uppsalavimmel.se" 		? "UV" 		: mlTidning
+	mlTidning := mlSite = "norrbottensaffarer.se" 	? "NA" 		: mlTidning
 
 	mlSaljare := find_user(mlSaljare)
 
