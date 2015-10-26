@@ -425,8 +425,8 @@ cx_post_contract(campaignID, cost, startDate, startTime, stopDate, stopTime, exp
     (
     <?xml version="1.0" encoding="utf-8"?>
     <cx:cpmContract xmlns:cx="http://cxense.com/cxad/api/cxad">
-    <cx:startDate>%startDate%T%startTime%.000+02:00</cx:startDate>
-    <cx:endDate>%stopDate%T%stopTime%.000+02:00</cx:endDate>
+    <cx:startDate>%startDate%T%startTime%.000+01:00</cx:startDate>
+    <cx:endDate>%stopDate%T%stopTime%.000+01:00</cx:endDate>
     <cx:priority>0.50</cx:priority>
     <cx:requiredImpressions>%exp%</cx:requiredImpressions>
     <cx:costPerThousand class="currency" currencyCode="SEK" value="%cpm%.00"/>
@@ -439,8 +439,8 @@ cx_post_contract(campaignID, cost, startDate, startTime, stopDate, stopTime, exp
     (
     <?xml version="1.0"?>
     <cx:cpcContract xmlns:cx="http://cxense.com/cxad/api/cxad">
-    <cx:startDate>%startDate%T%startTime%.000+02:00</cx:startDate>
-    <cx:endDate>%stopDate%T%stopTime%.000+02:00</cx:endDate>
+    <cx:startDate>%startDate%T%startTime%.000+01:00</cx:startDate>
+    <cx:endDate>%stopDate%T%stopTime%.000+01:00</cx:endDate>
     <cx:priority>0.50</cx:priority>
     </cx:cpcContract>
     )
