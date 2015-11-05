@@ -7,7 +7,7 @@ DetectHiddenText, On
 #include secure.ahk
 #include menu_names.ahk
 
-version = 344
+version = 346
 
 SplashImage = %dir_img%\splash.png
 SplashImageGUI(SplashImage, "Center", "Center", 2000, true)
@@ -31,22 +31,14 @@ gosub, updateStart
 
 
 #if (mlActive()) ;Triggar endast om MediaLink är aktivt
-~RButton::
+RButton::
 		if (menu)
 		{
 			menu, mlp, DeleteAll ; Initialisera
 			menu = False
 		}
 		; MouseGetPos, , , id, control
-			tempClip := Clipboard
-			Send, ^c
-			mlOrdernummer := Clipboard
-			if (mlOrdernummer = tempClip)
-			{
-				Send, ^c
-				mlOrdernummer := Clipboard
-			}
-			Clipboard := tempClip
+			gosub, ordernumber
 			Click, left
 		gosub, note
 		; gosub, getList
@@ -295,6 +287,7 @@ return
 
 
 mailGeneral:
+	gosub, getList
 	mail := mlSaljare
 	subject := "Ang. " mlKundnamn " (" mlOrdernummer ")"
 	body := ""
@@ -302,6 +295,7 @@ mailGeneral:
 return
 
 mailKorr:
+	gosub, getList
 	mail := mlSaljare
 	subject := "Korrektur: " mlKundnamn " (" mlOrdernummer ")"
 	gosub, getKorr

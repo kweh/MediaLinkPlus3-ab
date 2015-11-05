@@ -1141,3 +1141,10 @@ return
 die:
 ;ded
 return
+
+ordernumber: ; hämtar ordernumret från vald rad
+	control := mlActive()
+	ControlGet, ordernumber, List, Focused Col1, %control%, NewsCycle MediaLink, 
+	StringSplit, ordernumber, ordernumber, `n
+	mlOrdernummer := ordernumber1
+return

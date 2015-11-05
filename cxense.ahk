@@ -96,12 +96,20 @@ if (copyCheck = "ERROR")
   }
 FileRead, Target, G:\NTM\NTM Digital Produktion\MedialinkPlus\dev\target.txt
 
+  if (cpm_rounded = 0){
+    cpm_rounded = 1
+  }
+
 defaultType := 1 ; Run On Site
 expView = 
-if (mlSite = "affarsliv.com" || mlSite = "gotland.net" || mlSite = "norrbottensaffarer.com" || mlSite = "uppsala.com" || mlSite = "duonoje.se" || mlSite = "almedalen.net")
+cpmView = 
+if (mlSite = "affarsliv.com" || mlSite = "gotland.net" || mlSite = "norrbottensaffarer.se" || mlSite = "uppsala.com" || mlSite = "duonoje.se" || mlSite = "almedalen.net")
   { 
     defaultType := 5 ; CPC
     expView = Disabled
+    cpmView = Disabled
+    cpm_rounded = 0
+    
   }
 
 Gui, 77:Font, s15 cDefault, Arial
@@ -136,9 +144,10 @@ Gui, 77:Add, CheckBox, x30 y293 vCopy gCopyCheck Checked%copyCheck%, Kopiera ord
 Gui, 77:Add, Text, x30 y230 w90 h20, Styrning
 Gui, 77:Add, Button, x10 y340 w200 h40 Default gBoka vBoka, Boka
 Gui, 77:Add, Button, x300 y340 w110 h40 g77GuiClose, Avbryt
-Gui, 77:Add, Edit, x310 y290 w80 h20 -Multi, %cpm_rounded%
+Gui, 77:Add, Edit, x310 y290 w80 h20 -Multi %cpmView%, %cpm_rounded%
 Gui, 77:Add, Text, x280 y292 w30 h20, CPM
 ; Generated using SmartGuiXP Creator mod 4.3.29.7
+
 Gui, 77:Show, Center w424 h386, Bokningsöversikt
 
 stop := true
@@ -420,7 +429,6 @@ cx_post_contract(campaignID, cost, startDate, startTime, stopDate, stopTime, exp
   HEAD = Content-Type: text/xml`nAuthorization: Basic QVBJLlVzZXI6cGFzczEyMw==
   if (cost = "cpm")
   {
-    cpm := cpm = "0"    ? "1" : cpm
     XML =
     (
     <?xml version="1.0" encoding="utf-8"?>

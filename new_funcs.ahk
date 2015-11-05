@@ -6,8 +6,10 @@
 
 ; Kontrollera om Medialink är aktivt fönster och att användaren klickat i listvyn
 
-mlActive(x=0)
+mlActive(x=0) ; Returnerar "true" om medialink är det aktiva fönstret och listvyn är under muspekaren.
 {
+	IfWinActive, NewsCycle MediaLink
+	{
 	MouseGetPos, , , id, control
 	IfInString, control, SysListView
 		{
@@ -16,7 +18,8 @@ mlActive(x=0)
 				x := true
 			}
 		}
-	return x
+	return control
+	}
 }
 
 noteActive(x=0)
