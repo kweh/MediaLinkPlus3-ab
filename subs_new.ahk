@@ -2,12 +2,13 @@
 	gosub, getAnvnamn
 
 	; Räkna markerade annonser
-	i := 0
-	Loop, parse, mlOrdernummer, `n
-	{
-		i++
-	}
-	listCount := i
+	; i := 0
+	; Loop, parse, mlOrdernummer, `n
+	; {
+	; 	i++
+	; }
+	; listCount := i
+	; msgbox % listCount
 
 	AUTH := ab_auth() 															; Autentisera mot AdBase-API / return AUTH
 	ab_xml := ab_getOrderByNumber(mlOrdernummer) 								; Hämtar XML för ordernummer
@@ -1144,7 +1145,15 @@ return
 
 ordernumber: ; hämtar ordernumret från vald rad
 	control := mlActive()
-	ControlGet, ordernumber, List, Focused Col1, %control%, NewsCycle MediaLink, 
-	StringSplit, ordernumber, ordernumber, `n
-	mlOrdernummer := ordernumber1
+	ControlGet, ordernumber, List, Selected Col1, %control%, NewsCycle MediaLink, 
+	ControlGet, listCount, List, Count Selected Col1, %control%, NewsCycle MediaLink, 
+	if (listCount = 1)
+	{
+		StringSplit, arr_ordernumber, ordernumber, `n
+		mlOrdernummer := arr_ordernumber1
+	}
+	else
+	{
+		mlOrdernummer := ordernumber
+	}
 return

@@ -7,7 +7,7 @@ DetectHiddenText, On
 #include secure.ahk
 #include menu_names.ahk
 
-version = 346
+version = 347
 
 SplashImage = %dir_img%\splash.png
 SplashImageGUI(SplashImage, "Center", "Center", 2000, true)
@@ -39,7 +39,7 @@ RButton::
 		}
 		; MouseGetPos, , , id, control
 			gosub, ordernumber
-			Click, left
+			; Click, left
 		gosub, note
 		; gosub, getList
 
