@@ -7,10 +7,10 @@
     <ROW Property="ARPPRODUCTICON" Value="new323.exe" Type="8"/>
     <ROW Property="CTRLS" Value="2"/>
     <ROW Property="Manufacturer" Value="dnns.se"/>
-    <ROW Property="ProductCode" Value="1033:{E4357A9F-619C-47E6-93F1-3667854269DF} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{81F3894C-9D83-44A5-B676-378541ECEF9B} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="MediaLinkPlus"/>
-    <ROW Property="ProductVersion" Value="3.4.7" Type="32"/>
+    <ROW Property="ProductVersion" Value="3.5.1" Type="32"/>
     <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{31ED57DC-E25E-4C63-AF6E-A8C04E730C51}"/>

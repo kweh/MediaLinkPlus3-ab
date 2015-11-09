@@ -773,7 +773,7 @@ cxProduct(format, type)
 
 	if (format = "580" && type = "Plugg")	
 	{
-		cxName := ". PLUGG - 380 - CPC"
+		cxName := ". PLUGG - 580 - CPC"
 		cost := "cpc"
 	}
 
@@ -829,6 +829,7 @@ cxProduct(format, type)
 		cxName := "- RIKTAD - Modul"
 		cost := "cpm"
 	}
+
 
 	xml := get_url("cxad.cxense.com/api/secure/products")
 	product := cost "Product"

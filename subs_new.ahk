@@ -208,9 +208,14 @@ openCampaignRapportMulti:
 		IFmsgbox, yes
 			{
 			Progress, R0-%antalAnnonser% FM8 FS7 CBGray, Söker annonser..., Öppnar annonser i Rapportverktyget:, Annonsrapport
+			i = 1
 			orderlista := mlOrdernummer
 				Loop, parse, orderlista, `n
 				{
+					if (i > listCount)
+					{
+						break
+					}
 					progress % aktuellAnnons-1
 					mlOrdernummer := A_LoopField
 					gosub, getList
@@ -218,6 +223,7 @@ openCampaignRapportMulti:
 					aktuellAnnons++
 					mlOrdernummer := A_LoopField
 					sleep, 500
+					i++
 				}
 			Progress, Off
 		}
@@ -235,6 +241,7 @@ openCustomerRapportMulti:
 	{
 		antalKunder := listCount
 		aktuellKund = 1
+		i = 1
 		Msgbox, 4, Öppna flera kunder, Öppna %listCount% kunder i Rapportverktyget?
 		IFmsgbox, yes
 			{
@@ -242,6 +249,10 @@ openCustomerRapportMulti:
 			orderlista := mlOrdernummer
 				Loop, parse, orderlista, `n
 				{
+					if (i > listCount)
+					{
+						break
+					}
 					progress % aktuellKund-1
 					mlOrdernummer := A_LoopField
 					gosub, getList
@@ -249,6 +260,7 @@ openCustomerRapportMulti:
 					aktuellKund++
 					mlOrdernummer := A_LoopField
 					Sleep, 500
+					i++
 				}
 			Progress, Off
 		}
@@ -322,7 +334,7 @@ getMultiKorr:
 	Progress, R0-%listCount% FM8 FS7 CBGray, Hämtar länk (), Hämtar korrekturlänkar:, Korrmail
 	subject := "Korrektur:  " mlKundnamn " "
 	rapportUrl := ""
-
+			i = 1
 			progress % i-1
 			progress, ,Hämtar länk (%i% av %listCount%), Hämtar korrekturlänkar:, Korrmail
 			listRow := getListRow%i%
@@ -331,6 +343,10 @@ getMultiKorr:
 			orderlista := mlOrdernummer
 			Loop, parse, orderlista,`n
 			{
+				if (i > listCount)
+				{
+					break
+				}
 				mlOrdernummer := A_LoopField
 				gosub, getList
 				xml := get_url("cxad.cxense.com/api/secure/folder/advertising")
@@ -358,9 +374,14 @@ multiCxStart:
 		Msgbox, 4, Boka flera kampanjer, Boka %listCount% kampanjer i Cxense?
 		IFmsgbox, yes
 		{
+			i := 1
 			orderlista := mlOrdernummer
 			Loop, parse, orderlista, `n
 			{
+				if (i > listCount)
+				{
+					break
+				}
 				mlOrdernummer := A_LoopField
 				stop = false
 				gosub, cx_start
@@ -375,6 +396,7 @@ multiCxStart:
 						break
 					}
 				}
+				i++
 			}
 		}
 		IfMsgBox, No
@@ -402,6 +424,10 @@ if (listCount > 1)
 			orderlista := mlOrdernummer
 				Loop, parse, orderlista, `n
 				{
+					if (i > listCount)
+					{
+						break
+					}
 					progress % i-1
 					mlOrdernummer := A_LoopField
 					gosub, getList
