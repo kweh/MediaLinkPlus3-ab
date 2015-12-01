@@ -6,7 +6,6 @@
   folderId := cx_xml_read(xml, "childFolder", kund, "folderId")
 
   campaignName := mlTidning " - " format " - " mlOrdernummer
-  format := getFormat(mlID)
   if (format = "MOB" || format = "PAN")
   {
   campaignName := mlTidning " - " format "" mlH " - " mlOrdernummer    

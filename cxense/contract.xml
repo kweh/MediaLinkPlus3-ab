@@ -1,6 +1,8 @@
-<?xml version="1.0"?>
-    <cx:cpcContract xmlns:cx="http://cxense.com/cxad/api/cxad">
-    <cx:startDate>2015-11-09T00:00:00.000+01:00</cx:startDate>
-    <cx:endDate>2015-12-09T23:59:00.000+01:00</cx:endDate>
+<?xml version="1.0" encoding="utf-8"?>
+    <cx:cpmContract xmlns:cx="http://cxense.com/cxad/api/cxad">
+    <cx:startDate>2015-11-27T00:00:00.000+01:00</cx:startDate>
+    <cx:endDate>2015-12-03T23:59:00.000+01:00</cx:endDate>
     <cx:priority>0.50</cx:priority>
-    </cx:cpcContract>
+    <cx:requiredImpressions>50100</cx:requiredImpressions>
+    <cx:costPerThousand class="currency" currencyCode="SEK" value="25.00"/>
+    </cx:cpmContract>

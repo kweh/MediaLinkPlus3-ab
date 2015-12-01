@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
   <cx:campaign xmlns:cx="http://cxense.com/cxad/api/cxad" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <cx:name>ÖM - 580 - 0001897515-01</cx:name>
-    <cx:productId>00000001610811d9</cx:productId>
+    <cx:name>NT - WID - 0001893374-08</cx:name>
+    <cx:productId>0000000160209515</cx:productId>
     <cx:perUserCap>
     <cx:max>0</cx:max>
     <cx:period>DAILY</cx:period>

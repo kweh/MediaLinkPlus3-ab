@@ -1,6 +1,5 @@
 ﻿whatsthis:
 	gosub, getlist
-	format := getFormat(mlID)
 	text = 
 (
 Ordernummer: %mlOrdernummer%
@@ -11,10 +10,13 @@ Kundnr: %mlKundnr%
 Kundnamn: %mlKundnamn%
 Säljare: %mlSaljare%
 Produkt: %mlProdukt%
+EnhetsID: %mlEnhetsID%
 Site: %mlSite%
-Kortnamn produkt: %format%
+Kortnamn produkt: %mlEnhet%
 Status: %mlStatus%
 Tilldelad: %mlTilldelad%
+CPM: %cpm_rounded%
+special price: %special_price%
 )
 	msgbox % text
 return

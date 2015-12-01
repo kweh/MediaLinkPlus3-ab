@@ -192,6 +192,7 @@ getFormat(id)
 	format := id = "34"			? "380" : format
 	format := id = "106"		? "380" : format
 	format := id = "130"		? "380" : format
+	format := id = "112"		? "380" : format
 	format := id = "38"			? "580" : format
 	format := id = "9"			? "HEL" : format
 	format := id = "108"		? "TXT" : format
@@ -1122,4 +1123,87 @@ find_user(u)
 	{
 		return "Hittade inte användare"
 	}
+}
+
+;
+; SAXAT FRÅN ML+4
+;
+getExtendedOrder(onr)
+{
+	order := Object()
+	ConnectString := "Provider=SQLOLEDB.1;Password=adops2015;Persist Security Info=True;User ID=adops;Initial Catalog=adbprod;Data Source=adbasedb1.nt.se;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Use Encryption for Data=False;Tag with column collation when possible=False"
+	; Query = SELECT campaignnumber, quantityrequested, startdate, enddate FROM AoInCampaign WHERE startdate >= '%startdate%' AND enddate <= '%enddate%'
+	Query =
+(
+SELECT 
+	aoincampaign.campaignnumber 		as 'Kampanjnummer', 
+	aoincampaign.quantityrequested 	as 'Exponeringar', 
+	aoincampaign.startdate 				as 'Startdatum', 
+	aoincampaign.enddate 				as 'Stoppdatum', 
+	aoproducts.name 						as 'Produkt',
+	aoinflight.internetunitid 			as 'Internetenhets-ID',
+	CfInUnitType.name 					as 'Internetenhet',
+	Customer.AccountNumber 				as 'Kundnummer',
+	Customer.Name1 						as 'Kundnamn',	
+	Customer.TypeID 						as 'Kundtyp',
+	AoAdOrder.NetAmount 					as 'pris ink moms eft. fakt',
+	AoSpecialPrice.SpecialPriceValue as 'Specialpris',
+	UsrUsers.EmailAddress				as 'Säljarmail',
+	CfInUnitType.height 					as 'Höjd',
+	CfInUnitType.width 					as 'Bredd'	
+
+FROM aoincampaign
+LEFT JOIN AoInflight 			ON aoinflight.campaignid 				= aoincampaign.id
+LEFT JOIN AoProducts 			ON AoProducts.Id 							= aoinflight.siteID
+LEFT JOIN CfInUnitType 		ON CfInUnitType.Id 						= aoinflight.internetunitid
+LEFT JOIN AoOrderCustomers 	ON AoOrderCustomers.AdOrderId			= aoinflight.adorderid
+LEFT JOIN Customer 				ON Customer.AccountId					= AoOrderCustomers.CustomerId 
+LEFT JOIN AoAdOrder 			ON AoAdOrder.Id 							= AoInCampaign.AdOrderId
+LEFT JOIN AoSpecialPrice 		ON AoSpecialPrice.AoInFlightId		= AoInflight.Id
+LEFT JOIN UsrUsers				ON UsrUsers.UserId						= AoAdOrder.SellerId
+
+WHERE 
+	campaigntypeid IN (1,4,8)
+	AND aoincampaign.campaignnumber = '%onr%'
+)
+	query := ADOSQL(Connectstring, Query)
+
+	; Kolumner
+	c_imps 				:= 2
+	c_startdate 		:= 3
+	c_enddate 			:= 4
+	c_product 			:= 5
+	c_unit_id 			:= 6
+	c_customer_nr 		:= 8
+	c_customer_name 	:= 9
+	c_net_price 		:= 11
+	c_special_price 	:= 12
+	c_email 			:= 13
+	c_height 			:= 14
+	c_width 			:= 15
+
+	order.customer_name := query[2, c_customer_name]
+	order.customer_nr := query[2, c_customer_nr]
+	order.imps := query[2, c_imps]
+	imps := query[2, c_imps]
+	order.startdate := query[2, c_startdate]
+	order.enddate := query[2, c_enddate]
+	unit_id := query[2, c_unit_id]
+	order.unit_id := query[2, c_unit_id]
+	product := query[2, c_product]	
+	order.product := query[2, c_product]	
+	order.format := getFormat(unit_id)
+	product_split := StrSplit(product, A_Space)
+	order.paper := product_split[1]
+	order.site := product_split[2]
+	order.net_price := Round(query[2, c_net_price])
+	order.special_price := Round(query[2, c_special_price])
+	special_price := Round(query[2, c_special_price])
+	order.CPM := Round(special_price/(imps/1000))
+	order.email := query[2,c_email]
+	order.height := query[2,c_height]
+	order.width := query[2,c_width]
+
+	; msgbox % ADOSQL_LastError	
+	return order
 }

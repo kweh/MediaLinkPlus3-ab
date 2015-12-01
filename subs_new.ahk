@@ -1,62 +1,85 @@
 ﻿getList: ; Hämtar information från valt objekt i listvyn
 	gosub, getAnvnamn
+	order := getExtendedOrder(mlOrdernummer)
 
-	; Räkna markerade annonser
-	; i := 0
-	; Loop, parse, mlOrdernummer, `n
-	; {
-	; 	i++
-	; }
-	; listCount := i
-	; msgbox % listCount
+	; DATUM
+	mlStartdatum 	:= order.startdate
+	mlStoppdatum 	:= order.enddate
 
-	AUTH := ab_auth() 															; Autentisera mot AdBase-API / return AUTH
-	ab_xml := ab_getOrderByNumber(mlOrdernummer) 								; Hämtar XML för ordernummer
-	ab_campaignXML := ab_campaignSplit(ab_xml, "campaign", mlOrdernummer) 		; Splittar på materialnummer
-	mlKundnamn := ab_find("Name1", ab_xml) 										; hämtar kundnamn från huvudxml
-	mlKundnr := ab_find("account-number", ab_xml) 								; hämtar kundnummer från huvudxml
-	mlSaljare := ab_findSub("AdBaseInfo", "ad-order-taker", ab_xml)				; hämtar säljare från huvudxml
-	; mlEnhet := ab_findSub("CampaignUnit", "Name", ab_campaignXML)				; Hämtar internetenhet från kampanjxml
-	; if (mlEnhet = "")
-	; {
-	; 	mlEnhet := ab_find("Type", ab_campaignXML) 	
-	; }
-	mlProdukt := ab_findSub("FlightGroup", "Site", ab_campaignXML) 				; Hämtar produkt/site från kampanjxml
+	mlKundnamn 		:= order.customer_name
+	mlKundnr 		:= order.customer_nr
+	mlSaljare 		:= order.email
+	mlExponeringar  := order.imps
 
-	mlPris := ab_findSub("FlightGroup", "Value", ab_campaignXML) 				; Hämtar produkt/site från kampanjxml
+	mlEnhetsID		:= order.unit_id
+	mlEnhet 		:= getFormat(mlEnhetsID)
+	format 			:= mlEnhet
+	mlProdukt		:= order.product
+	mlSite 			:= order.site
+	mlTidning		:= order.paper
+	special_price 	:= order.special_price
+	cpm_rounded 	:= order.CPM
 
-	mlStartdatum := ab_findSub("FlightGroup", "StartDate", ab_campaignXML) 		; Hämtar StartDate från kampanjxml
-	mlStoppdatum := ab_findSub("FlightGroup", "EndDate", ab_campaignXML) 		; Hämtar EndDate från kampanjxml
-		ab_fixTime(mlStartdatum) 												; Fixar datumformat från AdBase
-		ab_fixTime(mlStoppdatum) 												; Fixar datumformat från AdBase
-	mlExponeringar := ab_findSub("FlightGroup", "Quantity", ab_campaignXML) 	; Hämtar exponeringar från kampanjxml
-	mlNoteringar := ab_find("InternalNotes", ab_campaignXML)   					; Hämtar interna noteringar
-	mlID := ab_findSub("FlightGroup", "CampaignUnit-id", ab_campaignXML) 		; Hämtar enhets-ID
+	mlH 			:= order.height
+	mlW 			:= order.width
+	
+	; ; Räkna markerade annonser
+	; ; i := 0
+	; ; Loop, parse, mlOrdernummer, `n
+	; ; {
+	; ; 	i++
+	; ; }
+	; ; listCount := i
+	; ; msgbox % listCount
 
-	mlW := ab_findSub("CampaignUnit", "Width", ab_campaignXML) 					; Hämtar bredd på annons
-	mlH := ab_findSub("CampaignUnit", "Height", ab_campaignXML) 				; Hämtar höjd på annons
-	file = %mlW% x %mlH%														; Sätter dimensioner för att hämta template-fil
+	; AUTH := ab_auth() 															; Autentisera mot AdBase-API / return AUTH
+	; ab_xml := ab_getOrderByNumber(mlOrdernummer) 								; Hämtar XML för ordernummer
+	; ab_campaignXML := ab_campaignSplit(ab_xml, "campaign", mlOrdernummer) 		; Splittar på materialnummer
+	; mlKundnamn := ab_find("Name1", ab_xml) 										; hämtar kundnamn från huvudxml
+	; mlKundnr := ab_find("account-number", ab_xml) 								; hämtar kundnummer från huvudxml
+	; mlSaljare := ab_findSub("AdBaseInfo", "ad-order-taker", ab_xml)				; hämtar säljare från huvudxml
+	; ; mlEnhet := ab_findSub("CampaignUnit", "Name", ab_campaignXML)				; Hämtar internetenhet från kampanjxml
+	; ; if (mlEnhet = "")
+	; ; {
+	; ; 	mlEnhet := ab_find("Type", ab_campaignXML) 	
+	; ; }
+	; mlProdukt := ab_findSub("FlightGroup", "Site", ab_campaignXML) 				; Hämtar produkt/site från kampanjxml
 
-	mlEnhet := getFormat(mlID)
-	StringSplit, mlPris, mlPris , `,
-	cpm := mlPris1/(mlExponeringar / 1000)
-	cpm_rounded := Round(cpm)
+	; mlPris := ab_findSub("FlightGroup", "Value", ab_campaignXML) 				; Hämtar produkt/site från kampanjxml
 
-	StringSplit, prodArray, mlProdukt , %A_Space%
-	mlTidning = %prodArray1%
-	mlSite = %prodArray2%
+	; mlStartdatum := ab_findSub("FlightGroup", "StartDate", ab_campaignXML) 		; Hämtar StartDate från kampanjxml
+	; mlStoppdatum := ab_findSub("FlightGroup", "EndDate", ab_campaignXML) 		; Hämtar EndDate från kampanjxml
+	; 	ab_fixTime(mlStartdatum) 												; Fixar datumformat från AdBase
+	; 	ab_fixTime(mlStoppdatum) 												; Fixar datumformat från AdBase
+	; mlExponeringar := ab_findSub("FlightGroup", "Quantity", ab_campaignXML) 	; Hämtar exponeringar från kampanjxml
+	; mlNoteringar := ab_find("InternalNotes", ab_campaignXML)   					; Hämtar interna noteringar
+	; mlID := ab_findSub("FlightGroup", "CampaignUnit-id", ab_campaignXML) 		; Hämtar enhets-ID
 
-	mlSite := mlSite = "uppgång.se" ? "uppgang.com" : mlSite
-	mlSite := mlSite = "Affärsliv.se" ? "affarsliv.com" : mlSite
+	; mlW := ab_findSub("CampaignUnit", "Width", ab_campaignXML) 					; Hämtar bredd på annons
+	; mlH := ab_findSub("CampaignUnit", "Height", ab_campaignXML) 				; Hämtar höjd på annons
+	; file = %mlW% x %mlH%														; Sätter dimensioner för att hämta template-fil
 
-	mlTidning := mlSite = "nt.se" 					? "NTFB" 	: mlTidning
-	mlTidning := mlSite = "gotland.net" 			? "GN" 		: mlTidning
-	mlTidning := mlSite = "mobil.nt.se" 			? "NTFB" 	: mlTidning
-	mlTidning := mlSite = "Affärsliv.com" 			? "AF" 		: mlTidning
-	mlTidning := mlSite = "Uppsalavimmel.se" 		? "UV" 		: mlTidning
-	mlTidning := mlSite = "norrbottensaffarer.se" 	? "NA" 		: mlTidning
+	; mlEnhet := getFormat(mlID)
+	; StringSplit, mlPris, mlPris , `,
+	; cpm := mlPris1/(mlExponeringar / 1000)
+	; cpm_rounded := Round(cpm)
 
-	mlSaljare := find_user(mlSaljare)
+	; StringSplit, prodArray, mlProdukt , %A_Space%
+	; mlTidning = %prodArray1%
+	; mlSite = %prodArray2%
+
+	; mlSite := mlSite = "uppgång.se" ? "uppgang.com" : mlSite
+	; mlSite := mlSite = "Affärsliv.se" ? "affarsliv.com" : mlSite
+
+	; mlTidning := mlSite = "nt.se" 					? "NTFB" 	: mlTidning
+	; mlTidning := mlSite = "gotland.net" 			? "GN" 		: mlTidning
+	; mlTidning := mlSite = "mobil.nt.se" 			? "NTFB" 	: mlTidning
+	; mlTidning := mlSite = "Affärsliv.com" 			? "AF" 		: mlTidning
+	; mlTidning := mlSite = "Uppsalavimmel.se" 		? "UV" 		: mlTidning
+	; mlTidning := mlSite = "norrbottensaffarer.se" 	? "NA" 		: mlTidning
+	; mlTidning := mlSite = "uppgang.com" 			? "UG" 		: mlTidning
+
+	; mlSaljare := find_user(mlSaljare)
 
 ; msgbox,
 ; (
@@ -449,7 +472,7 @@ photoshop:
 	gosub, getList
 	if (listcount = 1)
 		{
-		format := getFormat(mlID) ; Hämtar formatet utifrån internetenhet
+		; format := getFormat(mlID) ; Hämtar formatet utifrån internetenhet
 		stripDash(mlStartdatum) ; Tar bort - ur startdatum
 		rensaTecken(mlKundnamn) 
 		StringTrimLeft, mlStartdatum, mlStartdatum, 2 ; tar bort första två tecknen ur datumet
