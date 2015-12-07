@@ -1164,7 +1164,7 @@ LEFT JOIN UsrUsers				ON UsrUsers.UserId						= AoAdOrder.SellerId
 
 WHERE 
 	campaigntypeid IN (1,4,8)
-	AND customer.TypeID = 1
+	AND Customer.TypeID IN (1,2)
 	AND aoincampaign.campaignnumber = '%onr%'
 )
 	query := ADOSQL(Connectstring, Query)
