@@ -68,16 +68,17 @@
 	; mlTidning = %prodArray1%
 	; mlSite = %prodArray2%
 
-	; mlSite := mlSite = "uppgång.se" ? "uppgang.com" : mlSite
-	; mlSite := mlSite = "Affärsliv.se" ? "affarsliv.com" : mlSite
+	mlSite := mlSite = "uppgång.se" ? "uppgang.com" : mlSite
+	mlSite := mlSite = "Affärsliv.se" ? "affarsliv.com" : mlSite
+	mlSite := mlSite = "Affärsliv.com" ? "affarsliv.com" : mlSite
 
-	; mlTidning := mlSite = "nt.se" 					? "NTFB" 	: mlTidning
-	; mlTidning := mlSite = "gotland.net" 			? "GN" 		: mlTidning
-	; mlTidning := mlSite = "mobil.nt.se" 			? "NTFB" 	: mlTidning
-	; mlTidning := mlSite = "Affärsliv.com" 			? "AF" 		: mlTidning
-	; mlTidning := mlSite = "Uppsalavimmel.se" 		? "UV" 		: mlTidning
-	; mlTidning := mlSite = "norrbottensaffarer.se" 	? "NA" 		: mlTidning
-	; mlTidning := mlSite = "uppgang.com" 			? "UG" 		: mlTidning
+	mlTidning := mlSite = "nt.se" 					? "NTFB" 	: mlTidning
+	mlTidning := mlSite = "gotland.net" 			? "GN" 		: mlTidning
+	mlTidning := mlSite = "mobil.nt.se" 			? "NTFB" 	: mlTidning
+	mlTidning := mlSite = "Affärsliv.com" 			? "AF" 		: mlTidning
+	mlTidning := mlSite = "Uppsalavimmel.se" 		? "UV" 		: mlTidning
+	mlTidning := mlSite = "norrbottensaffarer.se" 	? "NA" 		: mlTidning
+	mlTidning := mlSite = "uppgang.com" 			? "UG" 		: mlTidning
 
 	; mlSaljare := find_user(mlSaljare)
 
@@ -392,6 +393,7 @@ return
 
 multiCxStart:
 	gosub, getList
+	msgbox % mlSite
 	if (listCount > 1)
 	{
 		Msgbox, 4, Boka flera kampanjer, Boka %listCount% kampanjer i Cxense?

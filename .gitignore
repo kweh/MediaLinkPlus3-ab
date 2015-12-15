@@ -48,3 +48,4 @@ MediaLinkPlus.aip
 MediaLinkPlus-cache/cacheIndex.txt
 MediaLinkPlus-cache/cacheIndex.txt
 ftp/FTPLog.txt
+*.xml

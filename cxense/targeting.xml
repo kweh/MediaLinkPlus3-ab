@@ -1,12 +1,8 @@
 <?xml version="1.0"?>
 <cx:publisherTargeting xmlns:cx="http://cxense.com/cxad/api/cxad">
-  <cx:templateId>000000016020bf37</cx:templateId>
+  <cx:templateId>000000016109dbd5</cx:templateId>
   <cx:publisherTarget>
-        <cx:url>http://nt.se</cx:url>
-        <cx:targetType>POSITIVE</cx:targetType>
-      </cx:publisherTarget>
-      <cx:publisherTarget>
-        <cx:url>http://folkbladet.se</cx:url>
+        <cx:url>http://affarsliv.com</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
 </cx:publisherTargeting>
