@@ -393,7 +393,6 @@ return
 
 multiCxStart:
 	gosub, getList
-	msgbox % mlSite
 	if (listCount > 1)
 	{
 		Msgbox, 4, Boka flera kampanjer, Boka %listCount% kampanjer i Cxense?
