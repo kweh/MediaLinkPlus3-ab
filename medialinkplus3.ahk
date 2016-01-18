@@ -7,7 +7,7 @@ DetectHiddenText, On
 #include secure.ahk
 #include menu_names.ahk
 
-version = 370
+version = 373
 
 SplashImage = %dir_img%\splash.png
 SplashImageGUI(SplashImage, "Center", "Center", 2000, true)
@@ -238,26 +238,24 @@ RButton::
 		gosub, note
 return 
 
-#if
 
-~LButton::
-		CoordMode, Mouse, Screen
-		MouseGetPos,mX ,mY , id, control
-		IfWinActive, NewsCycle MediaLink
+~LButton:: 
+	CoordMode, Mouse, Screen
+	MouseGetPos,mX ,mY , id, control
+		tempClip := Clipboard
+		Send, ^c
+		mlOrdernummer := Clipboard
+		if (mlOrdernummer = tempClip)
 		{
-			tempClip := Clipboard
 			Send, ^c
 			mlOrdernummer := Clipboard
-			if (mlOrdernummer = tempClip)
-			{
-				Send, ^c
-				mlOrdernummer := Clipboard
-			}
-			Clipboard := tempClip
-			; gosub, getList
-			gosub, note
 		}
+		Clipboard := tempClip
+		; gosub, getList
+		gosub, note
 return
+
+#if
 
 ~Delete::
 if (mlActive())

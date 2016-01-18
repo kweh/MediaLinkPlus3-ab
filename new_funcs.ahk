@@ -6,20 +6,18 @@
 
 ; Kontrollera om Medialink är aktivt fönster och att användaren klickat i listvyn
 
-mlActive(x=0) ; Returnerar "true" om medialink är det aktiva fönstret och listvyn är under muspekaren.
+mlActive(x=false)
 {
-	IfWinActive, NewsCycle MediaLink
+	IfWinActive, NewsCycle MediaLink ; Om det aktiva fönstrets titelrad innehåller "NewsCycle MediaLink"
 	{
-	MouseGetPos, , , id, control
-	IfInString, control, SysListView
+		MouseGetPos, pos_x, pos_y, win_name, control ; Spara namnet på den control som är under muspekaren och lagra det i %control%
+		if (InStr(control, "SysListView")) ; Om %control% innehåller "SysListView"
 		{
-			IfWinActive, NewsCycle MediaLink
-			{
-				x := true
-			}
+			return control ; returnera 'true'
 		}
-	return control
+		return false ; returnerar 'false'
 	}
+	return false ; MediaLink är inte det aktiva fönstret.
 }
 
 noteActive(x=0)
@@ -1150,7 +1148,8 @@ SELECT
 	AoSpecialPrice.SpecialPriceValue as 'Specialpris',
 	UsrUsers.EmailAddress				as 'Säljarmail',
 	CfInUnitType.height 					as 'Höjd',
-	CfInUnitType.width 					as 'Bredd'	
+	CfInUnitType.width 					as 'Bredd',
+	ROUND((AoInFlight.Price*0.8),0)	as 'Pris enl. AoInFligt ex moms'
 
 FROM aoincampaign
 LEFT JOIN AoInflight 			ON aoinflight.campaignid 				= aoincampaign.id
@@ -1164,9 +1163,10 @@ LEFT JOIN UsrUsers				ON UsrUsers.UserId						= AoAdOrder.SellerId
 
 WHERE 
 	campaigntypeid IN (1,4,8)
-	AND Customer.TypeID IN (1,2,6,16)
 	AND aoincampaign.campaignnumber = '%onr%'
 )
+
+	;	AND Customer.TypeID IN (1,2,6,16)
 	query := ADOSQL(Connectstring, Query)
 
 	; Kolumner
@@ -1182,6 +1182,7 @@ WHERE
 	c_email 			:= 13
 	c_height 			:= 14
 	c_width 			:= 15
+	c_price_ex_moms		:= 16
 
 	order.customer_name := query[2, c_customer_name]
 	order.customer_nr := query[2, c_customer_nr]
@@ -1200,10 +1201,13 @@ WHERE
 	order.net_price := Round(query[2, c_net_price])
 	order.special_price := Round(query[2, c_special_price])
 	special_price := Round(query[2, c_special_price])
-	order.CPM := Round(special_price/(imps/1000))
+	order.price_ex_moms := query[2,c_price_ex_moms]
+	price_ex_moms := Round(order.price_ex_moms)
+	order.CPM := Round(price_ex_moms/(imps/1000))
 	order.email := query[2,c_email]
 	order.height := query[2,c_height]
 	order.width := query[2,c_width]
+
 
 	; msgbox % ADOSQL_LastError	
 	return order

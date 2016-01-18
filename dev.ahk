@@ -17,6 +17,7 @@ Status: %mlStatus%
 Tilldelad: %mlTilldelad%
 CPM: %cpm_rounded%
 special price: %special_price%
+pris ex moms: %pris_ex_moms%
 )
 	msgbox % text
 return

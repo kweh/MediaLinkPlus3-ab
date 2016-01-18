@@ -20,6 +20,8 @@
 	special_price 	:= order.special_price
 	cpm_rounded 	:= order.CPM
 
+	pris_ex_moms    := order.price_ex_moms
+
 	mlH 			:= order.height
 	mlW 			:= order.width
 	
