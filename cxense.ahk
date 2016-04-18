@@ -8,9 +8,16 @@
   campaignName := mlTidning " - " format " - " mlOrdernummer
   if (format = "MOB" || format = "PAN")
   {
-  campaignName := mlTidning " - " format "" mlH " - " mlOrdernummer    
+    campaignName := mlTidning " - " format "" mlH " - " mlOrdernummer    
   }
+
   folderName := mlTidning " - " mlKundnr " - " mlKundnamn
+
+  if (mlSite = "affarsliv.com")
+  {
+    campaignName := "AF - " format " - " mlOrdernummer
+    folderName := "AF - " mlKundnr " - " mlKundnamn
+  }
   if (mlEnhet = "")
   {
     Progress, Off
@@ -111,6 +118,12 @@ if (mlSite = "affarsliv.com" || mlSite = "gotland.net" || mlSite = "norrbottensa
     
   }
 
+if (mlSite = "sigtunabygden.se")
+{
+  target = ntm-sigtunabygden||%target%
+  defaultType := 2
+}
+
 Gui, 77:Font, s15 cDefault, Arial
 Gui, 77:Add, Edit, x12 y10 w400 h30 vcampaignName, %campaignName%
 Gui, 77:Font
@@ -143,7 +156,7 @@ Gui, 77:Add, CheckBox, x30 y293 vCopy gCopyCheck Checked%copyCheck%, Kopiera ord
 Gui, 77:Add, Text, x30 y230 w90 h20, Styrning
 Gui, 77:Add, Button, x10 y340 w200 h40 Default gBoka vBoka, Boka
 Gui, 77:Add, Button, x300 y340 w110 h40 g77GuiClose, Avbryt
-Gui, 77:Add, Edit, x310 y290 w80 h20 -Multi %cpmView%, %cpm_rounded%
+Gui, 77:Add, Edit, x310 y290 w80 h20 vcpm_edit -Multi %cpmView%, %cpm_rounded%
 Gui, 77:Add, Text, x280 y292 w30 h20, CPM
 ; Generated using SmartGuiXP Creator mod 4.3.29.7
 
@@ -162,8 +175,15 @@ Type:
   if (Type = "Retarget" || Type = "CPC" || Type = "Plugg")
   {
     GuiControl, Disable, Exponeringar
+    if (Type = "Plugg")
+    {
+      cpm_before := cpm_rounded
+      GuiControl, ,cpm_edit, 0.01
+    }
   } else {
     GuiControl, Enable, Exponeringar
+    GuiControl, ,cpm_edit, %cpm_before%
+
   }
 return
 
@@ -389,10 +409,6 @@ cx_post_campaign(campaignName, kundnr, mlEnhet, format, type, prodId, prog = fal
   <cx:campaign xmlns:cx="http://cxense.com/cxad/api/cxad" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <cx:name>%campaignName%</cx:name>
     <cx:productId>%prodId%</cx:productId>
-    <cx:perUserCap>
-    <cx:max>0</cx:max>
-    <cx:period>DAILY</cx:period>
-    </cx:perUserCap>
   </cx:campaign>
   )
   global dir_cxense
@@ -426,14 +442,15 @@ cx_post_contract(campaignID, cost, startDate, startTime, stopDate, stopTime, exp
   URL = https://cxad.cxense.com/api/secure/contract/%campaignID%
   DATA := ""
   HEAD = Content-Type: text/xml`nAuthorization: Basic QVBJLlVzZXI6cGFzczEyMw==
+
   if (cost = "cpm")
   {
     XML =
     (
     <?xml version="1.0" encoding="utf-8"?>
     <cx:cpmContract xmlns:cx="http://cxense.com/cxad/api/cxad">
-    <cx:startDate>%startDate%T%startTime%.000+01:00</cx:startDate>
-    <cx:endDate>%stopDate%T%stopTime%.000+01:00</cx:endDate>
+    <cx:startDate>%startDate%T%startTime%.000+02:00</cx:startDate>
+    <cx:endDate>%stopDate%T%stopTime%.000+02:00</cx:endDate>
     <cx:priority>0.50</cx:priority>
     <cx:requiredImpressions>%exp%</cx:requiredImpressions>
     <cx:costPerThousand class="currency" currencyCode="SEK" value="%cpm%.00"/>
@@ -446,7 +463,7 @@ cx_post_contract(campaignID, cost, startDate, startTime, stopDate, stopTime, exp
     (
     <?xml version="1.0"?>
     <cx:cpcContract xmlns:cx="http://cxense.com/cxad/api/cxad">
-    <cx:startDate>%startDate%T%startTime%.000+01:00</cx:startDate>
+    <cx:startDate>%startDate%T%startTime%.000+02:00</cx:startDate>
     <cx:endDate>%stopDate%T%stopTime%.000+01:00</cx:endDate>
     <cx:priority>0.50</cx:priority>
     </cx:cpcContract>
@@ -569,6 +586,38 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
       </cx:publisherTarget>
       <cx:publisherTarget>
         <cx:url>http://mobil.nt.se</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
+      <cx:publisherTarget>
+        <cx:url>http://mobil.folkbladet.se</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
+    )
+  }
+
+  ; NT MOBIL
+  if (mlSite = "mobil.nt.se")
+  {
+    targeting =
+    (
+    <cx:publisherTarget>
+        <cx:url>http://m.nt.se</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
+      <cx:publisherTarget>
+        <cx:url>http://mobil.nt.se</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
+    )
+  }
+
+  ; FB MOBIL
+  if (mlSite = "m.folkbladet.se")
+  {
+    targeting =
+    (
+    <cx:publisherTarget>
+        <cx:url>http://m.folkbladet.se</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
       <cx:publisherTarget>

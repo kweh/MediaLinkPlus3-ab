@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
   <cx:campaign xmlns:cx="http://cxense.com/cxad/api/cxad" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <cx:name>UNT - MOB320 - 0001921699-01</cx:name>
-    <cx:productId>00000001608fa111</cx:productId>
-    <cx:perUserCap>
-    <cx:max>0</cx:max>
-    <cx:period>DAILY</cx:period>
-    </cx:perUserCap>
+    <cx:name>GM - WID - 0001912192-02</cx:name>
+    <cx:productId>0000000160209515</cx:productId>
   </cx:campaign>

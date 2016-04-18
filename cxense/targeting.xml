@@ -1,12 +1,8 @@
 <?xml version="1.0"?>
 <cx:publisherTargeting xmlns:cx="http://cxense.com/cxad/api/cxad">
-  <cx:templateId>0000000160fb5086</cx:templateId>
+  <cx:templateId>000000016020bf37</cx:templateId>
   <cx:publisherTarget>
-        <cx:url>http://m.unt.se</cx:url>
-        <cx:targetType>POSITIVE</cx:targetType>
-      </cx:publisherTarget>
-      <cx:publisherTarget>
-        <cx:url>http://mobil.unt.se</cx:url>
+        <cx:url>http://helagotland.se</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
 </cx:publisherTargeting>

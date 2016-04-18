@@ -7,9 +7,9 @@ DetectHiddenText, On
 #include secure.ahk
 #include menu_names.ahk
 
-version = 373
+version = 380
 
-SplashImage = %dir_img%\splash.png
+SplashImage = %dir_img%\splash2.png
 SplashImageGUI(SplashImage, "Center", "Center", 2000, true)
 sleep, 1000
 
@@ -39,6 +39,7 @@ RButton::
 		}
 		; MouseGetPos, , , id, control
 			gosub, ordernumber
+			; order := getExtendedOrder(mlOrdernummer)
 			; Click, left
 		gosub, note
 		; gosub, getList
@@ -200,14 +201,14 @@ RButton::
 		menu, mlp, Icon, Filövervakning, %dir_icons%\filecheck.ico
 
 		; Traffic
-		menu, traffic, add, Uppdatera lagerverktyget, lager
+		; menu, traffic, add, Uppdatera lagerverktyget, lager
 		menu, traffic, add, Meddela ej komplett manus, ej_komplett
 		menu, traffic, add, Meddela saknat färdigt material, ej_fardigt
 		menu, traffic, add, Meddela saknat material/manus, ej_manus
-		menu, traffic, add, Räkna markerade annonser, rakna
-		menu, traffic, add, Räkna annonser för produktion, raknaProd
-		menu, traffic, add, Räkna exponeringar, raknaExp
-		menu, traffic, add, Kopiera rader, copyCampaigns
+		; menu, traffic, add, Räkna markerade annonser, rakna
+		; menu, traffic, add, Räkna annonser för produktion, raknaProd
+		; menu, traffic, add, Räkna exponeringar, raknaExp
+		; menu, traffic, add, Kopiera rader, copyCampaigns
 		menu, traffic, add, Hitta tidningssida, epaper
 		menu, traffic, add, Kontrollera bokning, fileInfo
 		menu, mlp, add, %m_traffic%, :traffic
@@ -427,6 +428,9 @@ return
 	}
 return
 
+#!m::
+	Run, C:\Program Files (x86)\NEWSCYCLE Solutions\MediaLink\bin\MediaLink.exe, C:\Users\dennis.stromberg\Google Drive\MediaLinkPlus3-ab\test\bin
+return
 
 ;
 ;	INCLUDES

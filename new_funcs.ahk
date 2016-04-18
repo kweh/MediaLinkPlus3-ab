@@ -190,7 +190,7 @@ getFormat(id)
 	format := id = "34"			? "380" : format
 	format := id = "106"		? "380" : format
 	format := id = "130"		? "380" : format
-	format := id = "112"		? "380" : format
+	format := id = "112"		? "180" : format
 	format := id = "38"			? "580" : format
 	format := id = "9"			? "HEL" : format
 	format := id = "108"		? "TXT" : format
@@ -583,11 +583,18 @@ cxProduct(format, type)
 		cost := "cpm"
 	}
 
+	if (format = "WID" && type = "CPC")
+	{
+		cxName := "- RIKTAD - Widescreen - CPC"
+		cost := "cpc"
+	}
+
 	if (format = "WID" && type = "Plugg")
 	{
 		cxName := ". PLUGG - Widescreen - CPC"
 		cost := "cpc"
 	}
+
 
 	; Modul ---------------------------------------
 	if (format = "MOD" && type = "Run On Site")	
@@ -664,6 +671,12 @@ cxProduct(format, type)
 		cost := "cpc"
 	}
 
+	if (format = "OUT" && type = "CPC")
+	{
+		cxName := "CPC - Outsider"
+		cost := "cpc"
+	}
+
 	; Mobil ---------------------------------------
 	if (format = "MOB" && type = "Run On Site")	
 	{
@@ -686,9 +699,14 @@ cxProduct(format, type)
 	if (format = "MOB" && type = "Riktad")
 	{	
 		cxName := "- ROS - Mobil"
-		cost := "cpc"
+		cost := "cpm"
 	}
 
+	if (format = "MOB" && type = "CPC")
+	{	
+		cxName := "Mobil - CPC"
+		cost := "cpc"
+	}
 	; Portal 180 ----------------------------------
 	if (format = "180" && type = "Run On Site")	
 	{
@@ -1149,66 +1167,88 @@ SELECT
 	UsrUsers.EmailAddress				as 'Säljarmail',
 	CfInUnitType.height 					as 'Höjd',
 	CfInUnitType.width 					as 'Bredd',
-	ROUND((AoInFlight.Price*0.8),0)	as 'Pris enl. AoInFligt ex moms'
+	CfInCampaignCategory.Name			as 'Kampanjkategori',
+	convert(varchar(max), convert(varbinary(8000),shblobdata.blobdata)) as 'Interna noteringar',
+	AoAdOrder.CreateDate					as 'Skapad datum',
+	AoAdOrder.LastEditDate				as 'Senast ändrad',
+	CfInSection.Name						as 'Sektion',
+	UsrUsers.UserFname					as 'Säljare förnamn',
+	UsrUsers.UserLname					as 'Säljare efternamn',
+	aoinflight.price						as 'flightpris'
+
 
 FROM aoincampaign
 LEFT JOIN AoInflight 			ON aoinflight.campaignid 				= aoincampaign.id
 LEFT JOIN AoProducts 			ON AoProducts.Id 							= aoinflight.siteID
-LEFT JOIN CfInUnitType 		ON CfInUnitType.Id 						= aoinflight.internetunitid
+LEFT JOIN CfInUnitType 			ON CfInUnitType.Id 						= aoinflight.internetunitid
 LEFT JOIN AoOrderCustomers 	ON AoOrderCustomers.AdOrderId			= aoinflight.adorderid
 LEFT JOIN Customer 				ON Customer.AccountId					= AoOrderCustomers.CustomerId 
 LEFT JOIN AoAdOrder 			ON AoAdOrder.Id 							= AoInCampaign.AdOrderId
 LEFT JOIN AoSpecialPrice 		ON AoSpecialPrice.AoInFlightId		= AoInflight.Id
-LEFT JOIN UsrUsers				ON UsrUsers.UserId						= AoAdOrder.SellerId
+LEFT JOIN UsrUsers				ON UsrUsers.UserId						= AoAdOrder.RepId
+LEFT JOIN ShBlobData			ON ShBlobData.Id							= AoInCampaign.InternalNotesID
+LEFT JOIN CfInSection			ON CfInSection.Id							= AoInFlight.SectionId
+LEFT JOIN CfInCampaignCategory ON CfInCampaignCategory.Id			= AoInCampaign.CampaignCatId
 
 WHERE 
-	campaigntypeid IN (1,4,8)
-	AND aoincampaign.campaignnumber = '%onr%'
+	campaigntypeid IN (1,4,7,8)
+	AND CampaignNumber = '%onr%'
 )
 
-	;	AND Customer.TypeID IN (1,2,6,16)
-	query := ADOSQL(Connectstring, Query)
+	query := ADOSQL(ConnectString, query)
+	; Sätter namn på de olika kolumnerna
+	c_imps := 2
+	c_startdate := 3
+	c_enddate := 4
+	c_product := 5
+	c_unit_id := 6
+	c_unit_name := 7
+	c_customer_nr := 8
+	c_customer_name := 9
+	c_net_price := 11
+	c_special_price := 12
+	c_email := 13
+	c_height := 14
+	c_width := 15
+	c_internalnotes := 17
+	c_createdate := 18
+	c_changedate := 19
+	c_section := 20
+	c_fname := 21
+	c_lname := 22
+	c_fprice := 23
 
-	; Kolumner
-	c_imps 				:= 2
-	c_startdate 		:= 3
-	c_enddate 			:= 4
-	c_product 			:= 5
-	c_unit_id 			:= 6
-	c_customer_nr 		:= 8
-	c_customer_name 	:= 9
-	c_net_price 		:= 11
-	c_special_price 	:= 12
-	c_email 			:= 13
-	c_height 			:= 14
-	c_width 			:= 15
-	c_price_ex_moms		:= 16
-
-	order.customer_name := query[2, c_customer_name]
-	order.customer_nr := query[2, c_customer_nr]
-	order.imps := query[2, c_imps]
-	imps := query[2, c_imps]
-	order.startdate := query[2, c_startdate]
-	order.enddate := query[2, c_enddate]
-	unit_id := query[2, c_unit_id]
-	order.unit_id := query[2, c_unit_id]
-	product := query[2, c_product]	
-	order.product := query[2, c_product]	
-	order.format := getFormat(unit_id)
-	product_split := StrSplit(product, A_Space)
-	order.paper := product_split[1]
-	order.site := product_split[2]
-	order.net_price := Round(query[2, c_net_price])
-	order.special_price := Round(query[2, c_special_price])
-	special_price := Round(query[2, c_special_price])
-	order.price_ex_moms := query[2,c_price_ex_moms]
-	price_ex_moms := Round(order.price_ex_moms)
-	order.CPM := Round(price_ex_moms/(imps/1000))
-	order.email := query[2,c_email]
-	order.height := query[2,c_height]
-	order.width := query[2,c_width]
-
-
-	; msgbox % ADOSQL_LastError	
+	; Populerar objektet med keys och values
+	order.customer_name 	:= query[2, c_customer_name]
+	order.customer_nr 		:= query[2, c_customer_nr]
+	order.imps 				:= query[2, c_imps]
+	imps 					:= query[2, c_imps]
+	order.startdate 		:= query[2, c_startdate]
+	order.enddate 			:= query[2, c_enddate]
+	unit_id 				:= query[2, c_unit_id]
+	order.unit_id 			:= query[2, c_unit_id]	
+	order.unit_name 		:= query[2, c_unit_name]	
+	product 				:= query[2, c_product]
+	order.product 			:= query[2, c_product]	
+	order.format 			:= getFormat(unit_id)
+	product_split 			:= StrSplit(product, A_Space)
+	order.paper 			:= product_split[1]
+	order.site 				:= product_split[2]
+	order.net_price 		:= Round(query[2, c_net_price])
+	order.special_price 	:= Round(query[2, c_special_price])
+	special_price 			:= Round(query[2, c_special_price])
+	order.CPM 				:= Round(special_price/(imps/1000))
+	order.email 			:= query[2, c_email]
+	order.height 			:= query[2,c_height]
+	order.width 			:= query[2,c_width]
+	order.internalnotes 	:= query[2,c_internalnotes]
+	order.createdate 		:= query[2,c_createdate]
+	order.changedate 		:= query[2,c_changedate]
+	order.section 			:= query[2,c_section]
+	order.fname 			:= query[2,c_fname]
+	order.lname 			:= query[2,c_lname]
+	order.fprice 			:= query[2,c_fprice]
+	; if (ADOSQL_LastError)
+		; msgbox % ADOSQL_LastError	
 	return order
 }
