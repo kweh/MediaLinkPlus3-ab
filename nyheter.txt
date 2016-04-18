@@ -1,6 +1,6 @@
-Version 3.8.0
+ï»¿Version 3.8.0
 ---------------------------------------------------------------
-- Nu går det att boka Widescreen på Affärsliv.
-- Klockslag stämmer nu överens med verkligheten.
-- Justeringar i texter för mail.
+- Nu gÃ¥r det att boka Widescreen pÃ¥ AffÃ¤rsliv.
+- Klockslag stÃ¤mmer nu Ã¶verens med verkligheten.
+- Mindre justeringar i texter fÃ¶r mail.
 ---------------------------------------------------------------
