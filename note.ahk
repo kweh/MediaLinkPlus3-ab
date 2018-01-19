@@ -23,8 +23,8 @@
 		FileRead, info,	%notesdir%\%mlOrdernummer%.txt
 		if (info != "")
 		{
-			popX := mX-150
-			SplashImage = %dir_img%\varning_small.png
+			popX := mX-200
+			SplashImage = %dir_img%\varning_small_new.png
 			SplashImageGUI(SplashImage, popX, mY, 2000, true)
 
 			ControlSetText, Static29, %info%, NewsCycle MediaLink

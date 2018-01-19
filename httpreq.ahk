@@ -1,4 +1,4 @@
-/*
+﻿/*
 ###############################################################################################################
 ###                                       HTTPRequest. Version: 2.49                                        ###
 ###############################################################################################################
@@ -36,7 +36,6 @@ HTTPRequest( URL, byref In_POST__Out_Data="", byref In_Out_HEADERS="", Options="
 ; 'In_POST__Out_Data' and 'In_Out_HEADERS' respectively, and text data is converted from the codepage stated in
 ; the header to the script's ANSI codepage OR to UTF-16 for unicode versions of AHK.
 ; "ErrorLevel" is set to '0' if there is a problem, otherwise it is set to the HTTP response code (e.g: 404).
-
    Static version := "2.49", Ptr, W_A, PtrSize := 0, DW := "UInt", IsUnicode, MyACP, MyCharset, Default_Agent
    , sws := "`t`n`r ", swp := "There was a problem ", sel := ", ErrorLevel = ", sle := ", A_LastError = "
 ; The default accept types are geared towards webservice response streams, which tend to be XML.

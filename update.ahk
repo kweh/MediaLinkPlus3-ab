@@ -1,7 +1,7 @@
 ﻿updateStart:
 	FileDelete, %dir_update%\MedialinkPlus.msi
-	UrlDownloadToFile, http://kweh.github.io/MediaLinkPlus/mlp/version.txt, %dir_update%\version.txt
-	UrlDownloadToFile, http://kweh.github.io/MediaLinkPlus/mlp/nyheter.txt, %dir_update%\nyheter.txt
+	UrlDownloadToFile, https://raw.githubusercontent.com/kweh/MediaLinkPlus3-ab/html/version.txt, %dir_update%\version.txt
+	UrlDownloadToFile, https://raw.githubusercontent.com/kweh/MediaLinkPlus3-ab/html/nyheter.txt, %dir_update%\nyheter.txt
 
 	FileRead, newversion, %dir_update%\version.txt
 	FileRead, nyheter, %dir_update%\nyheter.txt

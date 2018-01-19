@@ -1,0 +1,32 @@
+ftp> open ftp.ntm-digital.se
+Connected to ftp.ntm-digital.se.
+220---------- Welcome to Pure-FTPd [privsep] [TLS] ----------
+220-You are user number 43 of 500 allowed.
+220-Local time is now 11:37. Server port: 21.
+220-This is a private system - No anonymous login
+220-IPv6 connections are also welcome on this server.
+220 You will be disconnected after 15 minutes of inactivity.
+200 OK, UTF-8 enabled
+User (ftp.ntm-digital.se:(none)): 
+331 User 120516_lager OK. Password required
+
+230 OK. Current restricted directory is /
+ftp> binary
+200 TYPE is now 8-bit binary
+ftp> rename lager.xml lager2016-01-18 11:37.xml
+350 RNFR accepted - file exists, ready for destination
+250 File successfully renamed or moved
+ftp> put "C:\Users\dennis.stromberg\Google Drive\MediaLinkPlus3-ab\ftp\lager.xml"
+200 PORT command successful
+150 Connecting to port 53868
+226-File successfully transferred
+226 0.013 seconds (measured here), 4.69 Kbytes per second
+ftp: 63 bytes sent in 0.01Seconds 7.88Kbytes/sec.
+ftp> ls -l
+200 PORT command successful
+150 Connecting to port 40602
+226-Options: -a 
+226 0 matches total
+ftp> quit
+221-Goodbye. You uploaded 1 and downloaded 0 kbytes.
+221 Logout.

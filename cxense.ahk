@@ -1,4 +1,5 @@
-﻿cx_start:
+﻿ cx_start:
+  c_impCheck := false
   gosub, getList
   Progress, R0-4 FM8 FS7 CBGray P1, Kontrollerar om kund finns..., Kundsök:, Annonsbokning
   xml := get_url("cxad.cxense.com/api/secure/folder/advertising")
@@ -13,7 +14,7 @@
 
   folderName := mlTidning " - " mlKundnr " - " mlKundnamn
 
-  if (mlSite = "affarsliv.com")
+  if (mlSite = "affärsliv.com" || mlSite = "mobil.affarsliv.com" )
   {
     campaignName := "AF - " format " - " mlOrdernummer
     folderName := "AF - " mlKundnr " - " mlKundnamn
@@ -49,7 +50,7 @@
       sleep, 200
       Progress, Off
 
-      Gui, 77:Destroy
+      Gui, booking:Destroy
       goto, cx_ui
     }
 
@@ -66,7 +67,7 @@
   sleep, 200
   Progress, Off
 
-  Gui, 77:Destroy
+  Gui, booking:Destroy
   goto, cx_ui
 return
 
@@ -109,11 +110,10 @@ FileRead, Target, G:\NTM\NTM Digital Produktion\MedialinkPlus\dev\target.txt
 defaultType := 1 ; Run On Site
 expView = 
 cpmView = 
-if (mlSite = "affarsliv.com" || mlSite = "gotland.net" || mlSite = "norrbottensaffarer.se" || mlSite = "uppsala.com" || mlSite = "duonoje.se" || mlSite = "almedalen.net")
+if (mlSite = "affarsliv.com" || mlSite = "mobil.affarsliv.com" || mlSite = "gotland.net" || mlSite = "norrbottensaffarer.se" || mlSite = "uppsala.com" || mlSite = "duonoje.se" || mlSite = "almedalen.net" || mlSite = "uppsalavimmel.se")
   { 
-    defaultType := 5 ; CPC
-    expView = Disabled
-    cpmView = Disabled
+    ; c_impCheck := true
+    Gosub, CPCcheck
     cpm_rounded = 0
     
   }
@@ -124,82 +124,255 @@ if (mlSite = "sigtunabygden.se")
   defaultType := 2
 }
 
-Gui, 77:Font, s15 cDefault, Arial
-Gui, 77:Add, Edit, x12 y10 w400 h30 vcampaignName, %campaignName%
-Gui, 77:Font
-Gui, 77:Font, s10 cDefault, Arial
-Gui, 77:Add, Edit, x12 y47 w262 h25, %folderName%
-Gui, 77:Add, DropDownList, x282 y47 w130 h25 r7 gType vType choose%defaultType%, Run On Site||Riktad|Plugg|Retarget|CPC
-Gui, 77:Font
-Gui, 77:Font, s8 cDefault, Arial
-Gui, 77:Add, GroupBox, x10 y80 w400 h250, Kontrakt
-Gui, 77:Font
-Gui, 77:Font, s8 w400, Tahoma
-Gui, 77:Add, DateTime, x30 y130 w160 h30 vStartdatum Choose%mlStartdatumStrip%0000, yyyy-MM-dd HH:mm
-Gui, 77:Add, DateTime, x232 y130 w160 h30 vStoppdatum Choose%mlStoppdatumStrip%2359, yyyy-MM-dd HH:mm
-Gui, 77:Font
-Gui, 77:Font, s11 cDefault, Arial
-Gui, 77:Font
-Gui, 77:Font, s9 cDefault, Arial
-Gui, 77:Add, Text, x30 y110 w90 h20, Startdatum
-Gui, 77:Add, Text, x232 y110 w100 h20, Stoppdatum
-Gui, 77:Add, Text, x30 y170 w100 h20, Exponeringar
-Gui, 77:Font
-Gui, 77:Font, s11 cDefault, Arial
-Gui, 77:Add, Edit, x30 y190 w360 h30 vExponeringar %expView%, %mlExponeringar%
-Gui, 77:Add, ComboBox, x30 y250 w360 h20 vKeyword R10, %target%
-Gui, 77:Font
-Gui, 77:Font, s10 cDefault, Arial
-Gui, 77:Font
-Gui, 77:Font, s9 cDefault, Arial
-Gui, 77:Add, CheckBox, x30 y293 vCopy gCopyCheck Checked%copyCheck%, Kopiera ordernummer
-Gui, 77:Add, Text, x30 y230 w90 h20, Styrning
-Gui, 77:Add, Button, x10 y340 w200 h40 Default gBoka vBoka, Boka
-Gui, 77:Add, Button, x300 y340 w110 h40 g77GuiClose, Avbryt
-Gui, 77:Add, Edit, x310 y290 w80 h20 vcpm_edit -Multi %cpmView%, %cpm_rounded%
-Gui, 77:Add, Text, x280 y292 w30 h20, CPM
-; Generated using SmartGuiXP Creator mod 4.3.29.7
+  adbase := getExtendedOrder(mlOrdernummer)
 
-Gui, 77:Show, Center w424 h386, Bokningsöversikt
+  ; FÄRGER
+  ; Färgschema https://coolors.co/ee6352-59cd90-3fa7d6-fac05e-f79d84
+  col1 := "3FA7D6"
+  col2 := "EE6352"
+  col3 := "FAC05E"
+  col4 := "59CD90"
+  col5 := "F79D84"
+  colbg := "f8f8f8"
+  shadows := true
+
+
+  ; col1 := "666666"
+  ; col2 := "999999"
+  ; col3 := "cccccc"
+  ; col4 := "444444"
+  ; col5 := "777777"
+  ; colbg := "555555"
+  ; shadows := false
+
+
+  ico_cancel := chr(0xf05e) ; ASCII-kod för urkryssad checkbox (FontAwesome)
+  ico_submit := chr(0xf1d8) ; ASCII-kod för ikryssad checkbox (FontAwesome)
+
+
+  
+  Gui, booking:Font,, Open Sans
+  ; Progressbars - UI-dekoration
+  Gui, booking:Add, Progress,x0 y0 w600 h80 Background%col1%
+
+  Gui, booking:Font, s24 cFFFFFF
+  Gui, booking:Add, Text, xp+10 yp+5 BackgroundTrans vUI_CustomerName, % adbase.customer_name
+  Gui, booking:Font, s14 cFFFFFF, Open Sans Light
+  Gui, booking:Add, Text, xp+1 yp+40 BackgroundTrans vUI_OrderNumber, % mlOrdernummer
+
+  ; HEADERS TIER 1
+    drawFilledRect("180", "50", "10", "90", "ffffff", "ffffff", "booking", shadows ) ; SITE BOX
+    drawFilledRect("180", "20", "10", "90", col2, col2, "booking" ) ; SITE
+    drawFilledRect("180", "50", "210", "90", "ffffff", "ffffff", "booking", shadows ) ; FORMAT BOX
+    drawFilledRect("180", "20", "210", "90", col2, col2, "booking" ) ; FORMAT
+    drawRect("180", "50", "410", "90", "ffffff", "booking", shadows ) ; VISNINGSTYP BOX
+    drawFilledRect("180", "20", "410", "90", col2, col2, "booking" ) ; VISNINGSTYP
+    Gui, booking:Font, s10 cFFFFFF, Open Sans
+    Gui, booking:Add, Text, x14 y91 BackgroundTrans, SITE
+    Gui, booking:Add, Text, xp+200 yp BackgroundTrans, FORMAT
+    Gui, booking:Add, Text, xp+200 yp BackgroundTrans, VISNINGSTYP
+
+
+  ; CONTENT TIER 1
+    Gui, booking:Font, c666666 s12
+    Gui, booking:Add, Text, x15 y115 BackgroundTrans vUI_site, % adbase.site
+    Gui, booking:Add, Text, xp+200 yp BackgroundTrans vUI_format, % adbase.format
+    ; Gui, booking:Add, Text, xp+200 yp BackgroundTrans vUI_keyword, % adbase.section
+    Gui, booking:-Theme,
+    Gui, booking:Add, DropDownList, xp+195 yp-4 w181 h34 HWNDhwnd_viewType vType r5 gType Choose%defaulttype%, Run On Site||Riktad|Backfill|Retarget|CPC
+    Gui, booking:+Theme,
+
+  ;HEADERS TIER 2
+    drawRect("180", "50", "10", "160", "ffffff", "booking", shadows ) ; START BOX
+    drawFilledRect("180", "20", "10", "160", col3, col3, "booking" ) ; START
+    drawRect("180", "50", "210", "160", "ffffff", "booking", shadows ) ; STOPP BOX
+    drawFilledRect("180", "20", "210", "160", col3, col3, "booking" ) ; STOPP
+    drawRect("180", "50", "410", "160", "ffffff", "booking", shadows) ; IMPS BOX
+    drawFilledRect("180", "20", "410", "160", col3, col3, "booking", false, "impBox") ; IMPS
+    ; drawRect("130", "50", "460", "160", "ffffff", "booking", shadows ) ; BACKFILL BOX
+    ; drawFilledRect("130", "20", "460", "160", col3, col3, "booking" ) ; BACKFILL
+    Gui, booking:Font, s10 cFFFFFF, Open Sans
+    Gui, booking:Add, Text, x14 y161 BackgroundTrans, START
+    Gui, booking:Add, Text, xp+200 yp BackgroundTrans, STOPP
+    Gui, booking:Add, Text, xp+200 yp BackgroundTrans vui_imps_text, EXPONERINGAR
+    ; Gui, booking:Add, Text, xp+150 yp BackgroundTrans, BACKFILL              CPC
+
+  ; CONTENT TIER 2
+    Gui, booking:Font, c666666 s10
+    Gui, booking:Add, DateTime, x9 y179 w184 h34 HWNDhwnd_start vUI_start Choose%mlStartdatumStrip%0000, yyyy-MM-dd HH:mm
+    Gui, booking:Add, DateTime, xp+200 yp wp hp HWNDhwnd_stop vUI_stop Choose%mlStoppdatumStrip%2359, yyyy-MM-dd HH:mm
+    ; Utfyllnad för Edit-fältets marginal -v
+    drawFilledRect(180, 4, 410, 180, "ffffff", "ffffff", "booking", false, "impFill")
+    Gui, booking:Font, c000000 s12
+    Gui, booking:Add, Edit, xp y182 w183 vUI_imps HWNDhwnd_imps, % adbase.imps
+    Gui, booking:Font, c666666 s12
+
+    ; Gui, booking:Add, Picture, xp+152 yp-1 vUI_backfill gBackCheck, img/uncheck_l.png
+    ; Gui, booking:Add, Picture, xp+65 yp vUI_cpc gCPCCheck, img/uncheck_r.png
+
+  ; HEADERS TIER 3
+    drawFilledRect("580", "200", "10", "230", "ffffff", "ffffff", "booking", shadows ) ; NOTES BOX
+    drawFilledRect("580", "20", "10", "230", col4, col4, "booking" ) ; NOTES
+    Gui, booking:Font, s10 cFFFFFF, Open Sans
+    Gui, booking:Add, Text, x14 y231 BackgroundTrans, INTERNA NOTERINGAR
+
+  ; CONTENT TIER 3
+    Gui, booking:Font, c777777 s8
+    Gui, booking:Add, Text, x15 y255 w560 BackgroundTrans vUI_notes, % adbase.internalnotes
+
+  ; HEADERS TIER 4
+    drawFilledRect("580", "75", "10", "450", "ffffff", "ffffff", "booking", shadows ) ; BOOKNG BOX
+    drawFilledRect("580", "20", "10", "450", col5, col5, "booking" ) ; BOOKNG
+    Gui, booking:Font, s10 cFFFFFF, Open Sans
+    Gui, booking:Add, Text, x14 y451 BackgroundTrans, BOKNINGSINFORMATION
+
+  ; CONTENT TIER 4
+    Gui, booking:Font, c777777 s7
+    Gui, booking:Add, Text, x15 yp+25 w560 BackgroundTrans, CPM
+    Gui, booking:Add, Text, xp yp+15 w560 BackgroundTrans, PRIS
+    Gui, booking:Add, Text, xp yp+15 w560 BackgroundTrans, SÄLJARE
+
+    Gui, booking:Font, c999999 s7
+    Gui, booking:Add, Text, x170 y476 w560 BackgroundTrans vUI_cpm, % adbase.cpm
+    Gui, booking:Add, Text, xp yp+15 w560 BackgroundTrans vUI_pris, % Round(adbase.fprice) " kr"
+    Gui, booking:Add, Text, xp yp+15 w560 BackgroundTrans vUI_saljare, % adbase.fname " " adbase.lname
+
+    Gui, booking:Font, c777777 s7
+    Gui, booking:Add, Text, x300 y476 w560 BackgroundTrans, ORDER SKAPAD
+    Gui, booking:Add, Text, xp yp+15 w560 BackgroundTrans, ORDER ÄNDRAD
+
+    Gui, booking:Font, c999999 s7
+    Gui, booking:Add, Text, x485 y476 w560 BackgroundTrans vUI_skapad, % adbase.createdate
+    Gui, booking:Add, Text, xp yp+15 w560 BackgroundTrans vUI_andrad, % adbase.changedate
+
+  ; HEADERS TIER 5
+    drawRect("180", "46", "10", "545", "ff0000", "booking", shadows ) ; Keyword BOX
+    drawFilledRect("180", "20", "10", "545", col3, col3, "booking" ) ; Keyword
+    Gui, booking:Font, s10 cFFFFFF, Open Sans
+    Gui, booking:Add, Text, x14 y546 BackgroundTrans, KEYWORD
+
+  ; CONTENT TIER 5
+    Gui, booking:-Theme
+    Gui, booking:Add, ComboBox, x10 y566 w181 h30 vKeyword R10 HWNDhwnd_keyword -Border, %target%
+    Gui, booking:+Theme
+
+  ; KNAPPAR
+    Gui, booking:Font, c%col2% s40, FontAwesome
+    Gui, booking:Add, Text, y600 x425 vUI_cancel gbookingGuiClose,  % ico_cancel
+    Gui, booking:Font, c777777 s8, Open Sans
+    Gui, booking:Add, Text, yp+55 xp+3 , AVBRYT
+    
+    Gui, booking:Font, c%col4% s40, FontAwesome
+    Gui, booking:Add, Text, y600 x525 vUI_submit gBoka,  % ico_submit
+    Gui, booking:Font, c777777 s8, Open Sans
+    Gui, booking:Add, Text, yp+55 xp+7, BOKA
+
+  ; Hämtar mått och position på kontroller för beskärning
+  GuiControlGet, starttime, booking:pos, UI_start
+  GuiControlGet, stoptime, booking:pos, UI_stop
+  GuiControlGet, imps, booking:pos, UI_imps
+  GuiControlGet, viewType, booking:pos, Type
+
+  ; Färg på DDL
+  CtlColors.Attach(Type, "FFFFFF", "777777")
+
+  ; Beskär kontroller
+  WinSet, region, % "2-2 w" starttimew-4  " h" starttimeh-4, % "ahk_id " hwnd_start
+  WinSet, region, % "2-2 w" stoptimew-4   " h" stoptimeh-4, % "ahk_id " hwnd_stop
+  WinSet, region, % "2-2 w" impsw-4       " h" impsh-4, %     "ahk_id " hwnd_imps
+
+  ; WinSet, region, % "2-2 w" viewTypew-4   " h" viewTypeh-4, % "ahk_id " hwnd_viewType
+
+  ; Dold knapp för fokus och enterknappsbokning
+  Gui, booking:Add, Button, x0 y0 h0 w0 gBoka vHiddenButton Default, knapp
+
+  ; Gui, booking:Color, ff0000
+  Gui, booking:Color, %colbg%
+  Gui, booking:Show, w600 h680, Bokningsöversikt
+  GuiControl, booking:Focus, HiddenButton
+  Winset, Redraw,, Bokningsöversikt
+
+  ;Conditions för siter:
+  if (mlSite = "affarsliv.com" || mlSite = "mobil.affarsliv.com" || mlSite = "gotland.net" || mlSite = "norrbottensaffarer.se" || mlSite = "uppsala.com" || mlSite = "duonoje.se" || mlSite = "almedalen.net" || mlSite = "uppsalavimmel.se")
+  { 
+    Gui, booking:Default
+    c_impCheck := false
+    b_impCheck := false
+    Gosub, CPCcheck
+    cpm_rounded = 0
+    GuiControl, Choose, Type, 5 ; Väljer CPC i dropdown    
+  }
+
+  if (backfill_cx)
+  {
+    Gui, booking:Default
+    console_log("is backfill, yes")
+    GuiControl, Choose, Type, 3 ; Väljer Backfill i dropdown    
+  }
 
 stop := true
 ; Winset, Transparent, 200, Bokningsöversikt
 Return
 
-77GuiClose:
-  Gui, 77:Destroy
+bookingGuiClose:
+  Gui, booking:Destroy
+return
+
+IABsub:
+  Gui, booking:Submit, NoHide
+  if (IAB = 1)
+  {
+    IfInString, campaignname, |
+    {
+      StringSplit, campaignname, campaignname, |
+      campaignname := campaignname1
+      StringTrimRight, campaignname, campaignname, 1
+      GuiControl,, campaignname ,% campaignname
+    }
+  }
+  else
+  {
+    IfInString, campaignname, |
+    {
+      StringSplit, campaignname, campaignname, |
+      campaignname := campaignname1
+      StringTrimRight, campaignname, campaignname, 1
+    }
+    GuiControl,, campaignname ,% campaignname " | IAB" IAB-1
+  }
+
 return
 
 Type:
-  Gui, 77:Submit, NoHide
-  if (Type = "Retarget" || Type = "CPC" || Type = "Plugg")
+  Gui, booking:Submit, NoHide
+  if (Type = "Retarget" || Type = "CPC" || Type = "Backfill")
   {
-    GuiControl, Disable, Exponeringar
-    if (Type = "Plugg")
+    GuiControl, booking:Disable, UI_imps
+    if (Type = "Backfill")
     {
       cpm_before := cpm_rounded
       GuiControl, ,cpm_edit, 0.01
     }
   } else {
-    GuiControl, Enable, Exponeringar
+    GuiControl, booking:Enable, UI_imps
     GuiControl, ,cpm_edit, %cpm_before%
 
   }
 return
 
 CopyCheck:
-  Gui, 77:Submit, NoHide
+  Gui, booking:Submit, NoHide
     ; Sätter standardvärdet för copy-checkboxen
   IniDelete, %mlpSettings%, copyCheck, checked
   IniWrite, %Copy%, %mlpSettings%, copyCheck, checked
 Return
 
 Boka:
-  Gui, 77:Submit
-  Gui, 77:Destroy
+  Gui, booking:Submit
+  Gui, booking:Destroy
 
-  FormatTime, Startdatum, %Startdatum%, yyyy-MM-dd HH:mm:ss
-  FormatTime, Stoppdatum, %Stoppdatum%, yyyy-MM-dd HH:mm:ss
+  FormatTime, Startdatum, %UI_start%, yyyy-MM-dd HH:mm:ss
+  FormatTime, Stoppdatum, %UI_stop%, yyyy-MM-dd HH:mm:ss
 
   StringSplit, Stopp, Stoppdatum , %A_Space%
   Stoppdatum := Stopp1
@@ -224,15 +397,25 @@ Boka:
   Progress, %prog%
   sleep, 200
 
+  if (b_impCheck)
+  {
+    type := "Backfill"
+  }
+  else if (c_impCheck)
+  {
+    type := "CPC"
+  }
+
+
   prod := cxProduct(format, type)
   productId := prod.prodID
   sitetargetingID := prod.siteTargetingID
   keywordsID := prod.keywordsID
   cost := prod.cost
 
-  if (Type = "Plugg")
+  if (b_impcheck)
   {
-    campaignName := mlTidning " - " format " - PLUGG - " mlOrdernummer
+    campaignName := mlTidning " - " format " - BACKFILL - " mlOrdernummer
   }
   campaign := cx_post_campaign(campaignName, mlKundnr, mlEnhet, format, Type, productId, prog_on)
   campaignID := campaign.Id
@@ -240,7 +423,7 @@ Boka:
 
   prog := 40
   Progress, %prog%, Bokar kontrakt..., Bokningsförlopp:, Annonsbokning
-  contract := cx_post_contract(campaign.Id, cost, Startdatum, Starttid, Stoppdatum, Stopptid, Exponeringar, cpm_rounded)
+  contract := cx_post_contract(campaign.Id, cost, Startdatum, Starttid, Stoppdatum, Stopptid, UI_imps, cpm_rounded, Type)
 
   prog := 50
   Progress, %prog%, Sätter site targeting..., Bokningsförlopp:, Annonsbokning
@@ -435,10 +618,12 @@ cx_post_campaign(campaignName, kundnr, mlEnhet, format, type, prodId, prog = fal
 }
 
 
-cx_post_contract(campaignID, cost, startDate, startTime, stopDate, stopTime, exp, cpm)
+cx_post_contract(campaignID, cost, startDate, startTime, stopDate, stopTime, exp, cpm, type)
 {
   ; --------------------------- HTTP-Request ---------------------------
   exp := exp+100
+  time := getTime()
+  diff := time.diff
   URL = https://cxad.cxense.com/api/secure/contract/%campaignID%
   DATA := ""
   HEAD = Content-Type: text/xml`nAuthorization: Basic QVBJLlVzZXI6cGFzczEyMw==
@@ -449,13 +634,27 @@ cx_post_contract(campaignID, cost, startDate, startTime, stopDate, stopTime, exp
     (
     <?xml version="1.0" encoding="utf-8"?>
     <cx:cpmContract xmlns:cx="http://cxense.com/cxad/api/cxad">
-    <cx:startDate>%startDate%T%startTime%.000+02:00</cx:startDate>
-    <cx:endDate>%stopDate%T%stopTime%.000+02:00</cx:endDate>
+    <cx:startDate>%startDate%T%startTime%.000+0%diff%:00</cx:startDate>
+    <cx:endDate>%stopDate%T%stopTime%.000+0%diff%:00</cx:endDate>
     <cx:priority>0.50</cx:priority>
     <cx:requiredImpressions>%exp%</cx:requiredImpressions>
     <cx:costPerThousand class="currency" currencyCode="SEK" value="%cpm%.00"/>
     </cx:cpmContract>
     )
+    if (type = "Backfill")
+    {
+      XML =
+      (
+      <?xml version="1.0" encoding="utf-8"?>
+      <cx:cpmContract xmlns:cx="http://cxense.com/cxad/api/cxad">
+      <cx:startDate>%startDate%T%startTime%.000+0%diff%:00</cx:startDate>
+      <cx:endDate>%stopDate%T%stopTime%.000+0%diff%:00</cx:endDate>
+      <cx:priority>0.25</cx:priority>
+      <cx:requiredImpressions>%exp%</cx:requiredImpressions>
+      <cx:costPerThousand class="currency" currencyCode="SEK" value="%cpm%.00"/>
+      </cx:cpmContract>
+      )
+    }
   }
   if (cost = "cpc")
   {
@@ -463,8 +662,8 @@ cx_post_contract(campaignID, cost, startDate, startTime, stopDate, stopTime, exp
     (
     <?xml version="1.0"?>
     <cx:cpcContract xmlns:cx="http://cxense.com/cxad/api/cxad">
-    <cx:startDate>%startDate%T%startTime%.000+02:00</cx:startDate>
-    <cx:endDate>%stopDate%T%stopTime%.000+01:00</cx:endDate>
+    <cx:startDate>%startDate%T%startTime%.000+0%diff%:00</cx:startDate>
+    <cx:endDate>%stopDate%T%stopTime%.000+0%diff%:00</cx:endDate>
     <cx:priority>0.50</cx:priority>
     </cx:cpcContract>
     )
@@ -549,7 +748,22 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
     targeting =
     (
     <cx:publisherTarget>
-        <cx:url>http://www.affarsliv.se</cx:url>
+        <cx:url>http://www.affarsliv.com</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
+    )
+  }
+
+  if (mlSite = "mobil.affarsliv.com")
+  {
+    targeting =
+    (
+    <cx:publisherTarget>
+        <cx:url>http://mobil.affarsliv.com</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
+      <cx:publisherTarget>
+        <cx:url>http://m.affarsliv.com</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
     )
@@ -592,20 +806,12 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
         <cx:url>http://mobil.folkbladet.se</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
-    )
-  }
-
-  ; NT MOBIL
-  if (mlSite = "mobil.nt.se")
-  {
-    targeting =
-    (
-    <cx:publisherTarget>
-        <cx:url>http://m.nt.se</cx:url>
+      <cx:publisherTarget>
+        <cx:url>http://app-mobil.nt.se</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
       <cx:publisherTarget>
-        <cx:url>http://mobil.nt.se</cx:url>
+        <cx:url>http://app-mobil.folkbladet.se</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
     )
@@ -622,6 +828,10 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
       </cx:publisherTarget>
       <cx:publisherTarget>
         <cx:url>http://mobil.folkbladet.se</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
+      <cx:publisherTarget>
+        <cx:url>http://app-mobil.folkbladet.se</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
     )
@@ -680,6 +890,10 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
         <cx:url>http://mobil.pt.se</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
+      <cx:publisherTarget>
+        <cx:url>http://app-mobil.pt.se</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
     )
   }
 
@@ -704,6 +918,14 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
         <cx:url>http://mobil.kuriren.nu</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
+      <cx:publisherTarget>
+        <cx:url>http://app-mobil.kuriren.nu</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
+      <cx:publisherTarget>
+        <cx:url>http://app-mobil.nsd.se</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
     )
   }
 
@@ -718,6 +940,10 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
       </cx:publisherTarget>
       <cx:publisherTarget>
         <cx:url>http://mobil.corren.se</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
+      <cx:publisherTarget>
+        <cx:url>http://app-mobil.corren.se</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
     )
@@ -736,6 +962,10 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
         <cx:url>http://mobil.mvt.se</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
+      <cx:publisherTarget>
+        <cx:url>http://app-mobil.mvt.se</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
     )
   }
 
@@ -750,6 +980,10 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
       </cx:publisherTarget>
       <cx:publisherTarget>
         <cx:url>http://mobil.vt.se</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
+      <cx:publisherTarget>
+        <cx:url>http://app-mobil.vt.se</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
     )
@@ -768,6 +1002,10 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
         <cx:url>http://mobil.unt.se</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
+      <cx:publisherTarget>
+        <cx:url>http://app-mobil.unt.se</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
     )
   }
 
@@ -781,6 +1019,10 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
       </cx:publisherTarget>
       <cx:publisherTarget>
         <cx:url>http://mobil.unt.se</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
+      <cx:publisherTarget>
+        <cx:url>http://app-mobil.unt.se</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
     )
@@ -812,6 +1054,10 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
         <cx:url>http://mobil.helagotland.se</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
+      <cx:publisherTarget>
+        <cx:url>http://app-mobil.helagotland.se</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
     )
   }
 
@@ -826,7 +1072,7 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
       </cx:publisherTarget>
     )
   }
-  if (mlSite = "mobil.uppgang.com")
+  if (mlSite = "mobil.uppgang.com" ||mlSite = "mobil.uppgång.se")
   {
     targeting =
     (
@@ -836,6 +1082,10 @@ StringReplace, mlKundnamn, mlKundnamn,&,,A
       </cx:publisherTarget>
       <cx:publisherTarget>
         <cx:url>http://m.uppgang.com</cx:url>
+        <cx:targetType>POSITIVE</cx:targetType>
+      </cx:publisherTarget>
+      <cx:publisherTarget>
+        <cx:url>http://app-mobil.uppgang.com</cx:url>
         <cx:targetType>POSITIVE</cx:targetType>
       </cx:publisherTarget>
     )
@@ -899,4 +1149,72 @@ kundSaknas:
   }
   IfMsgBox, No
     return
+return
+
+
+; SUBRUTINER FÖR GUI
+backCheck:
+  if (!b_impCheck)
+  {
+    if(c_impCheck)
+    {
+      return
+    }
+    GuiControl,booking:, UI_backfill, img/check_l.png
+    GuiControl,booking:, UI_cpc, img/nocheck_r.png
+    GuiControl,booking: Disable, UI_imps
+    GuiControl,booking: +BackgroundFFE2B1,impBox
+    GuiControl,booking: +Background%colbg%, impFill
+    GuiControl,booking: Hide, UI_imps_text
+    GuiControl,booking: Show, UI_imps_text
+    b_impCheck := true
+  }
+  else
+  {
+    if(c_impCheck)
+    {
+      return
+    }
+    GuiControl,booking:, UI_backfill, img/uncheck_l.png
+    GuiControl,booking:, UI_cpc, img/uncheck_r.png
+    GuiControl,booking: Enable, UI_imps
+    GuiControl,booking: +BackgroundFAC05E,impBox
+    GuiControl,booking: +BackgroundFFFFFF, impFill
+    GuiControl,booking: Hide, UI_imps_text
+    GuiControl,booking: Show, UI_imps_text
+    b_impCheck := false
+  }
+return
+
+CPCcheck:
+  if (!c_impCheck)
+  {
+    if(b_impCheck)
+    {
+      return
+    }
+    GuiControl,booking:, UI_cpc, img/check_r.png
+    GuiControl,booking:, UI_backfill, img/nocheck_l.png
+    GuiControl,booking: Disable, UI_imps
+    GuiControl,booking: +BackgroundFFE2B1,impBox
+    GuiControl,booking: +Background%colbg%, impFill
+    GuiControl,booking: Hide, UI_imps_text
+    GuiControl,booking: Show, UI_imps_text
+    c_impCheck := true
+  }
+  else
+  {
+    if(b_impCheck)
+    {
+      return
+    }
+    GuiControl,booking:, UI_cpc, img/uncheck_r.png
+    GuiControl,booking:, UI_backfill, img/uncheck_l.png
+    GuiControl,booking: Enable, UI_imps
+    GuiControl,booking: +BackgroundFAC05E,impBox
+    GuiControl,booking: +BackgroundFFFFFF, impFill
+    GuiControl,booking: Hide, UI_imps_text
+    GuiControl,booking: Show, UI_imps_text
+    c_impCheck := false
+  }
 return
