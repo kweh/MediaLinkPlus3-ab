@@ -8,7 +8,7 @@ DetectHiddenText, On
 #include secure.ahk
 #include menu_names.ahk
 
-version = 4.3.961
+version = 4.3.962
 
 SplashImage = %dir_img%\splash4.png
 SplashImageGUI(SplashImage, "Center", "Center", 2000, true)
