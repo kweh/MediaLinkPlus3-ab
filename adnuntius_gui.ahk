@@ -263,6 +263,30 @@ adnPost:
 		}
 	)
 
+	if (InStr(order.viewType, "Backfill"))
+	{
+		objectives = 
+		(
+			"objectives": {}
+		)
+		cpm = 100
+
+		campaignType = 
+		(
+			"type": "SPONSORSHIP",
+			"sponsorshipPercentage": 100
+		)
+
+		tier = 
+		(
+  			"tier": {
+			    "id": "wrdl880fshdch8sr",
+			    "name": "Egenannonser",
+			    "url": "/api/v1/tiers/wrdl880fshdch8sr"
+			}
+		)
+	}
+
 	if (site_cost = "CPC") 
 	{
 		objectives = 
