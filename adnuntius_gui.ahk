@@ -249,26 +249,48 @@ adnPost:
 		}
 	)
 
+	campaignType = 
+	(
+		"type": "AUCTION"
+	)
+
+	tier = 
+	(
+		"tier": {
+		    "id": "defaulttier",
+		    "name": "Default",
+		    "url": "/api/v1/tiers/defaulttier"
+		}
+	)
+
 	if (site_cost = "CPC") 
 	{
 		objectives = 
 		(
-			"objectives": {
-				"CLICK": 999999
-			}
+			"objectives": {}
 		)
-		cpm = 150
+		cpm = 100
+
+		campaignType = 
+		(
+			"type": "SPONSORSHIP",
+			"sponsorshipPercentage": 100
+		)
 	}
 
 	if (mlEnhetsnamn = "Väderspons" || mlEnhetsnamn = "Vädersponsring")
 	{
 		objectives = 
 		(
-			"objectives": {
-				"CLICK": 999999
-			}
+			"objectives": {}
 		)
 		cpm = 100
+
+		campaignType = 
+		(
+			"type": "SPONSORSHIP",
+			"sponsorshipPercentage": 100
+		)
 	}
 
 	lineitem_data =
@@ -296,6 +318,8 @@ adnPost:
 				"id": "note_%notes_id%"
 			}
 		],
+		%campaignType%,
+		%tier%,
 		"targeting" : {
 				"siteTarget": {
 					"sites": [
