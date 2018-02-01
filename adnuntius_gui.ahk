@@ -349,6 +349,15 @@ adnPost:
 					"sites": [
 						%site_id%
 					]
+				},
+				"siteGroupTarget": {
+					"siteGroups": [
+						{
+						"id": "ky5781q8mm6t1fhh",
+						"name": "NTM - Alla sajter",
+						"url": "/api/v1/sitegroups/ky5781q8mm6t1fhh"
+						}
+					]
 				}
 			},
 		"userState": "APPROVED",
