@@ -18,7 +18,7 @@ sleep, 1000
 IniRead, RMenuColor, %mlpSettings%, Theme, RMenuColor
 	if (RMenuColor = "ERROR")
 	{
-		RMenuColor = FFFFFF
+		RMenuColor = FFFFFE
 	}
 
 menu, tray, add, Starta om Medialink Plus, reload

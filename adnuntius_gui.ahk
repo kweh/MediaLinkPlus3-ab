@@ -108,6 +108,8 @@ adnPost:
 	site_unt := "3rdyx80ljnlfm8bs"
 	site_ug := "2knr6n567h7g0rdc"
 	site_afg := "1sgmbkrbjxx78t3b"
+	site_vim := "0ylw6nxbhgrf29mx"
+	site_gn := "bmhswkg1y27dhsjg"
 
 	; =========================================
 
@@ -187,6 +189,15 @@ adnPost:
 	else if (site = "uppgång.se")
 	{
 		site_id = "%site_ug%"
+	}
+	else if (site = "vimmerbytidning.se" || site = "mobil.vimmerbytidning.se")
+	{
+		site_id = "%site_vim%"
+	}
+	else if (site = "gotland.net")
+	{
+		site_id = "%site_gn%"
+		site_cost := "CPC"
 	}
 
 
